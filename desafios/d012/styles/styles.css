@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+/* HEADER */
+
+header {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+header h1 {
+  padding-top: 50px;
+  font-variant: small-caps;
+  font-family: "Passion One", sans-serif;
+  font-size: 10vh;
+}
