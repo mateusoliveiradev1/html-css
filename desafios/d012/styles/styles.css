@@ -1,7 +1,25 @@
+@charset "UTF-8";
+
 * {
   margin: 0;
   padding: 0;
   font-size: 1em;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: darkgray;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* HEADER */
@@ -12,9 +30,46 @@ header {
   text-align: center;
 }
 
+header p {
+  padding-bottom: 50px;
+}
+
 header h1 {
   padding-top: 50px;
   font-variant: small-caps;
   font-family: "Passion One", sans-serif;
   font-size: 10vh;
+}
+
+/* SECTION */
+
+section {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  line-height: 2em;
+  padding-left: 30px;
+}
+
+section.normal {
+  background-color: white;
+  color: black;
+}
+
+section.imagem {
+  background-color: rgb(51, 51, 51);
+  color: white;
+}
+
+section.imagem > p {
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.253);
+}
+
+/* FOOTER */
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 5px;
 }
