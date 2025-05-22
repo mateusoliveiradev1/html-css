@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício tabelas</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      table {
+        width: 500px;
+        border-collapse: collapse;
+      }
+
+      caption {
+        font-size: 1.3em;
+        font-weight: bolder;
+        padding: 8px;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+
+      col.cnome {
+        background-color: rgba(12, 12, 12, 0.699);
+        
+      }
+
+      .vermelho {
+        background-color: red;
+      }
+
+      col.cprof {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exercício tabela</h1>
+
+    <table>
+      <colgroup>
+        <col class="cnome" />
+        <col class="vermelho" span="2"/>
+        <col class="cprof" />
+      </colgroup>
+      <caption>
+        Cadastro
+      </caption>
+
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Profissão</th>
+      </tr>
+
+      <tr>
+        <td>Ana Maria</td>
+        <td>F</td>
+        <td>25</td>
+        <td>Jornalista</td>
+      </tr>
+
+      <tr>
+        <td>Mateus Oliveira</td>
+        <td>M</td>
+        <td>26</td>
+        <td>Aux. de encarregado FLV</td>
+      </tr>
+
+      <tr>
+        <td>Raquel P S Sousa</td>
+        <td>F</td>
+        <td>25</td>
+        <td>Modelo</td>
+      </tr>
+
+      <tr>
+        <td>Solange Oliveira</td>
+        <td>F</td>
+        <td>49</td>
+        <td>Empregada Domestica</td>
+      </tr>
+
+      <tr>
+        <td>Maria Silva</td>
+        <td>F</td>
+        <td>39</td>
+        <td>Médica</td>
+      </tr>
+
+      <tr>
+        <td>Otavio Santos</td>
+        <td>M</td>
+        <td>82</td>
+        <td>Aposentado</td>
+      </tr>
+    </table>
+  </body>
+</html>
