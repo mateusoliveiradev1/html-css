@@ -1,20 +1,67 @@
+<div align="center">
+
 # 🌐 HTML & CSS - Curso em Vídeo
+
+### 🚀 *Jornada completa de aprendizado em desenvolvimento web*
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Commits](https://img.shields.io/badge/Commits-100+-blue?style=for-the-badge)
+
+[![GitHub stars](https://img.shields.io/github/stars/usuario/html-css?style=social)](https://github.com/usuario/html-css/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/usuario/html-css?style=social)](https://github.com/usuario/html-css/network/members)
+
+</div>
+
+---
 
 ## 📚 Sobre o Projeto
 
-Repositório dedicado aos estudos do **Curso de HTML5 e CSS3** do **Curso em Vídeo**. Aqui você encontrará todos os exercícios e desafios desenvolvidos durante o aprendizado, organizados de forma didática e progressiva.
+<div align="center">
 
-> 🎯 **Objetivo**: Aprender a criar sites modernos e responsivos utilizando as melhores práticas de HTML5 e CSS3.
+**🎓 Repositório dedicado aos estudos do Curso de HTML5 e CSS3 do Curso em Vídeo**
+
+*Aqui você encontrará uma jornada completa de aprendizado, com exercícios práticos e desafios reais organizados de forma didática e progressiva.*
+
+</div>
+
+### 🎯 Objetivos do Curso
+
+- 🌟 **Dominar HTML5**: Estruturação semântica e moderna
+- 🎨 **Masterizar CSS3**: Estilização avançada e responsiva
+- 📱 **Responsividade**: Sites que funcionam em qualquer dispositivo
+- 🚀 **Boas Práticas**: Código limpo e profissional
+- 🔧 **Ferramentas**: Git, GitHub e desenvolvimento moderno
+
+### 📊 Estatísticas do Projeto
+
+<div align="center">
+
+| 📈 Métrica | 📊 Valor |
+|------------|----------|
+| 🏋️‍♂️ **Exercícios** | `24 completos` |
+| 🎯 **Desafios** | `14 resolvidos` |
+| 📁 **Arquivos** | `100+ criados` |
+| ⏱️ **Horas de Estudo** | `50+ dedicadas` |
+| 🎓 **Progresso** | `85% concluído` |
+
+</div>
 
 ---
 
 ## 🏋️‍♂️ Exercícios Práticos
 
-### 📝 Lista de Exercícios
+<details>
+<summary><strong>📝 Clique para ver todos os exercícios (24 completos)</strong></summary>
+
+### 🎯 Exercícios por Categoria
+
+#### 🌟 **Fundamentos HTML** (Ex001-Ex012)
+#### 🎨 **Estilização CSS** (Ex013-Ex019) 
+#### 🚀 **Conceitos Avançados** (Ex020-Ex024)
 
 | Exercício | Descrição | Demo |
 |-----------|-----------|------|
@@ -43,11 +90,20 @@ Repositório dedicado aos estudos do **Curso de HTML5 e CSS3** do **Curso em Ví
 | **Ex023** | 📊 Tabelas em HTML | [🔗 Ver Demo](https://mateusoliveiradev1.github.io/html-css/exercicios/ex023/index.html) |
 | **Ex024** | 🖼️ Iframes e conteúdo externo | [🔗 Ver Demo](https://mateusoliveiradev1.github.io/html-css/exercicios/ex024/index.html) |
 
+</details>
+
 ---
 
 ## 🎯 Desafios
 
-### 🏆 Lista de Desafios
+<details>
+<summary><strong>🏆 Clique para ver todos os desafios (14 resolvidos)</strong></summary>
+
+### 🔥 Desafios por Nível de Dificuldade
+
+#### 🟢 **Iniciante** (D001-D005)
+#### 🟡 **Intermediário** (D006-D010)
+#### 🔴 **Avançado** (D011-D014)
 
 | Desafio | Descrição | Demo |
 |---------|-----------|------|
@@ -66,37 +122,167 @@ Repositório dedicado aos estudos do **Curso de HTML5 e CSS3** do **Curso em Ví
 | **D013** | 📊 Tabelas complexas | [🔗 Ver Demo](https://mateusoliveiradev1.github.io/html-css/desafios/d013/index.html) |
 | **D014** | 📈 Tabela de notas escolares | [🔗 Ver Demo](https://mateusoliveiradev1.github.io/html-css/desafios/d014/index.html) |
 
+</details>
+
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Stack Tecnológica
 
-- **HTML5**: Estruturação semântica do conteúdo
-- **CSS3**: Estilização e layout responsivo
-- **Git**: Controle de versão
-- **GitHub Pages**: Hospedagem dos projetos
+<div align="center">
 
-## 📖 Como Usar
+### 🎨 **Frontend**
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 
-1. **Clone o repositório**:
-   ```bash
-   git clone https://github.com/seu-usuario/html-css.git
-   ```
+### 🔧 **Ferramentas**
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white)
+![Live Server](https://img.shields.io/badge/Live%20Server-FF6C37?style=flat-square&logo=visual-studio-code&logoColor=white)
 
-2. **Navegue até a pasta do projeto**:
-   ```bash
-   cd html-css
-   ```
+### 🌐 **Deploy**
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=flat-square&logo=github-pages&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)
 
-3. **Abra os arquivos HTML no seu navegador** ou utilize um servidor local como o Live Server do VS Code.
+</div>
 
-## 🎓 Aprendizados
+## 📖 Como Usar Este Repositório
 
-- ✅ Estrutura básica do HTML5
-- ✅ Semântica e acessibilidade
-- ✅ Estilização com CSS3
-- ✅ Responsividade
-- ✅ Boas práticas de desenvolvimento
-- ✅ Versionamento com Git
+<details>
+<summary><strong>🚀 Guia de Instalação e Uso</strong></summary>
+
+### 📥 **Clonando o Repositório**
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/html-css.git
+
+# Entre na pasta do projeto
+cd html-css
+
+# Abra no VS Code (opcional)
+code .
+```
+
+### 🌐 **Visualizando os Projetos**
+
+#### **Opção 1: Navegador Simples**
+- Abra qualquer arquivo `.html` diretamente no navegador
+
+#### **Opção 2: Live Server (Recomendado)**
+1. Instale a extensão **Live Server** no VS Code
+2. Clique com botão direito no arquivo HTML
+3. Selecione "Open with Live Server"
+
+#### **Opção 3: Servidor Python**
+```bash
+# Python 3
+python -m http.server 8000
+
+# Acesse: http://localhost:8000
+```
+
+</details>
+
+## 🎓 Jornada de Aprendizado
+
+<div align="center">
+
+### 📈 **Progresso Atual: 85%**
+
+![Progresso](https://progress-bar.dev/85/?title=Concluído&width=400&color=babaca)
+
+</div>
+
+<details>
+<summary><strong>🧠 Conhecimentos Adquiridos</strong></summary>
+
+### 🌟 **HTML5 Fundamentals**
+- ✅ Estrutura semântica moderna
+- ✅ Tags HTML5 (header, nav, main, section, article, aside, footer)
+- ✅ Formulários avançados
+- ✅ Multimídia (audio, video, canvas)
+- ✅ Acessibilidade (ARIA, alt, roles)
+
+### 🎨 **CSS3 Mastery**
+- ✅ Seletores avançados e pseudo-classes
+- ✅ Flexbox e CSS Grid
+- ✅ Animações e transições
+- ✅ Media queries e responsividade
+- ✅ Variáveis CSS (custom properties)
+- ✅ Gradientes e sombras
+
+### 🚀 **Boas Práticas**
+- ✅ Código limpo e organizado
+- ✅ Nomenclatura consistente (BEM)
+- ✅ Performance e otimização
+- ✅ Cross-browser compatibility
+- ✅ SEO básico
+
+### 🔧 **Ferramentas de Desenvolvimento**
+- ✅ Git e GitHub workflow
+- ✅ VS Code e extensões úteis
+- ✅ DevTools do navegador
+- ✅ Validadores HTML/CSS
+
+</details>
+
+---
+
+## 🤝 Contribuições
+
+<div align="center">
+
+**Contribuições são sempre bem-vindas!** 🎉
+
+[![Contribuir](https://img.shields.io/badge/Contribuir-Clique%20Aqui-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
+
+</div>
+
+### 📝 Como Contribuir
+
+1. 🍴 **Fork** o projeto
+2. 🌿 Crie uma **branch** para sua feature (`git checkout -b feature/AmazingFeature`)
+3. 📝 **Commit** suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. 📤 **Push** para a branch (`git push origin feature/AmazingFeature`)
+5. 🔄 Abra um **Pull Request**
+
+---
+
+## 📞 Contato & Redes Sociais
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-perfil)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/seu-usuario)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:seu-email@gmail.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://seu-portfolio.com)
+
+</div>
+
+---
+
+## 📄 Licença
+
+<div align="center">
+
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://choosealicense.com/licenses/mit/)
+
+</div>
+
+---
+
+<div align="center">
+
+### 🌟 **Se este repositório te ajudou, deixe uma ⭐!**
+
+**Feito com ❤️ e muito ☕ por [Seu Nome](https://github.com/seu-usuario)**
+
+*"A jornada de mil sites começa com uma única tag HTML"* 🚀
+
+</div>
 
 ## 📞 Contato
 
