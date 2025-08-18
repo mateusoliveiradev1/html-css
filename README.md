@@ -4,12 +4,14 @@
 
 ### 🚀 _Jornada completa de aprendizado em desenvolvimento web_
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Commits](https://img.shields.io/badge/Commits-100+-blue?style=for-the-badge)
+![Exercícios](https://img.shields.io/badge/Exercícios-24-blue?style=flat-square&logo=html5)
+![Desafios](https://img.shields.io/badge/Desafios-14-red?style=flat-square&logo=css3)
+![Progresso](https://img.shields.io/badge/Progresso-100%25-green?style=flat-square&logo=github)
+![Última Atualização](https://img.shields.io/github/last-commit/mateusoliveiradev1/html-css?style=flat-square&logo=git)
+![Commits](https://img.shields.io/github/commit-activity/m/mateusoliveiradev1/html-css?style=flat-square&logo=github)
+![Tamanho do Repo](https://img.shields.io/github/repo-size/mateusoliveiradev1/html-css?style=flat-square&logo=github)
+![Linguagens](https://img.shields.io/github/languages/count/mateusoliveiradev1/html-css?style=flat-square&logo=code)
+![Top Language](https://img.shields.io/github/languages/top/mateusoliveiradev1/html-css?style=flat-square&logo=html5)
 
 [![GitHub stars](https://img.shields.io/github/stars/mateusoliveiradev1/html-css?style=social)](https://github.com/mateusoliveiradev1/html-css/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/mateusoliveiradev1/html-css?style=social)](https://github.com/mateusoliveiradev1/html-css/network/members)
@@ -344,11 +346,11 @@ _Aqui você encontrará uma jornada completa de aprendizado, com exercícios pr�
 
 | Desafio | Descrição | Nível | Tempo | Demo | Código |
 |---------|-----------|-------|-------|------|--------|
-| **D010** | 🎨 Site com CSS | ⭐⭐⭐ | 120min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d010/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d010) |
-| **D011** | 🚀 Astronauta | ⭐⭐⭐ | 90min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d011/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d011) |
-| **D012** | 🎯 Cordel moderno | ⭐⭐⭐ | 150min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d012/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d012) |
-| **D013** | 📊 Tabelas | ⭐⭐⭐ | 100min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d013/desafio13-01.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d013) |
-| **D014** | 📱 Rede social | ⭐⭐⭐ | 180min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d014/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d014) |
+| **D010** | 🤖 Site do Android | ⭐⭐⭐ | 120min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d010/android.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d010) |
+| **D011** | 🚀 Astronauta no espaço | ⭐⭐⭐ | 90min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d011/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d011) |
+| **D012** | 📜 Cordel Moderno | ⭐⭐⭐ | 150min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d012/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d012) |
+| **D013** | 📊 Tabelas complexas | ⭐⭐⭐ | 100min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d013/desafio13-01.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d013) |
+| **D014** | 📱 Projeto Social (Rede Social) | ⭐⭐⭐ | 180min | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d014/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d014) |
 
 </details>
 
@@ -372,7 +374,7 @@ _Aqui você encontrará uma jornada completa de aprendizado, com exercícios pr�
 | **D011** | 🚀 Astronauta no espaço | ⭐⭐⭐ | 90min | `Background` `Posicionamento` | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d011/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d011) |
 | **D012** | 📜 Cordel Moderno | ⭐⭐⭐ | 150min | `Parallax` `Background` `Poesia` | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d012/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d012) |
 | **D013** | 📊 Tabelas complexas | ⭐⭐⭐ | 100min | `Tabelas` `CSS` `Responsivo` | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d013/desafio13-01.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d013) |
-| **D014** | 📈 Tabela de notas escolares | ⭐⭐⭐ | 180min | `Responsivo` `Iframe` `Layout` | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d014/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d014) |
+| **D014** | 📱 Projeto Social (Rede Social) | ⭐⭐⭐ | 180min | `Responsivo` `Iframe` `Layout` | [🌐 Ver Site](https://mateusoliveiradev1.github.io/html-css/desafios/d014/index.html) | [📁 Ver Código](https://github.com/mateusoliveiradev1/html-css/tree/main/desafios/d014) |
 
 </details>
 
@@ -398,7 +400,84 @@ _Aqui você encontrará uma jornada completa de aprendizado, com exercícios pr�
 ### 🌐 **Deploy**
 
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=flat-square&logo=github-pages&logoColor=white)
-![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)
+
+</div>
+
+---
+
+## 📚 Recursos Externos e Links Úteis
+
+### 📖 **Documentação Oficial**
+- [📘 MDN Web Docs - HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML) - Documentação completa do HTML
+- [🎨 MDN Web Docs - CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS) - Guia completo de CSS
+- [⚡ MDN Web Docs - JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) - Referência JavaScript
+- [🌐 W3C HTML Validator](https://validator.w3.org/) - Validador oficial de HTML
+- [✅ W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - Validador oficial de CSS
+
+### 🎯 **Ferramentas de Desenvolvimento**
+- [🔧 VS Code](https://code.visualstudio.com/) - Editor de código recomendado
+- [🚀 Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - Servidor local para desenvolvimento
+- [🎨 Emmet](https://emmet.io/) - Toolkit para acelerar desenvolvimento HTML/CSS
+- [🔍 Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) - Ferramentas de desenvolvimento do navegador
+- [📱 Responsive Design Mode](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode) - Teste de responsividade
+
+### 🎨 **Design e UI/UX**
+- [🎨 Figma](https://www.figma.com/) - Ferramenta de design colaborativo
+- [🌈 Adobe Color](https://color.adobe.com/) - Gerador de paletas de cores
+- [📐 CSS Grid Generator](https://cssgrid-generator.netlify.app/) - Gerador visual de CSS Grid
+- [🔄 Flexbox Froggy](https://flexboxfroggy.com/) - Jogo para aprender Flexbox
+- [🎯 Grid Garden](https://cssgridgarden.com/) - Jogo para aprender CSS Grid
+
+### 🖼️ **Recursos Visuais**
+- [📸 Unsplash](https://unsplash.com/) - Fotos gratuitas de alta qualidade
+- [🎭 Pexels](https://www.pexels.com/) - Banco de imagens e vídeos gratuitos
+- [🎨 Flaticon](https://www.flaticon.com/) - Ícones vetoriais gratuitos
+- [😀 Emojipedia](https://emojipedia.org/) - Enciclopédia de emojis
+- [🎪 Google Fonts](https://fonts.google.com/) - Fontes web gratuitas
+
+### 📚 **Cursos e Tutoriais**
+- [🎓 Curso em Vídeo - HTML5 e CSS3](https://www.cursoemvideo.com/) - Curso completo do Gustavo Guanabara
+- [🌟 freeCodeCamp](https://www.freecodecamp.org/) - Plataforma gratuita de aprendizado
+- [🎯 Codecademy](https://www.codecademy.com/) - Cursos interativos de programação
+- [📺 YouTube - Curso em Vídeo](https://www.youtube.com/c/CursoemV%C3%ADdeo) - Canal oficial no YouTube
+- [📖 W3Schools](https://www.w3schools.com/) - Tutoriais e referências web
+
+### 🛠️ **Ferramentas Online**
+- [🔧 CodePen](https://codepen.io/) - Editor online para HTML, CSS e JS
+- [⚡ JSFiddle](https://jsfiddle.net/) - Playground para código web
+- [🎨 CSS Gradient Generator](https://cssgradient.io/) - Gerador de gradientes CSS
+- [📏 CSS Box Shadow Generator](https://www.cssmatic.com/box-shadow) - Gerador de sombras CSS
+- [🔄 Can I Use](https://caniuse.com/) - Compatibilidade de recursos web
+
+### 📱 **Responsividade e Performance**
+- [📱 Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) - Teste de compatibilidade mobile
+- [⚡ PageSpeed Insights](https://pagespeed.web.dev/) - Análise de performance
+- [🔍 Lighthouse](https://developers.google.com/web/tools/lighthouse) - Auditoria de qualidade web
+- [📊 GTmetrix](https://gtmetrix.com/) - Análise de velocidade do site
+- [🎯 WebPageTest](https://www.webpagetest.org/) - Teste detalhado de performance
+
+### 🎮 **Jogos Educativos**
+- [🐸 Flexbox Froggy](https://flexboxfroggy.com/) - Aprenda Flexbox jogando
+- [🌱 Grid Garden](https://cssgridgarden.com/) - Aprenda CSS Grid jogando
+- [🎯 CSS Diner](https://flukeout.github.io/) - Pratique seletores CSS
+- [🏰 Flexbox Defense](http://www.flexboxdefense.com/) - Tower defense com Flexbox
+- [🎨 CSS Battle](https://cssbattle.dev/) - Desafios de CSS criativo
+
+### 🌐 **Comunidades e Fóruns**
+- [💬 Stack Overflow](https://stackoverflow.com/) - Comunidade de desenvolvedores
+- [🐙 GitHub](https://github.com/) - Plataforma de código colaborativo
+- [💼 LinkedIn Learning](https://www.linkedin.com/learning/) - Cursos profissionais
+- [🎯 Dev.to](https://dev.to/) - Comunidade de desenvolvedores
+- [📱 Discord - Programação](https://discord.gg/programacao) - Comunidade brasileira
+
+### 📊 **Estatísticas e Tendências**
+- [📈 State of CSS](https://stateofcss.com/) - Pesquisa anual sobre CSS
+- [🌐 Web Almanac](https://almanac.httparchive.org/) - Estado da web
+- [📊 Stack Overflow Survey](https://insights.stackoverflow.com/survey) - Pesquisa anual de desenvolvedores
+- [🎯 GitHub Trending](https://github.com/trending) - Projetos em alta no GitHub
+- [📱 StatCounter](https://gs.statcounter.com/) - Estatísticas de uso de navegadores
+
+---
 
 </div>
 

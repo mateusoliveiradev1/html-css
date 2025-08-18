@@ -1,0 +1,48 @@
+{
+  "name": "html-css-course",
+  "version": "2.1.0",
+  "description": "Curso completo de HTML5 e CSS3 com exercícios práticos e desafios",
+  "main": "scripts/update-readme.js",
+  "scripts": {
+    "update-readme": "node scripts/update-readme.js",
+    "validate-links": "node scripts/validate-links.js",
+    "generate-badges": "node scripts/generate-badges.js",
+    "auto-tag": "node scripts/auto-tagger.js",
+    "build": "npm run update-readme && npm run validate-links && npm run auto-tag",
+    "dev": "live-server --port=3000 --open=/docs/dark-mode.html",
+    "serve": "live-server --port=8080 --open=/docs/dark-mode.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "html5",
+    "css3",
+    "frontend",
+    "web-development",
+    "course",
+    "tutorial",
+    "exercises",
+    "challenges"
+  ],
+  "author": {
+    "name": "Mateus Oliveira",
+    "url": "https://github.com/mateusoliveiradev1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mateusoliveiradev1/html-css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mateusoliveiradev1/html-css/issues"
+  },
+  "homepage": "https://mateusoliveiradev1.github.io/html-css/",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

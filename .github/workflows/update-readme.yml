@@ -1,0 +1,175 @@
+name: 🤖 Auto Update README
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - 'exercicios/**'
+      - 'desafios/**'
+      - 'scripts/**'
+  schedule:
+    # Executa todo dia às 6:00 UTC (3:00 BRT)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Forçar atualização completa'
+        required: false
+        default: 'false'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: 📦 Install Dependencies
+      run: |
+        npm ci || npm install
+
+    - name: 🔍 Detect Changes
+      id: changes
+      run: |
+        if [ "${{ github.event.inputs.force_update }}" = "true" ]; then
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        else
+          # Verifica se houve mudanças nos exercícios ou desafios
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep -E "(exercicios|desafios)/" || true)
+          if [ -n "$CHANGED_FILES" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Mudanças detectadas em: $CHANGED_FILES"
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "Nenhuma mudança detectada nos exercícios/desafios"
+          fi
+        fi
+
+    - name: 🚀 Update README
+      if: steps.changes.outputs.has_changes == 'true'
+      run: |
+        echo "🔄 Executando atualização automática do README..."
+        npm run update-readme
+
+    - name: 🔗 Validate Links
+      if: steps.changes.outputs.has_changes == 'true'
+      run: |
+        echo "🔍 Validando links do README..."
+        npm run validate-links || echo "⚠️ Alguns links podem estar quebrados"
+
+    - name: 📊 Generate Statistics
+      if: steps.changes.outputs.has_changes == 'true'
+      run: |
+        echo "📈 Gerando estatísticas do projeto..."
+        
+        # Conta exercícios
+        EXERCISES_COUNT=$(find exercicios -name "ex*" -type d | wc -l)
+        echo "Exercícios encontrados: $EXERCISES_COUNT"
+        
+        # Conta desafios
+        CHALLENGES_COUNT=$(find desafios -name "d*" -type d | wc -l)
+        echo "Desafios encontrados: $CHALLENGES_COUNT"
+        
+        # Salva estatísticas
+        echo "{\"exercises\": $EXERCISES_COUNT, \"challenges\": $CHALLENGES_COUNT, \"total\": $((EXERCISES_COUNT + CHALLENGES_COUNT)), \"updated_at\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > .github/stats.json
+
+    - name: 🏷️ Update Badges
+      if: steps.changes.outputs.has_changes == 'true'
+      run: |
+        echo "🏷️ Atualizando badges dinâmicos..."
+        
+        # Lê estatísticas
+        EXERCISES=$(cat .github/stats.json | grep -o '"exercises": [0-9]*' | grep -o '[0-9]*')
+        CHALLENGES=$(cat .github/stats.json | grep -o '"challenges": [0-9]*' | grep -o '[0-9]*')
+        
+        # Atualiza badges no README
+        sed -i "s/Exercícios-[0-9]*-blue/Exercícios-$EXERCISES-blue/g" README.md
+        sed -i "s/Desafios-[0-9]*-red/Desafios-$CHALLENGES-red/g" README.md
+        
+        echo "✅ Badges atualizados: $EXERCISES exercícios, $CHALLENGES desafios"
+
+    - name: 📝 Commit Changes
+      if: steps.changes.outputs.has_changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Verifica se há mudanças para commitar
+        if git diff --quiet; then
+          echo "📝 Nenhuma mudança para commitar"
+        else
+          git add README.md .github/stats.json .github/badges.json 2>/dev/null || true
+          git commit -m "🤖 Auto-update: README, estatísticas e badges
+          
+          📊 Estatísticas atualizadas:
+          - Exercícios: $(cat .github/stats.json | grep -o '\"exercises\": [0-9]*' | grep -o '[0-9]*')
+          - Desafios: $(cat .github/stats.json | grep -o '\"challenges\": [0-9]*' | grep -o '[0-9]*')
+          - Atualizado em: $(date -u +%Y-%m-%d\ %H:%M:%S\ UTC)
+          
+          🔄 Mudanças detectadas em: $(git diff --name-only HEAD~1 HEAD | grep -E '(exercicios|desafios)/' | tr '\n' ' ')
+          
+          ---
+          *Atualização automática via GitHub Actions*"
+          
+          echo "✅ Mudanças commitadas com sucesso"
+        fi
+
+    - name: 🚀 Push Changes
+      if: steps.changes.outputs.has_changes == 'true'
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
+
+    - name: 📋 Summary
+      if: steps.changes.outputs.has_changes == 'true'
+      run: |
+        echo "## 🎉 Atualização Concluída!" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📊 Estatísticas do Projeto" >> $GITHUB_STEP_SUMMARY
+        echo "- **Exercícios:** $(cat .github/stats.json | grep -o '\"exercises\": [0-9]*' | grep -o '[0-9]*')" >> $GITHUB_STEP_SUMMARY
+        echo "- **Desafios:** $(cat .github/stats.json | grep -o '\"challenges\": [0-9]*' | grep -o '[0-9]*')" >> $GITHUB_STEP_SUMMARY
+        echo "- **Total:** $(cat .github/stats.json | grep -o '\"total\": [0-9]*' | grep -o '[0-9]*')" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🔗 Links Úteis" >> $GITHUB_STEP_SUMMARY
+        echo "- [📖 README Atualizado](https://github.com/${{ github.repository }}/blob/main/README.md)" >> $GITHUB_STEP_SUMMARY
+        echo "- [🌐 GitHub Pages](https://mateusoliveiradev1.github.io/html-css/)" >> $GITHUB_STEP_SUMMARY
+        echo "- [📊 Estatísticas](https://github.com/${{ github.repository }}/blob/main/.github/stats.json)" >> $GITHUB_STEP_SUMMARY
+
+  # Job para validar links quebrados
+  validate-links:
+    runs-on: ubuntu-latest
+    needs: update-readme
+    if: always()
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: 🔗 Check Links with lychee
+      uses: lycheeverse/lychee-action@v1.8.0
+      with:
+        args: --verbose --no-progress --exclude-mail README.md
+        fail: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 📊 Link Check Summary
+      run: |
+        echo "## 🔗 Relatório de Links" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        if [ -f lychee/out.md ]; then
+          cat lychee/out.md >> $GITHUB_STEP_SUMMARY
+        else
+          echo "✅ Todos os links estão funcionando corretamente!" >> $GITHUB_STEP_SUMMARY
+        fi

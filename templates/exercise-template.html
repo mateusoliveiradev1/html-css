@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício {{EXERCISE_NUMBER}} - {{EXERCISE_TITLE}}</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos gerais */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #007acc;
+        }
+
+        h1 {
+            color: #007acc;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        /* Conteúdo principal */
+        main {
+            margin: 30px 0;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #007acc;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Listas */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Links */
+        a {
+            color: #007acc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #005999;
+            text-decoration: underline;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            background-color: #007acc;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #005999;
+            color: white;
+        }
+
+        /* Imagens */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        /* Código */
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        pre {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #007acc;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+        }
+
+        /* Animações */
+        .container {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilos específicos do exercício */
+        {{CUSTOM_STYLES}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{EXERCISE_TITLE}}</h1>
+            <p class="subtitle">Exercício {{EXERCISE_NUMBER}} - Curso de HTML5 e CSS3</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>📋 Objetivo do Exercício</h2>
+                <p>{{EXERCISE_OBJECTIVE}}</p>
+            </section>
+
+            <section>
+                <h2>🎯 Conteúdo Principal</h2>
+                {{MAIN_CONTENT}}
+            </section>
+
+            <section>
+                <h2>🔗 Links Úteis</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">📘 Documentação HTML - MDN</a></li>
+                    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">🎨 Documentação CSS - MDN</a></li>
+                    <li><a href="https://www.cursoemvideo.com/" target="_blank">🎓 Curso em Vídeo</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>💡 Conceitos Aprendidos</h2>
+                <ul>
+                    {{CONCEPTS_LIST}}
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                <strong>Exercício {{EXERCISE_NUMBER}}</strong> - 
+                <a href="https://github.com/mateusoliveiradev1/html-css" target="_blank">📁 Ver no GitHub</a> | 
+                <a href="https://mateusoliveiradev1.github.io/html-css/" target="_blank">🌐 Página Principal</a>
+            </p>
+            <p>
+                📚 Curso de HTML5 e CSS3 - 
+                <a href="https://www.cursoemvideo.com/" target="_blank">Curso em Vídeo</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript básico para interatividade
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Exercício {{EXERCISE_NUMBER}} carregado com sucesso!');
+            
+            // Adiciona efeito de hover nos links
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // {{CUSTOM_JAVASCRIPT}}
+        });
+    </script>
+</body>
+</html>
