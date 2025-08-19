@@ -661,6 +661,438 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Estilos para Conceitos Aprimorados */
+        .concept-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .concept-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #007bff;
+        }
+        
+        .concept-icon {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .concept-header h3 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+        
+        .concept-description {
+            color: #495057;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        /* Atributos Demo */
+        .attributes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .attribute-item {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            border-left: 4px solid #28a745;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .attribute-item.required {
+            border-left-color: #dc3545;
+        }
+        
+        .attribute-item.optional {
+            border-left-color: #ffc107;
+        }
+        
+        .attribute-item:hover {
+            transform: translateY(-1px);
+        }
+        
+        .attribute-name {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .attribute-desc {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .attribute-example {
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #495057;
+        }
+        
+        /* Responsive Demo */
+        .code-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .code-before, .code-after {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .code-before h5, .code-after h5 {
+            margin: 0 0 12px 0;
+            color: #495057;
+        }
+        
+        .plain-text {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #495057;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .benefit-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .benefit-item strong {
+            color: #007bff;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .benefit-item p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        /* Formats Grid */
+        .formats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .format-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .format-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .format-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #007bff;
+        }
+        
+        .format-use {
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .format-pros {
+            color: #28a745;
+            margin-bottom: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .format-cons {
+            color: #dc3545;
+            font-size: 0.85rem;
+        }
+        
+        /* Tips List */
+        .tips-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tip-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .tip-content strong {
+            color: #007bff;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .tip-content p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Alt Examples */
+        .alt-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .alt-example {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .alt-example.good {
+            border-left: 4px solid #28a745;
+        }
+        
+        .alt-example.bad {
+            border-left: 4px solid #dc3545;
+        }
+        
+        .example-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .example-content strong {
+            color: #495057;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .example-content code {
+            background: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .example-content p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Quiz Styles */
+        .quiz-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #2196f3;
+        }
+        
+        .quiz-question h4 {
+            color: #1565c0;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-option {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .quiz-option:hover {
+            border-color: #2196f3;
+            background: #f3f8ff;
+            transform: translateX(4px);
+        }
+        
+        .quiz-option.correct {
+            background: #e8f5e8;
+            border-color: #4caf50;
+            color: #2e7d32;
+        }
+        
+        .quiz-option.incorrect {
+            background: #ffebee;
+            border-color: #f44336;
+            color: #c62828;
+        }
+        
+        .quiz-feedback {
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .quiz-feedback.correct {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border: 2px solid #4caf50;
+        }
+        
+        .quiz-feedback.incorrect {
+            background: #ffebee;
+            color: #c62828;
+            border: 2px solid #f44336;
+        }
+        
+        /* Concept Tips */
+        .concept-tips {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .concept-tips h4 {
+            color: #007bff;
+            margin-bottom: 16px;
+        }
+        
+        .concept-tips ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .concept-tips li {
+            color: #495057;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        /* Responsividade adicional para conceitos */
+        @media (max-width: 768px) {
+            .concept-card {
+                padding: 16px;
+                margin-bottom: 16px;
+            }
+            
+            .attributes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .code-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .formats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .concept-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .concept-icon {
+                font-size: 1.2rem;
+            }
+            
+            .concept-header h3 {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -903,33 +1335,283 @@
             </div>
         </section>
 
-        <!-- Conceitos -->
+        <!-- Conceitos Aprimorados -->
         <section class="content-section fade-in">
-            <h2>🧠 Conceitos Importantes</h2>
+            <h2>🧠 Conceitos Fundamentais</h2>
             
-            <h3>🔄 Responsividade</h3>
-            <p>Use CSS para tornar imagens responsivas:</p>
-            <div class="code-container">
-                <pre><code>img {
-    max-width: 100%;
-    height: auto;
-}</code></pre>
+            <!-- Atributos Essenciais -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <span class="concept-icon">🏷️</span>
+                    <h3>Atributos Essenciais da Tag &lt;img&gt;</h3>
+                </div>
+                <div class="concept-description">
+                    A tag &lt;img&gt; possui atributos fundamentais que determinam como a imagem será exibida e interpretada pelos navegadores e tecnologias assistivas.
+                </div>
+                
+                <div class="attributes-demo">
+                    <h4>📋 Atributos Obrigatórios e Opcionais:</h4>
+                    <div class="attributes-grid">
+                        <div class="attribute-item required">
+                            <div class="attribute-name">src</div>
+                            <div class="attribute-desc">Caminho para a imagem (obrigatório)</div>
+                            <div class="attribute-example">&lt;img src="foto.jpg"&gt;</div>
+                        </div>
+                        <div class="attribute-item required">
+                            <div class="attribute-name">alt</div>
+                            <div class="attribute-desc">Texto alternativo (obrigatório para acessibilidade)</div>
+                            <div class="attribute-example">alt="Descrição da imagem"</div>
+                        </div>
+                        <div class="attribute-item optional">
+                            <div class="attribute-name">width</div>
+                            <div class="attribute-desc">Largura da imagem em pixels</div>
+                            <div class="attribute-example">width="300"</div>
+                        </div>
+                        <div class="attribute-item optional">
+                            <div class="attribute-name">height</div>
+                            <div class="attribute-desc">Altura da imagem em pixels</div>
+                            <div class="attribute-example">height="200"</div>
+                        </div>
+                        <div class="attribute-item optional">
+                            <div class="attribute-name">title</div>
+                            <div class="attribute-desc">Tooltip que aparece ao passar o mouse</div>
+                            <div class="attribute-example">title="Informação adicional"</div>
+                        </div>
+                        <div class="attribute-item optional">
+                            <div class="attribute-name">loading</div>
+                            <div class="attribute-desc">Controla o carregamento da imagem</div>
+                            <div class="attribute-example">loading="lazy"</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="concept-tips">
+                    <h4>💡 Boas Práticas:</h4>
+                    <ul>
+                        <li>Sempre inclua o atributo alt para acessibilidade</li>
+                        <li>Use caminhos relativos quando possível</li>
+                        <li>Defina width e height para evitar layout shift</li>
+                        <li>Use loading="lazy" para imagens fora da viewport inicial</li>
+                    </ul>
+                </div>
             </div>
-            
-            <h3>⚡ Performance</h3>
-            <ul>
-                <li>Otimize o tamanho das imagens</li>
-                <li>Use formatos modernos (WebP)</li>
-                <li>Considere lazy loading para muitas imagens</li>
-                <li>Comprima imagens antes de usar</li>
-            </ul>
-            
-            <h3>🔒 Segurança</h3>
-            <ul>
-                <li>Cuidado com URLs externas</li>
-                <li>Verifique a origem das imagens</li>
-                <li>Considere hospedar imagens importantes localmente</li>
-            </ul>
+
+            <!-- Responsividade -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <span class="concept-icon">📱</span>
+                    <h3>Imagens Responsivas</h3>
+                </div>
+                <div class="concept-description">
+                    Imagens responsivas se adaptam automaticamente ao tamanho da tela, proporcionando uma experiência consistente em todos os dispositivos.
+                </div>
+                
+                <div class="responsive-demo">
+                    <h4>📋 Técnicas de Responsividade:</h4>
+                    <div class="code-comparison">
+                        <div class="code-before">
+                            <h5>🎯 CSS Básico:</h5>
+                            <div class="plain-text">
+img {
+  max-width: 100%;
+  height: auto;
+}
+                            </div>
+                        </div>
+                        <div class="code-after">
+                            <h5>🚀 CSS Avançado:</h5>
+                            <div class="plain-text">
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="responsive-benefits">
+                    <h4>🌟 Benefícios da Responsividade:</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">📱</span>
+                            <strong>Mobile-First</strong>
+                            <p>Experiência otimizada em dispositivos móveis</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">⚡</span>
+                            <strong>Performance</strong>
+                            <p>Carregamento mais rápido em telas menores</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🎨</span>
+                            <strong>Layout Flexível</strong>
+                            <p>Adaptação automática ao container</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">👥</span>
+                            <strong>UX Melhorada</strong>
+                            <p>Consistência visual em todos os dispositivos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formatos e Performance -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <span class="concept-icon">⚡</span>
+                    <h3>Formatos e Performance</h3>
+                </div>
+                <div class="concept-description">
+                    A escolha do formato correto e a otimização das imagens são cruciais para a performance do site e experiência do usuário.
+                </div>
+                
+                <div class="formats-comparison">
+                    <h4>📊 Comparação de Formatos:</h4>
+                    <div class="formats-grid">
+                        <div class="format-item jpeg">
+                            <div class="format-name">JPEG</div>
+                            <div class="format-use">📸 Fotos e imagens complexas</div>
+                            <div class="format-pros">✅ Menor tamanho, boa qualidade</div>
+                            <div class="format-cons">❌ Sem transparência</div>
+                        </div>
+                        <div class="format-item png">
+                            <div class="format-name">PNG</div>
+                            <div class="format-use">🎨 Logos e gráficos</div>
+                            <div class="format-pros">✅ Transparência, sem perda</div>
+                            <div class="format-cons">❌ Arquivos maiores</div>
+                        </div>
+                        <div class="format-item webp">
+                            <div class="format-name">WebP</div>
+                            <div class="format-use">🚀 Uso geral moderno</div>
+                            <div class="format-pros">✅ Menor tamanho, alta qualidade</div>
+                            <div class="format-cons">❌ Suporte limitado em navegadores antigos</div>
+                        </div>
+                        <div class="format-item svg">
+                            <div class="format-name">SVG</div>
+                            <div class="format-use">🔧 Ícones e ilustrações</div>
+                            <div class="format-pros">✅ Escalável, editável</div>
+                            <div class="format-cons">❌ Não adequado para fotos</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="performance-tips">
+                    <h4>🎯 Dicas de Performance:</h4>
+                    <div class="tips-list">
+                        <div class="tip-item">
+                            <span class="tip-icon">🗜️</span>
+                            <div class="tip-content">
+                                <strong>Comprima as imagens</strong>
+                                <p>Use ferramentas como TinyPNG ou Squoosh para reduzir o tamanho</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-icon">📏</span>
+                            <div class="tip-content">
+                                <strong>Dimensione corretamente</strong>
+                                <p>Não use imagens maiores que o necessário</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-icon">⏳</span>
+                            <div class="tip-content">
+                                <strong>Use lazy loading</strong>
+                                <p>Carregue imagens apenas quando necessário</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <span class="tip-icon">🔄</span>
+                            <div class="tip-content">
+                                <strong>Considere CDN</strong>
+                                <p>Use redes de distribuição para carregamento mais rápido</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acessibilidade -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <span class="concept-icon">♿</span>
+                    <h3>Acessibilidade em Imagens</h3>
+                </div>
+                <div class="concept-description">
+                    Tornar imagens acessíveis é fundamental para usuários com deficiência visual e melhora a experiência para todos os usuários.
+                </div>
+                
+                <div class="accessibility-examples">
+                    <h4>📝 Exemplos de Alt Text:</h4>
+                    <div class="alt-examples">
+                        <div class="alt-example good">
+                            <span class="example-icon">✅</span>
+                            <div class="example-content">
+                                <strong>Bom:</strong>
+                                <code>alt="Cachorro golden retriever correndo em um parque"</code>
+                                <p>Descreve o conteúdo e contexto da imagem</p>
+                            </div>
+                        </div>
+                        <div class="alt-example bad">
+                            <span class="example-icon">❌</span>
+                            <div class="example-content">
+                                <strong>Ruim:</strong>
+                                <code>alt="Imagem"</code>
+                                <p>Muito genérico, não fornece informação útil</p>
+                            </div>
+                        </div>
+                        <div class="alt-example good">
+                            <span class="example-icon">✅</span>
+                            <div class="example-content">
+                                <strong>Decorativa:</strong>
+                                <code>alt=""</code>
+                                <p>Para imagens puramente decorativas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="concept-tips">
+                    <h4>🎯 Diretrizes de Acessibilidade:</h4>
+                    <ul>
+                        <li>Descreva o conteúdo, não a aparência da imagem</li>
+                        <li>Seja conciso mas informativo (máximo 125 caracteres)</li>
+                        <li>Use alt="" para imagens decorativas</li>
+                        <li>Evite "imagem de" ou "foto de" no início</li>
+                        <li>Considere o contexto onde a imagem está inserida</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Quiz Interativo -->
+            <div class="concept-card quiz-card">
+                <div class="concept-header">
+                    <span class="concept-icon">🧩</span>
+                    <h3>Quiz: Teste seus Conhecimentos</h3>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>Qual é o melhor formato de imagem para um logo com transparência?</h4>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false">
+                            JPEG - menor tamanho de arquivo
+                        </button>
+                        <button class="quiz-option" data-correct="true">
+                            PNG - suporta transparência
+                        </button>
+                        <button class="quiz-option" data-correct="false">
+                            WebP - formato mais moderno
+                        </button>
+                        <button class="quiz-option" data-correct="false">
+                            GIF - suporta animação
+                        </button>
+                    </div>
+                    <div id="quiz-feedback-ex3" class="quiz-feedback" style="display: none;"></div>
+                </div>
+            </div>
         </section>
 
         <!-- Desafios -->
@@ -1669,10 +2351,51 @@
             });
         }
 
+        // Quiz Interativo
+        function initQuiz() {
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const feedback = document.getElementById('quiz-feedback-ex3');
+            
+            quizOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove classes anteriores
+                    quizOptions.forEach(opt => {
+                        opt.classList.remove('correct', 'incorrect');
+                    });
+                    
+                    const isCorrect = this.getAttribute('data-correct') === 'true';
+                    
+                    if (isCorrect) {
+                        this.classList.add('correct');
+                        feedback.textContent = '🎉 Correto! PNG é ideal para logos pois suporta transparência e mantém a qualidade.';
+                        feedback.className = 'quiz-feedback correct';
+                    } else {
+                        this.classList.add('incorrect');
+                        // Destacar a resposta correta
+                        quizOptions.forEach(opt => {
+                            if (opt.getAttribute('data-correct') === 'true') {
+                                opt.classList.add('correct');
+                            }
+                        });
+                        feedback.textContent = '❌ Incorreto. PNG é a melhor opção para logos com transparência.';
+                        feedback.className = 'quiz-feedback incorrect';
+                    }
+                    
+                    feedback.style.display = 'block';
+                    
+                    // Desabilitar outras opções
+                    quizOptions.forEach(opt => {
+                        opt.style.pointerEvents = 'none';
+                    });
+                });
+            });
+        }
+        
         // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
             animateOnScroll();
             setupSmoothScroll();
+            initQuiz();
             
             // Animar elementos na primeira carga
             setTimeout(() => {
