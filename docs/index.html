@@ -581,6 +581,151 @@
             color: var(--text-light);
         }
 
+        /* Seção Sobre */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-content {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text h3 {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin: 30px 0 15px 0;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-text h3:first-child {
+            margin-top: 0;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .about-list li {
+            padding: 10px 0;
+            color: var(--text-light);
+            line-height: 1.6;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .about-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            padding: 8px 16px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            padding: 30px;
+            background: var(--glass-bg);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5em;
+            font-weight: 900;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .about-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 15px 30px;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 15px 30px;
+            background: var(--glass-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: var(--card-bg);
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
             .nav-menu {
@@ -620,6 +765,29 @@
 
             .content-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                padding: 25px;
+            }
+
+            .about-stats {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                padding: 20px;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+
+            .about-actions {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                text-align: center;
+                width: 100%;
             }
         }
 
@@ -745,6 +913,63 @@
         <h2 class="section-title">🏆 Desafios</h2>
         <div class="content-grid" id="challengesGrid">
             <!-- Desafios serão carregados dinamicamente -->
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section class="content-section" id="sobre">
+        <div class="about-container">
+            <h2 class="section-title">📖 Sobre o Projeto</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>🎯 Objetivo</h3>
+                    <p>Este projeto foi criado para documentar e compartilhar minha jornada de aprendizado em <strong>HTML5</strong> e <strong>CSS3</strong>. Aqui você encontrará uma coleção completa de exercícios práticos e desafios reais que cobrem desde conceitos básicos até técnicas avançadas de desenvolvimento web.</p>
+                    
+                    <h3>📚 Conteúdo</h3>
+                    <ul class="about-list">
+                        <li><strong>24 Exercícios Práticos:</strong> Desde estruturas HTML básicas até estilizações CSS avançadas</li>
+                        <li><strong>14 Desafios Reais:</strong> Projetos completos que simulam situações do mundo real</li>
+                        <li><strong>Código Fonte:</strong> Todo o código está disponível no GitHub para estudo e referência</li>
+                        <li><strong>Progressão Gradual:</strong> Conteúdo organizado do básico ao avançado</li>
+                    </ul>
+                    
+                    <h3>🛠️ Tecnologias</h3>
+                    <div class="tech-stack">
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3</span>
+                        <span class="tech-item">JavaScript</span>
+                        <span class="tech-item">Responsive Design</span>
+                        <span class="tech-item">Git & GitHub</span>
+                    </div>
+                    
+                    <h3>👨‍💻 Sobre o Desenvolvedor</h3>
+                    <p>Sou <strong>Mateus Oliveira</strong>, estudante apaixonado por desenvolvimento web. Este projeto representa minha dedicação em aprender e compartilhar conhecimento sobre tecnologias front-end. Cada exercício e desafio foi cuidadosamente desenvolvido e documentado para servir como referência para outros estudantes.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">24</span>
+                            <span class="stat-label">Exercícios</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">14</span>
+                            <span class="stat-label">Desafios</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Open Source</span>
+                        </div>
+                    </div>
+                    
+                    <div class="about-actions">
+                        <a href="https://github.com/mateusoliveiradev1/html-css" class="btn-primary" target="_blank">
+                            📁 Ver no GitHub
+                        </a>
+                        <a href="#exercicios" class="btn-secondary">
+                            🎯 Começar Exercícios
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -883,7 +1108,7 @@
                         ${item.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                     </div>
                     <div class="card-actions">
-                        <a href="docs/${item.id}.html" class="btn-small btn-view">👁️ Ver Página</a>
+                        <a href="${item.type === 'exercise' ? 'exercises/' : ''}${item.id}.html" class="btn-small btn-view">👁️ Ver Página</a>
                         <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/${item.type === 'exercise' ? 'exercicios' : 'desafios'}/${item.id}" class="btn-small btn-code" target="_blank">📁 Código</a>
                     </div>
                 </div>

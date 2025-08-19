@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 001 - Primeiro HTML | HTML & CSS</title>
-    <meta name="description" content="Aprenda a criar sua primeira página HTML com estrutura básica. Exercício prático do curso de HTML5 e CSS3.">
+    <title>Exercício 002 - Parágrafos e Quebras | HTML & CSS</title>
+    <meta name="description" content="Aprenda a trabalhar com parágrafos, quebras de linha e símbolos especiais em HTML. Exercício prático do curso de HTML5 e CSS3.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     
     <style>
@@ -314,6 +314,7 @@
         .html-attr { color: #4ecdc4; }
         .html-value { color: #ffe66d; }
         .html-text { color: #e6e6e6; }
+        .html-comment { color: #95a5a6; }
 
         /* Buttons */
         .btn {
@@ -406,6 +407,40 @@
             transform: translateY(-2px);
         }
 
+        /* Symbols showcase */
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .symbol-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .symbol-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .symbol-display {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .symbol-code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8em;
+            color: var(--text-light);
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
             .container {
@@ -455,6 +490,10 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .symbols-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
         }
 
         /* Animações */
@@ -468,29 +507,14 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3); }
-            50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.6); }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <header class="exercise-header">
-            <h1 class="exercise-title">Exercício 001</h1>
-            <p class="exercise-subtitle">Primeiro HTML - Criando sua primeira página web</p>
+            <h1 class="exercise-title">Exercício 002</h1>
+            <p class="exercise-subtitle">Parágrafos e Quebras de Linha - Formatação de texto em HTML</p>
             
             <div class="info-cards">
                 <div class="info-card">
@@ -499,7 +523,7 @@
                 </div>
                 <div class="info-card">
                     <h3>⏱️ Duração</h3>
-                    <p>15-30 minutos</p>
+                    <p>20-35 minutos</p>
                 </div>
                 <div class="info-card">
                     <h3>🎯 Dificuldade</h3>
@@ -515,15 +539,15 @@
         <!-- Objetivo -->
         <section class="content-section fade-in">
             <h2>🎯 Objetivo</h2>
-            <p>Este é o seu primeiro contato com HTML! Neste exercício, você vai aprender a criar uma página web básica usando a estrutura fundamental do HTML5. É o primeiro passo para se tornar um desenvolvedor web.</p>
+            <p>Neste exercício, você vai aprender a trabalhar com parágrafos, quebras de linha e símbolos especiais em HTML. É fundamental entender como formatar texto corretamente para criar páginas web bem estruturadas.</p>
             
             <h3>O que você vai aprender:</h3>
             <ul>
-                <li>Estrutura básica de um documento HTML</li>
-                <li>Como usar as tags essenciais: <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code></li>
-                <li>Configurar metadados importantes como charset e viewport</li>
-                <li>Criar títulos e parágrafos</li>
-                <li>Usar elementos de separação como <code>&lt;hr&gt;</code></li>
+                <li>Como criar parágrafos com a tag <code>&lt;p&gt;</code></li>
+                <li>Usar quebras de linha com <code>&lt;br&gt;</code></li>
+                <li>Inserir símbolos especiais com entidades HTML</li>
+                <li>Trabalhar com emojis usando códigos Unicode</li>
+                <li>Entender como o HTML trata espaços em branco</li>
             </ul>
         </section>
 
@@ -541,13 +565,35 @@
 <span class="html-tag">&lt;head&gt;</span>
     <span class="html-tag">&lt;meta</span> <span class="html-attr">charset</span>=<span class="html-value">"UTF-8"</span><span class="html-tag">&gt;</span>
     <span class="html-tag">&lt;meta</span> <span class="html-attr">name</span>=<span class="html-value">"viewport"</span> <span class="html-attr">content</span>=<span class="html-value">"width=device-width, initial-scale=1.0"</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;title&gt;</span><span class="html-text">Meu primeiro exercício</span><span class="html-tag">&lt;/title&gt;</span>
+    <span class="html-tag">&lt;title&gt;</span><span class="html-text">Parágrafos</span><span class="html-tag">&lt;/title&gt;</span>
 <span class="html-tag">&lt;/head&gt;</span>
 <span class="html-tag">&lt;body&gt;</span>
-    <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Olá, Mundo!</span><span class="html-tag">&lt;/h1&gt;</span>
+    <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Parágrafos e quebras de linha</span><span class="html-tag">&lt;/h1&gt;</span>
     <span class="html-tag">&lt;hr&gt;</span>
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Estou praticando HTML e estou muito feliz!</span><span class="html-tag">&lt;/p&gt;</span>
-    <span class="html-tag">&lt;hr&gt;</span>
+    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Você pode escrever um parágrafo de qualquer jeito basta colocar tudo no meio de par de tags </span><span class="html-text">&amp;lt;p&amp;gt;</span><span class="html-text"> e </span><span class="html-text">&amp;lt;/p&amp;gt;</span><span class="html-text">.</span><span class="html-comment">&lt;!--LESS THAN / GREATER THAN--&gt;</span>    
+    <span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Se precisar quebrar
+        o texto em algum lugar
+        específico </span><span class="html-tag">&lt;br&gt;</span><span class="html-text"> como esse,
+        você pode usar a tag </span><span class="html-text">&amp;lt;br&amp;gt;</span><span class="html-text">. 
+    </span><span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Vamos adicionar alguns símbolos especiais:
+        </span><span class="html-text">&amp;reg;</span>
+        <span class="html-text">&amp;copy;</span>
+        <span class="html-text">&amp;trade;</span>
+        <span class="html-text">&amp;euro;</span>
+        <span class="html-text">&amp;yen;</span>
+        <span class="html-text">&amp;cent;</span>
+        <span class="html-text">&amp;Delta;</span>
+        <span class="html-text">&amp;uarr;</span>
+    <span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Vamos adicionar alguns emoji:
+       </span><span class="html-tag">&lt;h1&gt;</span><span class="html-text">Resposta correta: </span><span class="html-text">&amp;#x2705;</span><span class="html-tag">&lt;/h1&gt;</span>
+       <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Resposta errada: </span><span class="html-text">&amp;#x274C;</span><span class="html-tag">&lt;/h1&gt;</span>
+       <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Estou com fome de: </span><span class="html-text">&amp;#x1F354;</span><span class="html-tag">&lt;/h1&gt;</span>
+       <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Querooooooo....</span><span class="html-text">&amp;#x2615;</span><span class="html-tag">&lt;/h1&gt;</span>
+       <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Num dá maisssss... Eu num jogo mais </span><span class="html-text">&amp;#x1F35E;&amp;#x1F35E;&amp;#x1F35E;</span><span class="html-tag">&lt;/h1&gt;</span>
+    <span class="html-tag">&lt;/p&gt;</span>
 <span class="html-tag">&lt;/body&gt;</span>
 <span class="html-tag">&lt;/html&gt;</span></code></pre>
             </div>
@@ -557,72 +603,137 @@
         <section class="content-section fade-in">
             <h2>📖 Explicação Detalhada</h2>
             
-            <h3>🏗️ Estrutura do Documento</h3>
-            <ul>
-                <li><strong>&lt;!DOCTYPE html&gt;</strong> - Declara que este é um documento HTML5</li>
-                <li><strong>&lt;html lang="pt-br"&gt;</strong> - Elemento raiz que define o idioma da página</li>
-                <li><strong>&lt;head&gt;</strong> - Contém metadados que não são exibidos na página</li>
-                <li><strong>&lt;body&gt;</strong> - Contém todo o conteúdo visível da página</li>
-            </ul>
+            <h3>📝 Parágrafos (&lt;p&gt;)</h3>
+            <p>A tag <code>&lt;p&gt;</code> é usada para criar parágrafos. O HTML ignora quebras de linha e espaços extras dentro do parágrafo, tratando tudo como um bloco contínuo de texto.</p>
 
-            <h3>🔧 Metadados Importantes</h3>
-            <ul>
-                <li><strong>charset="UTF-8"</strong> - Define a codificação de caracteres para suportar acentos</li>
-                <li><strong>viewport</strong> - Configura a visualização em dispositivos móveis</li>
-                <li><strong>&lt;title&gt;</strong> - Define o título que aparece na aba do navegador</li>
-            </ul>
+            <h3>🔄 Quebras de Linha (&lt;br&gt;)</h3>
+            <p>Quando você precisa forçar uma quebra de linha em um local específico, use a tag <code>&lt;br&gt;</code>. É uma tag vazia (não precisa de fechamento).</p>
 
-            <h3>📝 Elementos de Conteúdo</h3>
+            <h3>🔤 Entidades HTML</h3>
+            <p>Para exibir caracteres especiais que têm significado no HTML (como &lt; e &gt;), usamos entidades HTML:</p>
             <ul>
-                <li><strong>&lt;h1&gt;</strong> - Título principal da página (maior hierarquia)</li>
-                <li><strong>&lt;p&gt;</strong> - Parágrafo de texto</li>
-                <li><strong>&lt;hr&gt;</strong> - Linha horizontal para separar conteúdo</li>
+                <li><code>&amp;lt;</code> = &lt; (less than)</li>
+                <li><code>&amp;gt;</code> = &gt; (greater than)</li>
+                <li><code>&amp;amp;</code> = &amp; (ampersand)</li>
             </ul>
+        </section>
+
+        <!-- Símbolos Especiais -->
+        <section class="content-section fade-in">
+            <h2>🔣 Símbolos Especiais</h2>
+            <p>O HTML oferece muitas entidades para símbolos especiais:</p>
+            
+            <div class="symbols-grid">
+                <div class="symbol-card">
+                    <div class="symbol-display">®</div>
+                    <div class="symbol-code">&amp;reg;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">©</div>
+                    <div class="symbol-code">&amp;copy;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">™</div>
+                    <div class="symbol-code">&amp;trade;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">€</div>
+                    <div class="symbol-code">&amp;euro;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">¥</div>
+                    <div class="symbol-code">&amp;yen;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">¢</div>
+                    <div class="symbol-code">&amp;cent;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">Δ</div>
+                    <div class="symbol-code">&amp;Delta;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">↑</div>
+                    <div class="symbol-code">&amp;uarr;</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emojis -->
+        <section class="content-section fade-in">
+            <h2>😀 Emojis com Unicode</h2>
+            <p>Você pode inserir emojis usando códigos Unicode hexadecimais:</p>
+            
+            <div class="symbols-grid">
+                <div class="symbol-card">
+                    <div class="symbol-display">✅</div>
+                    <div class="symbol-code">&amp;#x2705;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">❌</div>
+                    <div class="symbol-code">&amp;#x274C;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">🍔</div>
+                    <div class="symbol-code">&amp;#x1F354;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">☕</div>
+                    <div class="symbol-code">&amp;#x2615;</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-display">🍞</div>
+                    <div class="symbol-code">&amp;#x1F35E;</div>
+                </div>
+            </div>
         </section>
 
         <!-- Conceitos -->
         <section class="content-section fade-in">
-            <h2>🧠 Conceitos Fundamentais</h2>
+            <h2>🧠 Conceitos Importantes</h2>
             
-            <h3>🏷️ Tags HTML</h3>
-            <p>As tags são os blocos de construção do HTML. Elas são escritas entre colchetes angulares <code>&lt; &gt;</code> e geralmente vêm em pares: uma tag de abertura e uma de fechamento.</p>
+            <h3>🔄 Whitespace Collapsing</h3>
+            <p>O HTML "colapsa" espaços em branco, ou seja, múltiplos espaços, tabs e quebras de linha são tratados como um único espaço.</p>
             
-            <h3>🌐 Semântica</h3>
-            <p>Cada tag tem um significado específico. O <code>&lt;h1&gt;</code> representa o título mais importante, enquanto <code>&lt;p&gt;</code> representa um parágrafo de texto.</p>
+            <h3>📱 Acessibilidade</h3>
+            <p>Use parágrafos para organizar o conteúdo logicamente. Isso ajuda leitores de tela e melhora a experiência do usuário.</p>
             
-            <h3>📱 Responsividade</h3>
-            <p>A meta tag viewport é essencial para que sua página funcione bem em dispositivos móveis.</p>
+            <h3>🎨 Semântica</h3>
+            <p>Cada parágrafo deve conter uma ideia completa. Não use <code>&lt;br&gt;</code> para criar espaçamento - isso é trabalho do CSS.</p>
         </section>
 
         <!-- Desafios -->
         <section class="content-section fade-in">
             <h2>🚀 Desafios Extras</h2>
             <ol>
-                <li>Adicione mais parágrafos com diferentes conteúdos</li>
-                <li>Experimente usar outros níveis de títulos (h2, h3, h4)</li>
-                <li>Adicione uma lista não ordenada com seus hobbies</li>
-                <li>Inclua um link para seu site favorito</li>
-                <li>Mude o título da página para algo mais personalizado</li>
+                <li>Crie um parágrafo sobre seu hobby favorito</li>
+                <li>Adicione símbolos de moeda de diferentes países</li>
+                <li>Experimente usar outros emojis com códigos Unicode</li>
+                <li>Crie um poema usando quebras de linha estratégicas</li>
+                <li>Adicione comentários HTML explicando cada seção</li>
             </ol>
         </section>
 
         <!-- Botões de Ação -->
         <div class="btn-group">
-            <a href="../exercicios/ex001/index.html" class="btn" target="_blank">
+            <a href="../exercicios/ex002/index.html" class="btn" target="_blank">
                 👁️ Ver Resultado
             </a>
-            <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/exercicios/ex001" class="btn btn-secondary" target="_blank">
+            <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/exercicios/ex002" class="btn btn-secondary" target="_blank">
                 📁 Ver Código no GitHub
             </a>
         </div>
 
         <!-- Navegação -->
         <nav class="navigation">
-            <a href="index.html" class="nav-btn">
-                🏠 Voltar ao Início
+            <a href="ex001.html" class="nav-btn">
+                ⬅️ Exercício 001
             </a>
-            <a href="ex002.html" class="nav-btn">
-                Próximo: Exercício 002 ➡️
+            <a href="../index.html" class="nav-btn">
+                🏠 Início
+            </a>
+            <a href="ex003.html" class="nav-btn">
+                Próximo: Exercício 003 ➡️
             </a>
         </nav>
     </div>

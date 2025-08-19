@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 004 - Favicon | HTML & CSS</title>
-    <meta name="description" content="Aprenda a adicionar favicon ao seu site HTML. Exercício prático sobre ícones de favoritos e sua importância para a identidade visual.">
+    <title>Exercício 005 - Formulários HTML | HTML & CSS</title>
+    <meta name="description" content="Aprenda a criar formulários HTML básicos. Exercício prático sobre campos de entrada, labels e estrutura de formulários.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     
     <style>
@@ -407,37 +407,38 @@
             transform: translateY(-2px);
         }
 
-        /* Favicon showcase */
-        .favicon-demo {
+        /* Form elements showcase */
+        .form-demo {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin: 20px 0;
         }
 
-        .favicon-card {
+        .form-element {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
             padding: 20px;
-            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .favicon-card:hover {
+        .form-element:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .favicon-size {
-            font-size: 3em;
+        .form-element h4 {
             margin-bottom: 10px;
+            color: var(--primary-color);
         }
 
-        .favicon-info {
+        .form-element code {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
             font-size: 0.9em;
-            color: var(--text-light);
         }
 
         /* Responsividade */
@@ -490,7 +491,7 @@
                 justify-content: center;
             }
 
-            .favicon-demo {
+            .form-demo {
                 grid-template-columns: 1fr;
             }
         }
@@ -512,8 +513,8 @@
     <div class="container">
         <!-- Header -->
         <header class="exercise-header">
-            <h1 class="exercise-title">Exercício 004</h1>
-            <p class="exercise-subtitle">Favicon - Ícone de favoritos para seu site</p>
+            <h1 class="exercise-title">Exercício 005</h1>
+            <p class="exercise-subtitle">Formulários HTML - Coletando dados do usuário</p>
             
             <div class="info-cards">
                 <div class="info-card">
@@ -522,7 +523,7 @@
                 </div>
                 <div class="info-card">
                     <h3>⏱️ Duração</h3>
-                    <p>15-25 minutos</p>
+                    <p>20-30 minutos</p>
                 </div>
                 <div class="info-card">
                     <h3>🎯 Dificuldade</h3>
@@ -538,16 +539,16 @@
         <!-- Objetivo -->
         <section class="content-section fade-in">
             <h2>🎯 Objetivo</h2>
-            <p>Neste exercício, você vai aprender a adicionar um favicon ao seu site HTML. O favicon é o pequeno ícone que aparece na aba do navegador, nos favoritos e em outros locais, sendo essencial para a identidade visual do seu site.</p>
+            <p>Neste exercício, você vai aprender a criar formulários HTML básicos para coletar informações dos usuários. Os formulários são fundamentais para interação e coleta de dados em páginas web.</p>
             
             <h3>O que você vai aprender:</h3>
             <ul>
-                <li>O que é um favicon e sua importância</li>
-                <li>Como adicionar favicon usando a tag <code>&lt;link&gt;</code></li>
-                <li>Diferentes formatos de favicon (ICO, PNG)</li>
-                <li>Tamanhos recomendados para favicon</li>
-                <li>Onde o favicon aparece no navegador</li>
-                <li>Boas práticas para criação de favicons</li>
+                <li>Estrutura básica de formulários HTML</li>
+                <li>Diferentes tipos de campos de entrada</li>
+                <li>Como usar labels para acessibilidade</li>
+                <li>Atributos importantes dos formulários</li>
+                <li>Organização e semântica de formulários</li>
+                <li>Boas práticas para UX em formulários</li>
             </ul>
         </section>
 
@@ -561,101 +562,187 @@
                     <button class="copy-btn" onclick="copyCode('html-code')">📋 Copiar</button>
                 </div>
                 <pre id="html-code"><code><span class="html-tag">&lt;!DOCTYPE html&gt;</span>
-<span class="html-tag">&lt;html</span> <span class="html-attr">lang</span>=<span class="html-value">"en"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;html</span> <span class="html-attr">lang</span>=<span class="html-value">"pt-br"</span><span class="html-tag">&gt;</span>
 <span class="html-tag">&lt;head&gt;</span>
     <span class="html-tag">&lt;meta</span> <span class="html-attr">charset</span>=<span class="html-value">"UTF-8"</span><span class="html-tag">&gt;</span>
     <span class="html-tag">&lt;meta</span> <span class="html-attr">name</span>=<span class="html-value">"viewport"</span> <span class="html-attr">content</span>=<span class="html-value">"width=device-width, initial-scale=1.0"</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"shortcut icon"</span> <span class="html-attr">href</span>=<span class="html-value">"favicon_io2/favicon-16x16.png"</span> <span class="html-attr">type</span>=<span class="html-value">"image/x-icon"</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;title&gt;</span><span class="html-text">Teste Favicon</span><span class="html-tag">&lt;/title&gt;</span>
+    <span class="html-tag">&lt;title&gt;</span><span class="html-text">Meu primeiro formulário</span><span class="html-tag">&lt;/title&gt;</span>
 <span class="html-tag">&lt;/head&gt;</span>
 <span class="html-tag">&lt;body&gt;</span>
-    <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Olha o meu favicon ali em cima</span><span class="html-tag">&lt;/h1&gt;</span>
+    <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Meu primeiro formulário</span><span class="html-tag">&lt;/h1&gt;</span>
+    <span class="html-tag">&lt;form&gt;</span>
+        <span class="html-tag">&lt;p&gt;</span><span class="html-text">Nome: </span><span class="html-tag">&lt;input</span> <span class="html-attr">type</span>=<span class="html-value">"text"</span> <span class="html-attr">name</span>=<span class="html-value">"nome"</span> <span class="html-attr">id</span>=<span class="html-value">"nome"</span><span class="html-tag">&gt;&lt;/p&gt;</span>
+        <span class="html-tag">&lt;p&gt;</span><span class="html-text">Sobrenome: </span><span class="html-tag">&lt;input</span> <span class="html-attr">type</span>=<span class="html-value">"text"</span> <span class="html-attr">name</span>=<span class="html-value">"sobrenome"</span> <span class="html-attr">id</span>=<span class="html-value">"sobrenome"</span><span class="html-tag">&gt;&lt;/p&gt;</span>
+        <span class="html-tag">&lt;p&gt;</span><span class="html-tag">&lt;input</span> <span class="html-attr">type</span>=<span class="html-value">"submit"</span> <span class="html-attr">value</span>=<span class="html-value">"Enviar"</span><span class="html-tag">&gt;&lt;/p&gt;</span>
+    <span class="html-tag">&lt;/form&gt;</span>
 <span class="html-tag">&lt;/body&gt;</span>
 <span class="html-tag">&lt;/html&gt;</span></code></pre>
             </div>
         </section>
 
-        <!-- O que é Favicon -->
+        <!-- Estrutura do Formulário -->
         <section class="content-section fade-in">
-            <h2>🔍 O que é Favicon?</h2>
+            <h2>🏗️ Estrutura do Formulário</h2>
             
-            <p>Favicon (favorite icon) é um pequeno ícone associado ao seu site que aparece em vários locais:</p>
+            <h3>📝 Tag &lt;form&gt;:</h3>
+            <p>A tag <code>&lt;form&gt;</code> é o contêiner principal que agrupa todos os elementos do formulário:</p>
             
-            <ul>
-                <li><strong>Aba do navegador:</strong> Ao lado do título da página</li>
-                <li><strong>Favoritos/Bookmarks:</strong> Quando o usuário salva seu site</li>
-                <li><strong>Histórico:</strong> Na lista de páginas visitadas</li>
-                <li><strong>Barra de endereços:</strong> Em alguns navegadores</li>
-                <li><strong>Atalhos da área de trabalho:</strong> Quando criados</li>
-            </ul>
-        </section>
-
-        <!-- Como Adicionar -->
-        <section class="content-section fade-in">
-            <h2>➕ Como Adicionar Favicon</h2>
-            
-            <h3>📝 Sintaxe Básica:</h3>
             <div class="code-container">
-                <pre><code><span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"shortcut icon"</span> <span class="html-attr">href</span>=<span class="html-value">"caminho/para/favicon.ico"</span> <span class="html-attr">type</span>=<span class="html-value">"image/x-icon"</span><span class="html-tag">&gt;</span></code></pre>
+                <pre><code><span class="html-tag">&lt;form</span> <span class="html-attr">action</span>=<span class="html-value">"/processar"</span> <span class="html-attr">method</span>=<span class="html-value">"POST"</span><span class="html-tag">&gt;</span>
+    <span class="html-comment">&lt;!-- Elementos do formulário aqui --&gt;</span>
+<span class="html-tag">&lt;/form&gt;</span></code></pre>
             </div>
             
             <h3>🔧 Atributos Importantes:</h3>
             <ul>
-                <li><strong>rel:</strong> Define o relacionamento ("shortcut icon" ou "icon")</li>
-                <li><strong>href:</strong> Caminho para o arquivo do favicon</li>
-                <li><strong>type:</strong> Tipo MIME do arquivo (opcional mas recomendado)</li>
+                <li><strong>action:</strong> URL para onde os dados serão enviados</li>
+                <li><strong>method:</strong> Método HTTP (GET ou POST)</li>
+                <li><strong>enctype:</strong> Tipo de codificação dos dados</li>
+                <li><strong>target:</strong> Onde abrir a resposta</li>
             </ul>
         </section>
 
-        <!-- Formatos e Tamanhos -->
+        <!-- Tipos de Input -->
         <section class="content-section fade-in">
-            <h2>📐 Formatos e Tamanhos</h2>
+            <h2>📝 Tipos de Campos de Entrada</h2>
             
-            <div class="favicon-demo">
-                <div class="favicon-card">
-                    <div class="favicon-size">🔷</div>
-                    <h4>ICO Format</h4>
-                    <p class="favicon-info">Formato tradicional<br>Suporte universal<br>Múltiplos tamanhos</p>
+            <div class="form-demo">
+                <div class="form-element">
+                    <h4>📝 Text Input</h4>
+                    <code>&lt;input type="text"&gt;</code>
+                    <p>Campo de texto simples para entrada de dados.</p>
                 </div>
                 
-                <div class="favicon-card">
-                    <div class="favicon-size">🖼️</div>
-                    <h4>PNG Format</h4>
-                    <p class="favicon-info">Melhor qualidade<br>Transparência<br>Navegadores modernos</p>
+                <div class="form-element">
+                    <h4>🔒 Password</h4>
+                    <code>&lt;input type="password"&gt;</code>
+                    <p>Campo para senhas (caracteres ocultos).</p>
                 </div>
                 
-                <div class="favicon-card">
-                    <div class="favicon-size">📱</div>
-                    <h4>SVG Format</h4>
-                    <p class="favicon-info">Vetorial<br>Escalável<br>Suporte limitado</p>
+                <div class="form-element">
+                    <h4>📧 Email</h4>
+                    <code>&lt;input type="email"&gt;</code>
+                    <p>Campo específico para endereços de email.</p>
+                </div>
+                
+                <div class="form-element">
+                    <h4>🔢 Number</h4>
+                    <code>&lt;input type="number"&gt;</code>
+                    <p>Campo numérico com controles de incremento.</p>
+                </div>
+                
+                <div class="form-element">
+                    <h4>📅 Date</h4>
+                    <code>&lt;input type="date"&gt;</code>
+                    <p>Seletor de data com calendário.</p>
+                </div>
+                
+                <div class="form-element">
+                    <h4>☑️ Checkbox</h4>
+                    <code>&lt;input type="checkbox"&gt;</code>
+                    <p>Caixa de seleção para múltiplas opções.</p>
+                </div>
+                
+                <div class="form-element">
+                    <h4>🔘 Radio</h4>
+                    <code>&lt;input type="radio"&gt;</code>
+                    <p>Botão de opção para escolha única.</p>
+                </div>
+                
+                <div class="form-element">
+                    <h4>🚀 Submit</h4>
+                    <code>&lt;input type="submit"&gt;</code>
+                    <p>Botão para enviar o formulário.</p>
                 </div>
             </div>
+        </section>
+
+        <!-- Labels e Acessibilidade -->
+        <section class="content-section fade-in">
+            <h2>🏷️ Labels e Acessibilidade</h2>
             
-            <h3>📏 Tamanhos Recomendados:</h3>
+            <p>Labels são essenciais para acessibilidade e usabilidade dos formulários:</p>
+            
+            <div class="code-container">
+                <div class="code-header">
+                    <span class="code-title">Usando Labels Corretamente</span>
+                </div>
+                <pre><code><span class="html-comment">&lt;!-- Método 1: Label envolvendo o input --&gt;</span>
+<span class="html-tag">&lt;label&gt;</span>
+    <span class="html-text">Nome:</span>
+    <span class="html-tag">&lt;input</span> <span class="html-attr">type</span>=<span class="html-value">"text"</span> <span class="html-attr">name</span>=<span class="html-value">"nome"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/label&gt;</span>
+
+<span class="html-comment">&lt;!-- Método 2: Label com atributo 'for' --&gt;</span>
+<span class="html-tag">&lt;label</span> <span class="html-attr">for</span>=<span class="html-value">"email"</span><span class="html-tag">&gt;</span><span class="html-text">Email:</span><span class="html-tag">&lt;/label&gt;</span>
+<span class="html-tag">&lt;input</span> <span class="html-attr">type</span>=<span class="html-value">"email"</span> <span class="html-attr">id</span>=<span class="html-value">"email"</span> <span class="html-attr">name</span>=<span class="html-value">"email"</span><span class="html-tag">&gt;</span></code></pre>
+            </div>
+            
+            <h3>✅ Benefícios dos Labels:</h3>
             <ul>
-                <li><strong>16x16px:</strong> Tamanho padrão para abas</li>
-                <li><strong>32x32px:</strong> Telas de alta resolução</li>
-                <li><strong>48x48px:</strong> Atalhos do Windows</li>
-                <li><strong>64x64px:</strong> Atalhos de alta qualidade</li>
+                <li>Melhora a acessibilidade para leitores de tela</li>
+                <li>Permite clicar no label para focar o campo</li>
+                <li>Melhora a experiência do usuário</li>
+                <li>Facilita a navegação por teclado</li>
             </ul>
         </section>
 
-        <!-- Múltiplos Favicons -->
+        <!-- Atributos Importantes -->
         <section class="content-section fade-in">
-            <h2>🎯 Múltiplos Favicons</h2>
+            <h2>⚙️ Atributos Importantes</h2>
             
-            <p>Para melhor compatibilidade, você pode definir múltiplos favicons:</p>
+            <h3>🔧 Atributos Comuns:</h3>
+            <ul>
+                <li><strong>name:</strong> Nome do campo (usado no envio)</li>
+                <li><strong>id:</strong> Identificador único do elemento</li>
+                <li><strong>value:</strong> Valor padrão do campo</li>
+                <li><strong>placeholder:</strong> Texto de exemplo/dica</li>
+                <li><strong>required:</strong> Campo obrigatório</li>
+                <li><strong>disabled:</strong> Campo desabilitado</li>
+                <li><strong>readonly:</strong> Campo somente leitura</li>
+            </ul>
             
             <div class="code-container">
-                <pre><code><span class="html-comment">&lt;!-- Favicon tradicional --&gt;</span>
-<span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"shortcut icon"</span> <span class="html-attr">href</span>=<span class="html-value">"/favicon.ico"</span><span class="html-tag">&gt;</span>
+                <div class="code-header">
+                    <span class="code-title">Exemplo com Atributos</span>
+                </div>
+                <pre><code><span class="html-tag">&lt;input</span> 
+    <span class="html-attr">type</span>=<span class="html-value">"email"</span> 
+    <span class="html-attr">name</span>=<span class="html-value">"email"</span> 
+    <span class="html-attr">id</span>=<span class="html-value">"email"</span>
+    <span class="html-attr">placeholder</span>=<span class="html-value">"Digite seu email"</span>
+    <span class="html-attr">required</span>
+<span class="html-tag">&gt;</span></code></pre>
+            </div>
+        </section>
 
-<span class="html-comment">&lt;!-- PNG para navegadores modernos --&gt;</span>
-<span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"icon"</span> <span class="html-attr">type</span>=<span class="html-value">"image/png"</span> <span class="html-attr">sizes</span>=<span class="html-value">"32x32"</span> <span class="html-attr">href</span>=<span class="html-value">"/favicon-32x32.png"</span><span class="html-tag">&gt;</span>
-<span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"icon"</span> <span class="html-attr">type</span>=<span class="html-value">"image/png"</span> <span class="html-attr">sizes</span>=<span class="html-value">"16x16"</span> <span class="html-attr">href</span>=<span class="html-value">"/favicon-16x16.png"</span><span class="html-tag">&gt;</span>
-
-<span class="html-comment">&lt;!-- Para dispositivos Apple --&gt;</span>
-<span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"apple-touch-icon"</span> <span class="html-attr">sizes</span>=<span class="html-value">"180x180"</span> <span class="html-attr">href</span>=<span class="html-value">"/apple-touch-icon.png"</span><span class="html-tag">&gt;</span></code></pre>
+        <!-- Outros Elementos -->
+        <section class="content-section fade-in">
+            <h2>🧩 Outros Elementos de Formulário</h2>
+            
+            <h3>📝 Textarea:</h3>
+            <div class="code-container">
+                <pre><code><span class="html-tag">&lt;textarea</span> <span class="html-attr">name</span>=<span class="html-value">"mensagem"</span> <span class="html-attr">rows</span>=<span class="html-value">"4"</span> <span class="html-attr">cols</span>=<span class="html-value">"50"</span><span class="html-tag">&gt;</span>
+<span class="html-text">Texto padrão aqui...</span>
+<span class="html-tag">&lt;/textarea&gt;</span></code></pre>
+            </div>
+            
+            <h3>📋 Select (Lista suspensa):</h3>
+            <div class="code-container">
+                <pre><code><span class="html-tag">&lt;select</span> <span class="html-attr">name</span>=<span class="html-value">"cidade"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;option</span> <span class="html-attr">value</span>=<span class="html-value">"sp"</span><span class="html-tag">&gt;</span><span class="html-text">São Paulo</span><span class="html-tag">&lt;/option&gt;</span>
+    <span class="html-tag">&lt;option</span> <span class="html-attr">value</span>=<span class="html-value">"rj"</span> <span class="html-attr">selected</span><span class="html-tag">&gt;</span><span class="html-text">Rio de Janeiro</span><span class="html-tag">&lt;/option&gt;</span>
+    <span class="html-tag">&lt;option</span> <span class="html-attr">value</span>=<span class="html-value">"mg"</span><span class="html-tag">&gt;</span><span class="html-text">Minas Gerais</span><span class="html-tag">&lt;/option&gt;</span>
+<span class="html-tag">&lt;/select&gt;</span></code></pre>
+            </div>
+            
+            <h3>🎛️ Fieldset e Legend:</h3>
+            <div class="code-container">
+                <pre><code><span class="html-tag">&lt;fieldset&gt;</span>
+    <span class="html-tag">&lt;legend&gt;</span><span class="html-text">Informações Pessoais</span><span class="html-tag">&lt;/legend&gt;</span>
+    <span class="html-tag">&lt;label</span> <span class="html-attr">for</span>=<span class="html-value">"nome"</span><span class="html-tag">&gt;</span><span class="html-text">Nome:</span><span class="html-tag">&lt;/label&gt;</span>
+    <span class="html-tag">&lt;input</span> <span class="html-attr">type</span>=<span class="html-value">"text"</span> <span class="html-attr">id</span>=<span class="html-value">"nome"</span> <span class="html-attr">name</span>=<span class="html-value">"nome"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/fieldset&gt;</span></code></pre>
             </div>
         </section>
 
@@ -663,40 +750,30 @@
         <section class="content-section fade-in">
             <h2>✅ Boas Práticas</h2>
             
-            <h3>🎨 Design:</h3>
+            <h3>🎯 UX/UI:</h3>
             <ul>
-                <li>Use design simples e reconhecível</li>
-                <li>Mantenha boa legibilidade em tamanhos pequenos</li>
-                <li>Use cores contrastantes</li>
-                <li>Evite detalhes muito pequenos</li>
+                <li>Use labels descritivos e claros</li>
+                <li>Agrupe campos relacionados com fieldset</li>
+                <li>Forneça feedback visual para validação</li>
+                <li>Use placeholders como dicas, não como labels</li>
+                <li>Mantenha formulários simples e focados</li>
             </ul>
             
-            <h3>🔧 Técnicas:</h3>
+            <h3>♿ Acessibilidade:</h3>
             <ul>
-                <li>Coloque o favicon na raiz do site (/favicon.ico)</li>
-                <li>Use ferramentas online para gerar múltiplos tamanhos</li>
-                <li>Teste em diferentes navegadores</li>
-                <li>Considere o modo escuro/claro</li>
+                <li>Sempre associe labels aos campos</li>
+                <li>Use atributos ARIA quando necessário</li>
+                <li>Garanta navegação por teclado</li>
+                <li>Forneça instruções claras</li>
+                <li>Use contraste adequado nas cores</li>
             </ul>
             
-            <h3>⚡ Performance:</h3>
+            <h3>🔒 Segurança:</h3>
             <ul>
-                <li>Otimize o tamanho do arquivo</li>
-                <li>Use cache adequado</li>
-                <li>Considere usar CDN para favicons</li>
-            </ul>
-        </section>
-
-        <!-- Ferramentas -->
-        <section class="content-section fade-in">
-            <h2>🛠️ Ferramentas Úteis</h2>
-            
-            <ul>
-                <li><strong>Favicon.io:</strong> Gerador online gratuito</li>
-                <li><strong>RealFaviconGenerator:</strong> Gerador completo</li>
-                <li><strong>Canva:</strong> Para criar designs</li>
-                <li><strong>GIMP/Photoshop:</strong> Editores de imagem</li>
-                <li><strong>Favicon Checker:</strong> Para testar implementação</li>
+                <li>Valide dados no cliente E no servidor</li>
+                <li>Use HTTPS para dados sensíveis</li>
+                <li>Implemente proteção CSRF</li>
+                <li>Sanitize dados de entrada</li>
             </ul>
         </section>
 
@@ -704,35 +781,37 @@
         <section class="content-section fade-in">
             <h2>🚀 Desafios Extras</h2>
             <ol>
-                <li>Crie seu próprio favicon personalizado</li>
-                <li>Implemente múltiplos tamanhos de favicon</li>
-                <li>Teste seu favicon em diferentes navegadores</li>
-                <li>Crie um favicon animado (usando ICO)</li>
-                <li>Adicione favicon para dispositivos móveis</li>
-                <li>Crie um favicon que funcione bem no modo escuro</li>
+                <li>Crie um formulário de cadastro completo</li>
+                <li>Adicione validação HTML5 aos campos</li>
+                <li>Implemente diferentes tipos de input</li>
+                <li>Use fieldset para agrupar informações</li>
+                <li>Crie um formulário de contato com textarea</li>
+                <li>Adicione um select com múltiplas opções</li>
+                <li>Implemente radio buttons para escolha única</li>
+                <li>Use checkboxes para múltiplas seleções</li>
             </ol>
         </section>
 
         <!-- Botões de Ação -->
         <div class="btn-group">
-            <a href="../exercicios/ex004/index.html" class="btn" target="_blank">
+            <a href="../exercicios/ex005/index.html" class="btn" target="_blank">
                 👁️ Ver Resultado
             </a>
-            <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/exercicios/ex004" class="btn btn-secondary" target="_blank">
+            <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/exercicios/ex005" class="btn btn-secondary" target="_blank">
                 📁 Ver Código no GitHub
             </a>
         </div>
 
         <!-- Navegação -->
         <nav class="navigation">
-            <a href="ex003.html" class="nav-btn">
-                ⬅️ Exercício 003
+            <a href="ex004.html" class="nav-btn">
+                ⬅️ Exercício 004
             </a>
-            <a href="index.html" class="nav-btn">
+            <a href="../index.html" class="nav-btn">
                 🏠 Início
             </a>
-            <a href="ex005.html" class="nav-btn">
-                Próximo: Exercício 005 ➡️
+            <a href="ex006.html" class="nav-btn">
+                Próximo: Exercício 006 ➡️
             </a>
         </nav>
     </div>

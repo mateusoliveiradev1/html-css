@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 003 - Imagens | HTML & CSS</title>
-    <meta name="description" content="Aprenda a trabalhar com imagens em HTML: caminhos relativos, absolutos, URLs externas e atributos importantes. Exercício prático do curso de HTML5 e CSS3.">
+    <title>Exercício 004 - Favicon | HTML & CSS</title>
+    <meta name="description" content="Aprenda a adicionar favicon ao seu site HTML. Exercício prático sobre ícones de favoritos e sua importância para a identidade visual.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     
     <style>
@@ -407,15 +407,15 @@
             transform: translateY(-2px);
         }
 
-        /* Image examples */
-        .image-examples {
+        /* Favicon showcase */
+        .favicon-demo {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin: 20px 0;
         }
 
-        .image-example {
+        .favicon-card {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
@@ -425,71 +425,19 @@
             transition: all 0.3s ease;
         }
 
-        .image-example:hover {
+        .favicon-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .image-example h4 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .image-example img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+        .favicon-size {
+            font-size: 3em;
             margin-bottom: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .image-path {
-            font-family: 'Courier New', monospace;
+        .favicon-info {
             font-size: 0.9em;
             color: var(--text-light);
-            background: rgba(0, 0, 0, 0.1);
-            padding: 5px 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        /* Path types */
-        .path-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .path-type {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .path-type:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .path-type h4 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .path-example {
-            font-family: 'Courier New', monospace;
-            background: rgba(0, 0, 0, 0.8);
-            color: #e6e6e6;
-            padding: 10px;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-size: 0.9em;
         }
 
         /* Responsividade */
@@ -542,11 +490,7 @@
                 justify-content: center;
             }
 
-            .image-examples {
-                grid-template-columns: 1fr;
-            }
-
-            .path-types {
+            .favicon-demo {
                 grid-template-columns: 1fr;
             }
         }
@@ -568,8 +512,8 @@
     <div class="container">
         <!-- Header -->
         <header class="exercise-header">
-            <h1 class="exercise-title">Exercício 003</h1>
-            <p class="exercise-subtitle">Imagens em HTML - Caminhos, formatos e boas práticas</p>
+            <h1 class="exercise-title">Exercício 004</h1>
+            <p class="exercise-subtitle">Favicon - Ícone de favoritos para seu site</p>
             
             <div class="info-cards">
                 <div class="info-card">
@@ -578,7 +522,7 @@
                 </div>
                 <div class="info-card">
                     <h3>⏱️ Duração</h3>
-                    <p>25-40 minutos</p>
+                    <p>15-25 minutos</p>
                 </div>
                 <div class="info-card">
                     <h3>🎯 Dificuldade</h3>
@@ -594,16 +538,16 @@
         <!-- Objetivo -->
         <section class="content-section fade-in">
             <h2>🎯 Objetivo</h2>
-            <p>Neste exercício, você vai aprender a trabalhar com imagens em HTML, explorando diferentes tipos de caminhos, formatos de imagem e boas práticas para otimização e acessibilidade.</p>
+            <p>Neste exercício, você vai aprender a adicionar um favicon ao seu site HTML. O favicon é o pequeno ícone que aparece na aba do navegador, nos favoritos e em outros locais, sendo essencial para a identidade visual do seu site.</p>
             
             <h3>O que você vai aprender:</h3>
             <ul>
-                <li>Como inserir imagens com a tag <code>&lt;img&gt;</code></li>
-                <li>Diferença entre caminhos relativos e absolutos</li>
-                <li>Como usar URLs externas para imagens</li>
-                <li>Importância do atributo <code>alt</code> para acessibilidade</li>
-                <li>Organização de arquivos em pastas</li>
-                <li>Diferentes formatos de imagem (PNG, JPG, WebP)</li>
+                <li>O que é um favicon e sua importância</li>
+                <li>Como adicionar favicon usando a tag <code>&lt;link&gt;</code></li>
+                <li>Diferentes formatos de favicon (ICO, PNG)</li>
+                <li>Tamanhos recomendados para favicon</li>
+                <li>Onde o favicon aparece no navegador</li>
+                <li>Boas práticas para criação de favicons</li>
             </ul>
         </section>
 
@@ -617,175 +561,142 @@
                     <button class="copy-btn" onclick="copyCode('html-code')">📋 Copiar</button>
                 </div>
                 <pre id="html-code"><code><span class="html-tag">&lt;!DOCTYPE html&gt;</span>
-<span class="html-tag">&lt;html</span> <span class="html-attr">lang</span>=<span class="html-value">"pt-br"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;html</span> <span class="html-attr">lang</span>=<span class="html-value">"en"</span><span class="html-tag">&gt;</span>
 <span class="html-tag">&lt;head&gt;</span>
     <span class="html-tag">&lt;meta</span> <span class="html-attr">charset</span>=<span class="html-value">"UTF-8"</span><span class="html-tag">&gt;</span>
     <span class="html-tag">&lt;meta</span> <span class="html-attr">name</span>=<span class="html-value">"viewport"</span> <span class="html-attr">content</span>=<span class="html-value">"width=device-width, initial-scale=1.0"</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;title&gt;</span><span class="html-text">Teste com imagems</span><span class="html-tag">&lt;/title&gt;</span>
+    <span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"shortcut icon"</span> <span class="html-attr">href</span>=<span class="html-value">"favicon_io2/favicon-16x16.png"</span> <span class="html-attr">type</span>=<span class="html-value">"image/x-icon"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;title&gt;</span><span class="html-text">Teste Favicon</span><span class="html-tag">&lt;/title&gt;</span>
 <span class="html-tag">&lt;/head&gt;</span>
 <span class="html-tag">&lt;body&gt;</span>
-    <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Testando carga e iamgems</span><span class="html-tag">&lt;/h1&gt;</span>
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Abaixo voce vai ver uma imagem que esta na mesma pasta</span><span class="html-tag">&lt;/p&gt;</span>
-    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"logo-html.png"</span> <span class="html-attr">alt</span>=<span class="html-value">"Logo HTML 5"</span><span class="html-tag">&gt;</span>
-    
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Podemos tambem carregar imagems que estao em sub-pastas</span><span class="html-tag">&lt;/p&gt;</span>
-    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"imagems/logo-css.png"</span> <span class="html-attr">alt</span>=<span class="html-value">"Logo CSS3"</span><span class="html-tag">&gt;</span>
-    
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Tambem podemos carregar imagems externas</span><span class="html-tag">&lt;/p&gt;</span>
-    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"https://cdn.iconscout.com/icon/free/png-256/free-javascript-23-1174949.png"</span> <span class="html-attr">alt</span>=<span class="html-value">"Logo JavaScript"</span><span class="html-tag">&gt;</span>
-    
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Teste PUBG</span><span class="html-tag">&lt;/p&gt;</span>
-    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"pubg-400.webp"</span> <span class="html-attr">alt</span>=<span class="html-value">"PUBG Game"</span><span class="html-tag">&gt;</span>
-    
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Teste BLEACH ICHIGO</span><span class="html-tag">&lt;/p&gt;</span>
-    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"Bleach-200.jpg"</span> <span class="html-attr">alt</span>=<span class="html-value">"Bleach Ichigo"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Olha o meu favicon ali em cima</span><span class="html-tag">&lt;/h1&gt;</span>
 <span class="html-tag">&lt;/body&gt;</span>
 <span class="html-tag">&lt;/html&gt;</span></code></pre>
             </div>
         </section>
 
-        <!-- Tipos de Caminhos -->
+        <!-- O que é Favicon -->
         <section class="content-section fade-in">
-            <h2>📁 Tipos de Caminhos</h2>
+            <h2>🔍 O que é Favicon?</h2>
             
-            <div class="path-types">
-                <div class="path-type">
-                    <h4>🏠 Caminho Relativo - Mesma Pasta</h4>
-                    <p>Quando a imagem está na mesma pasta do arquivo HTML:</p>
-                    <div class="path-example">src="logo-html.png"</div>
-                    <p><strong>Vantagem:</strong> Simples e direto</p>
-                </div>
-                
-                <div class="path-type">
-                    <h4>📂 Caminho Relativo - Subpasta</h4>
-                    <p>Quando a imagem está em uma pasta dentro do projeto:</p>
-                    <div class="path-example">src="imagems/logo-css.png"</div>
-                    <p><strong>Vantagem:</strong> Organização melhor dos arquivos</p>
-                </div>
-                
-                <div class="path-type">
-                    <h4>🌐 URL Externa</h4>
-                    <p>Quando a imagem está hospedada em outro servidor:</p>
-                    <div class="path-example">src="https://exemplo.com/imagem.png"</div>
-                    <p><strong>Cuidado:</strong> Dependência de servidor externo</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Formatos de Imagem -->
-        <section class="content-section fade-in">
-            <h2>🖼️ Formatos de Imagem</h2>
-            
-            <div class="path-types">
-                <div class="path-type">
-                    <h4>📸 JPG/JPEG</h4>
-                    <p>Ideal para fotografias e imagens com muitas cores.</p>
-                    <ul>
-                        <li>Boa compressão</li>
-                        <li>Não suporta transparência</li>
-                        <li>Pode perder qualidade</li>
-                    </ul>
-                </div>
-                
-                <div class="path-type">
-                    <h4>🎨 PNG</h4>
-                    <p>Ideal para logos, ícones e imagens com transparência.</p>
-                    <ul>
-                        <li>Suporta transparência</li>
-                        <li>Sem perda de qualidade</li>
-                        <li>Arquivos maiores</li>
-                    </ul>
-                </div>
-                
-                <div class="path-type">
-                    <h4>⚡ WebP</h4>
-                    <p>Formato moderno com excelente compressão.</p>
-                    <ul>
-                        <li>Menor tamanho</li>
-                        <li>Suporta transparência</li>
-                        <li>Nem todos os navegadores suportam</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Atributo Alt -->
-        <section class="content-section fade-in">
-            <h2>♿ Acessibilidade com Alt</h2>
-            
-            <p>O atributo <code>alt</code> é <strong>essencial</strong> para acessibilidade:</p>
+            <p>Favicon (favorite icon) é um pequeno ícone associado ao seu site que aparece em vários locais:</p>
             
             <ul>
-                <li><strong>Leitores de tela:</strong> Descrevem a imagem para pessoas com deficiência visual</li>
-                <li><strong>Conexão lenta:</strong> Texto aparece enquanto a imagem carrega</li>
-                <li><strong>SEO:</strong> Motores de busca entendem o conteúdo da imagem</li>
-                <li><strong>Erro de carregamento:</strong> Texto alternativo é exibido</li>
-            </ul>
-            
-            <h3>✅ Boas práticas para Alt:</h3>
-            <ul>
-                <li>Seja descritivo mas conciso</li>
-                <li>Não use "imagem de" ou "foto de"</li>
-                <li>Para imagens decorativas, use <code>alt=""</code></li>
-                <li>Descreva o conteúdo, não a aparência</li>
+                <li><strong>Aba do navegador:</strong> Ao lado do título da página</li>
+                <li><strong>Favoritos/Bookmarks:</strong> Quando o usuário salva seu site</li>
+                <li><strong>Histórico:</strong> Na lista de páginas visitadas</li>
+                <li><strong>Barra de endereços:</strong> Em alguns navegadores</li>
+                <li><strong>Atalhos da área de trabalho:</strong> Quando criados</li>
             </ul>
         </section>
 
-        <!-- Organização de Arquivos -->
+        <!-- Como Adicionar -->
         <section class="content-section fade-in">
-            <h2>📋 Organização de Arquivos</h2>
+            <h2>➕ Como Adicionar Favicon</h2>
             
-            <p>Uma boa estrutura de pastas facilita a manutenção:</p>
+            <h3>📝 Sintaxe Básica:</h3>
+            <div class="code-container">
+                <pre><code><span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"shortcut icon"</span> <span class="html-attr">href</span>=<span class="html-value">"caminho/para/favicon.ico"</span> <span class="html-attr">type</span>=<span class="html-value">"image/x-icon"</span><span class="html-tag">&gt;</span></code></pre>
+            </div>
+            
+            <h3>🔧 Atributos Importantes:</h3>
+            <ul>
+                <li><strong>rel:</strong> Define o relacionamento ("shortcut icon" ou "icon")</li>
+                <li><strong>href:</strong> Caminho para o arquivo do favicon</li>
+                <li><strong>type:</strong> Tipo MIME do arquivo (opcional mas recomendado)</li>
+            </ul>
+        </section>
+
+        <!-- Formatos e Tamanhos -->
+        <section class="content-section fade-in">
+            <h2>📐 Formatos e Tamanhos</h2>
+            
+            <div class="favicon-demo">
+                <div class="favicon-card">
+                    <div class="favicon-size">🔷</div>
+                    <h4>ICO Format</h4>
+                    <p class="favicon-info">Formato tradicional<br>Suporte universal<br>Múltiplos tamanhos</p>
+                </div>
+                
+                <div class="favicon-card">
+                    <div class="favicon-size">🖼️</div>
+                    <h4>PNG Format</h4>
+                    <p class="favicon-info">Melhor qualidade<br>Transparência<br>Navegadores modernos</p>
+                </div>
+                
+                <div class="favicon-card">
+                    <div class="favicon-size">📱</div>
+                    <h4>SVG Format</h4>
+                    <p class="favicon-info">Vetorial<br>Escalável<br>Suporte limitado</p>
+                </div>
+            </div>
+            
+            <h3>📏 Tamanhos Recomendados:</h3>
+            <ul>
+                <li><strong>16x16px:</strong> Tamanho padrão para abas</li>
+                <li><strong>32x32px:</strong> Telas de alta resolução</li>
+                <li><strong>48x48px:</strong> Atalhos do Windows</li>
+                <li><strong>64x64px:</strong> Atalhos de alta qualidade</li>
+            </ul>
+        </section>
+
+        <!-- Múltiplos Favicons -->
+        <section class="content-section fade-in">
+            <h2>🎯 Múltiplos Favicons</h2>
+            
+            <p>Para melhor compatibilidade, você pode definir múltiplos favicons:</p>
             
             <div class="code-container">
-                <div class="code-header">
-                    <span class="code-title">📁 Estrutura Recomendada</span>
-                </div>
-                <pre><code>projeto/
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-├── images/ (ou img/)
-│   ├── logos/
-│   │   ├── logo-html.png
-│   │   └── logo-css.png
-│   ├── photos/
-│   │   └── hero-image.jpg
-│   └── icons/
-│       └── favicon.ico
-└── docs/
-    └── readme.md</code></pre>
+                <pre><code><span class="html-comment">&lt;!-- Favicon tradicional --&gt;</span>
+<span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"shortcut icon"</span> <span class="html-attr">href</span>=<span class="html-value">"/favicon.ico"</span><span class="html-tag">&gt;</span>
+
+<span class="html-comment">&lt;!-- PNG para navegadores modernos --&gt;</span>
+<span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"icon"</span> <span class="html-attr">type</span>=<span class="html-value">"image/png"</span> <span class="html-attr">sizes</span>=<span class="html-value">"32x32"</span> <span class="html-attr">href</span>=<span class="html-value">"/favicon-32x32.png"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"icon"</span> <span class="html-attr">type</span>=<span class="html-value">"image/png"</span> <span class="html-attr">sizes</span>=<span class="html-value">"16x16"</span> <span class="html-attr">href</span>=<span class="html-value">"/favicon-16x16.png"</span><span class="html-tag">&gt;</span>
+
+<span class="html-comment">&lt;!-- Para dispositivos Apple --&gt;</span>
+<span class="html-tag">&lt;link</span> <span class="html-attr">rel</span>=<span class="html-value">"apple-touch-icon"</span> <span class="html-attr">sizes</span>=<span class="html-value">"180x180"</span> <span class="html-attr">href</span>=<span class="html-value">"/apple-touch-icon.png"</span><span class="html-tag">&gt;</span></code></pre>
             </div>
         </section>
 
-        <!-- Conceitos -->
+        <!-- Boas Práticas -->
         <section class="content-section fade-in">
-            <h2>🧠 Conceitos Importantes</h2>
+            <h2>✅ Boas Práticas</h2>
             
-            <h3>🔄 Responsividade</h3>
-            <p>Use CSS para tornar imagens responsivas:</p>
-            <div class="code-container">
-                <pre><code>img {
-    max-width: 100%;
-    height: auto;
-}</code></pre>
-            </div>
-            
-            <h3>⚡ Performance</h3>
+            <h3>🎨 Design:</h3>
             <ul>
-                <li>Otimize o tamanho das imagens</li>
-                <li>Use formatos modernos (WebP)</li>
-                <li>Considere lazy loading para muitas imagens</li>
-                <li>Comprima imagens antes de usar</li>
+                <li>Use design simples e reconhecível</li>
+                <li>Mantenha boa legibilidade em tamanhos pequenos</li>
+                <li>Use cores contrastantes</li>
+                <li>Evite detalhes muito pequenos</li>
             </ul>
             
-            <h3>🔒 Segurança</h3>
+            <h3>🔧 Técnicas:</h3>
             <ul>
-                <li>Cuidado com URLs externas</li>
-                <li>Verifique a origem das imagens</li>
-                <li>Considere hospedar imagens importantes localmente</li>
+                <li>Coloque o favicon na raiz do site (/favicon.ico)</li>
+                <li>Use ferramentas online para gerar múltiplos tamanhos</li>
+                <li>Teste em diferentes navegadores</li>
+                <li>Considere o modo escuro/claro</li>
+            </ul>
+            
+            <h3>⚡ Performance:</h3>
+            <ul>
+                <li>Otimize o tamanho do arquivo</li>
+                <li>Use cache adequado</li>
+                <li>Considere usar CDN para favicons</li>
+            </ul>
+        </section>
+
+        <!-- Ferramentas -->
+        <section class="content-section fade-in">
+            <h2>🛠️ Ferramentas Úteis</h2>
+            
+            <ul>
+                <li><strong>Favicon.io:</strong> Gerador online gratuito</li>
+                <li><strong>RealFaviconGenerator:</strong> Gerador completo</li>
+                <li><strong>Canva:</strong> Para criar designs</li>
+                <li><strong>GIMP/Photoshop:</strong> Editores de imagem</li>
+                <li><strong>Favicon Checker:</strong> Para testar implementação</li>
             </ul>
         </section>
 
@@ -793,35 +704,35 @@
         <section class="content-section fade-in">
             <h2>🚀 Desafios Extras</h2>
             <ol>
-                <li>Crie uma galeria com 6 imagens diferentes</li>
-                <li>Organize as imagens em pastas por categoria</li>
-                <li>Adicione descrições alt significativas para cada imagem</li>
-                <li>Experimente diferentes formatos (JPG, PNG, WebP)</li>
-                <li>Crie uma página "Sobre" com sua foto e biografia</li>
-                <li>Use uma imagem externa como plano de fundo (com CSS)</li>
+                <li>Crie seu próprio favicon personalizado</li>
+                <li>Implemente múltiplos tamanhos de favicon</li>
+                <li>Teste seu favicon em diferentes navegadores</li>
+                <li>Crie um favicon animado (usando ICO)</li>
+                <li>Adicione favicon para dispositivos móveis</li>
+                <li>Crie um favicon que funcione bem no modo escuro</li>
             </ol>
         </section>
 
         <!-- Botões de Ação -->
         <div class="btn-group">
-            <a href="../exercicios/ex003/index.html" class="btn" target="_blank">
+            <a href="../exercicios/ex004/index.html" class="btn" target="_blank">
                 👁️ Ver Resultado
             </a>
-            <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/exercicios/ex003" class="btn btn-secondary" target="_blank">
+            <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/exercicios/ex004" class="btn btn-secondary" target="_blank">
                 📁 Ver Código no GitHub
             </a>
         </div>
 
         <!-- Navegação -->
         <nav class="navigation">
-            <a href="ex002.html" class="nav-btn">
-                ⬅️ Exercício 002
+            <a href="ex003.html" class="nav-btn">
+                ⬅️ Exercício 003
             </a>
-            <a href="index.html" class="nav-btn">
+            <a href="../index.html" class="nav-btn">
                 🏠 Início
             </a>
-            <a href="ex004.html" class="nav-btn">
-                Próximo: Exercício 004 ➡️
+            <a href="ex005.html" class="nav-btn">
+                Próximo: Exercício 005 ➡️
             </a>
         </nav>
     </div>

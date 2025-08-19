@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 002 - Parágrafos e Quebras | HTML & CSS</title>
-    <meta name="description" content="Aprenda a trabalhar com parágrafos, quebras de linha e símbolos especiais em HTML. Exercício prático do curso de HTML5 e CSS3.">
+    <title>Exercício 003 - Imagens | HTML & CSS</title>
+    <meta name="description" content="Aprenda a trabalhar com imagens em HTML: caminhos relativos, absolutos, URLs externas e atributos importantes. Exercício prático do curso de HTML5 e CSS3.">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     
     <style>
@@ -407,38 +407,89 @@
             transform: translateY(-2px);
         }
 
-        /* Symbols showcase */
-        .symbols-grid {
+        /* Image examples */
+        .image-examples {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             margin: 20px 0;
         }
 
-        .symbol-card {
+        .image-example {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 15px;
+            padding: 20px;
             text-align: center;
             transition: all 0.3s ease;
         }
 
-        .symbol-card:hover {
-            transform: translateY(-3px);
+        .image-example:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-example h4 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .image-example img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .symbol-display {
-            font-size: 2em;
-            margin-bottom: 5px;
+        .image-path {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--text-light);
+            background: rgba(0, 0, 0, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
         }
 
-        .symbol-code {
+        /* Path types */
+        .path-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .path-type {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .path-type:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .path-type h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .path-example {
             font-family: 'Courier New', monospace;
-            font-size: 0.8em;
-            color: var(--text-light);
+            background: rgba(0, 0, 0, 0.8);
+            color: #e6e6e6;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 0.9em;
         }
 
         /* Responsividade */
@@ -491,8 +542,12 @@
                 justify-content: center;
             }
 
-            .symbols-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            .image-examples {
+                grid-template-columns: 1fr;
+            }
+
+            .path-types {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -513,8 +568,8 @@
     <div class="container">
         <!-- Header -->
         <header class="exercise-header">
-            <h1 class="exercise-title">Exercício 002</h1>
-            <p class="exercise-subtitle">Parágrafos e Quebras de Linha - Formatação de texto em HTML</p>
+            <h1 class="exercise-title">Exercício 003</h1>
+            <p class="exercise-subtitle">Imagens em HTML - Caminhos, formatos e boas práticas</p>
             
             <div class="info-cards">
                 <div class="info-card">
@@ -523,7 +578,7 @@
                 </div>
                 <div class="info-card">
                     <h3>⏱️ Duração</h3>
-                    <p>20-35 minutos</p>
+                    <p>25-40 minutos</p>
                 </div>
                 <div class="info-card">
                     <h3>🎯 Dificuldade</h3>
@@ -539,15 +594,16 @@
         <!-- Objetivo -->
         <section class="content-section fade-in">
             <h2>🎯 Objetivo</h2>
-            <p>Neste exercício, você vai aprender a trabalhar com parágrafos, quebras de linha e símbolos especiais em HTML. É fundamental entender como formatar texto corretamente para criar páginas web bem estruturadas.</p>
+            <p>Neste exercício, você vai aprender a trabalhar com imagens em HTML, explorando diferentes tipos de caminhos, formatos de imagem e boas práticas para otimização e acessibilidade.</p>
             
             <h3>O que você vai aprender:</h3>
             <ul>
-                <li>Como criar parágrafos com a tag <code>&lt;p&gt;</code></li>
-                <li>Usar quebras de linha com <code>&lt;br&gt;</code></li>
-                <li>Inserir símbolos especiais com entidades HTML</li>
-                <li>Trabalhar com emojis usando códigos Unicode</li>
-                <li>Entender como o HTML trata espaços em branco</li>
+                <li>Como inserir imagens com a tag <code>&lt;img&gt;</code></li>
+                <li>Diferença entre caminhos relativos e absolutos</li>
+                <li>Como usar URLs externas para imagens</li>
+                <li>Importância do atributo <code>alt</code> para acessibilidade</li>
+                <li>Organização de arquivos em pastas</li>
+                <li>Diferentes formatos de imagem (PNG, JPG, WebP)</li>
             </ul>
         </section>
 
@@ -565,126 +621,142 @@
 <span class="html-tag">&lt;head&gt;</span>
     <span class="html-tag">&lt;meta</span> <span class="html-attr">charset</span>=<span class="html-value">"UTF-8"</span><span class="html-tag">&gt;</span>
     <span class="html-tag">&lt;meta</span> <span class="html-attr">name</span>=<span class="html-value">"viewport"</span> <span class="html-attr">content</span>=<span class="html-value">"width=device-width, initial-scale=1.0"</span><span class="html-tag">&gt;</span>
-    <span class="html-tag">&lt;title&gt;</span><span class="html-text">Parágrafos</span><span class="html-tag">&lt;/title&gt;</span>
+    <span class="html-tag">&lt;title&gt;</span><span class="html-text">Teste com imagems</span><span class="html-tag">&lt;/title&gt;</span>
 <span class="html-tag">&lt;/head&gt;</span>
 <span class="html-tag">&lt;body&gt;</span>
-    <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Parágrafos e quebras de linha</span><span class="html-tag">&lt;/h1&gt;</span>
-    <span class="html-tag">&lt;hr&gt;</span>
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Você pode escrever um parágrafo de qualquer jeito basta colocar tudo no meio de par de tags </span><span class="html-text">&amp;lt;p&amp;gt;</span><span class="html-text"> e </span><span class="html-text">&amp;lt;/p&amp;gt;</span><span class="html-text">.</span><span class="html-comment">&lt;!--LESS THAN / GREATER THAN--&gt;</span>    
-    <span class="html-tag">&lt;/p&gt;</span>
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Se precisar quebrar
-        o texto em algum lugar
-        específico </span><span class="html-tag">&lt;br&gt;</span><span class="html-text"> como esse,
-        você pode usar a tag </span><span class="html-text">&amp;lt;br&amp;gt;</span><span class="html-text">. 
-    </span><span class="html-tag">&lt;/p&gt;</span>
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Vamos adicionar alguns símbolos especiais:
-        </span><span class="html-text">&amp;reg;</span>
-        <span class="html-text">&amp;copy;</span>
-        <span class="html-text">&amp;trade;</span>
-        <span class="html-text">&amp;euro;</span>
-        <span class="html-text">&amp;yen;</span>
-        <span class="html-text">&amp;cent;</span>
-        <span class="html-text">&amp;Delta;</span>
-        <span class="html-text">&amp;uarr;</span>
-    <span class="html-tag">&lt;/p&gt;</span>
-    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Vamos adicionar alguns emoji:
-       </span><span class="html-tag">&lt;h1&gt;</span><span class="html-text">Resposta correta: </span><span class="html-text">&amp;#x2705;</span><span class="html-tag">&lt;/h1&gt;</span>
-       <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Resposta errada: </span><span class="html-text">&amp;#x274C;</span><span class="html-tag">&lt;/h1&gt;</span>
-       <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Estou com fome de: </span><span class="html-text">&amp;#x1F354;</span><span class="html-tag">&lt;/h1&gt;</span>
-       <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Querooooooo....</span><span class="html-text">&amp;#x2615;</span><span class="html-tag">&lt;/h1&gt;</span>
-       <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Num dá maisssss... Eu num jogo mais </span><span class="html-text">&amp;#x1F35E;&amp;#x1F35E;&amp;#x1F35E;</span><span class="html-tag">&lt;/h1&gt;</span>
-    <span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;h1&gt;</span><span class="html-text">Testando carga e iamgems</span><span class="html-tag">&lt;/h1&gt;</span>
+    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Abaixo voce vai ver uma imagem que esta na mesma pasta</span><span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"logo-html.png"</span> <span class="html-attr">alt</span>=<span class="html-value">"Logo HTML 5"</span><span class="html-tag">&gt;</span>
+    
+    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Podemos tambem carregar imagems que estao em sub-pastas</span><span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"imagems/logo-css.png"</span> <span class="html-attr">alt</span>=<span class="html-value">"Logo CSS3"</span><span class="html-tag">&gt;</span>
+    
+    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Tambem podemos carregar imagems externas</span><span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"https://cdn.iconscout.com/icon/free/png-256/free-javascript-23-1174949.png"</span> <span class="html-attr">alt</span>=<span class="html-value">"Logo JavaScript"</span><span class="html-tag">&gt;</span>
+    
+    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Teste PUBG</span><span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"pubg-400.webp"</span> <span class="html-attr">alt</span>=<span class="html-value">"PUBG Game"</span><span class="html-tag">&gt;</span>
+    
+    <span class="html-tag">&lt;p&gt;</span><span class="html-text">Teste BLEACH ICHIGO</span><span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;img</span> <span class="html-attr">src</span>=<span class="html-value">"Bleach-200.jpg"</span> <span class="html-attr">alt</span>=<span class="html-value">"Bleach Ichigo"</span><span class="html-tag">&gt;</span>
 <span class="html-tag">&lt;/body&gt;</span>
 <span class="html-tag">&lt;/html&gt;</span></code></pre>
             </div>
         </section>
 
-        <!-- Explicação -->
+        <!-- Tipos de Caminhos -->
         <section class="content-section fade-in">
-            <h2>📖 Explicação Detalhada</h2>
+            <h2>📁 Tipos de Caminhos</h2>
             
-            <h3>📝 Parágrafos (&lt;p&gt;)</h3>
-            <p>A tag <code>&lt;p&gt;</code> é usada para criar parágrafos. O HTML ignora quebras de linha e espaços extras dentro do parágrafo, tratando tudo como um bloco contínuo de texto.</p>
-
-            <h3>🔄 Quebras de Linha (&lt;br&gt;)</h3>
-            <p>Quando você precisa forçar uma quebra de linha em um local específico, use a tag <code>&lt;br&gt;</code>. É uma tag vazia (não precisa de fechamento).</p>
-
-            <h3>🔤 Entidades HTML</h3>
-            <p>Para exibir caracteres especiais que têm significado no HTML (como &lt; e &gt;), usamos entidades HTML:</p>
-            <ul>
-                <li><code>&amp;lt;</code> = &lt; (less than)</li>
-                <li><code>&amp;gt;</code> = &gt; (greater than)</li>
-                <li><code>&amp;amp;</code> = &amp; (ampersand)</li>
-            </ul>
-        </section>
-
-        <!-- Símbolos Especiais -->
-        <section class="content-section fade-in">
-            <h2>🔣 Símbolos Especiais</h2>
-            <p>O HTML oferece muitas entidades para símbolos especiais:</p>
-            
-            <div class="symbols-grid">
-                <div class="symbol-card">
-                    <div class="symbol-display">®</div>
-                    <div class="symbol-code">&amp;reg;</div>
+            <div class="path-types">
+                <div class="path-type">
+                    <h4>🏠 Caminho Relativo - Mesma Pasta</h4>
+                    <p>Quando a imagem está na mesma pasta do arquivo HTML:</p>
+                    <div class="path-example">src="logo-html.png"</div>
+                    <p><strong>Vantagem:</strong> Simples e direto</p>
                 </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">©</div>
-                    <div class="symbol-code">&amp;copy;</div>
+                
+                <div class="path-type">
+                    <h4>📂 Caminho Relativo - Subpasta</h4>
+                    <p>Quando a imagem está em uma pasta dentro do projeto:</p>
+                    <div class="path-example">src="imagems/logo-css.png"</div>
+                    <p><strong>Vantagem:</strong> Organização melhor dos arquivos</p>
                 </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">™</div>
-                    <div class="symbol-code">&amp;trade;</div>
-                </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">€</div>
-                    <div class="symbol-code">&amp;euro;</div>
-                </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">¥</div>
-                    <div class="symbol-code">&amp;yen;</div>
-                </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">¢</div>
-                    <div class="symbol-code">&amp;cent;</div>
-                </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">Δ</div>
-                    <div class="symbol-code">&amp;Delta;</div>
-                </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">↑</div>
-                    <div class="symbol-code">&amp;uarr;</div>
+                
+                <div class="path-type">
+                    <h4>🌐 URL Externa</h4>
+                    <p>Quando a imagem está hospedada em outro servidor:</p>
+                    <div class="path-example">src="https://exemplo.com/imagem.png"</div>
+                    <p><strong>Cuidado:</strong> Dependência de servidor externo</p>
                 </div>
             </div>
         </section>
 
-        <!-- Emojis -->
+        <!-- Formatos de Imagem -->
         <section class="content-section fade-in">
-            <h2>😀 Emojis com Unicode</h2>
-            <p>Você pode inserir emojis usando códigos Unicode hexadecimais:</p>
+            <h2>🖼️ Formatos de Imagem</h2>
             
-            <div class="symbols-grid">
-                <div class="symbol-card">
-                    <div class="symbol-display">✅</div>
-                    <div class="symbol-code">&amp;#x2705;</div>
+            <div class="path-types">
+                <div class="path-type">
+                    <h4>📸 JPG/JPEG</h4>
+                    <p>Ideal para fotografias e imagens com muitas cores.</p>
+                    <ul>
+                        <li>Boa compressão</li>
+                        <li>Não suporta transparência</li>
+                        <li>Pode perder qualidade</li>
+                    </ul>
                 </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">❌</div>
-                    <div class="symbol-code">&amp;#x274C;</div>
+                
+                <div class="path-type">
+                    <h4>🎨 PNG</h4>
+                    <p>Ideal para logos, ícones e imagens com transparência.</p>
+                    <ul>
+                        <li>Suporta transparência</li>
+                        <li>Sem perda de qualidade</li>
+                        <li>Arquivos maiores</li>
+                    </ul>
                 </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">🍔</div>
-                    <div class="symbol-code">&amp;#x1F354;</div>
+                
+                <div class="path-type">
+                    <h4>⚡ WebP</h4>
+                    <p>Formato moderno com excelente compressão.</p>
+                    <ul>
+                        <li>Menor tamanho</li>
+                        <li>Suporta transparência</li>
+                        <li>Nem todos os navegadores suportam</li>
+                    </ul>
                 </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">☕</div>
-                    <div class="symbol-code">&amp;#x2615;</div>
+            </div>
+        </section>
+
+        <!-- Atributo Alt -->
+        <section class="content-section fade-in">
+            <h2>♿ Acessibilidade com Alt</h2>
+            
+            <p>O atributo <code>alt</code> é <strong>essencial</strong> para acessibilidade:</p>
+            
+            <ul>
+                <li><strong>Leitores de tela:</strong> Descrevem a imagem para pessoas com deficiência visual</li>
+                <li><strong>Conexão lenta:</strong> Texto aparece enquanto a imagem carrega</li>
+                <li><strong>SEO:</strong> Motores de busca entendem o conteúdo da imagem</li>
+                <li><strong>Erro de carregamento:</strong> Texto alternativo é exibido</li>
+            </ul>
+            
+            <h3>✅ Boas práticas para Alt:</h3>
+            <ul>
+                <li>Seja descritivo mas conciso</li>
+                <li>Não use "imagem de" ou "foto de"</li>
+                <li>Para imagens decorativas, use <code>alt=""</code></li>
+                <li>Descreva o conteúdo, não a aparência</li>
+            </ul>
+        </section>
+
+        <!-- Organização de Arquivos -->
+        <section class="content-section fade-in">
+            <h2>📋 Organização de Arquivos</h2>
+            
+            <p>Uma boa estrutura de pastas facilita a manutenção:</p>
+            
+            <div class="code-container">
+                <div class="code-header">
+                    <span class="code-title">📁 Estrutura Recomendada</span>
                 </div>
-                <div class="symbol-card">
-                    <div class="symbol-display">🍞</div>
-                    <div class="symbol-code">&amp;#x1F35E;</div>
-                </div>
+                <pre><code>projeto/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js
+├── images/ (ou img/)
+│   ├── logos/
+│   │   ├── logo-html.png
+│   │   └── logo-css.png
+│   ├── photos/
+│   │   └── hero-image.jpg
+│   └── icons/
+│       └── favicon.ico
+└── docs/
+    └── readme.md</code></pre>
             </div>
         </section>
 
@@ -692,48 +764,64 @@
         <section class="content-section fade-in">
             <h2>🧠 Conceitos Importantes</h2>
             
-            <h3>🔄 Whitespace Collapsing</h3>
-            <p>O HTML "colapsa" espaços em branco, ou seja, múltiplos espaços, tabs e quebras de linha são tratados como um único espaço.</p>
+            <h3>🔄 Responsividade</h3>
+            <p>Use CSS para tornar imagens responsivas:</p>
+            <div class="code-container">
+                <pre><code>img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+            </div>
             
-            <h3>📱 Acessibilidade</h3>
-            <p>Use parágrafos para organizar o conteúdo logicamente. Isso ajuda leitores de tela e melhora a experiência do usuário.</p>
+            <h3>⚡ Performance</h3>
+            <ul>
+                <li>Otimize o tamanho das imagens</li>
+                <li>Use formatos modernos (WebP)</li>
+                <li>Considere lazy loading para muitas imagens</li>
+                <li>Comprima imagens antes de usar</li>
+            </ul>
             
-            <h3>🎨 Semântica</h3>
-            <p>Cada parágrafo deve conter uma ideia completa. Não use <code>&lt;br&gt;</code> para criar espaçamento - isso é trabalho do CSS.</p>
+            <h3>🔒 Segurança</h3>
+            <ul>
+                <li>Cuidado com URLs externas</li>
+                <li>Verifique a origem das imagens</li>
+                <li>Considere hospedar imagens importantes localmente</li>
+            </ul>
         </section>
 
         <!-- Desafios -->
         <section class="content-section fade-in">
             <h2>🚀 Desafios Extras</h2>
             <ol>
-                <li>Crie um parágrafo sobre seu hobby favorito</li>
-                <li>Adicione símbolos de moeda de diferentes países</li>
-                <li>Experimente usar outros emojis com códigos Unicode</li>
-                <li>Crie um poema usando quebras de linha estratégicas</li>
-                <li>Adicione comentários HTML explicando cada seção</li>
+                <li>Crie uma galeria com 6 imagens diferentes</li>
+                <li>Organize as imagens em pastas por categoria</li>
+                <li>Adicione descrições alt significativas para cada imagem</li>
+                <li>Experimente diferentes formatos (JPG, PNG, WebP)</li>
+                <li>Crie uma página "Sobre" com sua foto e biografia</li>
+                <li>Use uma imagem externa como plano de fundo (com CSS)</li>
             </ol>
         </section>
 
         <!-- Botões de Ação -->
         <div class="btn-group">
-            <a href="../exercicios/ex002/index.html" class="btn" target="_blank">
+            <a href="../exercicios/ex003/index.html" class="btn" target="_blank">
                 👁️ Ver Resultado
             </a>
-            <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/exercicios/ex002" class="btn btn-secondary" target="_blank">
+            <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/exercicios/ex003" class="btn btn-secondary" target="_blank">
                 📁 Ver Código no GitHub
             </a>
         </div>
 
         <!-- Navegação -->
         <nav class="navigation">
-            <a href="ex001.html" class="nav-btn">
-                ⬅️ Exercício 001
+            <a href="ex002.html" class="nav-btn">
+                ⬅️ Exercício 002
             </a>
-            <a href="index.html" class="nav-btn">
+            <a href="../index.html" class="nav-btn">
                 🏠 Início
             </a>
-            <a href="ex003.html" class="nav-btn">
-                Próximo: Exercício 003 ➡️
+            <a href="ex004.html" class="nav-btn">
+                Próximo: Exercício 004 ➡️
             </a>
         </nav>
     </div>
