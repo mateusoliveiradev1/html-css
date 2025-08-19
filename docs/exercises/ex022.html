@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 022 - CSS Animações e Transições</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../navigation.css">
+    <script src="../navigation.js" defer></script>
+    <script src="../help-system.js" defer></script>
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --primary-dark: #5a67d8;
+            --primary-light: #e0e7ff;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --success-color: #48bb78;
+            --warning-color: #ed8936;
+            --error-color: #f56565;
+            --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --surface-color: rgba(255, 255, 255, 0.95);
+            --surface-glass: rgba(255, 255, 255, 0.1);
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --text-light: rgba(255, 255, 255, 0.9);
+            --border-color: rgba(255, 255, 255, 0.2);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background-gradient);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .exercise-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .exercise-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            to {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .exercise-header p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-card {
+            background: var(--surface-color);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-card:hover::before {
+            left: 100%;
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .objective-section, .content-section {
+            background: var(--surface-color);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .objective-section h2, .content-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .objective-section p, .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .animation-concepts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .concept-card {
+            background: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--accent-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .concept-card:hover {
+            transform: translateX(5px);
+            border-left-width: 6px;
+        }
+
+        .concept-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .concept-card code {
+            background: var(--primary-light);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: var(--primary-dark);
+        }
+
+        .demo-section {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            margin: 2rem 0;
+            border: 2px dashed var(--border-color);
+        }
+
+        .demo-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .animation-demos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .demo-card {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .demo-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .demo-element {
+            width: 80px;
+            height: 80px;
+            margin: 1rem auto;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Animações de demonstração */
+        .fade-demo {
+            background: var(--primary-color);
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-demo:hover {
+            opacity: 0.3;
+        }
+
+        .scale-demo {
+            background: var(--success-color);
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .scale-demo:hover {
+            transform: scale(1.3);
+        }
+
+        .rotate-demo {
+            background: var(--warning-color);
+            transition: transform 0.5s ease;
+        }
+
+        .rotate-demo:hover {
+            transform: rotate(360deg);
+        }
+
+        .slide-demo {
+            background: var(--error-color);
+            transition: transform 0.4s ease;
+        }
+
+        .slide-demo:hover {
+            transform: translateX(50px);
+        }
+
+        .bounce-demo {
+            background: var(--secondary-color);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .pulse-demo {
+            background: var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(240, 147, 251, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(240, 147, 251, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(240, 147, 251, 0);
+            }
+        }
+
+        .shake-demo {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .shake-demo:hover {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .flip-demo {
+            background: linear-gradient(45deg, var(--success-color), var(--warning-color));
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-demo:hover {
+            transform: rotateY(180deg);
+        }
+
+        .code-example {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        .interactive-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .control-group input, .control-group select {
+            padding: 0.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+
+        .control-group input:focus, .control-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .custom-animation-demo {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-color);
+            border-radius: var(--radius-sm);
+            margin: 2rem auto;
+            transition: all 0.3s ease;
+        }
+
+        .keyframes-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .keyframe-card {
+            background: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .keyframe-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .performance-tips {
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.1), rgba(72, 187, 120, 0.05));
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--success-color);
+            margin: 2rem 0;
+        }
+
+        .performance-tips h3 {
+            color: var(--success-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .tips-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--surface-glass);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--surface-color);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin-top: 4rem;
+            padding: 3rem 2rem 2rem;
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border-color);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer p {
+            color: var(--text-light);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .exercise-header h1 {
+                font-size: 2rem;
+            }
+
+            .exercise-header p {
+                font-size: 1rem;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .animation-demos {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .keyframes-examples {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .interactive-controls {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="exercise-header">
+            <h1>CSS Animações e Transições</h1>
+            <p>Domine a arte de criar interfaces dinâmicas e interativas com animações fluidas e transições elegantes</p>
+        </header>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>🎯 Objetivo</h3>
+                <p>Compreender transitions, animations, keyframes e como criar experiências visuais envolventes.</p>
+            </div>
+            <div class="info-card">
+                <h3>📚 Conceitos</h3>
+                <p>Transitions, animations, keyframes, timing functions, performance e boas práticas.</p>
+            </div>
+            <div class="info-card">
+                <h3>🛠️ Ferramentas</h3>
+                <p>CSS transitions, @keyframes, animation properties, transform, opacity e will-change.</p>
+            </div>
+        </div>
+
+        <section class="objective-section">
+            <h2>Conceitos Fundamentais</h2>
+            <p>As animações CSS permitem criar transições suaves entre estados e animações complexas sem JavaScript:</p>
+            
+            <div class="animation-concepts">
+                <div class="concept-card">
+                    <h4>Transitions</h4>
+                    <p>Transições suaves entre estados com <code>transition</code></p>
+                </div>
+                <div class="concept-card">
+                    <h4>Animations</h4>
+                    <p>Animações complexas usando <code>@keyframes</code></p>
+                </div>
+                <div class="concept-card">
+                    <h4>Transform</h4>
+                    <p>Transformações 2D/3D: scale, rotate, translate</p>
+                </div>
+                <div class="concept-card">
+                    <h4>Timing Functions</h4>
+                    <p>Controle da velocidade: ease, linear, cubic-bezier</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Demonstrações Interativas</h2>
+            <div class="demo-section">
+                <h3 class="demo-title">Passe o mouse sobre os elementos para ver as animações</h3>
+                
+                <div class="animation-demos">
+                    <div class="demo-card">
+                        <h4>Fade</h4>
+                        <div class="demo-element fade-demo">Fade</div>
+                        <p>Transição de opacidade</p>
+                    </div>
+
+                    <div class="demo-card">
+                        <h4>Scale</h4>
+                        <div class="demo-element scale-demo">Scale</div>
+                        <p>Mudança de tamanho</p>
+                    </div>
+
+                    <div class="demo-card">
+                        <h4>Rotate</h4>
+                        <div class="demo-element rotate-demo">Rotate</div>
+                        <p>Rotação completa</p>
+                    </div>
+
+                    <div class="demo-card">
+                        <h4>Slide</h4>
+                        <div class="demo-element slide-demo">Slide</div>
+                        <p>Movimento horizontal</p>
+                    </div>
+
+                    <div class="demo-card">
+                        <h4>Bounce</h4>
+                        <div class="demo-element bounce-demo">Bounce</div>
+                        <p>Animação contínua</p>
+                    </div>
+
+                    <div class="demo-card">
+                        <h4>Pulse</h4>
+                        <div class="demo-element pulse-demo">Pulse</div>
+                        <p>Efeito de pulsação</p>
+                    </div>
+
+                    <div class="demo-card">
+                        <h4>Shake</h4>
+                        <div class="demo-element shake-demo">Shake</div>
+                        <p>Efeito de tremor</p>
+                    </div>
+
+                    <div class="demo-card">
+                        <h4>Flip</h4>
+                        <div class="demo-element flip-demo">Flip</div>
+                        <p>Rotação 3D</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>CSS Transitions</h2>
+            <p>Transitions criam animações suaves entre estados de elementos:</p>
+            
+            <div class="code-example">
+/* Sintaxe básica das transitions */
+.elemento {
+    /* Propriedade a animar | Duração | Timing function | Delay */
+    transition: opacity 0.3s ease 0.1s;
+    
+    /* Múltiplas propriedades */
+    transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Shorthand para todas as propriedades */
+    transition: all 0.3s ease;
+}
+
+/* Estados diferentes */
+.elemento:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* Propriedades individuais */
+.elemento {
+    transition-property: transform, opacity;
+    transition-duration: 0.3s, 0.5s;
+    transition-timing-function: ease-out, ease-in;
+    transition-delay: 0s, 0.1s;
+}
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>CSS Animations e Keyframes</h2>
+            <p>Animations permitem criar sequências complexas de animação:</p>
+            
+            <div class="keyframes-examples">
+                <div class="keyframe-card">
+                    <h4>Bounce Animation</h4>
+                    <div class="code-example">
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+                    </div>
+                </div>
+
+                <div class="keyframe-card">
+                    <h4>Pulse Animation</h4>
+                    <div class="code-example">
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+                    </div>
+                </div>
+
+                <div class="keyframe-card">
+                    <h4>Fade In Up</h4>
+                    <div class="code-example">
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+                    </div>
+                </div>
+
+                <div class="keyframe-card">
+                    <h4>Rotate Scale</h4>
+                    <div class="code-example">
+@keyframes rotateScale {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.rotate-scale {
+    animation: rotateScale 2s ease-in-out infinite;
+}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Propriedades de Animation</h2>
+            <div class="code-example">
+/* Propriedades completas de animation */
+.elemento {
+    /* Nome da animação */
+    animation-name: minha-animacao;
+    
+    /* Duração */
+    animation-duration: 2s;
+    
+    /* Timing function */
+    animation-timing-function: ease-in-out;
+    
+    /* Delay */
+    animation-delay: 0.5s;
+    
+    /* Número de repetições */
+    animation-iteration-count: infinite; /* ou número específico */
+    
+    /* Direção */
+    animation-direction: alternate; /* normal, reverse, alternate, alternate-reverse */
+    
+    /* Fill mode */
+    animation-fill-mode: forwards; /* none, forwards, backwards, both */
+    
+    /* Play state */
+    animation-play-state: running; /* running, paused */
+    
+    /* Shorthand */
+    animation: minha-animacao 2s ease-in-out 0.5s infinite alternate forwards;
+}
+
+/* Múltiplas animações */
+.elemento {
+    animation: 
+        fadeIn 1s ease-out,
+        slideUp 0.8s ease-out 0.2s,
+        bounce 2s ease-in-out 1s infinite;
+}
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Timing Functions</h2>
+            <p>Controle a velocidade e o ritmo das animações:</p>
+            
+            <div class="code-example">
+/* Timing functions predefinidas */
+.linear { animation-timing-function: linear; }
+.ease { animation-timing-function: ease; }
+.ease-in { animation-timing-function: ease-in; }
+.ease-out { animation-timing-function: ease-out; }
+.ease-in-out { animation-timing-function: ease-in-out; }
+
+/* Cubic-bezier personalizada */
+.bounce-effect {
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.smooth {
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Steps para animações discretas */
+.typewriter {
+    animation-timing-function: steps(10, end);
+}
+
+/* Exemplos de cubic-bezier populares */
+.ease-out-back { animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.ease-in-back { animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045); }
+.ease-in-out-back { animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Controle Interativo</h2>
+            <div class="interactive-controls">
+                <div class="control-group">
+                    <label for="duration">Duração (s):</label>
+                    <input type="range" id="duration" min="0.1" max="3" step="0.1" value="1">
+                    <span id="duration-value">1s</span>
+                </div>
+                <div class="control-group">
+                    <label for="timing">Timing Function:</label>
+                    <select id="timing">
+                        <option value="ease">ease</option>
+                        <option value="linear">linear</option>
+                        <option value="ease-in">ease-in</option>
+                        <option value="ease-out">ease-out</option>
+                        <option value="ease-in-out">ease-in-out</option>
+                        <option value="cubic-bezier(0.68, -0.55, 0.265, 1.55)">bounce</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="iterations">Repetições:</label>
+                    <select id="iterations">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="infinite">infinite</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="direction">Direção:</label>
+                    <select id="direction">
+                        <option value="normal">normal</option>
+                        <option value="reverse">reverse</option>
+                        <option value="alternate">alternate</option>
+                        <option value="alternate-reverse">alternate-reverse</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="custom-animation-demo" id="custom-demo">Demo</div>
+        </section>
+
+        <div class="performance-tips">
+            <h3>Dicas de Performance</h3>
+            <ul class="tips-list">
+                <li>Use <code>transform</code> e <code>opacity</code> para animações mais fluidas</li>
+                <li>Evite animar propriedades que causam reflow (width, height, margin)</li>
+                <li>Use <code>will-change</code> para otimizar elementos que serão animados</li>
+                <li>Prefira <code>transform: translateZ(0)</code> para ativar aceleração de hardware</li>
+                <li>Use <code>animation-fill-mode: forwards</code> para manter o estado final</li>
+                <li>Teste performance em dispositivos móveis</li>
+                <li>Use <code>prefers-reduced-motion</code> para acessibilidade</li>
+                <li>Mantenha animações entre 200ms-500ms para boa UX</li>
+            </ul>
+        </div>
+
+        <section class="content-section">
+            <h2>Exercícios Práticos</h2>
+            <p>Pratique os conceitos aprendidos:</p>
+            <ol>
+                <li>Crie um botão com hover animado usando transitions</li>
+                <li>Implemente um loading spinner com keyframes</li>
+                <li>Faça uma animação de entrada para cards</li>
+                <li>Crie um menu hambúrguer animado</li>
+                <li>Implemente um carousel com transições suaves</li>
+                <li>Faça animações de scroll reveal</li>
+            </ol>
+        </section>
+
+        <div class="navigation-buttons">
+            <a href="ex021.html" class="btn btn-secondary">← Exercício Anterior</a>
+            <a href="../index.html" class="btn btn-primary">🏠 Início</a>
+            <a href="ex023.html" class="btn btn-secondary">Próximo Exercício →</a>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <h3>Parabéns! 🎉</h3>
+                <p>Você completou o exercício sobre CSS Animações e Transições. Continue praticando para criar interfaces cada vez mais dinâmicas e envolventes!</p>
+                <div class="footer-links">
+                    <a href="../index.html">Início</a>
+                    <a href="ex021.html">Anterior</a>
+                    <a href="ex023.html">Próximo</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Controle interativo da animação
+        const customDemo = document.getElementById('custom-demo');
+        const durationSlider = document.getElementById('duration');
+        const durationValue = document.getElementById('duration-value');
+        const timingSelect = document.getElementById('timing');
+        const iterationsSelect = document.getElementById('iterations');
+        const directionSelect = document.getElementById('direction');
+
+        // Keyframes para a demo personalizada
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes customAnimation {
+                0% {
+                    transform: translateX(0) rotate(0deg) scale(1);
+                    background: var(--primary-color);
+                }
+                25% {
+                    transform: translateX(50px) rotate(90deg) scale(1.1);
+                    background: var(--success-color);
+                }
+                50% {
+                    transform: translateX(50px) translateY(-30px) rotate(180deg) scale(1.2);
+                    background: var(--warning-color);
+                }
+                75% {
+                    transform: translateX(0) translateY(-30px) rotate(270deg) scale(1.1);
+                    background: var(--error-color);
+                }
+                100% {
+                    transform: translateX(0) rotate(360deg) scale(1);
+                    background: var(--primary-color);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        function updateAnimation() {
+            const duration = durationSlider.value;
+            const timing = timingSelect.value;
+            const iterations = iterationsSelect.value;
+            const direction = directionSelect.value;
+
+            durationValue.textContent = duration + 's';
+
+            customDemo.style.animation = 'none';
+            customDemo.offsetHeight; // Trigger reflow
+            customDemo.style.animation = `customAnimation ${duration}s ${timing} ${iterations} ${direction}`;
+        }
+
+        // Event listeners
+        durationSlider.addEventListener('input', updateAnimation);
+        timingSelect.addEventListener('change', updateAnimation);
+        iterationsSelect.addEventListener('change', updateAnimation);
+        directionSelect.addEventListener('change', updateAnimation);
+
+        // Inicializar
+        updateAnimation();
+
+        // Restart animation on click
+        customDemo.addEventListener('click', () => {
+            customDemo.style.animation = 'none';
+            customDemo.offsetHeight;
+            updateAnimation();
+        });
+    </script>
+</body>
+</html>

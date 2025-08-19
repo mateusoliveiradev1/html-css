@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 006 - Hierarquia de Títulos | HTML & CSS</title>
+    <meta
+      name="description"
+      content="Aprenda sobre a hierarquia de títulos em HTML (h1-h6) e sua importância para SEO e acessibilidade."
+    />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../navigation.css" />
+    <script src="../navigation.js" defer></script>
+    <script src="../help-system.js" defer></script>
+
+    <style>
+      /* Variáveis CSS */
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #f093fb;
+        --success-color: #48bb78;
+        --warning-color: #ed8936;
+        --danger-color: #f56565;
+        --text-color: #2d3748;
+        --text-light: #718096;
+        --bg-color: #f7fafc;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --border-color: rgba(255, 255, 255, 0.2);
+        --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --gradient-success: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        --glass-bg: rgba(255, 255, 255, 0.25);
+        --glass-border: rgba(255, 255, 255, 0.18);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background: var(--gradient-primary);
+        background-attachment: fixed;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(120, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(120, 219, 255, 0.2) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
+      }
+
+      /* Header */
+      .exercise-header {
+        background: linear-gradient(135deg, 
+          rgba(255, 255, 255, 0.4) 0%, 
+          rgba(255, 255, 255, 0.2) 50%, 
+          rgba(255, 255, 255, 0.3) 100%);
+        backdrop-filter: blur(25px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        padding: 80px 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 
+          0 25px 50px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+          0 0 100px rgba(102, 126, 234, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .exercise-title {
+        font-size: 4em;
+        font-weight: 900;
+        margin-bottom: 25px;
+        background: linear-gradient(135deg, 
+          #ffffff 0%, 
+          #f0f8ff 25%, 
+          #e6f3ff 50%, 
+          #ffffff 75%, 
+          #f0f8ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        z-index: 2;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        letter-spacing: -2px;
+        transition: all 0.3s ease;
+      }
+
+      .exercise-subtitle {
+        font-size: 1.4em;
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 40px;
+        position: relative;
+        z-index: 2;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .info-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .info-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 25px 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .info-card h3 {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.1em;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .info-card p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95em;
+        line-height: 1.4;
+      }
+
+      /* Seção de Objetivo */
+      .objective-section {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
+
+      .objective-section h2 {
+        color: var(--primary-color);
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .objective-section p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: var(--text-color);
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Seção de Conteúdo */
+      .content-section {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
+
+      .content-section h2 {
+        color: var(--primary-color);
+        font-size: 2em;
+        margin-bottom: 30px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .hierarchy-demo {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+        border-left: 5px solid var(--primary-color);
+      }
+
+      .hierarchy-demo h1 {
+        font-size: 2.5em;
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+
+      .hierarchy-demo h2 {
+        font-size: 2em;
+        color: #34495e;
+        margin: 20px 0 15px 20px;
+      }
+
+      .hierarchy-demo h3 {
+        font-size: 1.5em;
+        color: #5d6d7e;
+        margin: 15px 0 10px 40px;
+      }
+
+      .hierarchy-demo h4 {
+        font-size: 1.2em;
+        color: #7f8c8d;
+        margin: 10px 0 8px 60px;
+      }
+
+      .hierarchy-demo h5 {
+        font-size: 1em;
+        color: #95a5a6;
+        margin: 8px 0 5px 80px;
+      }
+
+      .hierarchy-demo h6 {
+        font-size: 0.9em;
+        color: #bdc3c7;
+        margin: 5px 0 5px 100px;
+      }
+
+      .tips-section {
+        background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+        border-left: 5px solid var(--success-color);
+      }
+
+      .tips-section h3 {
+        color: var(--success-color);
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .tips-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .tips-section li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+        line-height: 1.6;
+      }
+
+      .tips-section li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--success-color);
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
+      /* Responsividade */
+      @media (max-width: 768px) {
+        .exercise-header {
+          padding: 40px 30px;
+        }
+
+        .exercise-title {
+          font-size: 2.5em;
+        }
+
+        .exercise-subtitle {
+          font-size: 1.2em;
+        }
+
+        .info-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .objective-section,
+        .content-section {
+          padding: 30px 20px;
+        }
+
+        .hierarchy-demo {
+          padding: 20px;
+        }
+
+        .hierarchy-demo h1 {
+          font-size: 2em;
+        }
+
+        .hierarchy-demo h2 {
+          font-size: 1.6em;
+          margin-left: 10px;
+        }
+
+        .hierarchy-demo h3 {
+          font-size: 1.3em;
+          margin-left: 20px;
+        }
+
+        .hierarchy-demo h4 {
+          font-size: 1.1em;
+          margin-left: 30px;
+        }
+
+        .hierarchy-demo h5 {
+          font-size: 1em;
+          margin-left: 40px;
+        }
+
+        .hierarchy-demo h6 {
+          font-size: 0.9em;
+          margin-left: 50px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header do Exercício -->
+      <header class="exercise-header">
+        <h1 class="exercise-title">Exercício 006</h1>
+        <p class="exercise-subtitle">Hierarquia de Títulos em HTML</p>
+        
+        <div class="info-cards">
+          <div class="info-card">
+            <h3>📚 Conceito</h3>
+            <p>Tags h1 até h6</p>
+          </div>
+          <div class="info-card">
+            <h3>🎯 Foco</h3>
+            <p>Estrutura semântica</p>
+          </div>
+          <div class="info-card">
+            <h3>⏱️ Tempo</h3>
+            <p>15-20 minutos</p>
+          </div>
+          <div class="info-card">
+            <h3>📈 Nível</h3>
+            <p>Iniciante</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Seção de Objetivo -->
+      <section class="objective-section">
+        <h2>🎯 Objetivo do Exercício</h2>
+        <p>
+          Neste exercício, você aprenderá sobre a hierarquia de títulos em HTML, 
+          compreendendo a importância das tags h1 até h6 para a estruturação semântica 
+          do conteúdo e sua relevância para SEO e acessibilidade.
+        </p>
+      </section>
+
+      <!-- Seção de Conteúdo -->
+      <section class="content-section">
+        <h2>📖 Hierarquia de Títulos</h2>
+        
+        <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em; line-height: 1.8;">
+          As tags de título (h1 a h6) são fundamentais para criar uma estrutura hierárquica 
+          clara em documentos HTML. Elas não apenas organizam visualmente o conteúdo, 
+          mas também fornecem informações semânticas importantes para navegadores, 
+          mecanismos de busca e tecnologias assistivas.
+        </p>
+
+        <div class="hierarchy-demo">
+          <h1>h1 - Título Principal</h1>
+          <h2>h2 - Título de Seção</h2>
+          <h3>h3 - Subtítulo</h3>
+          <h4>h4 - Título de Subseção</h4>
+          <h5>h5 - Título Menor</h5>
+          <h6>h6 - Título Mínimo</h6>
+        </div>
+
+        <div class="tips-section">
+          <h3>💡 Dicas Importantes</h3>
+          <ul>
+            <li><strong>Use apenas um h1 por página:</strong> O h1 deve representar o título principal do conteúdo</li>
+            <li><strong>Mantenha a hierarquia:</strong> Não pule níveis (ex: h1 → h3 sem h2)</li>
+            <li><strong>Seja descritivo:</strong> Os títulos devem descrever claramente o conteúdo da seção</li>
+            <li><strong>Pense em SEO:</strong> Títulos bem estruturados melhoram o ranking nos buscadores</li>
+            <li><strong>Considere a acessibilidade:</strong> Leitores de tela usam títulos para navegação</li>
+            <li><strong>Estilize com CSS:</strong> Use CSS para aparência, não escolha tags por tamanho visual</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

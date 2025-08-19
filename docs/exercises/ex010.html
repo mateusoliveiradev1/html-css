@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 010 - Imagens em HTML | HTML & CSS</title>
+    <meta
+      name="description"
+      content="Aprenda sobre imagens em HTML: tag img, atributos alt, src, width, height, figure, figcaption e responsividade."
+    />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../navigation.css" />
+    <script src="../navigation.js" defer></script>
+    <script src="../help-system.js" defer></script>
+
+    <style>
+      /* Variáveis CSS */
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #f093fb;
+        --success-color: #48bb78;
+        --warning-color: #ed8936;
+        --danger-color: #f56565;
+        --text-color: #2d3748;
+        --text-light: #718096;
+        --bg-color: #f7fafc;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --border-color: rgba(255, 255, 255, 0.2);
+        --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --gradient-success: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        --glass-bg: rgba(255, 255, 255, 0.25);
+        --glass-border: rgba(255, 255, 255, 0.18);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background: var(--gradient-primary);
+        background-attachment: fixed;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(120, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(120, 219, 255, 0.2) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
+      }
+
+      /* Header */
+      .exercise-header {
+        background: linear-gradient(135deg, 
+          rgba(255, 255, 255, 0.4) 0%, 
+          rgba(255, 255, 255, 0.2) 50%, 
+          rgba(255, 255, 255, 0.3) 100%);
+        backdrop-filter: blur(25px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        padding: 80px 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 
+          0 25px 50px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+          0 0 100px rgba(102, 126, 234, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .exercise-title {
+        font-size: 4em;
+        font-weight: 900;
+        margin-bottom: 25px;
+        background: linear-gradient(135deg, 
+          #ffffff 0%, 
+          #f0f8ff 25%, 
+          #e6f3ff 50%, 
+          #ffffff 75%, 
+          #f0f8ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        z-index: 2;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        letter-spacing: -2px;
+        transition: all 0.3s ease;
+      }
+
+      .exercise-subtitle {
+        font-size: 1.4em;
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 40px;
+        position: relative;
+        z-index: 2;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .info-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .info-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 25px 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .info-card h3 {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.1em;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .info-card p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95em;
+        line-height: 1.4;
+      }
+
+      /* Seção de Objetivo */
+      .objective-section {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
+
+      .objective-section h2 {
+        color: var(--primary-color);
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .objective-section p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: var(--text-color);
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Seção de Conteúdo */
+      .content-section {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
+
+      .content-section h2 {
+        color: var(--primary-color);
+        font-size: 2em;
+        margin-bottom: 30px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .images-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin: 30px 0;
+      }
+
+      .image-example {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 25px;
+        border-left: 5px solid var(--primary-color);
+      }
+
+      .image-example h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.3em;
+      }
+
+      .image-example .description {
+        color: var(--text-light);
+        margin-bottom: 15px;
+        font-size: 0.95em;
+        line-height: 1.5;
+      }
+
+      .image-example .demo {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #e1e4e8;
+        text-align: center;
+      }
+
+      .image-example .code {
+        background: #f1f3f4;
+        padding: 15px;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+        color: #d73a49;
+        border: 1px solid #e1e4e8;
+        overflow-x: auto;
+      }
+
+      .placeholder-img {
+        width: 200px;
+        height: 150px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        margin: 10px auto;
+      }
+
+      .responsive-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .figure-demo {
+        background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+        border-radius: 15px;
+        padding: 25px;
+        margin: 30px 0;
+        border-left: 5px solid var(--success-color);
+      }
+
+      .figure-demo h3 {
+        color: var(--success-color);
+        margin-bottom: 15px;
+        font-size: 1.3em;
+      }
+
+      .figure-demo figure {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 15px 0;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .figure-demo figcaption {
+        margin-top: 10px;
+        color: var(--text-light);
+        font-style: italic;
+        font-size: 0.9em;
+      }
+
+      .tips-section {
+        background: linear-gradient(135deg, #fff3cd 0%, #fef9e7 100%);
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+        border-left: 5px solid var(--warning-color);
+      }
+
+      .tips-section h3 {
+        color: var(--warning-color);
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .tips-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .tips-section li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+        line-height: 1.6;
+      }
+
+      .tips-section li::before {
+        content: "🖼️";
+        position: absolute;
+        left: 0;
+        font-size: 1.2em;
+      }
+
+      /* Responsividade */
+      @media (max-width: 768px) {
+        .exercise-header {
+          padding: 40px 30px;
+        }
+
+        .exercise-title {
+          font-size: 2.5em;
+        }
+
+        .exercise-subtitle {
+          font-size: 1.2em;
+        }
+
+        .info-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .objective-section,
+        .content-section {
+          padding: 30px 20px;
+        }
+
+        .images-demo {
+          grid-template-columns: 1fr;
+        }
+
+        .image-example {
+          padding: 20px;
+        }
+
+        .placeholder-img {
+          width: 150px;
+          height: 100px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header do Exercício -->
+      <header class="exercise-header">
+        <h1 class="exercise-title">Exercício 010</h1>
+        <p class="exercise-subtitle">Imagens em HTML</p>
+        
+        <div class="info-cards">
+          <div class="info-card">
+            <h3>🖼️ Conceito</h3>
+            <p>Tag img e atributos</p>
+          </div>
+          <div class="info-card">
+            <h3>🎯 Foco</h3>
+            <p>Conteúdo visual</p>
+          </div>
+          <div class="info-card">
+            <h3>⏱️ Tempo</h3>
+            <p>30-35 minutos</p>
+          </div>
+          <div class="info-card">
+            <h3>📈 Nível</h3>
+            <p>Iniciante</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Seção de Objetivo -->
+      <section class="objective-section">
+        <h2>🎯 Objetivo do Exercício</h2>
+        <p>
+          Neste exercício, você aprenderá sobre imagens em HTML, incluindo a tag img, 
+          atributos essenciais como src e alt, dimensionamento, responsividade, 
+          e elementos semânticos como figure e figcaption para criar conteúdo visual 
+          acessível e bem estruturado.
+        </p>
+      </section>
+
+      <!-- Seção de Conteúdo -->
+      <section class="content-section">
+        <h2>📖 Trabalhando com Imagens</h2>
+        
+        <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em; line-height: 1.8;">
+          As imagens são elementos fundamentais na web moderna, tornando o conteúdo mais 
+          atrativo e informativo. É essencial saber como implementá-las corretamente, 
+          considerando performance, acessibilidade e responsividade.
+        </p>
+
+        <div class="images-demo">
+          <div class="image-example">
+            <h3>Imagem Básica</h3>
+            <div class="description">
+              A estrutura mais simples de uma imagem, com src (fonte) 
+              e alt (texto alternativo) obrigatórios.
+            </div>
+            <div class="demo">
+              <div class="placeholder-img">Imagem Exemplo</div>
+            </div>
+            <div class="code">&lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;</div>
+          </div>
+
+          <div class="image-example">
+            <h3>Imagem com Dimensões</h3>
+            <div class="description">
+              Especificando largura e altura para controlar o tamanho 
+              da imagem e evitar layout shifts.
+            </div>
+            <div class="demo">
+              <div class="placeholder-img" style="width: 150px; height: 100px;">150x100</div>
+            </div>
+            <div class="code">&lt;img src="imagem.jpg" alt="Descrição" width="150" height="100"&gt;</div>
+          </div>
+
+          <div class="image-example">
+            <h3>Imagem Responsiva</h3>
+            <div class="description">
+              Usando CSS para tornar a imagem responsiva, 
+              adaptando-se ao tamanho do container.
+            </div>
+            <div class="demo">
+              <div class="placeholder-img responsive-img">Responsiva</div>
+            </div>
+            <div class="code">&lt;img src="imagem.jpg" alt="Descrição" class="responsive"&gt;
+
+.responsive {
+  max-width: 100%;
+  height: auto;
+}</div>
+          </div>
+
+          <div class="image-example">
+            <h3>Imagem com Title</h3>
+            <div class="description">
+              O atributo title adiciona uma tooltip que aparece 
+              quando o usuário passa o mouse sobre a imagem.
+            </div>
+            <div class="demo">
+              <div class="placeholder-img" title="Esta é uma tooltip!">Passe o mouse</div>
+            </div>
+            <div class="code">&lt;img src="imagem.jpg" alt="Descrição" title="Tooltip da imagem"&gt;</div>
+          </div>
+
+          <div class="image-example">
+            <h3>Imagem como Link</h3>
+            <div class="description">
+              Envolvendo a imagem com uma tag &lt;a&gt; para 
+              torná-la clicável e navegável.
+            </div>
+            <div class="demo">
+              <a href="#" style="display: inline-block;">
+                <div class="placeholder-img">Clicável</div>
+              </a>
+            </div>
+            <div class="code">&lt;a href="pagina.html"&gt;
+  &lt;img src="imagem.jpg" alt="Descrição"&gt;
+&lt;/a&gt;</div>
+          </div>
+
+          <div class="image-example">
+            <h3>Lazy Loading</h3>
+            <div class="description">
+              O atributo loading="lazy" faz com que a imagem 
+              seja carregada apenas quando necessário.
+            </div>
+            <div class="demo">
+              <div class="placeholder-img">Lazy Load</div>
+            </div>
+            <div class="code">&lt;img src="imagem.jpg" alt="Descrição" loading="lazy"&gt;</div>
+          </div>
+        </div>
+
+        <div class="figure-demo">
+          <h3>🖼️ Elemento Figure e Figcaption</h3>
+          <p style="margin-bottom: 15px; color: var(--text-light);">
+            Use &lt;figure&gt; e &lt;figcaption&gt; para imagens que precisam de legenda:
+          </p>
+          
+          <figure>
+            <div class="placeholder-img">Gráfico de Vendas</div>
+            <figcaption>Figura 1: Crescimento das vendas no último trimestre</figcaption>
+          </figure>
+
+          <div class="code" style="margin-top: 15px;">&lt;figure&gt;
+  &lt;img src="grafico.jpg" alt="Gráfico mostrando crescimento das vendas"&gt;
+  &lt;figcaption&gt;Figura 1: Crescimento das vendas no último trimestre&lt;/figcaption&gt;
+&lt;/figure&gt;</div>
+        </div>
+
+        <div class="tips-section">
+          <h3>💡 Dicas Importantes</h3>
+          <ul>
+            <li><strong>Alt text obrigatório:</strong> Sempre inclua texto alternativo descritivo para acessibilidade</li>
+            <li><strong>Otimize imagens:</strong> Use formatos adequados (JPEG, PNG, WebP) e comprima para web</li>
+            <li><strong>Dimensões corretas:</strong> Especifique width e height para evitar layout shifts</li>
+            <li><strong>Responsividade:</strong> Use max-width: 100% e height: auto para imagens responsivas</li>
+            <li><strong>Lazy loading:</strong> Use loading="lazy" para imagens abaixo da dobra</li>
+            <li><strong>Formatos modernos:</strong> Considere WebP e AVIF para melhor compressão</li>
+            <li><strong>Figure para contexto:</strong> Use figure/figcaption quando a imagem precisa de legenda</li>
+            <li><strong>Alt vazio para decoração:</strong> Use alt="" para imagens puramente decorativas</li>
+            <li><strong>Caminhos relativos:</strong> Prefira caminhos relativos para facilitar manutenção</li>
+            <li><strong>Fallbacks:</strong> Considere usar &lt;picture&gt; para múltiplos formatos e tamanhos</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

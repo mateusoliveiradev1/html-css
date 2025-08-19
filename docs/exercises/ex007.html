@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercício 003 - Formatação de Texto | HTML & CSS</title>
+    <title>Exercício 007 - Listas | HTML & CSS</title>
     <meta
       name="description"
-      content="Terceiro exercício de HTML: formatação de texto, tags de ênfase e estruturação semântica."
+      content="Sétimo exercício de HTML: criação de listas ordenadas, não ordenadas e de definição."
     />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../navigation.css" />
@@ -254,14 +254,67 @@
         font-weight: 600;
       }
 
-      .format-grid {
+      .list-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin: 30px 0;
+      }
+
+      .list-example {
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        border: 1px solid var(--glass-border);
+        border-radius: 15px;
+        padding: 30px;
+        transition: all 0.3s ease;
+      }
+
+      .list-example:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .list-example h4 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .list-example ul,
+      .list-example ol,
+      .list-example dl {
+        margin: 15px 0;
+        padding-left: 20px;
+      }
+
+      .list-example li {
+        margin-bottom: 8px;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      .list-example dt {
+        font-weight: 600;
+        color: var(--text-color);
+        margin-top: 10px;
+      }
+
+      .list-example dd {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        color: var(--text-light);
+      }
+
+      .list-types {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
         margin: 20px 0;
       }
 
-      .format-item {
+      .list-type {
         background: var(--glass-bg);
         backdrop-filter: blur(15px);
         border: 1px solid var(--glass-border);
@@ -270,18 +323,18 @@
         transition: all 0.3s ease;
       }
 
-      .format-item:hover {
+      .list-type:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       }
 
-      .format-item h4 {
+      .list-type h4 {
         color: var(--primary-color);
         margin-bottom: 15px;
         font-size: 1.2rem;
       }
 
-      .format-item code {
+      .list-type code {
         background: rgba(0, 0, 0, 0.1);
         padding: 2px 6px;
         border-radius: 4px;
@@ -336,7 +389,8 @@
           padding: 25px;
         }
 
-        .format-grid {
+        .list-grid,
+        .list-types {
           grid-template-columns: 1fr;
         }
       }
@@ -347,131 +401,230 @@
     <div class="container">
       <!-- Header -->
       <header class="exercise-header">
-        <h1>✨ Exercício 003</h1>
-        <p>Formatação de Texto em HTML</p>
+        <h1>📋 Exercício 007</h1>
+        <p>Listas em HTML</p>
       </header>
 
       <!-- Informações principais -->
       <section class="info-card">
-        <h2>🎨 Sobre este Exercício</h2>
+        <h2>📝 Sobre este Exercício</h2>
         <p>
-          Neste terceiro exercício, você aprenderá como formatar texto em HTML 
-          usando tags semânticas. Vamos explorar diferentes formas de dar ênfase, 
-          importância e significado ao texto.
+          Neste sétimo exercício, você aprenderá como criar diferentes tipos de 
+          listas em HTML. As listas são fundamentais para organizar informações 
+          de forma estruturada e hierárquica.
         </p>
         <p>
-          A formatação semântica não apenas melhora a aparência visual, mas também 
-          torna o conteúdo mais acessível e compreensível para leitores de tela 
-          e mecanismos de busca.
+          Vamos explorar listas ordenadas, não ordenadas e listas de definição, 
+          cada uma com suas características e usos específicos.
         </p>
       </section>
 
-      <!-- Tags de formatação -->
+      <!-- Tipos de listas -->
       <section class="content-section">
-        <h3>🏷️ Tags de Formatação Básica</h3>
+        <h3>📋 Tipos de Listas</h3>
         <p>
-          HTML oferece várias tags para formatar texto. Vamos conhecer as 
-          principais e entender quando usar cada uma:
+          HTML oferece três tipos principais de listas, cada uma adequada 
+          para diferentes situações:
         </p>
         
-        <div class="format-grid">
-          <div class="format-item">
-            <h4><strong>Negrito</strong></h4>
-            <p><code>&lt;strong&gt;</code> - Importância forte</p>
-            <p><code>&lt;b&gt;</code> - Apenas visual</p>
-            <p><strong>Exemplo:</strong> <strong>Texto importante</strong></p>
+        <div class="list-types">
+          <div class="list-type">
+            <h4>📌 Lista Não Ordenada</h4>
+            <p><code>&lt;ul&gt;</code> - Unordered List</p>
+            <p>Para itens sem ordem específica</p>
+            <p><strong>Marcadores:</strong> •, ○, ■</p>
           </div>
           
-          <div class="format-item">
-            <h4><em>Itálico</em></h4>
-            <p><code>&lt;em&gt;</code> - Ênfase semântica</p>
-            <p><code>&lt;i&gt;</code> - Apenas visual</p>
-            <p><strong>Exemplo:</strong> <em>Texto enfatizado</em></p>
+          <div class="list-type">
+            <h4>🔢 Lista Ordenada</h4>
+            <p><code>&lt;ol&gt;</code> - Ordered List</p>
+            <p>Para itens com sequência lógica</p>
+            <p><strong>Numeração:</strong> 1, 2, 3... ou A, B, C...</p>
           </div>
           
-          <div class="format-item">
-            <h4><u>Sublinhado</u></h4>
-            <p><code>&lt;u&gt;</code> - Texto sublinhado</p>
-            <p><strong>Exemplo:</strong> <u>Texto sublinhado</u></p>
-          </div>
-          
-          <div class="format-item">
-            <h4><small>Texto Pequeno</small></h4>
-            <p><code>&lt;small&gt;</code> - Texto menor</p>
-            <p><strong>Exemplo:</strong> <small>Texto pequeno</small></p>
+          <div class="list-type">
+            <h4>📖 Lista de Definição</h4>
+            <p><code>&lt;dl&gt;</code> - Definition List</p>
+            <p>Para termos e suas definições</p>
+            <p><strong>Estrutura:</strong> termo + descrição</p>
           </div>
         </div>
       </section>
 
-      <!-- Exemplo prático -->
+      <!-- Exemplos práticos -->
       <section class="content-section">
-        <h3>💻 Exemplo Prático</h3>
+        <h3>💻 Exemplos Práticos</h3>
         <p>
-          Vamos criar um texto com diferentes formatações para ver 
-          como cada tag funciona na prática:
+          Vamos ver como cada tipo de lista funciona na prática:
+        </p>
+        
+        <div class="list-grid">
+          <div class="list-example">
+            <h4>📌 Lista Não Ordenada</h4>
+            <div class="code-example">
+&lt;ul&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;HTML&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;CSS&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;JavaScript&lt;/li&gt;<br>
+&lt;/ul&gt;
+            </div>
+            <p><strong>Resultado:</strong></p>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+          
+          <div class="list-example">
+            <h4>🔢 Lista Ordenada</h4>
+            <div class="code-example">
+&lt;ol&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Aprender HTML&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Estudar CSS&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Praticar JavaScript&lt;/li&gt;<br>
+&lt;/ol&gt;
+            </div>
+            <p><strong>Resultado:</strong></p>
+            <ol>
+              <li>Aprender HTML</li>
+              <li>Estudar CSS</li>
+              <li>Praticar JavaScript</li>
+            </ol>
+          </div>
+          
+          <div class="list-example">
+            <h4>📖 Lista de Definição</h4>
+            <div class="code-example">
+&lt;dl&gt;<br>
+&nbsp;&nbsp;&lt;dt&gt;HTML&lt;/dt&gt;<br>
+&nbsp;&nbsp;&lt;dd&gt;Linguagem de marcação&lt;/dd&gt;<br>
+&nbsp;&nbsp;&lt;dt&gt;CSS&lt;/dt&gt;<br>
+&nbsp;&nbsp;&lt;dd&gt;Folhas de estilo&lt;/dd&gt;<br>
+&lt;/dl&gt;
+            </div>
+            <p><strong>Resultado:</strong></p>
+            <dl>
+              <dt>HTML</dt>
+              <dd>Linguagem de marcação</dd>
+              <dt>CSS</dt>
+              <dd>Folhas de estilo</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- Listas aninhadas -->
+      <section class="info-card">
+        <h2>🔗 Listas Aninhadas</h2>
+        <p>
+          Você pode criar listas dentro de outras listas para organizar 
+          informações hierarquicamente:
         </p>
         <div class="code-example">
-&lt;h1&gt;Meu Artigo sobre HTML&lt;/h1&gt;<br><br>
-&lt;p&gt;<br>
-&nbsp;&nbsp;O &lt;strong&gt;HTML&lt;/strong&gt; é uma linguagem &lt;em&gt;fundamental&lt;/em&gt; <br>
-&nbsp;&nbsp;para desenvolvimento web. É &lt;u&gt;muito importante&lt;/u&gt; <br>
-&nbsp;&nbsp;aprender suas tags básicas.<br>
-&lt;/p&gt;<br><br>
-&lt;p&gt;<br>
-&nbsp;&nbsp;&lt;small&gt;Nota: Este é apenas um exemplo didático.&lt;/small&gt;<br>
-&lt;/p&gt;
+&lt;ul&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Frontend<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;HTML&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;CSS&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;JavaScript&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+&nbsp;&nbsp;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;Backend<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Node.js&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Python&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+&nbsp;&nbsp;&lt;/li&gt;<br>
+&lt;/ul&gt;
         </div>
       </section>
 
-      <!-- Diferenças semânticas -->
-      <section class="info-card">
-        <h2>🧠 Diferenças Semânticas</h2>
-        <p>
-          <strong>&lt;strong&gt; vs &lt;b&gt;:</strong> Use &lt;strong&gt; quando o texto 
-          tem importância real. Use &lt;b&gt; apenas para estilo visual.
-        </p>
-        <p>
-          <strong>&lt;em&gt; vs &lt;i&gt;:</strong> Use &lt;em&gt; para ênfase que muda 
-          o significado. Use &lt;i&gt; para termos técnicos ou estrangeiros.
-        </p>
-        <p>
-          <strong>Acessibilidade:</strong> Tags semânticas ajudam leitores de tela 
-          a interpretar corretamente o conteúdo para usuários com deficiência visual.
-        </p>
-      </section>
-
-      <!-- Tags especiais -->
+      <!-- Atributos especiais -->
       <section class="content-section">
-        <h3>🔧 Tags Especiais</h3>
+        <h3>⚙️ Atributos Especiais</h3>
         <p>
-          Além das tags básicas, HTML oferece outras opções para 
-          formatação específica:
+          As listas ordenadas possuem atributos que permitem personalizar 
+          a numeração:
         </p>
         
-        <div class="format-grid">
-          <div class="format-item">
-            <h4>Marca-texto</h4>
-            <p><code>&lt;mark&gt;</code> - Destaca texto</p>
-            <p><strong>Exemplo:</strong> <mark style="background: yellow; padding: 2px;">Texto destacado</mark></p>
+        <div class="list-types">
+          <div class="list-type">
+            <h4>type="1"</h4>
+            <p>Numeração decimal (padrão)</p>
+            <p><strong>Exemplo:</strong> 1, 2, 3, 4...</p>
           </div>
           
-          <div class="format-item">
-            <h4>Texto Deletado</h4>
-            <p><code>&lt;del&gt;</code> - Texto removido</p>
-            <p><strong>Exemplo:</strong> <del>Texto deletado</del></p>
+          <div class="list-type">
+            <h4>type="A"</h4>
+            <p>Letras maiúsculas</p>
+            <p><strong>Exemplo:</strong> A, B, C, D...</p>
           </div>
           
-          <div class="format-item">
-            <h4>Texto Inserido</h4>
-            <p><code>&lt;ins&gt;</code> - Texto adicionado</p>
-            <p><strong>Exemplo:</strong> <ins style="text-decoration: underline;">Texto inserido</ins></p>
+          <div class="list-type">
+            <h4>type="a"</h4>
+            <p>Letras minúsculas</p>
+            <p><strong>Exemplo:</strong> a, b, c, d...</p>
           </div>
           
-          <div class="format-item">
-            <h4>Sobrescrito</h4>
-            <p><code>&lt;sup&gt;</code> - Texto superior</p>
-            <p><strong>Exemplo:</strong> E=mc<sup>2</sup></p>
+          <div class="list-type">
+            <h4>type="I"</h4>
+            <p>Números romanos maiúsculos</p>
+            <p><strong>Exemplo:</strong> I, II, III, IV...</p>
           </div>
+          
+          <div class="list-type">
+            <h4>type="i"</h4>
+            <p>Números romanos minúsculos</p>
+            <p><strong>Exemplo:</strong> i, ii, iii, iv...</p>
+          </div>
+          
+          <div class="list-type">
+            <h4>start="5"</h4>
+            <p>Inicia a numeração em 5</p>
+            <p><strong>Exemplo:</strong> 5, 6, 7, 8...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exemplo completo -->
+      <section class="content-section">
+        <h3>🎯 Exemplo Completo</h3>
+        <p>
+          Vamos criar uma página com diferentes tipos de listas:
+        </p>
+        <div class="code-example">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="pt-br"&gt;<br>
+&lt;head&gt;<br>
+&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+&nbsp;&nbsp;&lt;title&gt;Minhas Listas&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&lt;h1&gt;Guia de Estudos&lt;/h1&gt;<br><br>
+&nbsp;&nbsp;&lt;h2&gt;Tecnologias para Aprender&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;HTML5&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;CSS3&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;JavaScript&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;React&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br><br>
+&nbsp;&nbsp;&lt;h2&gt;Plano de Estudos&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;ol&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Dominar HTML básico&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Aprender CSS fundamentals&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Estudar JavaScript&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Construir projetos&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ol&gt;<br><br>
+&nbsp;&nbsp;&lt;h2&gt;Glossário&lt;/h2&gt;<br>
+&nbsp;&nbsp;&lt;dl&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;dt&gt;HTML&lt;/dt&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;HyperText Markup Language&lt;/dd&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;dt&gt;CSS&lt;/dt&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;<br>
+&nbsp;&nbsp;&lt;/dl&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
         </div>
       </section>
 
@@ -479,20 +632,20 @@
       <section class="info-card">
         <h2>📋 Boas Práticas</h2>
         <p>
-          <strong>Semântica primeiro:</strong> Sempre escolha tags baseadas no 
-          significado, não na aparência visual.
+          <strong>Use o tipo certo:</strong> Escolha o tipo de lista baseado no 
+          conteúdo - ordenada para sequências, não ordenada para coleções.
         </p>
         <p>
-          <strong>Use CSS para estilo:</strong> Para formatação puramente visual, 
-          prefira CSS em vez de tags HTML.
+          <strong>Mantenha consistência:</strong> Use o mesmo estilo de lista 
+          para conteúdos similares em toda a página.
         </p>
         <p>
-          <strong>Teste a acessibilidade:</strong> Verifique como leitores de tela 
-          interpretam seu conteúdo formatado.
+          <strong>Evite listas muito longas:</strong> Considere dividir listas 
+          extensas em seções menores.
         </p>
         <p>
-          <strong>Não exagere:</strong> Use formatação com moderação para não 
-          poluir visualmente o texto.
+          <strong>Use CSS para estilização:</strong> Prefira CSS para personalizar 
+          a aparência das listas em vez de atributos HTML.
         </p>
       </section>
 
@@ -500,9 +653,9 @@
       <footer class="exercise-footer">
         <h3>🏆 Missão Cumprida</h3>
         <p>
-          Fantástico! Você dominou as principais tags de formatação de texto em HTML. 
-          Agora você pode criar conteúdo mais rico e semanticamente correto. 
-          Continue praticando e explorando novas possibilidades!
+          Excelente! Você dominou a criação de listas em HTML. Agora você pode 
+          organizar informações de forma clara e estruturada. Continue praticando 
+          e explorando diferentes combinações de listas!
         </p>
       </footer>
     </div>

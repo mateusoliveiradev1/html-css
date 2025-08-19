@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 017 - CSS Tipografia | HTML & CSS</title>
+    <meta
+      name="description"
+      content="Décimo sétimo exercício de HTML: explorando tipografia avançada em CSS com fontes, espaçamento e hierarquia."
+    />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../navigation.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="../navigation.js" defer></script>
+    <script src="../help-system.js" defer></script>
+
+    <style>
+      /* Variáveis CSS */
+      :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --accent-color: #f093fb;
+        --success-color: #48bb78;
+        --warning-color: #ed8936;
+        --danger-color: #f56565;
+        --text-color: #2d3748;
+        --text-light: #718096;
+        --bg-color: #f7fafc;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --border-color: rgba(255, 255, 255, 0.2);
+        --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --gradient-success: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        --glass-bg: rgba(255, 255, 255, 0.25);
+        --glass-border: rgba(255, 255, 255, 0.18);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background: var(--gradient-primary);
+        background-attachment: fixed;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(120, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(120, 219, 255, 0.2) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
+      }
+
+      /* Header */
+      .exercise-header {
+        background: linear-gradient(135deg, 
+          rgba(255, 255, 255, 0.4) 0%, 
+          rgba(255, 255, 255, 0.2) 50%, 
+          rgba(255, 255, 255, 0.3) 100%);
+        backdrop-filter: blur(25px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        padding: 80px 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .exercise-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      .exercise-header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: var(--gradient-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .exercise-header p {
+        font-size: 1.3rem;
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto;
+        font-weight: 500;
+      }
+
+      /* Cards */
+      .info-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .info-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-accent);
+        border-radius: 20px 20px 0 0;
+      }
+
+      .info-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .info-card h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--text-color);
+        font-weight: 700;
+      }
+
+      .info-card p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        margin-bottom: 15px;
+        line-height: 1.8;
+      }
+
+      /* Content sections */
+      .content-section {
+        background: var(--card-bg);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .content-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .content-section h3 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        color: var(--primary-color);
+        font-weight: 600;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .content-section h3::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 30px;
+        background: var(--gradient-accent);
+        border-radius: 2px;
+      }
+
+      .content-section p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        margin-bottom: 15px;
+        line-height: 1.8;
+      }
+
+      .code-example {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        font-family: 'Fira Code', 'Courier New', monospace;
+        overflow-x: auto;
+        position: relative;
+      }
+
+      .code-example::before {
+        content: 'CSS';
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: var(--gradient-accent);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: bold;
+      }
+
+      .highlight {
+        background: linear-gradient(135deg, var(--accent-color), var(--warning-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 600;
+      }
+
+      /* Typography Demos */
+      .typography-demo {
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        border: 1px solid var(--glass-border);
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+      }
+
+      .font-showcase {
+        display: grid;
+        gap: 30px;
+        margin: 20px 0;
+      }
+
+      .font-example {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        padding: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .font-example h4 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .font-example .sample-text {
+        margin: 15px 0;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 8px;
+        border-left: 4px solid var(--gradient-accent);
+      }
+
+      /* Font Family Examples */
+      .serif-example {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+      .sans-serif-example {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.6;
+      }
+
+      .monospace-example {
+        font-family: 'Fira Code', monospace;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        background: #1a1a1a;
+        color: #00ff00;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      /* Font Weight Examples */
+      .weight-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .weight-example {
+        text-align: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .weight-example:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .weight-100 { font-weight: 100; }
+      .weight-300 { font-weight: 300; }
+      .weight-400 { font-weight: 400; }
+      .weight-500 { font-weight: 500; }
+      .weight-600 { font-weight: 600; }
+      .weight-700 { font-weight: 700; }
+      .weight-900 { font-weight: 900; }
+
+      /* Font Size Examples */
+      .size-showcase {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .size-example {
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        border-left: 4px solid var(--gradient-primary);
+      }
+
+      .size-12 { font-size: 0.75rem; }
+      .size-14 { font-size: 0.875rem; }
+      .size-16 { font-size: 1rem; }
+      .size-18 { font-size: 1.125rem; }
+      .size-20 { font-size: 1.25rem; }
+      .size-24 { font-size: 1.5rem; }
+      .size-32 { font-size: 2rem; }
+      .size-48 { font-size: 3rem; }
+
+      /* Line Height Examples */
+      .line-height-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .line-height-example {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .line-height-example h5 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .lh-tight { line-height: 1.2; }
+      .lh-normal { line-height: 1.5; }
+      .lh-relaxed { line-height: 1.8; }
+      .lh-loose { line-height: 2.0; }
+
+      /* Letter Spacing Examples */
+      .letter-spacing-showcase {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .letter-spacing-example {
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .ls-tight { letter-spacing: -0.05em; }
+      .ls-normal { letter-spacing: 0; }
+      .ls-wide { letter-spacing: 0.1em; }
+      .ls-wider { letter-spacing: 0.2em; }
+      .ls-widest { letter-spacing: 0.3em; }
+
+      /* Text Transform Examples */
+      .text-transform-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .transform-example {
+        padding: 20px;
+        background: var(--gradient-accent);
+        color: white;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .transform-example:hover {
+        transform: scale(1.05);
+      }
+
+      .text-uppercase { text-transform: uppercase; }
+      .text-lowercase { text-transform: lowercase; }
+      .text-capitalize { text-transform: capitalize; }
+      .text-none { text-transform: none; }
+
+      /* Text Decoration Examples */
+      .text-decoration-showcase {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .decoration-example {
+        padding: 15px 25px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .decoration-example:hover {
+        background: rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .text-underline { text-decoration: underline; }
+      .text-overline { text-decoration: overline; }
+      .text-line-through { text-decoration: line-through; }
+      .text-no-decoration { text-decoration: none; }
+
+      /* Text Alignment Examples */
+      .text-align-showcase {
+        display: grid;
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .align-example {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .text-left { text-align: left; }
+      .text-center { text-align: center; }
+      .text-right { text-align: right; }
+      .text-justify { text-align: justify; }
+
+      /* Typography Hierarchy */
+      .hierarchy-demo {
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        border: 1px solid var(--glass-border);
+        border-radius: 15px;
+        padding: 40px;
+        margin: 30px 0;
+      }
+
+      .hierarchy-demo h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+
+      .hierarchy-demo h2 {
+        font-family: 'Inter', sans-serif;
+        font-size: 2.25rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin: 30px 0 15px 0;
+        line-height: 1.3;
+      }
+
+      .hierarchy-demo h3 {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.875rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin: 25px 0 12px 0;
+        line-height: 1.4;
+      }
+
+      .hierarchy-demo h4 {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--text-color);
+        margin: 20px 0 10px 0;
+        line-height: 1.4;
+      }
+
+      .hierarchy-demo p {
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--text-light);
+        line-height: 1.7;
+        margin-bottom: 15px;
+      }
+
+      .hierarchy-demo .lead {
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .hierarchy-demo .small {
+        font-size: 0.875rem;
+        color: var(--text-light);
+        line-height: 1.5;
+      }
+
+      /* Footer */
+      .exercise-footer {
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 40px;
+        margin-top: 60px;
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+
+      .exercise-footer h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--text-color);
+      }
+
+      .exercise-footer p {
+        color: var(--text-light);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+
+        .exercise-header {
+          padding: 40px 30px;
+        }
+
+        .exercise-header h1 {
+          font-size: 2.5rem;
+        }
+
+        .exercise-header p {
+          font-size: 1.1rem;
+        }
+
+        .info-card,
+        .content-section,
+        .exercise-footer {
+          padding: 25px;
+        }
+
+        .weight-showcase {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+
+        .line-height-showcase {
+          grid-template-columns: 1fr;
+        }
+
+        .text-transform-showcase {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+
+        .hierarchy-demo h1 {
+          font-size: 2.5rem;
+        }
+
+        .hierarchy-demo h2 {
+          font-size: 2rem;
+        }
+
+        .hierarchy-demo h3 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="exercise-header">
+        <h1>✍️ Exercício 017</h1>
+        <p>CSS Tipografia</p>
+      </header>
+
+      <!-- Informações principais -->
+      <section class="info-card">
+        <h2>📝 Sobre este Exercício</h2>
+        <p>
+          Neste décimo sétimo exercício, você dominará a arte da tipografia em CSS. 
+          Aprenderá sobre famílias de fontes, pesos, tamanhos, espaçamento e como 
+          criar hierarquias visuais eficazes.
+        </p>
+        <p>
+          A tipografia é fundamental para a comunicação visual e a experiência 
+          do usuário. Vamos explorar todas as propriedades que tornam o texto 
+          legível, atraente e funcional.
+        </p>
+      </section>
+
+      <!-- Famílias de Fontes -->
+      <section class="content-section">
+        <h3>🔤 Famílias de Fontes</h3>
+        <p>
+          CSS oferece diferentes tipos de famílias de fontes, cada uma com 
+          características específicas para diferentes contextos:
+        </p>
+        
+        <div class="code-example">
+/* Serif - com serifas, elegante para títulos */<br>
+font-family: 'Playfair Display', serif;<br>
+<br>
+/* Sans-serif - sem serifas, moderna e legível */<br>
+font-family: 'Inter', sans-serif;<br>
+<br>
+/* Monospace - espaçamento fixo, ideal para código */<br>
+font-family: 'Fira Code', monospace;<br>
+<br>
+/* Fallback stack completo */<br>
+font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        </div>
+        
+        <div class="typography-demo">
+          <div class="font-showcase">
+            <div class="font-example">
+              <h4>🎭 Serif - Elegante e Clássica</h4>
+              <div class="sample-text serif-example">
+                "A tipografia é a arte e técnica de arranjar tipos de forma a tornar a linguagem escrita legível, legível e atraente quando exibida."
+              </div>
+              <p><strong>Uso:</strong> Títulos, textos longos, design editorial</p>
+            </div>
+            
+            <div class="font-example">
+              <h4>🔧 Sans-serif - Moderna e Limpa</h4>
+              <div class="sample-text sans-serif-example">
+                A tipografia sans-serif é caracterizada pela ausência de serifas (pequenos traços decorativos). É amplamente utilizada em interfaces digitais devido à sua excelente legibilidade em telas.
+              </div>
+              <p><strong>Uso:</strong> Interfaces, textos de corpo, navegação</p>
+            </div>
+            
+            <div class="font-example">
+              <h4>💻 Monospace - Espaçamento Fixo</h4>
+              <div class="sample-text monospace-example">
+function calculateTypography() {<br>
+&nbsp;&nbsp;const fontSize = '16px';<br>
+&nbsp;&nbsp;const lineHeight = 1.6;<br>
+&nbsp;&nbsp;return { fontSize, lineHeight };<br>
+}
+              </div>
+              <p><strong>Uso:</strong> Código, dados tabulares, terminais</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Peso das Fontes -->
+      <section class="content-section">
+        <h3>💪 Peso das Fontes (Font Weight)</h3>
+        <p>
+          O peso da fonte determina a espessura dos caracteres, criando 
+          hierarquia e ênfase visual:
+        </p>
+        
+        <div class="code-example">
+/* Valores numéricos (100-900) */<br>
+font-weight: 100; /* Thin */<br>
+font-weight: 300; /* Light */<br>
+font-weight: 400; /* Normal/Regular */<br>
+font-weight: 500; /* Medium */<br>
+font-weight: 600; /* Semi-bold */<br>
+font-weight: 700; /* Bold */<br>
+font-weight: 900; /* Black */<br>
+<br>
+/* Valores nomeados */<br>
+font-weight: normal;  /* 400 */<br>
+font-weight: bold;    /* 700 */<br>
+font-weight: lighter; /* Relativo ao pai */<br>
+font-weight: bolder;  /* Relativo ao pai */
+        </div>
+        
+        <div class="typography-demo">
+          <h4>📊 Escala de Pesos</h4>
+          <div class="weight-showcase">
+            <div class="weight-example weight-100">
+              <strong>100</strong><br>
+              Thin
+            </div>
+            <div class="weight-example weight-300">
+              <strong>300</strong><br>
+              Light
+            </div>
+            <div class="weight-example weight-400">
+              <strong>400</strong><br>
+              Regular
+            </div>
+            <div class="weight-example weight-500">
+              <strong>500</strong><br>
+              Medium
+            </div>
+            <div class="weight-example weight-600">
+              <strong>600</strong><br>
+              Semi-bold
+            </div>
+            <div class="weight-example weight-700">
+              <strong>700</strong><br>
+              Bold
+            </div>
+            <div class="weight-example weight-900">
+              <strong>900</strong><br>
+              Black
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tamanho das Fontes -->
+      <section class="content-section">
+        <h3>📏 Tamanho das Fontes (Font Size)</h3>
+        <p>
+          O tamanho da fonte é crucial para legibilidade e hierarquia visual. 
+          Use unidades relativas para melhor responsividade:
+        </p>
+        
+        <div class="code-example">
+/* Unidades absolutas */<br>
+font-size: 16px;  /* Pixels - fixo */<br>
+font-size: 12pt;  /* Points - impressão */<br>
+<br>
+/* Unidades relativas (recomendado) */<br>
+font-size: 1rem;    /* Relativo ao root */<br>
+font-size: 1.2em;   /* Relativo ao pai */<br>
+font-size: 100%;    /* Percentual */<br>
+<br>
+/* Unidades de viewport */<br>
+font-size: 4vw;     /* 4% da largura da tela */<br>
+font-size: 2vh;     /* 2% da altura da tela */
+        </div>
+        
+        <div class="typography-demo">
+          <h4>📐 Escala Tipográfica</h4>
+          <div class="size-showcase">
+            <div class="size-example size-12">
+              <strong>12px (0.75rem)</strong> - Texto muito pequeno, notas de rodapé
+            </div>
+            <div class="size-example size-14">
+              <strong>14px (0.875rem)</strong> - Texto pequeno, legendas
+            </div>
+            <div class="size-example size-16">
+              <strong>16px (1rem)</strong> - Texto base, corpo do documento
+            </div>
+            <div class="size-example size-18">
+              <strong>18px (1.125rem)</strong> - Texto de destaque, leads
+            </div>
+            <div class="size-example size-20">
+              <strong>20px (1.25rem)</strong> - Subtítulos pequenos
+            </div>
+            <div class="size-example size-24">
+              <strong>24px (1.5rem)</strong> - Subtítulos médios
+            </div>
+            <div class="size-example size-32">
+              <strong>32px (2rem)</strong> - Títulos grandes
+            </div>
+            <div class="size-example size-48">
+              <strong>48px (3rem)</strong> - Títulos principais
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Altura da Linha -->
+      <section class="content-section">
+        <h3>📏 Altura da Linha (Line Height)</h3>
+        <p>
+          A altura da linha afeta diretamente a legibilidade e o ritmo visual 
+          do texto. É o espaço vertical entre as linhas:
+        </p>
+        
+        <div class="code-example">
+/* Valores sem unidade (recomendado) */<br>
+line-height: 1.2;   /* Apertado - títulos */<br>
+line-height: 1.5;   /* Normal - texto base */<br>
+line-height: 1.8;   /* Relaxado - leitura longa */<br>
+<br>
+/* Valores com unidade */<br>
+line-height: 24px;  /* Absoluto */<br>
+line-height: 1.5em; /* Relativo ao font-size */<br>
+line-height: 150%;  /* Percentual */
+        </div>
+        
+        <div class="typography-demo">
+          <h4>📖 Comparação de Line Heights</h4>
+          <div class="line-height-showcase">
+            <div class="line-height-example">
+              <h5>Line Height: 1.2 (Apertado)</h5>
+              <p class="lh-tight">
+                Este texto tem line-height apertado (1.2). É ideal para títulos 
+                e cabeçalhos onde queremos economia de espaço vertical. Não é 
+                recomendado para textos longos pois pode prejudicar a legibilidade.
+              </p>
+            </div>
+            
+            <div class="line-height-example">
+              <h5>Line Height: 1.5 (Normal)</h5>
+              <p class="lh-normal">
+                Este texto tem line-height normal (1.5). É o padrão recomendado 
+                para a maioria dos textos de corpo. Oferece boa legibilidade 
+                sem ocupar espaço excessivo na página.
+              </p>
+            </div>
+            
+            <div class="line-height-example">
+              <h5>Line Height: 1.8 (Relaxado)</h5>
+              <p class="lh-relaxed">
+                Este texto tem line-height relaxado (1.8). É excelente para 
+                textos longos e leitura prolongada, pois o espaço extra entre 
+                as linhas reduz a fadiga visual.
+              </p>
+            </div>
+            
+            <div class="line-height-example">
+              <h5>Line Height: 2.0 (Muito Relaxado)</h5>
+              <p class="lh-loose">
+                Este texto tem line-height muito relaxado (2.0). Usado em 
+                contextos especiais onde se deseja muito espaço entre linhas, 
+                como em textos poéticos ou designs minimalistas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Espaçamento entre Letras -->
+      <section class="content-section">
+        <h3>🔤 Espaçamento entre Letras (Letter Spacing)</h3>
+        <p>
+          O letter-spacing controla o espaço horizontal entre caracteres, 
+          afetando a densidade e o ritmo visual do texto:
+        </p>
+        
+        <div class="code-example">
+/* Valores em em (recomendado) */<br>
+letter-spacing: -0.05em; /* Apertado */<br>
+letter-spacing: 0;       /* Normal */<br>
+letter-spacing: 0.1em;   /* Espaçado */<br>
+letter-spacing: 0.2em;   /* Muito espaçado */<br>
+<br>
+/* Valores em pixels */<br>
+letter-spacing: -1px;    /* Apertado */<br>
+letter-spacing: 2px;     /* Espaçado */
+        </div>
+        
+        <div class="typography-demo">
+          <h4>🎯 Variações de Letter Spacing</h4>
+          <div class="letter-spacing-showcase">
+            <div class="letter-spacing-example ls-tight">
+              ESPAÇAMENTO APERTADO (-0.05em)
+            </div>
+            <div class="letter-spacing-example ls-normal">
+              ESPAÇAMENTO NORMAL (0)
+            </div>
+            <div class="letter-spacing-example ls-wide">
+              ESPAÇAMENTO LARGO (0.1em)
+            </div>
+            <div class="letter-spacing-example ls-wider">
+              ESPAÇAMENTO MAIS LARGO (0.2em)
+            </div>
+            <div class="letter-spacing-example ls-widest">
+              ESPAÇAMENTO MÁXIMO (0.3em)
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Transformação de Texto -->
+      <section class="content-section">
+        <h3>🔄 Transformação de Texto</h3>
+        <p>
+          A propriedade text-transform permite alterar a capitalização do 
+          texto sem modificar o HTML:
+        </p>
+        
+        <div class="code-example">
+/* Transformações de texto */<br>
+text-transform: uppercase;   /* MAIÚSCULAS */<br>
+text-transform: lowercase;   /* minúsculas */<br>
+text-transform: capitalize;  /* Primeira Letra Maiúscula */<br>
+text-transform: none;        /* Sem transformação */
+        </div>
+        
+        <div class="typography-demo">
+          <h4>🎭 Exemplos de Transformação</h4>
+          <div class="text-transform-showcase">
+            <div class="transform-example text-uppercase">
+              texto em maiúsculas
+            </div>
+            <div class="transform-example text-lowercase">
+              TEXTO EM MINÚSCULAS
+            </div>
+            <div class="transform-example text-capitalize">
+              primeira letra maiúscula
+            </div>
+            <div class="transform-example text-none">
+              Texto SEM transformação
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Decoração de Texto -->
+      <section class="content-section">
+        <h3>✨ Decoração de Texto</h3>
+        <p>
+          A propriedade text-decoration adiciona linhas decorativas ao texto:
+        </p>
+        
+        <div class="code-example">
+/* Decorações de texto */<br>
+text-decoration: underline;      /* Sublinhado */<br>
+text-decoration: overline;       /* Linha superior */<br>
+text-decoration: line-through;   /* Riscado */<br>
+text-decoration: none;           /* Sem decoração */<br>
+<br>
+/* Decoração personalizada */<br>
+text-decoration: underline wavy red; /* Sublinhado ondulado vermelho */
+        </div>
+        
+        <div class="typography-demo">
+          <h4>🎨 Tipos de Decoração</h4>
+          <div class="text-decoration-showcase">
+            <div class="decoration-example text-underline">
+              Texto Sublinhado
+            </div>
+            <div class="decoration-example text-overline">
+              Texto com Linha Superior
+            </div>
+            <div class="decoration-example text-line-through">
+              Texto Riscado
+            </div>
+            <div class="decoration-example text-no-decoration">
+              Texto Sem Decoração
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Alinhamento de Texto -->
+      <section class="content-section">
+        <h3>📐 Alinhamento de Texto</h3>
+        <p>
+          A propriedade text-align controla o alinhamento horizontal do texto 
+          dentro de seu contêiner:
+        </p>
+        
+        <div class="code-example">
+/* Alinhamentos de texto */<br>
+text-align: left;      /* Alinhado à esquerda */<br>
+text-align: center;    /* Centralizado */<br>
+text-align: right;     /* Alinhado à direita */<br>
+text-align: justify;   /* Justificado */
+        </div>
+        
+        <div class="typography-demo">
+          <h4>🎯 Tipos de Alinhamento</h4>
+          <div class="text-align-showcase">
+            <div class="align-example text-left">
+              <strong>Alinhado à Esquerda:</strong> Este texto está alinhado à esquerda. É o padrão para textos em português e a maioria dos idiomas ocidentais. Oferece boa legibilidade para textos longos.
+            </div>
+            
+            <div class="align-example text-center">
+              <strong>Centralizado:</strong> Este texto está centralizado. Ideal para títulos, citações curtas e elementos que precisam de destaque visual. Não recomendado para textos longos.
+            </div>
+            
+            <div class="align-example text-right">
+              <strong>Alinhado à Direita:</strong> Este texto está alinhado à direita. Usado em contextos específicos como assinaturas, datas ou quando se quer criar um efeito visual particular.
+            </div>
+            
+            <div class="align-example text-justify">
+              <strong>Justificado:</strong> Este texto está justificado, ou seja, alinhado tanto à esquerda quanto à direita. O espaçamento entre palavras é ajustado para que todas as linhas tenham a mesma largura. Comum em textos impressos e publicações.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hierarquia Tipográfica -->
+      <section class="content-section">
+        <h3>🏗️ Hierarquia Tipográfica</h3>
+        <p>
+          Uma boa hierarquia tipográfica guia o leitor através do conteúdo, 
+          criando ordem visual e facilitando a compreensão:
+        </p>
+        
+        <div class="hierarchy-demo">
+          <h1>Título Principal (H1)</h1>
+          <p class="lead">
+            Este é um parágrafo de destaque (lead) que introduz o conteúdo principal. 
+            Geralmente é maior que o texto normal e serve como ponte entre o título e o corpo do texto.
+          </p>
+          
+          <h2>Título Secundário (H2)</h2>
+          <p>
+            Este é um parágrafo normal que compõe o corpo do texto. Deve ter boa 
+            legibilidade e espaçamento adequado para leitura confortável. O tamanho 
+            base recomendado é 16px ou 1rem.
+          </p>
+          
+          <h3>Subtítulo (H3)</h3>
+          <p>
+            Os subtítulos ajudam a organizar o conteúdo em seções menores, 
+            facilitando a navegação e compreensão do texto.
+          </p>
+          
+          <h4>Subtítulo Menor (H4)</h4>
+          <p>
+            Usado para subdivisões ainda menores do conteúdo, mantendo a 
+            hierarquia visual clara.
+          </p>
+          
+          <p class="small">
+            Este é um texto pequeno, usado para informações secundárias, 
+            notas de rodapé ou detalhes menos importantes.
+          </p>
+        </div>
+      </section>
+
+      <!-- Dicas Práticas -->
+      <section class="info-card">
+        <h2>💡 Dicas Práticas de Tipografia</h2>
+        <p>
+          <strong>🎯 Legibilidade:</strong>
+        </p>
+        <ul style="margin-left: 20px; margin-top: 10px; margin-bottom: 20px;">
+          <li>Use no máximo 2-3 famílias de fontes por projeto</li>
+          <li>Mantenha line-height entre 1.4-1.6 para textos de corpo</li>
+          <li>Evite textos muito longos em uma única linha (45-75 caracteres)</li>
+          <li>Garanta contraste adequado entre texto e fundo</li>
+        </ul>
+        
+        <p>
+          <strong>🎨 Hierarquia Visual:</strong>
+        </p>
+        <ul style="margin-left: 20px; margin-top: 10px; margin-bottom: 20px;">
+          <li>Use escala tipográfica consistente (1.2x, 1.5x, 2x)</li>
+          <li>Combine peso e tamanho para criar contraste</li>
+          <li>Mantenha espaçamento consistente entre elementos</li>
+          <li>Use cores para reforçar a hierarquia</li>
+        </ul>
+        
+        <p>
+          <strong>📱 Responsividade:</strong>
+        </p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+          <li>Use unidades relativas (rem, em) em vez de pixels</li>
+          <li>Ajuste tamanhos para diferentes dispositivos</li>
+          <li>Teste legibilidade em telas pequenas</li>
+          <li>Considere orientação do dispositivo</li>
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer class="exercise-footer">
+        <h3>🎓 Tipografia Dominada</h3>
+        <p>
+          Parabéns! Você agora domina os fundamentos da tipografia em CSS. 
+          Com essas técnicas, você pode criar textos legíveis, hierarquias 
+          claras e designs tipográficos profissionais. Continue praticando 
+          e experimentando com diferentes combinações!
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

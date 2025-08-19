@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 024 - CSS Avançado e Boas Práticas | HTML & CSS</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../navigation.css">
+    <script src="../navigation.js" defer></script>
+    <script src="../help-system.js" defer></script>
+    <style>
+        :root {
+            /* Cores principais */
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary-color: #64748b;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            
+            /* Cores de fundo */
+            --background-color: #f8fafc;
+            --surface-color: #ffffff;
+            --surface-secondary: #f1f5f9;
+            
+            /* Cores de texto */
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            
+            /* Bordas */
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            /* Sombras */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            /* Raios de borda */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            
+            /* Tipografia */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--background-color) 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Cabeçalho do exercício */
+        .exercise-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exercise-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .exercise-header h1 {
+            font-size: var(--font-size-4xl);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .exercise-header p {
+            font-size: var(--font-size-xl);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Cards de informação */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-card {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Seções de conteúdo */
+        .content-section {
+            background: var(--surface-color);
+            margin-bottom: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--surface-secondary) 0%, var(--border-light) 100%);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+        }
+
+        .section-content {
+            padding: 2rem;
+        }
+
+        /* Seção de objetivo */
+        .objective-section {
+            background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .objective-section h2 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .objective-section p {
+            font-size: var(--font-size-lg);
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Grid de exemplos */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .example-card {
+            background: var(--surface-color);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .example-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .example-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .example-content {
+            padding: 1.5rem;
+        }
+
+        .example-demo {
+            background: var(--surface-secondary);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin: 1rem 0;
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Demonstrações específicas */
+        .flexbox-demo {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .flex-item {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .grid-item {
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .responsive-demo {
+            background: var(--success-color);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .responsive-demo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Código */
+        pre {
+            background: var(--surface-secondary);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary-color);
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 1rem 0;
+        }
+
+        code {
+            background: var(--surface-secondary);
+            padding: 0.2rem 0.4rem;
+            border-radius: var(--radius-sm);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        /* Lista de boas práticas */
+        .best-practices {
+            list-style: none;
+            padding: 0;
+        }
+
+        .best-practices li {
+            background: var(--surface-secondary);
+            margin-bottom: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--success-color);
+            position: relative;
+        }
+
+        .best-practices li::before {
+            content: '✓';
+            position: absolute;
+            left: 0.5rem;
+            top: 1rem;
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .best-practices li strong {
+            color: var(--primary-color);
+        }
+
+        /* Botões */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--surface-color);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        }
+
+        .footer h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .exercise-header {
+                padding: 2rem 1rem;
+            }
+
+            .exercise-header h1 {
+                font-size: var(--font-size-3xl);
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-demo {
+                grid-template-columns: 1fr;
+            }
+
+            .flexbox-demo {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="exercise-header">
+            <h1>Exercício 024 - CSS Avançado e Boas Práticas</h1>
+            <p>Domine técnicas avançadas de CSS e aprenda as melhores práticas para criar código limpo, eficiente e maintível</p>
+        </header>
+
+        <section class="objective-section">
+            <h2>🎯 Objetivo do Exercício</h2>
+            <p>Neste exercício final, você consolidará todo o conhecimento adquirido sobre CSS, explorando técnicas avançadas, metodologias de organização, otimização de performance e boas práticas para desenvolvimento profissional.</p>
+        </section>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>🏗️ Arquitetura CSS</h3>
+                <p>Aprenda metodologias como BEM, SMACSS e Atomic CSS para organizar e estruturar seu código de forma escalável.</p>
+            </div>
+            <div class="info-card">
+                <h3>⚡ Performance</h3>
+                <p>Domine técnicas de otimização, lazy loading, critical CSS e outras estratégias para melhorar a performance.</p>
+            </div>
+            <div class="info-card">
+                <h3>🎨 Design Systems</h3>
+                <p>Implemente sistemas de design consistentes usando variáveis CSS, tokens e componentes reutilizáveis.</p>
+            </div>
+        </div>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Flexbox Avançado</h2>
+                <p>Técnicas avançadas de layout com Flexbox</p>
+            </div>
+            <div class="section-content">
+                <div class="example-demo flexbox-demo">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+                <pre><code>/* Flexbox avançado */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.item {
+    flex: 1 1 300px; /* grow shrink basis */
+    min-width: 0; /* permite shrinking */
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2>CSS Grid Avançado</h2>
+                <p>Layouts complexos com CSS Grid</p>
+            </div>
+            <div class="section-content">
+                <div class="example-demo grid-demo">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                </div>
+                <pre><code>/* Grid avançado */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    gap: 1rem;
+}
+
+/* Grid areas nomeadas */
+.layout {
+    grid-template-areas:
+        "header header header"
+        "sidebar main aside"
+        "footer footer footer";
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Design Responsivo Avançado</h2>
+                <p>Técnicas modernas de responsividade</p>
+            </div>
+            <div class="section-content">
+                <div class="example-demo">
+                    <div class="responsive-demo">Elemento Responsivo</div>
+                </div>
+                <pre><code>/* Container queries (futuro) */
+@container (min-width: 400px) {
+    .card {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+/* Clamp para tipografia fluida */
+.title {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Media queries modernas */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+    }
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Boas Práticas de CSS</h2>
+                <p>Diretrizes para código CSS profissional</p>
+            </div>
+            <div class="section-content">
+                <ul class="best-practices">
+                    <li><strong>Organize com metodologias:</strong> Use BEM, SMACSS ou Atomic CSS para estruturar seu código</li>
+                    <li><strong>Variáveis CSS:</strong> Centralize valores em custom properties para facilitar manutenção</li>
+                    <li><strong>Mobile First:</strong> Comece o design pelos dispositivos móveis e expanda para desktop</li>
+                    <li><strong>Performance:</strong> Minimize reflows, use transform/opacity para animações</li>
+                    <li><strong>Acessibilidade:</strong> Respeite prefers-reduced-motion e mantenha contraste adequado</li>
+                    <li><strong>Semântica:</strong> Use seletores semânticos e evite !important desnecessário</li>
+                    <li><strong>Modularidade:</strong> Crie componentes reutilizáveis e independentes</li>
+                    <li><strong>Documentação:</strong> Comente código complexo e mantenha style guides</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Variáveis CSS e Design Tokens</h2>
+                <p>Sistema de design escalável</p>
+            </div>
+            <div class="section-content">
+                <pre><code>/* Design System com CSS Variables */
+:root {
+    /* Cores semânticas */
+    --color-primary: #2563eb;
+    --color-secondary: #64748b;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    
+    /* Espaçamento */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    
+    /* Tipografia */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* Tema escuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #1e293b;
+        --color-text: #f1f5f9;
+    }
+}</code></pre>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <h3>Parabéns! 🎉</h3>
+        <p>Você completou todos os exercícios de HTML e CSS! Agora você possui uma base sólida para criar websites modernos, responsivos e acessíveis. Continue praticando e explorando novas tecnologias!</p>
+        <div class="footer-links">
+            <a href="ex023.html">← Exercício Anterior</a>
+            <a href="../index.html">Voltar ao Início</a>
+            <a href="#" class="btn btn-primary">Certificado de Conclusão</a>
+        </div>
+    </footer>
+</body>
+</html>
