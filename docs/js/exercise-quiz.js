@@ -108,11 +108,21 @@ class ExerciseQuiz {
     }
     
     shuffleQuestions() {
-        // Algoritmo Fisher-Yates para embaralhar array
+        // Implementa algoritmo Fisher-Yates para embaralhar questões
         for (let i = this.quiz.questions.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [this.quiz.questions[i], this.quiz.questions[j]] = [this.quiz.questions[j], this.quiz.questions[i]];
         }
+    }
+    
+    shuffleArray(array) {
+        // Método genérico para embaralhar arrays usando Fisher-Yates
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
     }
 
     renderQuestion() {
@@ -172,23 +182,36 @@ class ExerciseQuiz {
 
     renderOptions(question) {
         if (question.type === 'multiple') {
-            return question.options.map((option, index) => `
+            // Cria array com opções e seus índices originais
+            const optionsWithIndex = question.options.map((option, index) => ({
+                text: option,
+                originalIndex: index
+            }));
+            
+            // Embaralha as opções
+            const shuffledOptions = this.shuffleArray([...optionsWithIndex]);
+            
+            return shuffledOptions.map((option) => `
                 <label class="option-label">
-                    <input type="radio" name="question" value="${index}" onchange="exerciseQuiz.selectAnswer('${index}')">
-                    <span class="option-text">${option}</span>
+                    <input type="radio" name="question" value="${option.originalIndex}" onchange="exerciseQuiz.selectAnswer('${option.originalIndex}')">
+                    <span class="option-text">${option.text}</span>
                 </label>
             `).join('');
         } else if (question.type === 'boolean') {
-            return `
+            // Para questões booleanas, também embaralha a ordem
+            const booleanOptions = [
+                { value: 'true', text: 'Verdadeiro' },
+                { value: 'false', text: 'Falso' }
+            ];
+            
+            const shuffledBooleans = this.shuffleArray([...booleanOptions]);
+            
+            return shuffledBooleans.map(option => `
                 <label class="option-label">
-                    <input type="radio" name="question" value="true" onchange="exerciseQuiz.selectAnswer('true')">
-                    <span class="option-text">Verdadeiro</span>
+                    <input type="radio" name="question" value="${option.value}" onchange="exerciseQuiz.selectAnswer('${option.value}')">
+                    <span class="option-text">${option.text}</span>
                 </label>
-                <label class="option-label">
-                    <input type="radio" name="question" value="false" onchange="exerciseQuiz.selectAnswer('false')">
-                    <span class="option-text">Falso</span>
-                </label>
-            `;
+            `).join('');
         }
         return '';
     }
