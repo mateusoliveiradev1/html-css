@@ -237,6 +237,27 @@
     text-align: center;
 }
 
+/* Seção de informações sobre pular quiz */
+.quiz-skip-info {
+    background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+    border: 1px solid #63b3ed;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.skip-message {
+    margin: 0;
+    color: #2c5282;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.skip-message strong {
+    color: #2a4365;
+    font-weight: 600;
+}
+
 .quiz-completed.failed {
     background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
     border-color: #fc8181;

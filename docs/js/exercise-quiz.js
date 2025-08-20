@@ -36,6 +36,43 @@ class ExerciseQuiz {
     renderQuizStart() {
         const isUnlocked = window.progressSystem.isExerciseUnlocked(this.exerciseId);
         const exercise = window.progressSystem.exercises.find(ex => ex.id === this.exerciseId);
+        const hasPassed = exercise && exercise.quizCompleted && exercise.quizScore >= 70;
+        
+        // Se já passou no quiz, redireciona automaticamente para o próximo exercício
+        if (hasPassed) {
+            const nextExerciseId = `ex${String(parseInt(this.exerciseId.replace('ex', '')) + 1).padStart(3, '0')}`;
+            const nextExerciseExists = document.querySelector(`[data-exercise="${nextExerciseId}"]`) !== null;
+            
+            if (nextExerciseExists) {
+                this.container.innerHTML = `
+                    <div class="quiz-container">
+                        <div class="quiz-completed">
+                            <div class="score-display passed">
+                                <span class="score-icon">✅</span>
+                                <span class="score-text">Pontuação: ${exercise.quizScore}%</span>
+                            </div>
+                            <p class="quiz-status">
+                                🎉 Parabéns! Você já passou neste quiz e o próximo exercício está desbloqueado!
+                            </p>
+                            <div class="quiz-skip-info">
+                                <p class="skip-message">💡 <strong>Redirecionando automaticamente...</strong> Ou clique no botão "Próximo Exercício" na navegação.</p>
+                            </div>
+                        </div>
+                        
+                        <button class="quiz-start-btn" onclick="exerciseQuiz.startQuiz()">
+                            <span>🔄</span>
+                            Refazer Quiz (Opcional)
+                        </button>
+                    </div>
+                `;
+                
+                // Redireciona automaticamente após 3 segundos
+                setTimeout(() => {
+                    window.location.href = `${nextExerciseId}.html`;
+                }, 3000);
+                return;
+            }
+        }
         
         this.container.innerHTML = `
             <div class="quiz-container">
