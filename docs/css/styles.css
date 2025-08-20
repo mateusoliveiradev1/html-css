@@ -1623,11 +1623,12 @@ body.loaded .exercise-card:nth-child(6) { animation-delay: 0.6s; }
     -webkit-text-fill-color: transparent;
     background-clip: text;
     transition: all var(--transition-normal);
+    display: inline-block;
 }
 
 .credits .author:hover {
     transform: scale(1.05);
-    display: inline-block;
+    filter: brightness(1.2);
 }
 
 .credits .course-link {
@@ -1648,6 +1649,57 @@ body.loaded .exercise-card:nth-child(6) { animation-delay: 0.6s; }
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+}
+
+/* Estilos para informações do desenvolvedor */
+.developer-year {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.8);
+    margin: var(--space-1) 0;
+    font-weight: 500;
+}
+
+.developer-links {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dev-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--white);
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: var(--text-sm);
+}
+
+.dev-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.dev-link .link-icon {
+    font-size: var(--text-base);
+}
+
+.dev-link .link-arrow {
+    font-size: var(--text-xs);
+    opacity: 0.7;
+    transition: all var(--transition-normal);
+}
+
+.dev-link:hover .link-arrow {
+    opacity: 1;
+    transform: translate(2px, -2px);
 }
 
 /* Responsividade avançada */

@@ -421,11 +421,12 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     transition: all var(--transition-normal);
+    display: inline-block;
 }
 
 .credits .author:hover {
     transform: scale(1.05);
-    display: inline-block;
+    filter: brightness(1.2);
 }
 
 .credits .course-link {
