@@ -1,403 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercício 001 - Primeiro HTML | HTML & CSS</title>
-    <meta
-      name="description"
-      content="Primeiro exercício de HTML: estrutura básica, tags fundamentais e conceitos iniciais."
-    />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../navigation.css" />
-    <script src="../navigation.js" defer></script>
-    <script src="../help-system.js" defer></script>
-
-    <style>
-      /* Variáveis CSS */
-      :root {
-        --primary-color: #667eea;
-        --secondary-color: #764ba2;
-        --accent-color: #f093fb;
-        --success-color: #48bb78;
-        --warning-color: #ed8936;
-        --danger-color: #f56565;
-        --text-color: #2d3748;
-        --text-light: #718096;
-        --bg-color: #f7fafc;
-        --card-bg: rgba(255, 255, 255, 0.9);
-        --border-color: rgba(255, 255, 255, 0.2);
-        --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        --gradient-success: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-        --glass-bg: rgba(255, 255, 255, 0.25);
-        --glass-border: rgba(255, 255, 255, 0.18);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        background: var(--gradient-primary);
-        background-attachment: fixed;
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(
-            circle at 20% 80%,
-            rgba(120, 119, 198, 0.3) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(255, 119, 198, 0.3) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 40% 40%,
-            rgba(120, 219, 255, 0.2) 0%,
-            transparent 50%
-          );
-        pointer-events: none;
-        z-index: -1;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        width: 100%;
-      }
-
-      /* Header */
-      .exercise-header {
-        background: linear-gradient(135deg, 
-          rgba(255, 255, 255, 0.4) 0%, 
-          rgba(255, 255, 255, 0.2) 50%, 
-          rgba(255, 255, 255, 0.3) 100%);
-        backdrop-filter: blur(25px);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 25px;
-        padding: 80px 50px;
-        margin-bottom: 50px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-      }
-
-      .exercise-header::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        animation: shimmer 3s infinite;
-      }
-
-      @keyframes shimmer {
-        0% {
-          left: -100%;
-        }
-        100% {
-          left: 100%;
-        }
-      }
-
-      .exercise-header h1 {
-        font-size: 3.5rem;
-        font-weight: 800;
-        margin-bottom: 20px;
-        background: var(--gradient-secondary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .exercise-header p {
-        font-size: 1.3rem;
-        color: var(--text-light);
-        max-width: 600px;
-        margin: 0 auto;
-        font-weight: 500;
-      }
-
-      /* Cards */
-      .info-card {
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 40px;
-        margin-bottom: 40px;
-        box-shadow: var(--shadow);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .info-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: var(--gradient-accent);
-        border-radius: 20px 20px 0 0;
-      }
-
-      .info-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-
-      .info-card h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        color: var(--text-color);
-        font-weight: 700;
-      }
-
-      .info-card p {
-        font-size: 1.1rem;
-        color: var(--text-light);
-        margin-bottom: 15px;
-        line-height: 1.8;
-      }
-
-      /* Content sections */
-      .content-section {
-        background: var(--card-bg);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 40px;
-        margin-bottom: 40px;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border-color);
-        transition: all 0.3s ease;
-      }
-
-      .content-section:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .content-section h3 {
-        font-size: 1.8rem;
-        margin-bottom: 25px;
-        color: var(--primary-color);
-        font-weight: 600;
-        position: relative;
-        padding-left: 20px;
-      }
-
-      .content-section h3::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 4px;
-        height: 30px;
-        background: var(--gradient-accent);
-        border-radius: 2px;
-      }
-
-      .content-section p {
-        font-size: 1.1rem;
-        color: var(--text-light);
-        margin-bottom: 15px;
-        line-height: 1.8;
-      }
-
-      .code-example {
-        background: rgba(0, 0, 0, 0.05);
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        padding: 20px;
-        margin: 20px 0;
-        font-family: 'Courier New', monospace;
-        overflow-x: auto;
-      }
-
-      .highlight {
-        background: linear-gradient(135deg, var(--accent-color), var(--warning-color));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        font-weight: 600;
-      }
-
-      /* Footer */
-      .exercise-footer {
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 40px;
-        margin-top: 60px;
-        text-align: center;
-        box-shadow: var(--shadow);
-      }
-
-      .exercise-footer h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        color: var(--text-color);
-      }
-
-      .exercise-footer p {
-        color: var(--text-light);
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .container {
-          padding: 15px;
-        }
-
-        .exercise-header {
-          padding: 40px 30px;
-        }
-
-        .exercise-header h1 {
-          font-size: 2.5rem;
-        }
-
-        .exercise-header p {
-          font-size: 1.1rem;
-        }
-
-        .info-card,
-        .content-section,
-        .exercise-footer {
-          padding: 25px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01 - Olá, Mundo! | Curso HTML/CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/exercise-styles.css">
+    <link rel="stylesheet" href="../css/exercise-quiz.css">
+</head>
+<body>
     <div class="container">
-      <!-- Header -->
-      <header class="exercise-header">
-        <h1>🚀 Exercício 001</h1>
-        <p>Primeiro HTML - Estrutura Básica</p>
-      </header>
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Curso HTML/CSS</a>
+            <span class="separator">•</span>
+            <span>Exercício 01</span>
+        </nav>
 
-      <!-- Informações principais -->
-      <section class="info-card">
-        <h2>📝 Sobre este Exercício</h2>
-        <p>
-          Este é o primeiro exercício do curso de HTML5 e CSS3. Aqui você 
-          aprenderá os conceitos fundamentais da linguagem HTML e como 
-          estruturar uma página web básica.
-        </p>
-        <p>
-          O HTML (HyperText Markup Language) é a linguagem de marcação padrão 
-          para criar páginas web. É a base de toda página na internet!
-        </p>
-      </section>
+        <header class="exercise-header">
+            <h1>Exercício 01: Olá, Mundo!</h1>
+            <p>Seu primeiro documento HTML - Aprendendo a estrutura básica e criando sua primeira página web</p>
+        </header>
 
-      <!-- Estrutura básica -->
-      <section class="content-section">
-        <h3>🏗️ Estrutura Básica do HTML</h3>
-        <p>
-          Todo documento HTML possui uma estrutura básica que deve ser seguida. 
-          Esta estrutura garante que o navegador interprete corretamente o conteúdo.
-        </p>
-        <div class="code-example">
-&lt;!DOCTYPE html&gt;<br>
-&lt;html lang="pt-br"&gt;<br>
-&lt;head&gt;<br>
-&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
-&nbsp;&nbsp;&lt;title&gt;Minha Primeira Página&lt;/title&gt;<br>
-&lt;/head&gt;<br>
-&lt;body&gt;<br>
-&nbsp;&nbsp;&lt;h1&gt;Olá, Mundo!&lt;/h1&gt;<br>
-&nbsp;&nbsp;&lt;p&gt;Esta é minha primeira página HTML.&lt;/p&gt;<br>
-&lt;/body&gt;<br>
-&lt;/html&gt;
-        </div>
-      </section>
+        <main class="main-content">
+            <!-- Seção de Código -->
+            <section class="content-section">
+                <h2>Código do Exercício</h2>
+                <div class="code-block">
+                    <pre><code id="exercise-code">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Meu primeiro exercício&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Olá, Mundo!&lt;/h1&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Estou praticando HTML e estou muito feliz!&lt;/p&gt;
+    &lt;hr&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </section>
 
-      <!-- Tags fundamentais -->
-      <section class="content-section">
-        <h3>🏷️ Tags Fundamentais</h3>
-        <p>
-          <span class="highlight">&lt;!DOCTYPE html&gt;</span>: Declara que este é um documento HTML5
-        </p>
-        <p>
-          <span class="highlight">&lt;html&gt;</span>: Elemento raiz que contém todo o conteúdo da página
-        </p>
-        <p>
-          <span class="highlight">&lt;head&gt;</span>: Contém metadados sobre o documento (não visível na página)
-        </p>
-        <p>
-          <span class="highlight">&lt;body&gt;</span>: Contém todo o conteúdo visível da página
-        </p>
-        <p>
-          <span class="highlight">&lt;h1&gt;</span>: Título principal da página
-        </p>
-        <p>
-          <span class="highlight">&lt;p&gt;</span>: Parágrafo de texto
-        </p>
-      </section>
+            <!-- Seção de Preview -->
+            <section class="content-section preview">
+                <h2>Resultado Final</h2>
+                <div class="preview-frame">
+                    <h1 style="color: #333; font-family: Arial, sans-serif; margin: 20px 0;">Olá, Mundo!</h1>
+                    <hr style="border: 1px solid #ccc; margin: 15px 0;">
+                    <p style="color: #666; font-family: Arial, sans-serif; line-height: 1.6; margin: 15px 0;">Estou praticando HTML e estou muito feliz!</p>
+                    <hr style="border: 1px solid #ccc; margin: 15px 0;">
+                </div>
+            </section>
+        </main>
 
-      <!-- Conceitos importantes -->
-      <section class="info-card">
-        <h2>💡 Conceitos Importantes</h2>
-        <p>
-          <strong>Semântica:</strong> Use as tags HTML de acordo com seu significado, 
-          não apenas pela aparência visual.
-        </p>
-        <p>
-          <strong>Hierarquia:</strong> Organize o conteúdo de forma lógica, 
-          usando títulos (h1-h6) em ordem hierárquica.
-        </p>
-        <p>
-          <strong>Acessibilidade:</strong> Sempre pense em como tornar seu conteúdo 
-          acessível para todos os usuários.
-        </p>
-      </section>
+        <!-- Seção de Explicação -->
+        <section class="content-section" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>📚 O que você está aprendendo</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #667eea;">
+                    <h3 style="color: #2d3748; margin-bottom: 0.5rem; font-size: 1.2rem;">🏗️ Estrutura HTML</h3>
+                    <p style="color: #4a5568; margin: 0; line-height: 1.6;">Todo documento HTML precisa da estrutura básica: DOCTYPE, html, head e body. É como a fundação de uma casa!</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #48bb78;">
+                    <h3 style="color: #2d3748; margin-bottom: 0.5rem; font-size: 1.2rem;">📝 Tags Essenciais</h3>
+                    <p style="color: #4a5568; margin: 0; line-height: 1.6;">Aprendendo <code>&lt;h1&gt;</code> para títulos, <code>&lt;p&gt;</code> para parágrafos e <code>&lt;hr&gt;</code> para separadores visuais.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #ed8936;">
+                    <h3 style="color: #2d3748; margin-bottom: 0.5rem; font-size: 1.2rem;">🎯 Primeiro Passo</h3>
+                    <p style="color: #4a5568; margin: 0; line-height: 1.6;">Este é seu primeiro "Olá, Mundo!" em HTML. Cada programador começa assim - é uma tradição!</p>
+                </div>
+            </div>
+        </section>
 
-      <!-- Footer -->
-      <footer class="exercise-footer">
-        <h3>🎯 Objetivo Alcançado</h3>
-        <p>
-          Parabéns! Você completou o primeiro exercício e aprendeu os 
-          fundamentos básicos do HTML. Continue praticando e explorando 
-          novas tags e conceitos!
-        </p>
-      </footer>
+        <!-- Seção de Desafios -->
+        <section class="content-section" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>🚀 Desafios Práticos</h2>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #fc8181; transition: all 0.3s ease;">
+                    <h3 style="color: #c53030; margin-bottom: 0.5rem; font-size: 1.1rem;">🎨 Desafio 1: Personalize sua mensagem</h3>
+                    <p style="color: #742a2a; margin: 0; line-height: 1.6;">Modifique o texto "Olá, Mundo!" para incluir seu nome. Por exemplo: "Olá, eu sou [Seu Nome]!"</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #68d391; transition: all 0.3s ease;">
+                    <h3 style="color: #2f855a; margin-bottom: 0.5rem; font-size: 1.1rem;">📝 Desafio 2: Adicione mais conteúdo</h3>
+                    <p style="color: #276749; margin: 0; line-height: 1.6;">Adicione mais um parágrafo falando sobre seus objetivos com HTML e CSS.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #fffaf0 0%, #fbd38d 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f6ad55; transition: all 0.3s ease;">
+                    <h3 style="color: #c05621; margin-bottom: 0.5rem; font-size: 1.1rem;">🔧 Desafio 3: Experimente outras tags</h3>
+                    <p style="color: #9c4221; margin: 0; line-height: 1.6;">Adicione um subtítulo usando <code>&lt;h2&gt;</code> e uma lista com <code>&lt;ul&gt;</code> e <code>&lt;li&gt;</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Quiz -->
+        <section class="content-section" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <div id="quiz-container"></div>
+        </section>
+
+        <!-- Navegação -->
+        <nav class="exercise-nav">
+            <a href="../index.html" class="nav-btn prev">
+                <span>←</span>
+                <span>Voltar ao Curso</span>
+            </a>
+            <a href="ex002.html" class="nav-btn next">
+                <span>Próximo Exercício</span>
+                <span>→</span>
+            </a>
+        </nav>
+
+        <!-- Rodapé com créditos -->
+        <footer class="footer">
+            <div class="credits">
+                <h3>💡 Créditos</h3>
+                <p>Exercício baseado no curso de <a href="https://www.cursoemvideo.com" target="_blank" rel="noopener" class="author">Professor Gustavo Guanabara</a></p>
+                <p>Adaptado e modernizado para melhor experiência de aprendizado</p>
+                <a href="https://www.cursoemvideo.com/curso/html5-css3-modulo1/" target="_blank" rel="noopener" class="course-link">
+                    <span>🎓</span>
+                    <span>Ver Curso Original</span>
+                </a>
+            </div>
+        </footer>
     </div>
-  </body>
+
+    <!-- Scripts do Sistema de Progresso e Quiz -->
+    <script src="../js/progress-system.js"></script>
+    <script src="../js/exercise-quiz.js"></script>
+    <script src="../js/exercise-navigation.js"></script>
+    
+    <script>
+        // Função para copiar código
+        function copyCode() {
+            const code = document.getElementById('exercise-code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                // Feedback visual de sucesso
+                console.log('Código copiado com sucesso!');
+            }).catch(err => {
+                console.error('Erro ao copiar código:', err);
+            });
+        }
+
+        // Marca exercício como concluído
+        document.addEventListener('DOMContentLoaded', function() {
+            const exerciseId = 'ex001';
+            const completed = JSON.parse(localStorage.getItem('completedItems') || '[]');
+            if (!completed.includes(`exercise_${exerciseId}`)) {
+                completed.push(`exercise_${exerciseId}`);
+                localStorage.setItem('completedItems', JSON.stringify(completed));
+            }
+            
+            // Inicializar quiz do exercício
+            initExerciseQuiz('ex001', 'quiz-container');
+        });
+
+        // Navegação inteligente
+        if (typeof SmartNavigation !== 'undefined') {
+            new SmartNavigation();
+        }
+    </script>
+</body>
 </html>

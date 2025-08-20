@@ -1,1560 +1,345 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML & CSS - Curso Completo | Mateus Oliveira</title>
-    <meta name="description" content="Curso completo de HTML5 e CSS3 com 24 exercícios práticos e 14 desafios reais. Aprenda desenvolvimento web do básico ao avançado.">
-    <meta name="keywords" content="HTML, CSS, HTML5, CSS3, desenvolvimento web, curso, exercícios, desafios, frontend">
-    <meta name="author" content="Mateus Oliveira">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mateusoliveiradev1.github.io/html-css/">
-    <meta property="og:title" content="HTML & CSS - Curso Completo">
-    <meta property="og:description" content="Curso completo de HTML5 e CSS3 com exercícios práticos e desafios reais">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://mateusoliveiradev1.github.io/html-css/">
-    <meta property="twitter:title" content="HTML & CSS - Curso Completo">
-    <meta property="twitter:description" content="Curso completo de HTML5 e CSS3 com exercícios práticos e desafios reais">
-    
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    
-    <style>
-        /* Variáveis CSS */
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #f093fb;
-            --success-color: #48bb78;
-            --warning-color: #ed8936;
-            --error-color: #f56565;
-            --text-color: #2d3748;
-            --text-light: #718096;
-            --text-muted: #a0aec0;
-            --bg-color: #f7fafc;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --glass-bg: rgba(255, 255, 255, 0.25);
-            --glass-border: rgba(255, 255, 255, 0.18);
-            --border-color: rgba(255, 255, 255, 0.2);
-            --shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            --shadow-hover: 0 15px 35px rgba(31, 38, 135, 0.5);
-            --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.3);
-            --border-radius: 20px;
-            --border-radius-small: 12px;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-success: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-            --gradient-hero: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
-            --gradient-bg: 
-                radial-gradient(ellipse 800px 600px at 50% 0%, rgba(102, 126, 234, 0.15), transparent),
-                radial-gradient(ellipse 600px 400px at 80% 100%, rgba(240, 147, 251, 0.1), transparent),
-                radial-gradient(ellipse 400px 300px at 20% 50%, rgba(118, 75, 162, 0.08), transparent);
-            --animation-duration: 0.3s;
-            --animation-ease: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background: var(--gradient-primary);
-            background-attachment: fixed;
-            min-height: 100vh;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* Scrollbar personalizada */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gradient-accent);
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-            transition: all var(--animation-duration) var(--animation-ease);
-            padding: 20px 0;
-        }
-
-        .header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.8em;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: all var(--animation-duration) var(--animation-ease);
-            cursor: pointer;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: var(--gradient-primary);
-            border-radius: var(--border-radius-small);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            animation: logoFloat 4s ease-in-out infinite;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-            transition: all var(--animation-duration) var(--animation-ease);
-        }
-
-        .logo-icon::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
-            opacity: 0;
-        }
-
-        .logo:hover .logo-icon::before {
-            animation: shine 0.6s ease-in-out;
-        }
-
-        .logo-icon:hover {
-            transform: translateY(-2px) scale(1.1);
-            box-shadow: var(--shadow-hover);
-        }
-
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-8px) rotate(1deg); }
-            50% { transform: translateY(-12px) rotate(0deg); }
-            75% { transform: translateY(-8px) rotate(-1deg); }
-        }
-
-        @keyframes shine {
-            0% { opacity: 0; transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            50% { opacity: 1; }
-            100% { opacity: 0; transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 12px 24px;
-            border-radius: var(--border-radius-small);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: var(--border-radius-small);
-            z-index: -1;
-        }
-
-        .nav-link:hover::before {
-            opacity: 0.1;
-        }
-
-        .nav-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
-
-        .nav-link.active {
-            background: var(--gradient-primary);
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .nav-link.active::before {
-            opacity: 0;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 140px 20px 100px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(ellipse 600px 400px at 30% 20%, rgba(102, 126, 234, 0.15), transparent),
-                radial-gradient(ellipse 800px 600px at 70% 80%, rgba(240, 147, 251, 0.1), transparent),
-                radial-gradient(ellipse 400px 300px at 50% 50%, rgba(118, 75, 162, 0.08), transparent);
-            animation: backgroundMove 20s ease-in-out infinite;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23667eea" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        @keyframes backgroundMove {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(-5%, -5%) rotate(1deg); }
-            50% { transform: translate(5%, -10%) rotate(-1deg); }
-            75% { transform: translate(-10%, 5%) rotate(0.5deg); }
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: var(--gradient-secondary);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-size: 0.9em;
-            font-weight: 600;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.3);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .hero-title {
-            font-size: 4.5em;
-            font-weight: 900;
-            margin-bottom: 25px;
-            background: linear-gradient(45deg, #fff, #f0f8ff, #fff);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleShine 3s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-        }
-
-        @keyframes titleShine {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .hero-subtitle {
-            font-size: 1.4em;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 50px 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            color: white;
-        }
-
-        .stat-number {
-            font-size: 3em;
-            font-weight: 900;
-            display: block;
-            background: linear-gradient(45deg, #fff, #f0f8ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 1.1em;
-            opacity: 0.9;
-            margin-top: 5px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 20px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1em;
-            text-decoration: none;
-            transition: all var(--animation-duration) var(--animation-ease);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px) scale(1.08);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.6), var(--shadow-glow);
-        }
-
-        .btn-secondary {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            color: white;
-            border: 2px solid var(--glass-border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.35);
-            transform: translateY(-5px) scale(1.08);
-            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.25);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: all 0.6s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:active {
-            transform: translateY(-2px) scale(1.05);
-        }
-
-        /* Search Section */
-        .search-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 60px;
-        }
-
-        .search-container {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .search-box {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .search-input {
-            flex: 1;
-            min-width: 300px;
-            padding: 15px 20px;
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            color: var(--text-color);
-            font-size: 1.1em;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
-        }
-
-        .search-input::placeholder {
-            color: var(--text-light);
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 12px 20px;
-            border: 1px solid var(--glass-border);
-            border-radius: 25px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            color: var(--text-color);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--gradient-primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Content Grid */
-        .content-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 50px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .content-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius);
-            padding: 35px;
-            transition: all var(--animation-duration) var(--animation-ease);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px) scale(0.95);
-        }
-
-        .content-card.fade-in {
-            animation: cardFadeIn 0.6s ease forwards;
-        }
-
-        .content-card.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .content-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.15), transparent);
-            transition: all 0.8s ease;
-        }
-
-        .content-card::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: var(--gradient-primary);
-            border-radius: var(--border-radius);
-            z-index: -1;
-            opacity: 0;
-            transition: all var(--animation-duration) var(--animation-ease);
-        }
-
-        .content-card:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: var(--shadow-hover), 0 0 40px rgba(102, 126, 234, 0.25);
-        }
-
-        .content-card:hover::before {
-            left: 100%;
-        }
-
-        .content-card:hover::after {
-            opacity: 0.1;
-        }
-
-        @keyframes cardFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .card-title {
-            font-size: 1.4em;
-            font-weight: 700;
-            color: var(--text-color);
-        }
-
-        .card-badge {
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-            color: white;
-        }
-
-        .badge-exercise {
-            background: var(--gradient-success);
-        }
-
-        .badge-challenge {
-            background: var(--gradient-secondary);
-        }
-
-        .badge-basic {
-            background: var(--success-color);
-        }
-
-        .badge-intermediate {
-            background: var(--warning-color);
-        }
-
-        .badge-advanced {
-            background: var(--danger-color);
-        }
-
-        .card-description {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .card-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .tech-tag {
-            padding: 4px 12px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            font-size: 0.8em;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-small {
-            padding: 10px 20px;
-            font-size: 0.9em;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-view {
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .btn-code {
-            background: var(--glass-bg);
-            color: var(--text-color);
-            border: 1px solid var(--glass-border);
-        }
-
-        .btn-small:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid var(--glass-border);
-            padding: 60px 20px 30px;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: 50%;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px) scale(1.1);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-light);
-        }
-
-        /* Seção Sobre */
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .about-content {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: var(--shadow);
-        }
-
-        .about-text h3 {
-            font-size: 1.5em;
-            font-weight: 700;
-            margin: 30px 0 15px 0;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .about-text h3:first-child {
-            margin-top: 0;
-        }
-
-        .about-text p {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .about-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .about-list li {
-            padding: 10px 0;
-            color: var(--text-light);
-            line-height: 1.6;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .about-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success-color);
-            font-weight: bold;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 20px 0;
-        }
-
-        .tech-item {
-            padding: 8px 16px;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-            padding: 30px;
-            background: var(--glass-bg);
-            border-radius: 15px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 2.5em;
-            font-weight: 900;
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-weight: 600;
-            font-size: 0.9em;
-        }
-
-        .about-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            padding: 15px 30px;
-            background: var(--gradient-primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            padding: 15px 30px;
-            background: var(--glass-bg);
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            background: var(--card-bg);
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 3em;
-            }
-
-            .hero-stats {
-                gap: 20px;
-            }
-
-            .stat-number {
-                font-size: 2.5em;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .search-box {
-                flex-direction: column;
-            }
-
-            .search-input {
-                min-width: auto;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                padding: 25px;
-            }
-
-            .about-stats {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                padding: 20px;
-            }
-
-            .stat-number {
-                font-size: 2em;
-            }
-
-            .about-actions {
-                flex-direction: column;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                text-align: center;
-                width: 100%;
-            }
-        }
-
-        /* Animações */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(50px) scale(0.95);
-            transition: all 0.8s var(--animation-ease);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        /* Animações de entrada para seções */
-        .content-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s var(--animation-ease);
-        }
-
-        .content-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Efeito de brilho nos títulos */
-        .section-title {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
-            transition: all 0.8s ease;
-        }
-
-        .section-title:hover::after {
-            left: 100%;
-        }
-
-
-    </style>
+    <title>Sistema Educacional HTML/CSS - Curso do Gustavo Guanabara</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="Sistema educacional interativo para aprender HTML e CSS baseado no curso do Professor Gustavo Guanabara">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">
-                <span class="logo-icon">🌐</span>
-                HTML & CSS
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#inicio" class="nav-link active">Início</a></li>
-                <li><a href="#exercicios" class="nav-link">Exercícios</a></li>
-                <li><a href="#desafios" class="nav-link">Desafios</a></li>
-                <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                <li><a href="https://github.com/mateusoliveiradev1/html-css" class="nav-link" target="_blank">GitHub</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-badge">🚀 CURSO COMPLETO DE DESENVOLVIMENTO WEB</div>
-        <h1 class="hero-title">HTML & CSS</h1>
-        <p class="hero-subtitle">
-            Domine o desenvolvimento web frontend com exercícios práticos e desafios reais. 
-            Do básico ao avançado, tudo organizado e documentado profissionalmente.
-        </p>
-        
-        <div class="hero-stats">
-            <div class="stat-item">
-                <span class="stat-number">24</span>
-                <span class="stat-label">Exercícios</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">14</span>
-                <span class="stat-label">Desafios</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Gratuito</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">50+</span>
-                <span class="stat-label">Horas</span>
-            </div>
-        </div>
-
-        <div class="hero-buttons">
-            <a href="#exercicios" class="btn btn-primary">
-                🎯 Começar Agora
-            </a>
-            <a href="https://github.com/mateusoliveiradev1/html-css" class="btn btn-secondary" target="_blank">
-                📁 Ver Código
-            </a>
-        </div>
-    </section>
-
-    <!-- Search Section -->
-    <section class="search-section">
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="🔍 Buscar exercícios e desafios..." id="searchInput">
-            </div>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="exercise">Exercícios</button>
-                <button class="filter-btn" data-filter="challenge">Desafios</button>
-                <button class="filter-btn" data-filter="basic">Básico</button>
-                <button class="filter-btn" data-filter="intermediate">Intermediário</button>
-                <button class="filter-btn" data-filter="advanced">Avançado</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Exercícios Section -->
-    <section class="content-section" id="exercicios">
-        <h2 class="section-title">🎯 Exercícios Práticos</h2>
-        <div class="content-grid" id="exercisesGrid">
-            <!-- Exercícios serão carregados dinamicamente -->
-        </div>
-    </section>
-
-    <!-- Desafios Section -->
-    <section class="content-section" id="desafios">
-        <h2 class="section-title">🏆 Desafios</h2>
-        <div class="content-grid" id="challengesGrid">
-            <!-- Desafios serão carregados dinamicamente -->
-        </div>
-    </section>
-
-    <!-- Sobre Section -->
-    <section class="content-section" id="sobre">
-        <div class="about-container">
-            <h2 class="section-title">📖 Sobre o Projeto</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>🎯 Objetivo</h3>
-                    <p>Este projeto foi criado para documentar e compartilhar minha jornada de aprendizado em <strong>HTML5</strong> e <strong>CSS3</strong>. Aqui você encontrará uma coleção completa de exercícios práticos e desafios reais que cobrem desde conceitos básicos até técnicas avançadas de desenvolvimento web.</p>
-                    
-                    <h3>📚 Conteúdo</h3>
-                    <ul class="about-list">
-                        <li><strong>24 Exercícios Práticos:</strong> Desde estruturas HTML básicas até estilizações CSS avançadas</li>
-                        <li><strong>14 Desafios Reais:</strong> Projetos completos que simulam situações do mundo real</li>
-                        <li><strong>Código Fonte:</strong> Todo o código está disponível no GitHub para estudo e referência</li>
-                        <li><strong>Progressão Gradual:</strong> Conteúdo organizado do básico ao avançado</li>
-                    </ul>
-                    
-                    <h3>🛠️ Tecnologias</h3>
-                    <div class="tech-stack">
-                        <span class="tech-item">HTML5</span>
-                        <span class="tech-item">CSS3</span>
-                        <span class="tech-item">JavaScript</span>
-                        <span class="tech-item">Responsive Design</span>
-                        <span class="tech-item">Git & GitHub</span>
+    <!-- Particles Background -->
+    <div class="particles-bg" id="particles-bg"></div>
+    
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progress-bar"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="header-decoration"></div>
+            <div class="header-content">
+                <div class="header-badge">
+                    <span class="badge-icon">🎓</span>
+                    <span class="badge-text">Curso Completo</span>
+                </div>
+                <h1 class="header-title">
+                    <span class="title-line">Sistema Educacional</span>
+                    <span class="title-highlight">HTML & CSS</span>
+                </h1>
+                <p class="header-description">Aprenda HTML e CSS de forma prática e interativa com os melhores exercícios cuidadosamente elaborados</p>
+                <p class="header-subtitle">Baseado no curso completo de HTML5 e CSS3 do Professor Gustavo Guanabara</p>
+                
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="24">0</span>
+                        <span class="stat-label">Exercícios</span>
                     </div>
-                    
-                    <h3>👨‍💻 Sobre o Desenvolvedor</h3>
-                    <p>Sou <strong>Mateus Oliveira</strong>, estudante apaixonado por desenvolvimento web. Este projeto representa minha dedicação em aprender e compartilhar conhecimento sobre tecnologias front-end. Cada exercício e desafio foi cuidadosamente desenvolvido e documentado para servir como referência para outros estudantes.</p>
-                    
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">24</span>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="12">0</span>
+                        <span class="stat-label">Desafios</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="100">0</span>
+                        <span class="stat-label">% Prático</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="content-nav">
+            <button class="nav-tab active" data-section="exercises-section">
+                <span class="tab-icon">📚</span>
+                <span class="tab-text">Exercícios</span>
+                <span class="tab-count">24+</span>
+            </button>
+            <button class="nav-tab" data-section="challenges-section">
+                <span class="tab-icon">🎯</span>
+                <span class="tab-text">Desafios</span>
+                <span class="tab-count">12+</span>
+            </button>
+            <button class="nav-tab" data-section="quiz-section">
+                <span class="tab-icon">🧠</span>
+                <span class="tab-text">Quiz</span>
+                <span class="tab-count">Em breve</span>
+            </button>
+        </nav>
+
+        <main class="main-content">
+            <!-- Exercises Section -->
+            <section class="content-section active" id="exercises-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">📚</span>
+                        Exercícios Práticos
+                    </h2>
+                    <p class="section-description">Pratique seus conhecimentos com exercícios hands-on cuidadosamente elaborados para seu aprendizado progressivo</p>
+                </div>
+
+                <div class="exercises-grid">
+                    <div class="exercise-card" data-difficulty="beginner">
+                        <div class="card-header">
+                            <span class="exercise-number">01</span>
+                            <span class="difficulty-badge beginner">Iniciante</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Primeiro exercício HTML</h3>
+                            <p class="card-description">Aprenda a estrutura básica de um documento HTML</p>
+                            <div class="card-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">Básico</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="exercises/ex001.html" class="card-link">
+                                <span>Iniciar</span>
+                                <span class="link-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="exercise-card" data-difficulty="beginner">
+                        <div class="card-header">
+                            <span class="exercise-number">02</span>
+                            <span class="difficulty-badge beginner">Iniciante</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Parágrafos e quebras de linha</h3>
+                            <p class="card-description">Domine o uso de parágrafos e quebras de linha em HTML</p>
+                            <div class="card-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">Texto</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="exercises/ex002.html" class="card-link">
+                                <span>Iniciar</span>
+                                <span class="link-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder cards for future exercises -->
+                    <div class="exercise-card coming-soon">
+                        <div class="card-header">
+                            <span class="exercise-number">03</span>
+                            <span class="difficulty-badge intermediate">Intermediário</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Em breve...</h3>
+                            <p class="card-description">Mais exercícios estão sendo preparados</p>
+                            <div class="card-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-link disabled">
+                                <span>Em desenvolvimento</span>
+                                <span class="link-arrow">⏳</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load-more-section">
+                    <button class="load-more-btn" id="load-more-exercises">
+                        <span class="btn-text">Carregar mais exercícios</span>
+                        <span class="btn-icon">↓</span>
+                    </button>
+                    <p class="load-more-info">Mais 21 exercícios disponíveis</p>
+                </div>
+            </section>
+
+            <!-- Challenges Section -->
+            <section class="content-section" id="challenges-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">🎯</span>
+                        Desafios
+                    </h2>
+                    <p class="section-description">Teste suas habilidades com desafios mais complexos e projetos práticos que consolidam seu aprendizado</p>
+                </div>
+
+                <div class="challenges-grid">
+                    <div class="challenge-card" data-difficulty="intermediate">
+                        <div class="card-header">
+                            <span class="challenge-number">01</span>
+                            <span class="difficulty-badge intermediate">Intermediário</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Mensagens personalizadas</h3>
+                            <p class="card-description">Crie um sistema de mensagens interativo</p>
+                            <div class="card-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="challenges/d001.html" class="card-link">
+                                <span>Aceitar Desafio</span>
+                                <span class="link-arrow">🚀</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder for more challenges -->
+                    <div class="challenge-card coming-soon">
+                        <div class="card-header">
+                            <span class="challenge-number">02</span>
+                            <span class="difficulty-badge advanced">Avançado</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Em breve...</h3>
+                            <p class="card-description">Novos desafios estão sendo preparados</p>
+                            <div class="card-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JS</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-link disabled">
+                                <span>Em desenvolvimento</span>
+                                <span class="link-arrow">⏳</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section class="content-section" id="quiz-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-icon">🧠</span>
+                        Sistema de Quiz
+                    </h2>
+                    <p class="section-description">Teste seus conhecimentos com quizzes interativos e receba feedback instantâneo</p>
+                </div>
+
+                <div class="quiz-preview">
+                    <div class="quiz-card">
+                        <span class="quiz-icon">🧠</span>
+                        <h3>Sistema de Quiz</h3>
+                        <p>Sistema interativo de quizzes para testar seus conhecimentos em HTML e CSS com feedback imediato!</p>
+                        
+                        <div class="quiz-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">📚</span>
+                                <span>Questões interativas</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">⏱️</span>
+                                <span>Tempo limitado</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🎯</span>
+                                <span>Feedback imediato</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📊</span>
+                                <span>Acompanhamento de progresso</span>
+                            </div>
+                        </div>
+                        
+                        <a href="quiz.html" class="btn btn-primary quiz-start-btn">
+                            <span>🚀</span>
+                            Começar Quiz
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section credits">
+                    <h3 class="footer-title">
+                        <span class="title-icon">🎓</span>
+                        Créditos e Reconhecimentos
+                    </h3>
+                    <div class="credit-item">
+                        <p class="credit-text">Este sistema educacional foi desenvolvido com base no excelente curso de</p>
+                        <div class="author-info">
+                            <div class="author-avatar">
+                                <span class="avatar-icon">👨‍🏫</span>
+                            </div>
+                            <div class="author-details">
+                                <a href="https://www.cursoemvideo.com/" class="author-link" target="_blank" rel="noopener">
+                                    <span class="author-name">Prof. Gustavo Guanabara</span>
+                                    <span class="author-title">Curso em Vídeo</span>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="https://www.cursoemvideo.com/curso/html5-css3-modulo1/" class="course-link" target="_blank" rel="noopener">
+                            <span class="link-icon">🎓</span>
+                            <span class="link-text">Acesse o curso original</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section developer">
+                    <h3 class="footer-title">
+                        <span class="title-icon">👨‍💻</span>
+                        Desenvolvimento
+                    </h3>
+                    <div class="developer-info">
+                        <div class="developer-avatar">
+                            <span class="avatar-icon">🚀</span>
+                        </div>
+                        <div class="developer-details">
+                            <p class="developer-name">Desenvolvido por Liiiraa</p>
+                            <p class="developer-description">Sistema educacional interativo criado com dedicação para facilitar o aprendizado de HTML e CSS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section stats">
+                    <h3 class="footer-title">
+                        <span class="title-icon">📊</span>
+                        Estatísticas do Projeto
+                    </h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-value">24+</span>
                             <span class="stat-label">Exercícios</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">14</span>
+                        <div class="stat-card">
+                            <span class="stat-value">12+</span>
                             <span class="stat-label">Desafios</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Open Source</span>
+                        <div class="stat-card">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Gratuito</span>
                         </div>
                     </div>
-                    
-                    <div class="about-actions">
-                        <a href="https://github.com/mateusoliveiradev1/html-css" class="btn-primary" target="_blank">
-                            📁 Ver no GitHub
-                        </a>
-                        <a href="#exercicios" class="btn-secondary">
-                            🎯 Começar Exercícios
-                        </a>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>📚 Aprendizado</h3>
-                <ul class="footer-links">
-                    <li><a href="#exercicios">Exercícios Práticos</a></li>
-                    <li><a href="#desafios">Desafios Reais</a></li>
-                    <li><a href="https://www.cursoemvideo.com/" target="_blank">Curso em Vídeo</a></li>
-                    <li><a href="https://developer.mozilla.org/pt-BR/" target="_blank">MDN Web Docs</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>🛠️ Ferramentas</h3>
-                <ul class="footer-links">
-                    <li><a href="https://code.visualstudio.com/" target="_blank">VS Code</a></li>
-                    <li><a href="https://validator.w3.org/" target="_blank">Validador HTML</a></li>
-                    <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">Validador CSS</a></li>
-                    <li><a href="https://caniuse.com/" target="_blank">Can I Use</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>🔗 Links Úteis</h3>
-                <ul class="footer-links">
-                    <li><a href="https://github.com/mateusoliveiradev1/html-css" target="_blank">Repositório GitHub</a></li>
-                    <li><a href="https://htmlreference.io/" target="_blank">Referência HTML</a></li>
-                    <li><a href="https://cssreference.io/" target="_blank">Referência CSS</a></li>
-                    <li><a href="https://fonts.google.com/" target="_blank">Google Fonts</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>👨‍💻 Contato</h3>
-                <p>Desenvolvido com ❤️ por Mateus Oliveira</p>
-                <div class="social-links">
-                    <a href="https://github.com/mateusoliveiradev1" class="social-link" target="_blank">📁</a>
-                    <a href="mailto:contato@example.com" class="social-link">📧</a>
-                    <a href="#" class="social-link">💼</a>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Sobre</a>
+                    <a href="#" class="footer-link">Contato</a>
+                    <a href="#" class="footer-link">Suporte</a>
+                    <a href="#" class="footer-link">GitHub</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Sistema Educacional HTML/CSS. Feito com ❤️ para a comunidade de desenvolvedores.</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 HTML & CSS - Curso Completo. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
-    <script>
-        // Dados dos exercícios e desafios
-        const exercises = [
-            { id: 'ex001', title: 'Primeiro HTML', description: 'Criando sua primeira página HTML com estrutura básica', difficulty: 'basic', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex002', title: 'Parágrafos e Quebras', description: 'Trabalhando com parágrafos e quebras de linha', difficulty: 'basic', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex003', title: 'Imagens', description: 'Inserindo e manipulando imagens em HTML', difficulty: 'basic', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex004', title: 'Favicon', description: 'Adicionando favicon ao seu site', difficulty: 'basic', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex005', title: 'Emojis', description: 'Usando emojis em páginas web', difficulty: 'basic', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex006', title: 'Hierarquia de Títulos', description: 'Organizando conteúdo com títulos h1-h6', difficulty: 'basic', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex007', title: 'Formatação de Texto', description: 'Negrito, itálico e outras formatações', difficulty: 'basic', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex008', title: 'Listas', description: 'Criando listas ordenadas e não ordenadas', difficulty: 'basic', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex009', title: 'Links', description: 'Criando links internos e externos', difficulty: 'basic', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex010', title: 'Links para Download', description: 'Links para arquivos e downloads', difficulty: 'intermediate', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex011', title: 'Mídia em HTML5', description: 'Inserindo áudio e vídeo', difficulty: 'intermediate', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex012', title: 'Vídeos Externos', description: 'Incorporando vídeos do YouTube', difficulty: 'intermediate', type: 'exercise', tech: ['HTML5'] },
-            { id: 'ex013', title: 'Primeiro CSS', description: 'Introdução ao CSS e estilização', difficulty: 'intermediate', type: 'exercise', tech: ['HTML5', 'CSS3'] },
-            { id: 'ex014', title: 'CSS Externo', description: 'Organizando CSS em arquivos externos', difficulty: 'intermediate', type: 'exercise', tech: ['HTML5', 'CSS3'] },
-            { id: 'ex015', title: 'CSS Interno vs Externo', description: 'Comparando métodos de aplicação CSS', difficulty: 'intermediate', type: 'exercise', tech: ['HTML5', 'CSS3'] },
-            { id: 'ex016', title: 'Cores em CSS', description: 'Trabalhando com cores e gradientes', difficulty: 'intermediate', type: 'exercise', tech: ['CSS3'] },
-            { id: 'ex017', title: 'Fontes', description: 'Tipografia e fontes personalizadas', difficulty: 'intermediate', type: 'exercise', tech: ['CSS3'] },
-            { id: 'ex018', title: 'Google Fonts', description: 'Usando fontes do Google Fonts', difficulty: 'intermediate', type: 'exercise', tech: ['CSS3'] },
-            { id: 'ex019', title: 'Seletores CSS', description: 'Seletores avançados e especificidade', difficulty: 'advanced', type: 'exercise', tech: ['CSS3'] },
-            { id: 'ex020', title: 'Pseudo-classes', description: 'Hover, active e outras pseudo-classes', difficulty: 'advanced', type: 'exercise', tech: ['CSS3'] },
-            { id: 'ex021', title: 'Box Model', description: 'Entendendo o modelo de caixas', difficulty: 'advanced', type: 'exercise', tech: ['CSS3'] },
-            { id: 'ex022', title: 'Imagens de Fundo', description: 'Background images e propriedades', difficulty: 'advanced', type: 'exercise', tech: ['CSS3'] },
-            { id: 'ex023', title: 'Tabelas', description: 'Criando e estilizando tabelas', difficulty: 'advanced', type: 'exercise', tech: ['HTML5', 'CSS3'] },
-            { id: 'ex024', title: 'Iframes', description: 'Incorporando conteúdo externo', difficulty: 'advanced', type: 'exercise', tech: ['HTML5'] }
-        ];
-
-        const challenges = [
-            { id: 'd001', title: 'Mensagens', description: 'Página com diferentes tipos de mensagens', difficulty: 'basic', type: 'challenge', tech: ['HTML5'] },
-            { id: 'd002', title: 'Imagem Flexível', description: 'Imagem que se adapta ao container', difficulty: 'basic', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd003', title: 'Mapa Mundi', description: 'Mapa interativo com links', difficulty: 'basic', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd004', title: 'Emojis', description: 'Página temática com emojis', difficulty: 'basic', type: 'challenge', tech: ['HTML5'] },
-            { id: 'd005', title: 'Social', description: 'Perfil social com foto e informações', difficulty: 'basic', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd006', title: 'Tags HTML', description: 'Página sobre tags HTML com exemplos', difficulty: 'intermediate', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd007', title: 'Imagem Flexível', description: 'Técnicas avançadas de imagens responsivas', difficulty: 'intermediate', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd008', title: 'Navegação', description: 'Sistema de navegação entre páginas', difficulty: 'intermediate', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd009', title: 'Vídeos', description: 'Página com múltiplos vídeos', difficulty: 'intermediate', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd010', title: 'Site Android', description: 'Site completo sobre Android', difficulty: 'advanced', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd011', title: 'Astronauta', description: 'Página temática espacial', difficulty: 'advanced', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd012', title: 'Cordel Moderno', description: 'Poesia com efeitos visuais', difficulty: 'advanced', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd013', title: 'Tabelas', description: 'Tabelas complexas e responsivas', difficulty: 'advanced', type: 'challenge', tech: ['HTML5', 'CSS3'] },
-            { id: 'd014', title: 'Rede Social', description: 'Projeto de rede social completa', difficulty: 'advanced', type: 'challenge', tech: ['HTML5', 'CSS3', 'JavaScript'] }
-        ];
-
-        // Função para criar card de conteúdo
-        function createContentCard(item) {
-            const difficultyColors = {
-                basic: 'badge-basic',
-                intermediate: 'badge-intermediate',
-                advanced: 'badge-advanced'
-            };
-
-            const typeColors = {
-                exercise: 'badge-exercise',
-                challenge: 'badge-challenge'
-            };
-
-            const difficultyLabels = {
-                basic: 'Básico',
-                intermediate: 'Intermediário',
-                advanced: 'Avançado'
-            };
-
-            const typeLabels = {
-                exercise: 'Exercício',
-                challenge: 'Desafio'
-            };
-
-            return `
-                <div class="content-card fade-in" data-type="${item.type}" data-difficulty="${item.difficulty}">
-                    <div class="card-header">
-                        <h3 class="card-title">${item.title}</h3>
-                        <div>
-                            <span class="card-badge ${typeColors[item.type]}">${typeLabels[item.type]}</span>
-                            <span class="card-badge ${difficultyColors[item.difficulty]}">${difficultyLabels[item.difficulty]}</span>
-                        </div>
-                    </div>
-                    <p class="card-description">${item.description}</p>
-                    <div class="card-tech">
-                        ${item.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                    </div>
-                    <div class="card-actions">
-                        <a href="${item.type === 'exercise' ? 'exercises/' : 'challenges/'}${item.id}.html" class="btn-small btn-view">👁️ Ver Página</a>
-                        <a href="https://github.com/mateusoliveiradev1/html-css/tree/main/${item.type === 'exercise' ? 'exercicios' : 'desafios'}/${item.id}" class="btn-small btn-code" target="_blank">📁 Código</a>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Função para renderizar conteúdo
-        function renderContent() {
-            const exercisesGrid = document.getElementById('exercisesGrid');
-            const challengesGrid = document.getElementById('challengesGrid');
-
-            exercisesGrid.innerHTML = exercises.map(createContentCard).join('');
-            challengesGrid.innerHTML = challenges.map(createContentCard).join('');
-
-            // Animar cards
-            setTimeout(() => {
-                document.querySelectorAll('.fade-in').forEach((el, index) => {
-                    setTimeout(() => {
-                        el.classList.add('visible');
-                    }, index * 100);
-                });
-            }, 100);
-        }
-
-        // Função de busca
-        function setupSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            let currentFilter = 'all';
-
-            searchInput.addEventListener('input', filterContent);
-            
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentFilter = btn.dataset.filter;
-                    filterContent();
-                });
-            });
-
-            function filterContent() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const cards = document.querySelectorAll('.content-card');
-
-                cards.forEach(card => {
-                    const title = card.querySelector('.card-title').textContent.toLowerCase();
-                    const description = card.querySelector('.card-description').textContent.toLowerCase();
-                    const type = card.dataset.type;
-                    const difficulty = card.dataset.difficulty;
-
-                    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-                    const matchesFilter = currentFilter === 'all' || 
-                                        type === currentFilter || 
-                                        difficulty === currentFilter;
-
-                    if (matchesSearch && matchesFilter) {
-                        card.style.display = 'block';
-                        card.classList.add('visible');
-                    } else {
-                        card.style.display = 'none';
-                        card.classList.remove('visible');
-                    }
-                });
-            }
-        }
-
-        // Smooth scroll para navegação
-        function setupSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
-        // Navegação ativa
-        function setupActiveNavigation() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section[id]');
-
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (scrollY >= (sectionTop - 200)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // Efeito de scroll no header
-        function setupHeaderScroll() {
-            const header = document.querySelector('.header');
-            let lastScrollY = window.scrollY;
-
-            window.addEventListener('scroll', () => {
-                const currentScrollY = window.scrollY;
-                
-                if (currentScrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-                
-                // Hide/show header on scroll
-                if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    header.style.transform = 'translateY(0)';
-                }
-                
-                lastScrollY = currentScrollY;
-            });
-        }
-
-        // Animações de entrada com Intersection Observer
-        function setupScrollAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Observar todos os cards
-            document.querySelectorAll('.content-card').forEach(card => {
-                observer.observe(card);
-            });
-
-            // Observar seções
-            document.querySelectorAll('.content-section').forEach(section => {
-                observer.observe(section);
-            });
-        }
-
-        // Efeito de parallax suave
-        function setupParallax() {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallaxElements = document.querySelectorAll('.hero::before');
-                
-                parallaxElements.forEach(element => {
-                    const speed = 0.5;
-                    element.style.transform = `translateY(${scrolled * speed}px)`;
-                });
-            });
-        }
-
-        // Melhorar a renderização de conteúdo com animações escalonadas
-        function renderContentWithAnimations() {
-            const exercisesGrid = document.getElementById('exercisesGrid');
-            const challengesGrid = document.getElementById('challengesGrid');
-
-            exercisesGrid.innerHTML = exercises.map(createContentCard).join('');
-            challengesGrid.innerHTML = challenges.map(createContentCard).join('');
-
-            // Animar cards com delay escalonado
-            setTimeout(() => {
-                document.querySelectorAll('.content-card').forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.add('visible');
-                    }, index * 100);
-                });
-            }, 200);
-        }
-
-        // Inicialização
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('Iniciando carregamento da página...');
-            
-            try {
-                console.log('Renderizando conteúdo...');
-                renderContentWithAnimations();
-                
-                console.log('Configurando busca...');
-                setupSearch();
-                
-                console.log('Configurando scroll suave...');
-                setupSmoothScroll();
-                
-                console.log('Configurando navegação ativa...');
-                setupActiveNavigation();
-                
-                console.log('Configurando header scroll...');
-                setupHeaderScroll();
-                
-                console.log('Configurando animações de scroll...');
-                setupScrollAnimations();
-                
-                console.log('Configurando parallax...');
-                setupParallax();
-                
-                console.log('Página carregada com sucesso!');
-            } catch (error) {
-                console.error('Erro na inicialização:', error);
-                console.error('Stack trace:', error.stack);
-            }
-        });
-    </script>
+    <!-- Scripts do Sistema de Progresso -->
+    <script src="js/progress-system.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 01 - Mensagens | Curso HTML/CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/exercise-styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="../index.html">🏠 Curso HTML/CSS</a>
+            <span class="separator">•</span>
+            <span>Desafio 01</span>
+        </nav>
+
+        <header class="exercise-header">
+            <h1>🎯 Desafio 01: Mensagens</h1>
+            <p>Desafio prático para testar seus conhecimentos sobre parágrafos e quebras de linha</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Seção do Objetivo -->
+            <section class="content-section">
+                <h2>🎯 Objetivo do Desafio</h2>
+                <div style="background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #3b82f6; margin-bottom: 1.5rem;">
+                    <p style="color: #1e40af; margin-bottom: 1rem; font-weight: 500;">Neste desafio, você deve criar um padrão visual usando asteriscos (*) e quebras de linha. O objetivo é praticar:</p>
+                    <ul style="list-style: none; padding-left: 0; margin: 0;">
+                        <li style="padding: 0.3rem 0; padding-left: 1.5rem; position: relative; color: #1e3a8a;">▶ Uso correto da tag <code>&lt;p&gt;</code></li>
+                        <li style="padding: 0.3rem 0; padding-left: 1.5rem; position: relative; color: #1e3a8a;">▶ Aplicação da tag <code>&lt;br&gt;</code> para quebras de linha</li>
+                        <li style="padding: 0.3rem 0; padding-left: 1.5rem; position: relative; color: #1e3a8a;">▶ Estruturação de conteúdo em HTML</li>
+                        <li style="padding: 0.3rem 0; padding-left: 1.5rem; position: relative; color: #1e3a8a;">▶ Criação de padrões visuais simples</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Seção de Requisitos -->
+            <section class="content-section">
+                <h2>📋 Requisitos do Desafio</h2>
+                <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                    <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #22c55e;">
+                        <h3 style="color: #15803d; margin-bottom: 0.5rem; font-size: 1.2rem;">📈 Padrão Crescente</h3>
+                        <p style="color: #166534; margin-bottom: 1rem;">Crie um parágrafo com asteriscos em ordem crescente:</p>
+                        <div style="background: #f8fafc; padding: 1rem; border-radius: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; line-height: 1.6;">
+                            <div style="color: #374151;">* Um</div>
+                            <div style="color: #374151;">** Dois</div>
+                            <div style="color: #374151;">*** Três</div>
+                            <div style="color: #374151;">**** Quatro</div>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f59e0b;">
+                        <h3 style="color: #d97706; margin-bottom: 0.5rem; font-size: 1.2rem;">📉 Padrão Decrescente</h3>
+                        <p style="color: #92400e; margin-bottom: 1rem;">Crie outro parágrafo com asteriscos em ordem decrescente:</p>
+                        <div style="background: #f8fafc; padding: 1rem; border-radius: 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; line-height: 1.6;">
+                            <div style="color: #374151;">**** Quatro</div>
+                            <div style="color: #374151;">*** Três</div>
+                            <div style="color: #374151;">** Dois</div>
+                            <div style="color: #374151;">* Um</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Preview -->
+            <section class="content-section preview">
+                <h2>✅ Resultado Esperado</h2>
+                <div class="preview-frame">
+                    <h1 style="color: #333; font-family: Arial, sans-serif; margin: 20px 0;">Desafio das Mensagens</h1>
+                    <p style="color: #666; font-family: Arial, sans-serif; line-height: 1.6; margin: 15px 0; font-family: monospace;">
+                        * Um<br>
+                        ** Dois<br>
+                        *** Três<br>
+                        **** Quatro
+                    </p>
+                    <p style="color: #666; font-family: Arial, sans-serif; line-height: 1.6; margin: 15px 0; font-family: monospace;">
+                        **** Quatro<br>
+                        *** Três<br>
+                        ** Dois<br>
+                        * Um
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Seção de Solução -->
+        <section class="content-section" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>💡 Solução do Desafio</h2>
+            <div class="code-block">
+                <pre><code id="exercise-code">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mensagens&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Desafio das Mensagens&lt;/h1&gt;
+    &lt;p&gt;
+        * Um&lt;br&gt;
+        ** Dois&lt;br&gt;
+        *** Três&lt;br&gt;
+        **** Quatro
+    &lt;/p&gt;
+
+    &lt;p&gt;
+        **** Quatro&lt;br&gt;
+        *** Três&lt;br&gt;
+        ** Dois&lt;br&gt;
+        * Um
+    &lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seção de Análise -->
+        <section class="content-section" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>🔍 Análise da Solução</h2>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #667eea;">
+                    <h3 style="color: #2d3748; margin-bottom: 0.5rem; font-size: 1.1rem;">📝 Estrutura de Parágrafos</h3>
+                    <p style="color: #4a5568; margin: 0; line-height: 1.6;">Uso de dois parágrafos distintos (<code>&lt;p&gt;</code>) para separar logicamente os dois padrões, aproveitando o espaçamento automático do navegador.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #48bb78;">
+                    <h3 style="color: #2d3748; margin-bottom: 0.5rem; font-size: 1.1rem;">↩️ Quebras de Linha</h3>
+                    <p style="color: #4a5568; margin: 0; line-height: 1.6;">Aplicação estratégica da tag <code>&lt;br&gt;</code> para criar quebras de linha dentro de cada parágrafo, mantendo a coesão visual.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #ed8936;">
+                    <h3 style="color: #2d3748; margin-bottom: 0.5rem; font-size: 1.1rem;">🎨 Padrões Visuais</h3>
+                    <p style="color: #4a5568; margin: 0; line-height: 1.6;">Criação de um efeito visual simples usando apenas texto e estrutura HTML, demonstrando como o HTML pode criar layouts básicos.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #9f7aea;">
+                    <h3 style="color: #2d3748; margin-bottom: 0.5rem; font-size: 1.1rem;">🏷️ Semântica HTML</h3>
+                    <p style="color: #4a5568; margin: 0; line-height: 1.6;">Uso apropriado das tags semânticas: <code>&lt;h1&gt;</code> para o título principal e <code>&lt;p&gt;</code> para agrupar conteúdo relacionado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Variações -->
+        <section class="content-section" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>🚀 Variações e Melhorias</h2>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #fc8181; transition: all 0.3s ease;">
+                    <h3 style="color: #c53030; margin-bottom: 0.5rem; font-size: 1.1rem;">🔣 Variação 1: Outros símbolos</h3>
+                    <p style="color: #742a2a; margin: 0; line-height: 1.6;">Tente criar o mesmo padrão usando outros símbolos como +, -, #, ou emojis.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #68d391; transition: all 0.3s ease;">
+                    <h3 style="color: #2f855a; margin-bottom: 0.5rem; font-size: 1.1rem;">📏 Variação 2: Padrão maior</h3>
+                    <p style="color: #276749; margin: 0; line-height: 1.6;">Estenda o padrão para ir até 6 ou 8 níveis, criando uma pirâmide maior.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #fffaf0 0%, #fbd38d 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f6ad55; transition: all 0.3s ease;">
+                    <h3 style="color: #c05621; margin-bottom: 0.5rem; font-size: 1.1rem;">🎯 Variação 3: Padrão centralizado</h3>
+                    <p style="color: #9c4221; margin: 0; line-height: 1.6;">Pesquise como usar espaços (<code>&amp;nbsp;</code>) para centralizar visualmente o padrão.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #f3e8ff 0%, #ddd6fe 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #a78bfa; transition: all 0.3s ease;">
+                    <h3 style="color: #7c3aed; margin-bottom: 0.5rem; font-size: 1.1rem;">🔄 Variação 4: Múltiplos padrões</h3>
+                    <p style="color: #5b21b6; margin: 0; line-height: 1.6;">Crie uma página com vários padrões diferentes: crescente, decrescente, losango, etc.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navegação -->
+        <nav class="exercise-navigation">
+            <a href="../index.html" class="nav-btn prev">
+                <span>←</span>
+                <span>Voltar ao Curso</span>
+            </a>
+            <a href="../index.html#challenges" class="nav-btn next">
+                <span>Ver Mais Desafios</span>
+                <span>→</span>
+            </a>
+        </nav>
+
+        <!-- Rodapé com créditos -->
+        <footer class="footer">
+            <div class="credits">
+                <h3>💡 Créditos</h3>
+                <p>Desafio baseado no curso de <a href="https://www.cursoemvideo.com" target="_blank" rel="noopener" class="author">Professor Gustavo Guanabara</a></p>
+                <p>Adaptado e modernizado para melhor experiência de aprendizado</p>
+                <a href="https://www.cursoemvideo.com/curso/html5-css3-modulo1/" target="_blank" rel="noopener" class="course-link">
+                    <span>🎓</span>
+                    <span>Ver Curso Original</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Função para copiar código
+        function copyCode() {
+            const code = document.getElementById('exercise-code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                // Feedback visual de sucesso
+                console.log('Código copiado com sucesso!');
+            }).catch(err => {
+                console.error('Erro ao copiar código:', err);
+            });
+        }
+
+        // Marca desafio como concluído
+        document.addEventListener('DOMContentLoaded', function() {
+            const challengeId = 'd001';
+            const completed = JSON.parse(localStorage.getItem('completedItems') || '[]');
+            if (!completed.includes(`challenge_${challengeId}`)) {
+                completed.push(`challenge_${challengeId}`);
+                localStorage.setItem('completedItems', JSON.stringify(completed));
+            }
+        });
+
+        // Navegação inteligente
+        if (typeof SmartNavigation !== 'undefined') {
+            new SmartNavigation();
+        }
+    </script>
+</body>
+</html>

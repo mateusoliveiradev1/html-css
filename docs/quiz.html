@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Quiz Interativo - Teste seus conhecimentos em HTML e CSS">
+    <meta name="keywords" content="quiz, HTML, CSS, programação, teste, conhecimento">
+    <meta name="author" content="Liiiraa">
+    
+    <title>Quiz Interativo - HTML & CSS</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/quiz-styles.css">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Meta tags para redes sociais -->
+    <meta property="og:title" content="Quiz Interativo - HTML & CSS">
+    <meta property="og:description" content="Teste seus conhecimentos em HTML e CSS com nosso sistema de quiz interativo">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.com/quiz.html">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quiz Interativo - HTML & CSS">
+    <meta name="twitter:description" content="Teste seus conhecimentos em HTML e CSS com nosso sistema de quiz interativo">
+</head>
+<body>
+    <!-- Fundo de partículas -->
+    <div class="particles"></div>
+    
+    <!-- Barra de progresso -->
+    <div class="progress-bar-top">
+        <div class="progress-fill"></div>
+    </div>
+    
+    <!-- Cabeçalho -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-decoration"></div>
+                
+                <div class="header-badge">
+                    <span class="badge-icon">🧠</span>
+                    <span class="badge-text">Sistema de Quiz</span>
+                </div>
+                
+                <h1 class="header-title">
+                    Quiz <span class="highlight">Interativo</span>
+                </h1>
+                
+                <p class="header-subtitle">
+                    Teste seus conhecimentos em HTML e CSS de forma divertida e educativa
+                </p>
+                
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Quizzes Disponíveis</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Questões Totais</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Tentativas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Informações sobre o quiz -->
+            <section class="quiz-info">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">📚</div>
+                        <h3>Aprenda Praticando</h3>
+                        <p>Cada questão vem com explicações detalhadas para ajudar no seu aprendizado.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">⏱️</div>
+                        <h3>Tempo Controlado</h3>
+                        <p>Pratique sob pressão com nosso sistema de tempo limitado por quiz.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">🎯</div>
+                        <h3>Feedback Imediato</h3>
+                        <p>Receba feedback instantâneo sobre suas respostas e veja onde pode melhorar.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">📊</div>
+                        <h3>Acompanhe seu Progresso</h3>
+                        <p>Veja suas estatísticas e acompanhe sua evolução ao longo do tempo.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Container do quiz -->
+            <section class="quiz-section">
+                <div id="quiz-container">
+                    <!-- O conteúdo do quiz será inserido aqui pelo JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Dicas de estudo -->
+            <section class="study-tips">
+                <h2>💡 Dicas para um Melhor Desempenho</h2>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <h4>🔍 Leia com Atenção</h4>
+                        <p>Leia cada questão cuidadosamente antes de responder. Às vezes, pequenos detalhes fazem toda a diferença.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <h4>⚡ Pratique Regularmente</h4>
+                        <p>A prática constante é a chave para o domínio. Refaça os quizzes para reforçar o aprendizado.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <h4>📖 Estude as Explicações</h4>
+                        <p>Mesmo quando acertar, leia as explicações. Elas podem conter informações valiosas adicionais.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <h4>🎯 Foque nos Erros</h4>
+                        <p>Analise suas respostas incorretas e entenda o porquê do erro. Isso acelera o aprendizado.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📚 Sobre o Quiz</h3>
+                    <p>Sistema de quiz interativo desenvolvido para complementar o aprendizado de HTML e CSS, baseado no curso completo do Professor Gustavo Guanabara.</p>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Quizzes</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Questões</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Tipos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>🎓 Créditos Educacionais</h3>
+                    <p>Conteúdo baseado no <strong>Curso Completo de HTML5 e CSS3</strong> do Professor <a href="https://github.com/gustavoguanabara" target="_blank" rel="noopener">Gustavo Guanabara</a>.</p>
+                    <p>Visite o <a href="https://www.cursoemvideo.com/" target="_blank" rel="noopener">Curso em Vídeo</a> para mais conteúdos educacionais gratuitos.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>💻 Desenvolvimento</h3>
+                    <p class="made-with-love">
+                        Desenvolvido com <span class="heart">❤️</span> por <strong>Liiiraa</strong>
+                    </p>
+                    <p>Sistema escalável preparado para expansão com novos quizzes e funcionalidades.</p>
+                    <p><a href="index.html">← Voltar para a página principal</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sistema de Quiz HTML & CSS. Projeto educacional open-source.</p>
+                <p>Baseado no curso do Prof. Gustavo Guanabara - Curso em Vídeo</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/quiz-system.js"></script>
+    
+    <script>
+        // Inicialização específica da página de quiz
+        document.addEventListener('DOMContentLoaded', () => {
+            // Criar partículas de fundo
+            createParticles();
+            
+            // Animar barra de progresso
+            setTimeout(() => {
+                const progressBar = document.querySelector('.progress-fill');
+                if (progressBar) {
+                    progressBar.style.width = '100%';
+                }
+            }, 500);
+            
+            // Animação de entrada
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
