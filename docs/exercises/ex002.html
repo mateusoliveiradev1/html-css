@@ -601,11 +601,11 @@ Segunda linha&lt;/p&gt;</code></pre>
                         <h3>🌐 Resultado</h3>
                         <div class="preview-controls">
                             <button class="btn-refresh" onclick="updatePreview()">🔄 Atualizar</button>
-                            <button class="btn-fullscreen" onclick="toggleFullscreen()">⛶ Tela Cheia</button>
+
                         </div>
                     </div>
                     <div class="preview-wrapper">
-                        <iframe id="html-preview" class="preview-iframe" sandbox="allow-same-origin"></iframe>
+                        <iframe id="preview-frame" class="preview-iframe" sandbox="allow-same-origin"></iframe>
                     </div>
                 </div>
             </div>
@@ -701,9 +701,10 @@ Segunda linha&lt;/p&gt;</code></pre>
 
     <!-- Scripts do Sistema de Progresso e Quiz -->
     <script src="../js/progress-system.js"></script>
-<script src="../js/exercise-quiz.js"></script>
-<script src="../js/exercise-navigation.js"></script>
-<script src="../js/interactive-editor.js"></script>
+    <script src="../js/exercise-quiz.js"></script>
+    <script src="../js/exercise-navigation.js"></script>
+    <script src="../js/interactive-editor.js"></script>
+    <script src="../js/editor-functions-ex002.js"></script>
     
     <script>
         // Função para copiar código com feedback visual melhorado
@@ -750,10 +751,7 @@ Segunda linha&lt;/p&gt;</code></pre>
             // Inicializar quiz do exercício
             initExerciseQuiz('ex002', 'quiz-container');
             
-            // Inicializar editor interativo
-            if (typeof InteractiveEditor !== 'undefined') {
-                new InteractiveEditor('html', 'html-preview');
-            }
+            // Editor interativo inicializado via editor-functions-ex002.js
         });
 
         // Navegação inteligente

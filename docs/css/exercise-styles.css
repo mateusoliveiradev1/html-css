@@ -1493,8 +1493,7 @@ body {
 
 .btn-reset,
 .btn-copy,
-.btn-refresh,
-.btn-fullscreen {
+.btn-refresh {
     background: rgba(255, 255, 255, 0.2);
     color: white;
     border: none;
@@ -1508,8 +1507,7 @@ body {
 
 .btn-reset:hover,
 .btn-copy:hover,
-.btn-refresh:hover,
-.btn-fullscreen:hover {
+.btn-refresh:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-1px);
 }
@@ -1667,27 +1665,8 @@ body {
     }
 }
 
-/* Modo tela cheia */
-.fullscreen-editor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: white;
-    z-index: 9999;
-    padding: 20px;
-    box-sizing: border-box;
-}
 
-.fullscreen-editor .editor-container {
-    height: calc(100vh - 120px);
-}
 
-.fullscreen-editor .code-editor,
-.fullscreen-editor .preview-iframe {
-    height: calc(100vh - 200px);
-}
 
 /* Botão de aplicar sugestão */
 .suggestion-apply-btn {
@@ -2047,9 +2026,7 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .fullscreen-editor {
-        padding: 10px;
-    }
+
     
     .editor-message {
         position: fixed;
