@@ -61,7 +61,15 @@
                             <code>&lt;!DOCTYPE html&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Declaração do Tipo de Documento:</strong> Informa ao navegador que este é um documento HTML5. Sempre deve ser a primeira linha!
+                            <strong>Declaração do Tipo de Documento (DOCTYPE):</strong> Informa ao navegador que este é um documento HTML5. Sempre deve ser a primeira linha!
+                            <div class="tech-details">
+                                <p><strong>💡 Detalhes Técnicos:</strong></p>
+                                <ul>
+                                    <li>Ativa o "modo padrão" do navegador (standards mode)</li>
+                                    <li>Sem DOCTYPE, o navegador entra em "modo quirks" (compatibilidade)</li>
+                                    <li>HTML5 simplificou: antes era <code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"...&gt;</code></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -72,6 +80,15 @@
                         </div>
                         <div class="explanation">
                             <strong>Tag HTML Raiz:</strong> Contém todo o conteúdo da página. O atributo <code>lang="pt-br"</code> define o idioma como português brasileiro.
+                            <div class="tech-details">
+                                <p><strong>🌐 Importância do Atributo lang:</strong></p>
+                                <ul>
+                                    <li>Ajuda leitores de tela a pronunciar corretamente</li>
+                                    <li>Melhora SEO e indexação por mecanismos de busca</li>
+                                    <li>Permite tradução automática mais precisa</li>
+                                    <li>Outros exemplos: <code>lang="en"</code>, <code>lang="es"</code>, <code>lang="fr"</code></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -81,7 +98,16 @@
                             <code>&lt;head&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Cabeçalho do Documento:</strong> Contém informações sobre a página que não são exibidas diretamente (metadados).
+                            <strong>Cabeçalho da Página (Head):</strong> Contém informações sobre a página que não aparecem diretamente no conteúdo visível.
+                            <div class="tech-details">
+                                <p><strong>📋 O que vai no Head:</strong></p>
+                                <ul>
+                                    <li><strong>Metadados:</strong> charset, viewport, description</li>
+                                    <li><strong>Recursos:</strong> CSS, JavaScript, fontes</li>
+                                    <li><strong>SEO:</strong> title, meta tags, Open Graph</li>
+                                    <li><strong>Ícones:</strong> favicon, apple-touch-icon</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -91,7 +117,16 @@
                             <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Codificação de Caracteres:</strong> Define UTF-8 para suportar acentos e caracteres especiais do português.
+                            <strong>Codificação de Caracteres (Charset):</strong> Define como o navegador deve interpretar os caracteres especiais (acentos, ç, etc.).
+                            <div class="tech-details">
+                                <p><strong>🔤 Por que UTF-8?</strong></p>
+                                <ul>
+                                    <li>Suporta todos os caracteres Unicode (emojis, acentos, símbolos)</li>
+                                    <li>Compatível com ASCII (caracteres básicos)</li>
+                                    <li>Padrão mundial para páginas web</li>
+                                    <li>Sem charset: caracteres especiais aparecem como <code>�</code> ou <code>?</code></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -101,7 +136,16 @@
                             <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Responsividade:</strong> Configura a página para se adaptar a diferentes tamanhos de tela (celular, tablet, desktop).
+                            <strong>Meta Viewport (Responsividade):</strong> Configura a página para se adaptar a diferentes tamanhos de tela (celular, tablet, desktop).
+                            <div class="tech-details">
+                                <p><strong>📱 Parâmetros do Viewport:</strong></p>
+                                <ul>
+                                    <li><code>width=device-width</code>: largura = largura do dispositivo</li>
+                                    <li><code>initial-scale=1.0</code>: zoom inicial de 100%</li>
+                                    <li>Outros: <code>maximum-scale</code>, <code>minimum-scale</code>, <code>user-scalable</code></li>
+                                    <li>Sem viewport: página aparece "zoomed out" no mobile</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -111,7 +155,16 @@
                             <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Meu primeiro exercício&lt;/title&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Título da Página:</strong> Aparece na aba do navegador e é usado pelos mecanismos de busca.
+                            <strong>Título da Página (Title):</strong> Aparece na aba do navegador e é usado pelos mecanismos de busca.
+                            <div class="tech-details">
+                                <p><strong>🏷️ Importância do Title:</strong></p>
+                                <ul>
+                                    <li><strong>SEO:</strong> Primeiro fator de ranking no Google</li>
+                                    <li><strong>UX:</strong> Usuário vê na aba e nos favoritos</li>
+                                    <li><strong>Redes Sociais:</strong> Aparece quando compartilhado</li>
+                                    <li><strong>Tamanho ideal:</strong> 50-60 caracteres para não ser cortado</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -131,7 +184,16 @@
                             <code>&lt;body&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Corpo da Página:</strong> Aqui fica todo o conteúdo visível da página web.
+                            <strong>Corpo da Página (Body):</strong> Aqui fica todo o conteúdo visível da página web.
+                            <div class="tech-details">
+                                <p><strong>🎯 Estrutura do Body:</strong></p>
+                                <ul>
+                                    <li><strong>Conteúdo visível:</strong> textos, imagens, vídeos, formulários</li>
+                                    <li><strong>Elementos semânticos:</strong> header, nav, main, section, footer</li>
+                                    <li><strong>Interatividade:</strong> botões, links, scripts</li>
+                                    <li><strong>Regra:</strong> apenas um &lt;body&gt; por documento HTML</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -141,7 +203,16 @@
                             <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Olá, Mundo!&lt;/h1&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Título Principal:</strong> <code>&lt;h1&gt;</code> é o título mais importante da página. Use apenas um por página!
+                            <strong>Título Principal (H1):</strong> <code>&lt;h1&gt;</code> é o título mais importante da página. Use apenas um por página!
+                            <div class="tech-details">
+                                <p><strong>📊 Hierarquia de Títulos:</strong></p>
+                                <ul>
+                                    <li><code>&lt;h1&gt;</code>: Título principal (apenas 1 por página)</li>
+                                    <li><code>&lt;h2&gt;</code>: Subtítulos principais</li>
+                                    <li><code>&lt;h3&gt;</code> a <code>&lt;h6&gt;</code>: Subtítulos menores</li>
+                                    <li><strong>SEO:</strong> Google usa h1-h6 para entender a estrutura</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -151,7 +222,17 @@
                             <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Linha Horizontal:</strong> Cria uma linha para separar seções. É uma tag auto-fechada (não precisa de <code>&lt;/hr&gt;</code>).
+                            <strong>Linha Horizontal (HR):</strong> Cria uma linha para separar seções. É uma tag auto-fechada (não precisa de <code>&lt;/hr&gt;</code>).
+                            <div class="tech-details">
+                                <p><strong>➖ Tags Auto-fechadas (Void Elements):</strong></p>
+                                <ul>
+                                    <li><code>&lt;hr&gt;</code>: linha horizontal</li>
+                                    <li><code>&lt;br&gt;</code>: quebra de linha</li>
+                                    <li><code>&lt;img&gt;</code>: imagem</li>
+                                    <li><code>&lt;input&gt;</code>: campo de formulário</li>
+                                    <li><strong>Não precisam</strong> de tag de fechamento</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -161,7 +242,16 @@
                             <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Estou praticando HTML e estou muito feliz!&lt;/p&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Parágrafo:</strong> <code>&lt;p&gt;</code> é usado para texto comum. Cada parágrafo cria um bloco separado.
+                            <strong>Parágrafo (P):</strong> <code>&lt;p&gt;</code> é usado para texto comum. Cada parágrafo cria um bloco separado.
+                            <div class="tech-details">
+                                <p><strong>📝 Características do Parágrafo:</strong></p>
+                                <ul>
+                                    <li><strong>Elemento de bloco:</strong> ocupa toda a largura disponível</li>
+                                    <li><strong>Margem automática:</strong> espaço antes e depois</li>
+                                    <li><strong>Semântica:</strong> representa um parágrafo de texto</li>
+                                    <li><strong>Alternativas:</strong> &lt;div&gt; (genérico), &lt;span&gt; (inline)</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -182,6 +272,15 @@
                         </div>
                         <div class="explanation">
                             <strong>Fechamento do Body:</strong> Finaliza o conteúdo visível da página.
+                            <div class="tech-details">
+                                <p><strong>🔚 Regras de Fechamento:</strong></p>
+                                <ul>
+                                    <li><strong>Ordem:</strong> última tag aberta = primeira a fechar</li>
+                                    <li><strong>Obrigatório:</strong> toda tag aberta deve ser fechada</li>
+                                    <li><strong>Sintaxe:</strong> &lt;/nome_da_tag&gt;</li>
+                                    <li><strong>Exceção:</strong> void elements (hr, br, img, etc.)</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
@@ -192,6 +291,15 @@
                         </div>
                         <div class="explanation">
                             <strong>Fechamento do HTML:</strong> Finaliza todo o documento HTML.
+                            <div class="tech-details">
+                                <p><strong>✅ Estrutura Completa:</strong></p>
+                                <ul>
+                                    <li><strong>DOCTYPE</strong> → <strong>&lt;html&gt;</strong> → <strong>&lt;head&gt;</strong> → <strong>&lt;body&gt;</strong></li>
+                                    <li>Cada elemento tem seu lugar específico</li>
+                                    <li>Estrutura aninhada (como bonecas russas)</li>
+                                    <li><strong>Validação:</strong> use validator.w3.org para verificar</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -217,6 +325,153 @@
     &lt;hr&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Tutorial Passo-a-Passo -->
+            <section class="content-section tutorial-section">
+                <h2>🚀 Tutorial Passo-a-Passo</h2>
+                <p class="tutorial-intro">Siga este guia interativo para criar seu primeiro documento HTML do zero!</p>
+                
+                <div class="tutorial-steps">
+                    <div class="tutorial-step" data-step="1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3>Criando o Arquivo HTML</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📁 Primeiro passo:</strong> Crie um novo arquivo e salve como <code>index.html</code></p>
+                                <div class="instruction-details">
+                                    <ul>
+                                        <li>Abra seu editor de código favorito (VS Code, Sublime, Notepad++)</li>
+                                        <li>Crie um novo arquivo (Ctrl+N ou Cmd+N)</li>
+                                        <li>Salve como "index.html" (a extensão .html é obrigatória)</li>
+                                        <li>Certifique-se de que está salvando como "Todos os arquivos" se usar Notepad</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3>Declarando o Tipo de Documento</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📝 Digite a primeira linha:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;!DOCTYPE html&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>💡 Por que isso é importante:</strong></p>
+                                    <ul>
+                                        <li>Informa ao navegador que é um documento HTML5</li>
+                                        <li>Ativa o "modo padrão" (standards mode)</li>
+                                        <li>Deve ser sempre a primeira linha do arquivo</li>
+                                        <li>Não é uma tag HTML, é uma declaração especial</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h3>Criando a Estrutura Principal</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🏗️ Adicione a tag html:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;html lang="pt-br"&gt;<br>&lt;/html&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>🌐 Detalhes importantes:</strong></p>
+                                    <ul>
+                                        <li>A tag &lt;html&gt; envolve todo o conteúdo da página</li>
+                                        <li>O atributo <code>lang="pt-br"</code> define o idioma</li>
+                                        <li>Ajuda leitores de tela e mecanismos de busca</li>
+                                        <li>Sempre feche a tag no final do documento</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="4">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <h3>Adicionando o Cabeçalho (Head)</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🧠 Dentro da tag html, adicione:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;head&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Meu primeiro exercício&lt;/title&gt;<br>&lt;/head&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>📋 O que cada linha faz:</strong></p>
+                                    <ul>
+                                        <li><strong>charset:</strong> suporte a acentos e caracteres especiais</li>
+                                        <li><strong>viewport:</strong> responsividade para dispositivos móveis</li>
+                                        <li><strong>title:</strong> título que aparece na aba do navegador</li>
+                                        <li>O head contém informações sobre a página (metadados)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="5">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <h3>Criando o Corpo da Página</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🎯 Após o &lt;/head&gt;, adicione o body:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Olá, Mundo!&lt;/h1&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Estou praticando HTML e estou muito feliz!&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;<br>&lt;/body&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>🎨 Elementos do conteúdo:</strong></p>
+                                    <ul>
+                                        <li><strong>&lt;h1&gt;:</strong> título principal da página</li>
+                                        <li><strong>&lt;hr&gt;:</strong> linha horizontal decorativa</li>
+                                        <li><strong>&lt;p&gt;:</strong> parágrafo de texto</li>
+                                        <li>Todo conteúdo visível vai dentro do &lt;body&gt;</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="6">
+                        <div class="step-header">
+                            <div class="step-number">6</div>
+                            <h3>Testando no Navegador</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🌐 Hora de ver o resultado:</strong></p>
+                                <div class="instruction-details">
+                                    <ul>
+                                        <li>Salve o arquivo (Ctrl+S ou Cmd+S)</li>
+                                        <li>Abra o arquivo no navegador (duplo clique ou arrastar)</li>
+                                        <li>Você deve ver "Olá, Mundo!" como título</li>
+                                        <li>Experimente alterar o texto e recarregar a página</li>
+                                    </ul>
+                                </div>
+                                <div class="success-message">
+                                    <strong>🎉 Parabéns!</strong> Você criou sua primeira página web!
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -267,6 +522,499 @@
                 <div style="background: linear-gradient(135deg, #fffaf0 0%, #fbd38d 100%); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f6ad55; transition: all 0.3s ease;">
                     <h3 style="color: #c05621; margin-bottom: 0.5rem; font-size: 1.1rem;">🔧 Desafio 3: Experimente outras tags</h3>
                     <p style="color: #9c4221; margin: 0; line-height: 1.6;">Adicione um subtítulo usando <code>&lt;h2&gt;</code> e uma lista com <code>&lt;ul&gt;</code> e <code>&lt;li&gt;</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Erros Comuns -->
+        <section class="content-section common-mistakes" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>⚠️ Erros Comuns e Como Evitá-los</h2>
+            <p class="section-intro">Aprenda com os erros mais frequentes que iniciantes cometem ao escrever HTML:</p>
+            
+            <div class="mistakes-grid">
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Esquecer o DOCTYPE</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Minha Página&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Minha Página&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> O DOCTYPE informa ao navegador qual versão do HTML usar, evitando problemas de renderização.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Não fechar tags corretamente</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;h1&gt;Meu Título
+&lt;p&gt;Meu parágrafo
+&lt;p&gt;Outro parágrafo&lt;/h1&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;h1&gt;Meu Título&lt;/h1&gt;
+&lt;p&gt;Meu parágrafo&lt;/p&gt;
+&lt;p&gt;Outro parágrafo&lt;/p&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Tags não fechadas ou fechadas incorretamente podem quebrar o layout e causar problemas de acessibilidade.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Esquecer o charset UTF-8</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;head&gt;
+    &lt;title&gt;Página com acentos&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Página com acentos&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Sem UTF-8, caracteres especiais como ç, ã, é podem aparecer como símbolos estranhos (�).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Usar múltiplos H1 na mesma página</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;h1&gt;Outra Seção&lt;/h1&gt;
+&lt;h1&gt;Mais uma Seção&lt;/h1&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;h2&gt;Outra Seção&lt;/h2&gt;
+&lt;h2&gt;Mais uma Seção&lt;/h2&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> H1 deve ser único por página para SEO e acessibilidade. Use H2, H3, etc. para subtítulos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Misturar maiúsculas e minúsculas</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;HTML&gt;
+&lt;Head&gt;
+    &lt;TITLE&gt;Minha página&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Minha página&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> HTML5 recomenda usar sempre minúsculas para tags. É mais limpo e consistente.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Não usar indentação</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Título&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Olá&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Título&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Olá&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Indentação torna o código mais legível e fácil de manter, especialmente em projetos maiores.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>💡 Dicas para Evitar Erros</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">🔍</span>
+                        <h4>Use um editor com destaque de sintaxe</h4>
+                        <p>Editores como VS Code destacam erros de sintaxe automaticamente.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">✅</span>
+                        <h4>Valide seu HTML</h4>
+                        <p>Use o <a href="https://validator.w3.org/" target="_blank">W3C Validator</a> para verificar se seu código está correto.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📖</span>
+                        <h4>Pratique regularmente</h4>
+                        <p>Quanto mais você escrever HTML, mais natural se tornará evitar esses erros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Editor Interativo -->
+        <section class="content-section interactive-editor" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>💻 Editor de Código Interativo</h2>
+            <p class="section-intro">Experimente modificar o código HTML abaixo e veja o resultado em tempo real!</p>
+            
+            <div class="editor-container">
+                <div class="editor-panel">
+                    <div class="editor-header">
+                        <h3>📝 Editor HTML</h3>
+                        <div class="editor-controls">
+                            <button class="btn-reset" onclick="resetEditor()">🔄 Resetar</button>
+                            <button class="btn-copy" onclick="copyEditorCode()">📋 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="editor-wrapper">
+                        <textarea id="html-editor" class="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Olá, Mundo!&lt;/h1&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Estou praticando HTML e estou muito feliz!&lt;/p&gt;
+    &lt;hr&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+                    </div>
+                </div>
+                
+                <div class="preview-panel">
+                    <div class="preview-header">
+                        <h3>🌐 Resultado</h3>
+                        <div class="preview-controls">
+                            <button class="btn-refresh" onclick="updatePreview()">🔄 Atualizar</button>
+                            <button class="btn-fullscreen" onclick="toggleFullscreen()">⛶ Tela Cheia</button>
+                        </div>
+                    </div>
+                    <div class="preview-wrapper">
+                        <iframe id="preview-frame" class="preview-iframe" sandbox="allow-same-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-suggestions">
+                <h3>💡 Experimente estas modificações:</h3>
+                <div class="suggestions-grid">
+                    <div class="suggestion-card" onclick="applySuggestion(1)">
+                        <span class="suggestion-icon">🎨</span>
+                        <h4>Mude o título</h4>
+                        <p>Altere "Olá, Mundo!" para incluir seu nome</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(2)">
+                        <span class="suggestion-icon">📝</span>
+                        <h4>Adicione mais conteúdo</h4>
+                        <p>Inclua mais parágrafos com suas informações</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(3)">
+                        <span class="suggestion-icon">🏷️</span>
+                        <h4>Use outras tags</h4>
+                        <p>Experimente &lt;h2&gt;, &lt;strong&gt;, &lt;em&gt;</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(4)">
+                        <span class="suggestion-icon">📋</span>
+                        <h4>Crie uma lista</h4>
+                        <p>Adicione uma lista com &lt;ul&gt; e &lt;li&gt;</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-tips">
+                <div class="tip-box">
+                    <span class="tip-icon">⚡</span>
+                    <div class="tip-content">
+                        <strong>Dica:</strong> O preview é atualizado automaticamente enquanto você digita. Se não funcionar, clique em "Atualizar".
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <span class="tip-icon">🔍</span>
+                    <div class="tip-content">
+                        <strong>Experimente:</strong> Tente quebrar o código propositalmente para ver como os erros afetam o resultado.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Exemplos Visuais -->
+        <section class="visual-examples">
+            <h2>📊 Exemplos Visuais e Comparações</h2>
+            <p class="section-intro">
+                Veja na prática como diferentes elementos HTML são renderizados no navegador e compare 
+                diferentes abordagens para entender melhor os conceitos.
+            </p>
+
+            <div class="examples-grid">
+                <!-- Exemplo 1: Estrutura HTML -->
+                <div class="example-card">
+                    <h3>🏗️ Estrutura HTML Básica</h3>
+                    <div class="visual-comparison">
+                        <div class="code-side">
+                            <h4>Código HTML:</h4>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Minha Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bem-vindo!&lt;/h1&gt;
+    &lt;p&gt;Este é meu primeiro site.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                        <div class="result-side">
+                            <h4>Como aparece no navegador:</h4>
+                            <div class="browser-preview">
+                                <div class="browser-bar">
+                                    <div class="browser-buttons">
+                                        <span class="btn-close"></span>
+                                        <span class="btn-minimize"></span>
+                                        <span class="btn-maximize"></span>
+                                    </div>
+                                    <div class="browser-url">minha-pagina.html</div>
+                                </div>
+                                <div class="browser-content">
+                                    <h1 style="margin: 0 0 16px 0; font-size: 32px; color: #333;">Bem-vindo!</h1>
+                                    <p style="margin: 0; font-size: 16px; color: #666;">Este é meu primeiro site.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exemplo 2: Hierarquia de Títulos -->
+                <div class="example-card">
+                    <h3>📝 Hierarquia de Títulos</h3>
+                    <div class="visual-comparison">
+                        <div class="code-side">
+                            <h4>Código HTML:</h4>
+                            <pre><code>&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;h3&gt;Seção&lt;/h3&gt;
+&lt;h4&gt;Subseção&lt;/h4&gt;
+&lt;h5&gt;Tópico&lt;/h5&gt;
+&lt;h6&gt;Subtópico&lt;/h6&gt;</code></pre>
+                        </div>
+                        <div class="result-side">
+                            <h4>Como aparece no navegador:</h4>
+                            <div class="browser-preview">
+                                <div class="browser-bar">
+                                    <div class="browser-buttons">
+                                        <span class="btn-close"></span>
+                                        <span class="btn-minimize"></span>
+                                        <span class="btn-maximize"></span>
+                                    </div>
+                                    <div class="browser-url">titulos.html</div>
+                                </div>
+                                <div class="browser-content">
+                                    <h1 style="font-size: 32px; margin: 0 0 8px 0;">Título Principal</h1>
+                                    <h2 style="font-size: 24px; margin: 0 0 8px 0;">Subtítulo</h2>
+                                    <h3 style="font-size: 20px; margin: 0 0 8px 0;">Seção</h3>
+                                    <h4 style="font-size: 18px; margin: 0 0 8px 0;">Subseção</h4>
+                                    <h5 style="font-size: 16px; margin: 0 0 8px 0;">Tópico</h5>
+                                    <h6 style="font-size: 14px; margin: 0;">Subtópico</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exemplo 3: Meta Tags e SEO -->
+                <div class="example-card">
+                    <h3>🔍 Meta Tags e SEO</h3>
+                    <div class="visual-comparison">
+                        <div class="code-side">
+                            <h4>Código HTML:</h4>
+                            <pre><code>&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" 
+          content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Meu Site Incrível&lt;/title&gt;
+    &lt;meta name="description" 
+          content="Um site sobre HTML básico"&gt;
+&lt;/head&gt;</code></pre>
+                        </div>
+                        <div class="result-side">
+                            <h4>Como aparece no Google:</h4>
+                            <div class="search-result">
+                                <div class="search-title">Meu Site Incrível</div>
+                                <div class="search-url">https://meusite.com</div>
+                                <div class="search-description">Um site sobre HTML básico</div>
+                            </div>
+                            <div class="explanation">
+                                <p><strong>📱 viewport:</strong> Torna o site responsivo</p>
+                                <p><strong>🏷️ title:</strong> Aparece na aba do navegador</p>
+                                <p><strong>📄 description:</strong> Aparece nos resultados de busca</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exemplo 4: Antes e Depois -->
+                <div class="example-card full-width">
+                    <h3>⚡ Antes vs Depois: HTML Bem Estruturado</h3>
+                    <div class="before-after">
+                        <div class="before-section">
+                            <h4>❌ Antes (HTML mal estruturado):</h4>
+                            <div class="code-preview">
+                                <pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;site&lt;/title&gt;
+&lt;body&gt;
+&lt;h1&gt;ola&lt;/h1&gt;
+&lt;h1&gt;bem vindo&lt;/h1&gt;
+&lt;p&gt;este e meu site
+&lt;p&gt;obrigado por visitar</code></pre>
+                            </div>
+                            <div class="problems-list">
+                                <h5>Problemas:</h5>
+                                <ul>
+                                    <li>❌ Sem DOCTYPE</li>
+                                    <li>❌ Sem charset</li>
+                                    <li>❌ Tags não fechadas</li>
+                                    <li>❌ Múltiplos H1</li>
+                                    <li>❌ Sem indentação</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="after-section">
+                            <h4>✅ Depois (HTML bem estruturado):</h4>
+                            <div class="code-preview">
+                                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Meu Site Pessoal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Olá!&lt;/h1&gt;
+    &lt;h2&gt;Bem-vindo&lt;/h2&gt;
+    &lt;p&gt;Este é meu site.&lt;/p&gt;
+    &lt;p&gt;Obrigado por visitar!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                            <div class="benefits-list">
+                                <h5>Benefícios:</h5>
+                                <ul>
+                                    <li>✅ HTML5 válido</li>
+                                    <li>✅ Acessível</li>
+                                    <li>✅ SEO otimizado</li>
+                                    <li>✅ Responsivo</li>
+                                    <li>✅ Bem organizado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dicas Visuais -->
+            <div class="visual-tips">
+                <h3>💡 Dicas Visuais Importantes</h3>
+                <div class="tips-grid">
+                    <div class="tip-visual">
+                        <div class="tip-icon">🎯</div>
+                        <h4>Hierarquia Visual</h4>
+                        <p>Use H1 apenas uma vez por página. H2, H3, etc. criam uma hierarquia clara de conteúdo.</p>
+                    </div>
+                    <div class="tip-visual">
+                        <div class="tip-icon">📱</div>
+                        <h4>Responsividade</h4>
+                        <p>A meta tag viewport é essencial para que seu site funcione bem em dispositivos móveis.</p>
+                    </div>
+                    <div class="tip-visual">
+                        <div class="tip-icon">🔍</div>
+                        <h4>SEO Básico</h4>
+                        <p>Title e meta description ajudam seu site a aparecer melhor nos resultados de busca.</p>
+                    </div>
+                    <div class="tip-visual">
+                        <div class="tip-icon">♿</div>
+                        <h4>Acessibilidade</h4>
+                        <p>HTML bem estruturado torna seu site acessível para pessoas com deficiência.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -322,6 +1070,7 @@
     <script src="../js/progress-system.js"></script>
     <script src="../js/exercise-quiz.js"></script>
     <script src="../js/exercise-navigation.js"></script>
+    <script src="../js/interactive-editor.js"></script>
     
     <script>
         // Função para copiar código

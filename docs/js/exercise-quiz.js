@@ -12,6 +12,7 @@ class ExerciseQuiz {
         this.answers = [];
         this.quiz = null;
         this.startTime = null;
+        this.hasNavigatedForward = false; // Rastreia se já navegou para frente
         
         this.init();
     }
@@ -78,15 +79,40 @@ class ExerciseQuiz {
                 </button>
             </div>
         `;
+        
+        // Se a questão já foi respondida, desabilita as opções e mostra feedback
+        if (this.answers[this.currentQuestion] !== undefined) {
+            const radioInputs = document.querySelectorAll('input[type="radio"]');
+            radioInputs.forEach(input => {
+                input.disabled = true;
+                if (input.value === this.answers[this.currentQuestion]) {
+                    input.checked = true;
+                }
+            });
+            
+            // Mostra feedback da resposta já dada
+            this.showInstantFeedback(this.answers[this.currentQuestion]);
+        }
     }
 
     startQuiz() {
         this.currentQuestion = 0;
-        this.score = 0;
         this.answers = [];
+        this.score = 0;
         this.startTime = Date.now();
         
+        // Embaralha as questões a cada nova tentativa
+        this.shuffleQuestions();
+        
         this.renderQuestion();
+    }
+    
+    shuffleQuestions() {
+        // Algoritmo Fisher-Yates para embaralhar array
+        for (let i = this.quiz.questions.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.quiz.questions[i], this.quiz.questions[j]] = [this.quiz.questions[j], this.quiz.questions[i]];
+        }
     }
 
     renderQuestion() {
@@ -103,22 +129,40 @@ class ExerciseQuiz {
                 </div>
                 
                 <div class="question-container">
-                    <h4 class="question-title">Questão ${this.currentQuestion + 1}</h4>
+                    <div class="question-header">
+                        <h4 class="question-title">Questão ${this.currentQuestion + 1}</h4>
+                        ${question.difficulty ? `<span class="difficulty-badge ${question.difficulty}">${this.getDifficultyText(question.difficulty)}</span>` : ''}
+                    </div>
                     <p class="question-text">${question.question}</p>
+                    
+                    ${question.hint ? `
+                        <div class="question-hint" id="hint-${this.currentQuestion}" style="display: none;">
+                            <div class="hint-content">
+                                <span class="hint-icon">💡</span>
+                                <span class="hint-text">${question.hint}</span>
+                            </div>
+                        </div>
+                        <button class="hint-btn" onclick="exerciseQuiz.toggleHint(${this.currentQuestion})">
+                            <span class="hint-btn-icon">💡</span>
+                            <span class="hint-btn-text">Ver Dica</span>
+                        </button>
+                    ` : ''}
                     
                     <div class="options-container">
                         ${this.renderOptions(question)}
                     </div>
+                    
+                    <div class="feedback-container" id="feedback-container" style="display: none;"></div>
                 </div>
                 
                 <div class="quiz-actions">
                     ${this.currentQuestion > 0 ? `
-                        <button class="quiz-btn secondary" onclick="exerciseQuiz.previousQuestion()">
+                        <button class="quiz-btn secondary" onclick="exerciseQuiz.previousQuestion()" ${this.hasNavigatedForward ? 'disabled' : ''}>
                             ← Anterior
                         </button>
                     ` : ''}
                     
-                    <button class="quiz-btn primary" id="next-btn" onclick="exerciseQuiz.nextQuestion()" disabled>
+                    <button class="quiz-btn primary" id="next-btn" onclick="exerciseQuiz.nextQuestion()" ${this.answers[this.currentQuestion] === undefined ? 'disabled' : ''}>
                         ${this.currentQuestion === this.quiz.questions.length - 1 ? 'Finalizar Quiz' : 'Próxima →'}
                     </button>
                 </div>
@@ -130,18 +174,18 @@ class ExerciseQuiz {
         if (question.type === 'multiple') {
             return question.options.map((option, index) => `
                 <label class="option-label">
-                    <input type="radio" name="question" value="${index}" onchange="exerciseQuiz.selectAnswer(${index})">
+                    <input type="radio" name="question" value="${index}" onchange="exerciseQuiz.selectAnswer('${index}')">
                     <span class="option-text">${option}</span>
                 </label>
             `).join('');
         } else if (question.type === 'boolean') {
             return `
                 <label class="option-label">
-                    <input type="radio" name="question" value="true" onchange="exerciseQuiz.selectAnswer(true)">
+                    <input type="radio" name="question" value="true" onchange="exerciseQuiz.selectAnswer('true')">
                     <span class="option-text">Verdadeiro</span>
                 </label>
                 <label class="option-label">
-                    <input type="radio" name="question" value="false" onchange="exerciseQuiz.selectAnswer(false)">
+                    <input type="radio" name="question" value="false" onchange="exerciseQuiz.selectAnswer('false')">
                     <span class="option-text">Falso</span>
                 </label>
             `;
@@ -150,8 +194,92 @@ class ExerciseQuiz {
     }
 
     selectAnswer(answer) {
+        // Verifica se já foi respondida esta questão
+        if (this.answers[this.currentQuestion] !== undefined) {
+            return; // Bloqueia mudança de resposta
+        }
+        
         this.answers[this.currentQuestion] = answer;
         document.getElementById('next-btn').disabled = false;
+        
+        // Desabilita todas as opções após seleção
+        const radioInputs = document.querySelectorAll('input[type="radio"]');
+        radioInputs.forEach(input => {
+            input.disabled = true;
+        });
+        
+        // Adiciona feedback imediato visual
+        this.showInstantFeedback(answer);
+    }
+    
+    showInstantFeedback(selectedAnswer) {
+        const question = this.quiz.questions[this.currentQuestion];
+        const isCorrect = this.checkAnswer(question, selectedAnswer);
+        const feedbackContainer = document.getElementById('feedback-container');
+        
+        // Remove feedback anterior
+        feedbackContainer.style.display = 'none';
+        
+        // Adiciona classe visual à opção selecionada
+        const options = document.querySelectorAll('.option-label');
+        options.forEach(option => {
+            option.classList.remove('selected', 'correct-preview', 'incorrect-preview');
+        });
+        
+        const selectedOption = document.querySelector(`input[value="${selectedAnswer}"]`).closest('.option-label');
+        selectedOption.classList.add('selected');
+        
+        // Mostra feedback após um pequeno delay para melhor UX
+        setTimeout(() => {
+            selectedOption.classList.add(isCorrect ? 'correct-preview' : 'incorrect-preview');
+            
+            feedbackContainer.innerHTML = `
+                <div class="instant-feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                    <div class="feedback-icon">${isCorrect ? '✅' : '❌'}</div>
+                    <div class="feedback-text">
+                        <strong>${isCorrect ? 'Correto!' : 'Incorreto'}</strong>
+                        <p class="feedback-explanation">${question.explanation || (isCorrect ? 'Boa! Você acertou.' : 'Revise o conteúdo e tente novamente.')}</p>
+                    </div>
+                </div>
+            `;
+            feedbackContainer.style.display = 'block';
+        }, 300);
+    }
+    
+    checkAnswer(question, userAnswer) {
+        if (question.type === 'boolean') {
+            return (userAnswer === 'true') === question.correct;
+        } else {
+            return parseInt(userAnswer) === question.correct;
+        }
+    }
+    
+    getDifficultyText(difficulty) {
+        const difficulties = {
+            'easy': 'Fácil',
+            'medium': 'Médio',
+            'hard': 'Difícil'
+        };
+        return difficulties[difficulty] || 'Médio';
+    }
+    
+    toggleHint(questionIndex) {
+        const hint = document.getElementById(`hint-${questionIndex}`);
+        const btn = document.querySelector('.hint-btn');
+        
+        if (hint.style.display === 'none') {
+            hint.style.display = 'block';
+            btn.innerHTML = `
+                <span class="hint-btn-icon">🔍</span>
+                <span class="hint-btn-text">Ocultar Dica</span>
+            `;
+        } else {
+            hint.style.display = 'none';
+            btn.innerHTML = `
+                <span class="hint-btn-icon">💡</span>
+                <span class="hint-btn-text">Ver Dica</span>
+            `;
+        }
     }
 
     previousQuestion() {
@@ -173,6 +301,7 @@ class ExerciseQuiz {
 
     nextQuestion() {
         if (this.currentQuestion < this.quiz.questions.length - 1) {
+            this.hasNavigatedForward = true; // Marca que navegou para frente
             this.currentQuestion++;
             this.renderQuestion();
             
@@ -243,6 +372,25 @@ class ExerciseQuiz {
                             ? 'Você passou no quiz! Excelente trabalho.' 
                             : 'Você precisa de pelo menos 70% para passar. Revise o conteúdo e tente novamente.'}
                     </p>
+                    
+                    ${!passed ? `
+                        <div class="failure-feedback">
+                            <div class="failure-icon">⚠️</div>
+                            <div class="failure-content">
+                                <h4>Não desanime! Continue estudando</h4>
+                                <p>Você obteve ${percentage}% de acertos. Para desbloquear o próximo exercício, você precisa de pelo menos 70%.</p>
+                                <div class="study-tips">
+                                    <h5>💡 Dicas para melhorar:</h5>
+                                    <ul>
+                                        <li>📖 Releia o conteúdo do exercício</li>
+                                        <li>🔍 Use as dicas disponíveis nas questões</li>
+                                        <li>📝 Revise suas respostas incorretas</li>
+                                        <li>🔄 Refaça o quiz quando se sentir preparado</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    ` : ''}
                 </div>
                 
                 <div class="results-details">
@@ -272,13 +420,22 @@ class ExerciseQuiz {
                     </button>
                     
                     ${unlockedNext ? `
-                        <a href="../index.html" class="quiz-btn success">
+                        <a href="${this.getNextExerciseUrl()}" class="quiz-btn success">
                             🚀 Próximo Exercício
                         </a>
                     ` : ''}
                 </div>
             </div>
         `;
+    }
+
+    getNextExerciseUrl() {
+        const currentIndex = window.progressSystem.exercises.findIndex(ex => ex.id === this.exerciseId);
+        if (currentIndex !== -1 && currentIndex < window.progressSystem.exercises.length - 1) {
+            const nextExercise = window.progressSystem.exercises[currentIndex + 1];
+            return `${nextExercise.id}.html`;
+        }
+        return '../index.html'; // Volta para o curso se não há próximo exercício
     }
 
     showReview() {
