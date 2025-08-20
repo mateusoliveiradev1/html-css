@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5: Listas em HTML - Curso HTML/CSS</title>
+    <link rel="stylesheet" href="../css/exercise-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="exercise-header">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>📚 Curso HTML/CSS</h1>
+                    <span class="course-level">Iniciante</span>
+                </div>
+                <div class="exercise-info">
+                    <span class="exercise-number">Exercício 5</span>
+                    <h2>📝 Listas em HTML</h2>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 62.5%;"></div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Início</a>
+            <span class="separator">></span>
+            <a href="../exercises.html">Exercícios</a>
+            <span class="separator">></span>
+            <span class="current">Exercício 5: Listas</span>
+        </nav>
+
+        <!-- Objectives Section -->
+        <section class="section">
+            <h2 class="section-title">🎯 Objetivos de Aprendizagem</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-icon">📋</div>
+                    <h3>Listas Não Ordenadas</h3>
+                    <p>Aprender a criar listas com marcadores usando a tag &lt;ul&gt;</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🔢</div>
+                    <h3>Listas Ordenadas</h3>
+                    <p>Dominar listas numeradas com a tag &lt;ol&gt; e seus atributos</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">📚</div>
+                    <h3>Listas de Definição</h3>
+                    <p>Usar &lt;dl&gt;, &lt;dt&gt; e &lt;dd&gt; para criar glossários e definições</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🎯</div>
+                    <h3>Listas Aninhadas</h3>
+                    <p>Criar estruturas hierárquicas com listas dentro de listas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Explanation Section -->
+        <section class="section">
+            <h2 class="section-title">📖 Código Explicado</h2>
+            <div class="code-explanation">
+                <div class="code-group">
+                    <h3>Lista Não Ordenada (&lt;ul&gt;)</h3>
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Primeiro item&lt;/li&gt;
+    &lt;li&gt;Segundo item&lt;/li&gt;
+    &lt;li&gt;Terceiro item&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                    </div>
+                    <div class="explanation">
+                        <p><strong>&lt;ul&gt;</strong> - Cria uma lista não ordenada com marcadores (bullets)</p>
+                        <p><strong>&lt;li&gt;</strong> - Define cada item individual da lista</p>
+                    </div>
+                </div>
+
+                <div class="code-group">
+                    <h3>Lista Ordenada (&lt;ol&gt;)</h3>
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;Primeiro passo&lt;/li&gt;
+    &lt;li&gt;Segundo passo&lt;/li&gt;
+    &lt;li&gt;Terceiro passo&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                    </div>
+                    <div class="explanation">
+                        <p><strong>&lt;ol&gt;</strong> - Cria uma lista ordenada com numeração automática</p>
+                        <p><strong>type="A"</strong> - Pode usar letras, números romanos, etc.</p>
+                    </div>
+                </div>
+
+                <div class="code-group">
+                    <h3>Lista de Definição (&lt;dl&gt;)</h3>
+                    <div class="code-block">
+                        <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Linguagem de marcação para estruturar conteúdo web&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Linguagem para estilizar páginas web&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                    </div>
+                    <div class="explanation">
+                        <p><strong>&lt;dl&gt;</strong> - Define uma lista de definições</p>
+                        <p><strong>&lt;dt&gt;</strong> - Define o termo a ser explicado</p>
+                        <p><strong>&lt;dd&gt;</strong> - Contém a definição ou descrição do termo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step by Step Tutorial -->
+        <section class="section">
+            <h2 class="section-title">🎓 Tutorial Passo a Passo</h2>
+            <div class="tutorial-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Criando uma Lista Não Ordenada</h3>
+                        <p>Use &lt;ul&gt; quando a ordem dos itens não importa:</p>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;h2&gt;Ingredientes&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;2 xícaras de farinha&lt;/li&gt;
+    &lt;li&gt;1 xícara de açúcar&lt;/li&gt;
+    &lt;li&gt;3 ovos&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Criando uma Lista Ordenada</h3>
+                        <p>Use &lt;ol&gt; quando a sequência é importante:</p>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;h2&gt;Instruções&lt;/h2&gt;
+&lt;ol&gt;
+    &lt;li&gt;Pré-aqueça o forno&lt;/li&gt;
+    &lt;li&gt;Misture os ingredientes&lt;/li&gt;
+    &lt;li&gt;Asse por 30 minutos&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Personalizando a Numeração</h3>
+                        <p>Use o atributo type para diferentes estilos:</p>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;ol type="A"&gt;
+    &lt;li&gt;Item A&lt;/li&gt;
+    &lt;li&gt;Item B&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="I"&gt;
+    &lt;li&gt;Item I&lt;/li&gt;
+    &lt;li&gt;Item II&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Criando Listas Aninhadas</h3>
+                        <p>Coloque uma lista dentro de um &lt;li&gt;:</p>
+                        <div class="code-block">
+                            <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Frutas
+        &lt;ul&gt;
+            &lt;li&gt;Maçã&lt;/li&gt;
+            &lt;li&gt;Banana&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Vegetais&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Examples Section -->
+        <section class="section">
+            <h2 class="section-title">🎯 Exemplos Visuais e Comparações</h2>
+            <div class="visual-examples">
+                <div class="example-card">
+                    <h3>Lista Não Ordenada</h3>
+                    <div class="code-result-pair">
+                        <div class="code-block">
+                            <h4>Código:</h4>
+                            <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Maçã&lt;/li&gt;
+    &lt;li&gt;Banana&lt;/li&gt;
+    &lt;li&gt;Laranja&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                        </div>
+                        <div class="result-block">
+                            <h4>Resultado:</h4>
+                            <div class="result-preview">
+                                <ul>
+                                    <li>Maçã</li>
+                                    <li>Banana</li>
+                                    <li>Laranja</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <h3>Lista Ordenada</h3>
+                    <div class="code-result-pair">
+                        <div class="code-block">
+                            <h4>Código:</h4>
+                            <pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;Primeiro&lt;/li&gt;
+    &lt;li&gt;Segundo&lt;/li&gt;
+    &lt;li&gt;Terceiro&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                        </div>
+                        <div class="result-block">
+                            <h4>Resultado:</h4>
+                            <div class="result-preview">
+                                <ol>
+                                    <li>Primeiro</li>
+                                    <li>Segundo</li>
+                                    <li>Terceiro</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <h3>Lista de Definição</h3>
+                    <div class="code-result-pair">
+                        <div class="code-block">
+                            <h4>Código:</h4>
+                            <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;Linguagem de marcação&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Linguagem de estilo&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                        </div>
+                        <div class="result-block">
+                            <h4>Resultado:</h4>
+                            <div class="result-preview">
+                                <dl>
+                                    <dt><strong>HTML</strong></dt>
+                                    <dd>Linguagem de marcação</dd>
+                                    <dt><strong>CSS</strong></dt>
+                                    <dd>Linguagem de estilo</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-card highlight">
+                    <h3>🔄 Antes vs Depois: Listas Bem Estruturadas</h3>
+                    <div class="before-after">
+                        <div class="before">
+                            <h4>❌ Antes (Problemático):</h4>
+                            <pre><code class="language-html">&lt;p&gt;1. Primeiro item&lt;/p&gt;
+&lt;p&gt;2. Segundo item&lt;/p&gt;
+&lt;p&gt;3. Terceiro item&lt;/p&gt;</code></pre>
+                            <p class="explanation">Usando parágrafos para simular listas - não semântico.</p>
+                        </div>
+                        <div class="after">
+                            <h4>✅ Depois (Correto):</h4>
+                            <pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;Primeiro item&lt;/li&gt;
+    &lt;li&gt;Segundo item&lt;/li&gt;
+    &lt;li&gt;Terceiro item&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                            <p class="explanation">Usando a estrutura correta de listas - semântico e acessível.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visual-tips">
+                <h3>💡 Dicas Visuais Importantes</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">📋</div>
+                        <h4>Escolha o Tipo Certo</h4>
+                        <p>Use &lt;ul&gt; para itens sem ordem específica e &lt;ol&gt; quando a sequência importa.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🎯</div>
+                        <h4>Aninhamento Correto</h4>
+                        <p>Listas aninhadas devem estar dentro de um &lt;li&gt;, não diretamente na lista pai.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">📚</div>
+                        <h4>Listas de Definição</h4>
+                        <p>Use &lt;dl&gt; para glossários, FAQs e qualquer conteúdo termo-definição.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">♿</div>
+                        <h4>Acessibilidade</h4>
+                        <p>Listas bem estruturadas ajudam leitores de tela a navegar o conteúdo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Errors Section -->
+        <section class="section">
+            <h2 class="section-title">⚠️ Erros Comuns e Como Evitá-los</h2>
+            <div class="errors-grid">
+                <div class="error-item">
+                    <h3>❌ Erro: &lt;li&gt; fora de lista</h3>
+                    <pre><code class="language-html">&lt;li&gt;Item solto&lt;/li&gt;</code></pre>
+                    <p class="error-explanation">Itens de lista devem estar dentro de &lt;ul&gt;, &lt;ol&gt; ou &lt;menu&gt;.</p>
+                    
+                    <h3>✅ Correto:</h3>
+                    <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Item dentro da lista&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+
+                <div class="error-item">
+                    <h3>❌ Erro: Aninhamento incorreto</h3>
+                    <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Subitem&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/ul&gt;</code></pre>
+                    <p class="error-explanation">Lista aninhada deve estar dentro de um &lt;li&gt;.</p>
+                    
+                    <h3>✅ Correto:</h3>
+                    <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;Item 1
+        &lt;ul&gt;
+            &lt;li&gt;Subitem&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+
+                <div class="error-item">
+                    <h3>❌ Erro: Misturar conteúdo em &lt;dl&gt;</h3>
+                    <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;Termo&lt;/dt&gt;
+    &lt;p&gt;Texto solto&lt;/p&gt;
+    &lt;dd&gt;Definição&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                    <p class="error-explanation">&lt;dl&gt; deve conter apenas &lt;dt&gt; e &lt;dd&gt;.</p>
+                    
+                    <h3>✅ Correto:</h3>
+                    <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;Termo&lt;/dt&gt;
+    &lt;dd&gt;Definição completa&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Editor Section -->
+        <section class="section">
+            <h2 class="section-title">✏️ Editor Interativo</h2>
+            <div class="editor-container">
+                <div class="editor-header">
+                    <div class="editor-tabs">
+                        <button class="tab-btn active" data-tab="html">HTML</button>
+                        <button class="tab-btn" data-tab="preview">Preview</button>
+                    </div>
+                    <div class="editor-actions">
+                        <button class="btn-secondary" onclick="resetCode()">Reset</button>
+                        <button class="btn-primary" onclick="copyCode()">Copiar</button>
+                    </div>
+                </div>
+                <div class="editor-content">
+                    <div class="tab-content active" id="html-tab">
+                        <textarea id="html-editor" placeholder="Digite seu código HTML aqui..."><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Listas</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        ul, ol { margin: 10px 0; padding-left: 30px; }
+        li { margin: 5px 0; }
+        dl { margin: 10px 0; }
+        dt { font-weight: bold; margin-top: 10px; }
+        dd { margin-left: 20px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de Listas</h1>
+    
+    <!-- Experimente criar diferentes tipos de listas aqui -->
+    <h2>Minha Lista de Tarefas</h2>
+    <ul>
+        <li>Estudar HTML</li>
+        <li>Praticar CSS</li>
+    </ul>
+    
+</body>
+</html></textarea>
+                    </div>
+                    <div class="tab-content" id="preview-tab">
+                        <iframe id="preview-frame"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-suggestions">
+                <h3>💡 Sugestões de Código</h3>
+                <div class="suggestions-grid">
+                    <button class="suggestion-btn" onclick="applySuggestion('todo-list')">
+                        <span class="suggestion-title">Lista de Tarefas</span>
+                        <span class="suggestion-desc">Lista não ordenada com tarefas</span>
+                    </button>
+                    <button class="suggestion-btn" onclick="applySuggestion('recipe-steps')">
+                        <span class="suggestion-title">Receita</span>
+                        <span class="suggestion-desc">Lista ordenada com passos</span>
+                    </button>
+                    <button class="suggestion-btn" onclick="applySuggestion('glossary')">
+                        <span class="suggestion-title">Glossário</span>
+                        <span class="suggestion-desc">Lista de definições</span>
+                    </button>
+                    <button class="suggestion-btn" onclick="applySuggestion('nested-menu')">
+                        <span class="suggestion-title">Menu Aninhado</span>
+                        <span class="suggestion-desc">Lista com subitens</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="section">
+            <h2 class="section-title">🧠 Quiz</h2>
+            <div class="quiz-container" id="quiz-container">
+                <!-- Quiz questions will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Exercise Navigation -->
+        <nav class="exercise-nav">
+            <a href="ex004.html" class="nav-btn prev-btn">
+                <span class="nav-icon">←</span>
+                <span class="nav-text">Exercício Anterior</span>
+            </a>
+            <a href="../exercises.html" class="nav-btn home-btn">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Todos os Exercícios</span>
+            </a>
+            <a href="ex006.html" class="nav-btn next-btn">
+                <span class="nav-text">Próximo Exercício</span>
+                <span class="nav-icon">→</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Footer -->
+    <footer class="exercise-footer">
+        <div class="footer-content">
+            <p>© 2024 Curso HTML/CSS. Baseado no curso original do 
+                <a href="https://www.cursoemvideo.com" target="_blank">Curso em Vídeo</a>
+            </p>
+            <p>Desenvolvido por <a href="https://github.com/seu-usuario" target="_blank">Seu Nome</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/progress-system.js"></script>
+    <script src="../js/exercise-quiz.js"></script>
+    <script src="../js/exercise-navigation.js"></script>
+    <script src="../js/interactive-editor.js"></script>
+    <script src="../js/editor-functions-ex005.js"></script>
+    <script>
+        // Copy code function
+        function copyCode() {
+            const editor = document.getElementById('html-editor');
+            if (editor) {
+                editor.select();
+                document.execCommand('copy');
+                
+                // Show feedback
+                const copyBtn = event.target;
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copiado!';
+                copyBtn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.style.background = '';
+                }, 2000);
+            }
+        }
+
+        // Inicializar quiz do exercício
+        document.addEventListener('DOMContentLoaded', function() {
+            initExerciseQuiz('ex005', 'quiz-container');
+        });
+    </script>
+</body>
+</html>

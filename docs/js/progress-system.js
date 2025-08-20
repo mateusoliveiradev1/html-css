@@ -321,6 +321,302 @@ class ProgressSystem {
                         }
                     ]
                 }
+            },
+            {
+                id: 'ex003',
+                title: 'Imagens em HTML',
+                difficulty: 'beginner',
+                unlocked: false,
+                completed: false,
+                quizCompleted: false,
+                quizScore: 0,
+                quiz: {
+                    questions: [
+                        {
+                            type: 'multiple',
+                            question: 'Qual tag é usada para inserir imagens em HTML?',
+                            options: [
+                                '&lt;img&gt;',
+                                '&lt;image&gt;',
+                                '&lt;picture&gt;',
+                                '&lt;photo&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Pense na abreviação da palavra "image" em inglês. Esta é uma das tags mais usadas na web.',
+                            explanation: 'A tag &lt;img&gt; é a forma padrão de inserir imagens em HTML. É uma tag auto-fechada que não precisa de tag de fechamento.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual atributo é obrigatório na tag &lt;img&gt;?',
+                            options: [
+                                'src',
+                                'alt',
+                                'width',
+                                'height'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Este atributo especifica o caminho ou URL da imagem que será exibida.',
+                            explanation: 'O atributo "src" (source) é obrigatório pois especifica o caminho da imagem. Sem ele, a tag não sabe qual imagem exibir.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Para que serve o atributo "alt" em imagens?',
+                            options: [
+                                'Texto alternativo para acessibilidade',
+                                'Alterar o tamanho da imagem',
+                                'Definir a altura da imagem',
+                                'Criar um link na imagem'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Este atributo é fundamental para acessibilidade e SEO. Pense em usuários que não podem ver a imagem.',
+                            explanation: 'O atributo "alt" fornece texto alternativo que é lido por leitores de tela e exibido quando a imagem não carrega, sendo essencial para acessibilidade.'
+                        },
+                        {
+                            type: 'boolean',
+                            question: 'A tag &lt;img&gt; precisa de uma tag de fechamento &lt;/img&gt;.',
+                            correct: false,
+                            difficulty: 'easy',
+                            hint: 'Pense se a tag &lt;img&gt; contém conteúdo entre abertura e fechamento.',
+                            explanation: 'Falso! A tag &lt;img&gt; é uma tag auto-fechada (void element) e não precisa de tag de fechamento. Ela não contém conteúdo interno.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual formato de imagem é mais adequado para fotografias na web?',
+                            options: [
+                                'JPEG',
+                                'PNG',
+                                'GIF',
+                                'SVG'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Este formato oferece boa compressão para imagens com muitas cores e gradientes.',
+                            explanation: 'JPEG é ideal para fotografias pois oferece boa compressão com perda aceitável de qualidade, resultando em arquivos menores.'
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ex004',
+                title: 'Links em HTML',
+                difficulty: 'beginner',
+                unlocked: false,
+                completed: false,
+                quizCompleted: false,
+                quizScore: 0,
+                quiz: {
+                    questions: [
+                        {
+                            type: 'multiple',
+                            question: 'Qual tag é usada para criar links em HTML?',
+                            options: [
+                                '&lt;a&gt;',
+                                '&lt;link&gt;',
+                                '&lt;url&gt;',
+                                '&lt;href&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Esta tag vem da palavra "anchor" (âncora) em inglês.',
+                            explanation: 'A tag &lt;a&gt; (anchor) é usada para criar links. O atributo href especifica o destino do link.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual atributo especifica o destino de um link?',
+                            options: [
+                                'href',
+                                'src',
+                                'link',
+                                'url'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Este atributo significa "hypertext reference".',
+                            explanation: 'O atributo "href" especifica o URL ou caminho para onde o link deve direcionar o usuário.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Como fazer um link abrir em uma nova aba?',
+                            options: [
+                                'target="_blank"',
+                                'new="true"',
+                                'tab="new"',
+                                'window="new"'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Use o atributo "target" com um valor específico.',
+                            explanation: 'O atributo target="_blank" faz com que o link abra em uma nova aba ou janela do navegador.'
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ex005',
+                title: 'Listas em HTML',
+                difficulty: 'beginner',
+                unlocked: false,
+                completed: false,
+                quizCompleted: false,
+                quizScore: 0,
+                quiz: {
+                    questions: [
+                        {
+                            type: 'multiple',
+                            question: 'Qual tag cria uma lista não ordenada?',
+                            options: [
+                                '&lt;ul&gt;',
+                                '&lt;ol&gt;',
+                                '&lt;list&gt;',
+                                '&lt;li&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Pense em "unordered list".',
+                            explanation: 'A tag &lt;ul&gt; (unordered list) cria listas com marcadores, sem numeração.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual tag é usada para cada item de uma lista?',
+                            options: [
+                                '&lt;li&gt;',
+                                '&lt;item&gt;',
+                                '&lt;list-item&gt;',
+                                '&lt;bullet&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Abreviação de "list item".',
+                            explanation: 'A tag &lt;li&gt; (list item) define cada item individual dentro de uma lista.'
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ex006',
+                title: 'Tabelas em HTML',
+                difficulty: 'intermediate',
+                unlocked: false,
+                completed: false,
+                quizCompleted: false,
+                quizScore: 0,
+                quiz: {
+                    questions: [
+                        {
+                            type: 'multiple',
+                            question: 'Qual tag cria uma tabela em HTML?',
+                            options: [
+                                '&lt;table&gt;',
+                                '&lt;tab&gt;',
+                                '&lt;grid&gt;',
+                                '&lt;data&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'É literalmente a palavra "table" em inglês.',
+                            explanation: 'A tag &lt;table&gt; é usada para criar tabelas em HTML.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual tag define uma linha de tabela?',
+                            options: [
+                                '&lt;tr&gt;',
+                                '&lt;td&gt;',
+                                '&lt;th&gt;',
+                                '&lt;row&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Abreviação de "table row".',
+                            explanation: 'A tag &lt;tr&gt; (table row) define uma linha na tabela.'
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ex007',
+                title: 'Formulários em HTML',
+                difficulty: 'intermediate',
+                unlocked: false,
+                completed: false,
+                quizCompleted: false,
+                quizScore: 0,
+                quiz: {
+                    questions: [
+                        {
+                            type: 'multiple',
+                            question: 'Qual tag cria um formulário em HTML?',
+                            options: [
+                                '&lt;form&gt;',
+                                '&lt;input&gt;',
+                                '&lt;field&gt;',
+                                '&lt;submit&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'É a palavra "form" em inglês.',
+                            explanation: 'A tag &lt;form&gt; é usada para criar formulários que coletam dados do usuário.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual tag cria campos de entrada de dados?',
+                            options: [
+                                '&lt;input&gt;',
+                                '&lt;field&gt;',
+                                '&lt;data&gt;',
+                                '&lt;entry&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Esta tag significa "entrada" em inglês.',
+                            explanation: 'A tag &lt;input&gt; cria diferentes tipos de campos de entrada como texto, email, senha, etc.'
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ex008',
+                title: 'Fundamentos de CSS',
+                difficulty: 'intermediate',
+                unlocked: false,
+                completed: false,
+                quizCompleted: false,
+                quizScore: 0,
+                quiz: {
+                    questions: [
+                        {
+                            type: 'multiple',
+                            question: 'O que significa CSS?',
+                            options: [
+                                'Cascading Style Sheets',
+                                'Computer Style System',
+                                'Creative Style Syntax',
+                                'Coded Style Structure'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'CSS é sobre folhas de estilo em cascata.',
+                            explanation: 'CSS significa Cascading Style Sheets (Folhas de Estilo em Cascata), usado para estilizar páginas web.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Como aplicar CSS interno em HTML?',
+                            options: [
+                                'Usando a tag &lt;style&gt;',
+                                'Usando a tag &lt;css&gt;',
+                                'Usando a tag &lt;design&gt;',
+                                'Usando a tag &lt;format&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Esta tag vai dentro do &lt;head&gt; do documento.',
+                            explanation: 'A tag &lt;style&gt; dentro do &lt;head&gt; permite escrever CSS interno no documento HTML.'
+                        }
+                    ]
+                }
             }
         ];
         

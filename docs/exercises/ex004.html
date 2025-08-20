@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 04: Links em HTML - Curso HTML/CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/exercise-styles.css">
+    <link rel="stylesheet" href="../css/exercise-quiz.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="../index.html" aria-label="Voltar para página principal do curso">🏠 Curso HTML/CSS</a>
+            <span class="separator" aria-hidden="true">></span>
+            <span class="current" aria-current="page">Exercício 04</span>
+        </nav>
+
+        <header class="exercise-header">
+            <h1>Exercício 04: Links em HTML</h1>
+            <p>Aprenda a criar links funcionais e navegação entre páginas usando a tag &lt;a&gt; e seus atributos essenciais</p>
+        </header>
+
+        <!-- Seção de Objetivos -->
+        <section class="objectives-section">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-icon">🔗</div>
+                    <h3>Tag &lt;a&gt;</h3>
+                    <p>Compreender a estrutura e função da tag âncora para criar links funcionais.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🌐</div>
+                    <h3>Atributo href</h3>
+                    <p>Dominar o uso do href para diferentes tipos de links e destinos.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🎯</div>
+                    <h3>Atributo target</h3>
+                    <p>Controlar como e onde os links são abertos no navegador</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">📧</div>
+                    <h3>Links Especiais</h3>
+                    <p>Criar links para email, telefone e âncoras internas na página</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="main-content">
+            <!-- Seção de Código Explicado -->
+            <section class="content-section">
+                <h2>💻 Código Explicado Linha por Linha</h2>
+                <p class="section-intro">Vamos analisar cada tipo de link em HTML com exemplos práticos e explicações detalhadas:</p>
+                
+                <div class="code-explanation">
+                    <!-- Link Básico Externo -->
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">1</span>
+                            <code>&lt;a href="https://www.google.com"&gt;Visitar Google&lt;/a&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>🌐 Link Externo Básico:</strong> A tag <code>&lt;a&gt;</code> (anchor/âncora) com atributo <code>href</code> cria um link clicável que direciona para uma URL externa.
+                            <div class="tech-details">
+                                <p><strong>🔗 Anatomia do Link:</strong></p>
+                                <ul>
+                                    <li><strong>&lt;a&gt;:</strong> Tag âncora que define o elemento de link</li>
+                                    <li><strong>href:</strong> Hypertext Reference - especifica o destino do link</li>
+                                    <li><strong>https://:</strong> Protocolo seguro de transferência de dados</li>
+                                    <li><strong>Texto do link:</strong> Conteúdo visível e clicável entre as tags</li>
+                                </ul>
+                                <div class="practical-example">
+                                    <p><strong>💡 Exemplo Prático:</strong></p>
+                                    <p>Quando o usuário clica neste link, o navegador carrega a página do Google na mesma aba.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Link com Target Blank -->
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">2</span>
+                            <code>&lt;a href="https://www.github.com" target="_blank" rel="noopener"&gt;GitHub&lt;/a&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>🎯 Link em Nova Aba:</strong> O atributo <code>target="_blank"</code> força o link a abrir em uma nova aba, preservando a página atual.
+                            <div class="tech-details">
+                                <p><strong>🎯 Valores do Target:</strong></p>
+                                <ul>
+                                    <li><strong>_blank:</strong> Nova aba ou janela (mais comum)</li>
+                                    <li><strong>_self:</strong> Mesma aba/janela (comportamento padrão)</li>
+                                    <li><strong>_parent:</strong> Frame ou janela pai</li>
+                                    <li><strong>_top:</strong> Janela inteira (quebra frames)</li>
+                                </ul>
+                                <p><strong>🔒 Segurança com rel="noopener":</strong></p>
+                                <ul>
+                                    <li>Previne que a nova página acesse a página original</li>
+                                    <li>Protege contra ataques de "reverse tabnabbing"</li>
+                                    <li>Melhora a performance ao quebrar a conexão entre as páginas</li>
+                                </ul>
+                                <div class="practical-example">
+                                    <p><strong>💡 Quando Usar:</strong></p>
+                                    <p>Use <code>target="_blank"</code> para links externos, documentos PDF, ou quando não quiser que o usuário saia da sua página.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Link de Email -->
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">3</span>
+                            <code>&lt;a href="mailto:contato@exemplo.com?subject=Olá&amp;body=Mensagem"&gt;Enviar Email&lt;/a&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>📧 Link de Email Avançado:</strong> O protocolo <code>mailto:</code> abre o cliente de email padrão com campos pré-preenchidos.
+                            <div class="tech-details">
+                                <p><strong>📧 Parâmetros do Mailto:</strong></p>
+                                <ul>
+                                    <li><strong>Destinatário:</strong> <code>mailto:email@exemplo.com</code></li>
+                                    <li><strong>Assunto:</strong> <code>?subject=Título do Email</code></li>
+                                    <li><strong>Corpo:</strong> <code>&amp;body=Texto da mensagem</code></li>
+                                    <li><strong>Cópia:</strong> <code>&amp;cc=outro@email.com</code></li>
+                                    <li><strong>Cópia Oculta:</strong> <code>&amp;bcc=secreto@email.com</code></li>
+                                </ul>
+                                <div class="practical-example">
+                                    <p><strong>💡 Exemplo Completo:</strong></p>
+                                    <code>mailto:suporte@site.com?subject=Dúvida%20sobre%20produto&amp;body=Olá,%20tenho%20uma%20dúvida...</code>
+                                    <p><strong>⚠️ Nota:</strong> Espaços devem ser codificados como %20 em URLs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Link Interno/Âncora -->
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">4</span>
+                            <code>&lt;a href="#secao-contato"&gt;Ir para Contato&lt;/a&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>⚓ Link Interno (Âncora):</strong> O símbolo <code>#</code> seguido de um ID cria navegação dentro da mesma página, fazendo scroll até o elemento.
+                            <div class="tech-details">
+                                <p><strong>⚓ Como Funcionam as Âncoras:</strong></p>
+                                <ul>
+                                    <li><strong>Destino:</strong> Elemento com <code>id="secao-contato"</code></li>
+                                    <li><strong>Scroll automático:</strong> Navegador rola até o elemento</li>
+                                    <li><strong>URL atualizada:</strong> Adiciona #secao-contato na URL</li>
+                                    <li><strong>Histórico:</strong> Permite voltar com botão "Voltar"</li>
+                                </ul>
+                                <div class="practical-example">
+                                    <p><strong>💡 Exemplo de Destino:</strong></p>
+                                    <code>&lt;section id="secao-contato"&gt;&lt;h2&gt;Contato&lt;/h2&gt;&lt;/section&gt;</code>
+                                    <p><strong>🎨 CSS para Scroll Suave:</strong></p>
+                                    <code>html { scroll-behavior: smooth; }</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Link para Telefone -->
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">5</span>
+                            <code>&lt;a href="tel:+5511999887766"&gt;📞 Ligar: (11) 99988-7766&lt;/a&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>📞 Link para Telefone:</strong> O protocolo <code>tel:</code> permite que dispositivos móveis iniciem uma chamada telefônica.
+                            <div class="tech-details">
+                                <p><strong>📱 Recursos do Tel:</strong></p>
+                                <ul>
+                                    <li><strong>Formato:</strong> <code>tel:+5511999887766</code> (código país + número)</li>
+                                    <li><strong>Dispositivos móveis:</strong> Abre o discador automaticamente</li>
+                                    <li><strong>Desktop:</strong> Pode abrir aplicativo de chamadas (Skype, etc.)</li>
+                                    <li><strong>Acessibilidade:</strong> Leitores de tela identificam como telefone</li>
+                                </ul>
+                                <div class="practical-example">
+                                    <p><strong>💡 Boas Práticas:</strong></p>
+                                    <ul>
+                                        <li>Use o formato internacional: +55 (Brasil)</li>
+                                        <li>Remova espaços e caracteres especiais no href</li>
+                                        <li>Mantenha formatação legível no texto visível</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Link para Download -->
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">6</span>
+                            <code>&lt;a href="documento.pdf" download="Manual-Usuario.pdf"&gt;📄 Baixar Manual&lt;/a&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>📄 Link de Download:</strong> O atributo <code>download</code> força o navegador a baixar o arquivo em vez de tentar abri-lo.
+                            <div class="tech-details">
+                                <p><strong>💾 Comportamento do Download:</strong></p>
+                                <ul>
+                                    <li><strong>Sem download:</strong> Navegador tenta abrir o arquivo</li>
+                                    <li><strong>Com download:</strong> Força o download direto</li>
+                                    <li><strong>Nome personalizado:</strong> <code>download="novo-nome.pdf"</code></li>
+                                    <li><strong>Apenas nome:</strong> <code>download</code> (usa nome original)</li>
+                                </ul>
+                                <div class="practical-example">
+                                    <p><strong>💡 Tipos de Arquivo Comuns:</strong></p>
+                                    <ul>
+                                        <li><strong>PDFs:</strong> Manuais, relatórios, documentos</li>
+                                        <li><strong>Imagens:</strong> Fotos, logos, ilustrações</li>
+                                        <li><strong>Arquivos:</strong> ZIPs, executáveis, planilhas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seção de Código Completo -->
+                <div class="copy-section">
+                    <h3>📋 Código Completo para Praticar</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode()" aria-label="Copiar código HTML para área de transferência">
+                            <span aria-hidden="true">📋</span> Copiar Código
+                        </button>
+                        <pre><code id="exercise-code">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Meus Links&lt;/title&gt;
+    &lt;style&gt;
+        html { scroll-behavior: smooth; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .secao { margin: 50px 0; padding: 20px; border: 1px solid #ddd; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Exemplos de Links em HTML&lt;/h1&gt;
+    
+    &lt;!-- Links Básicos --&gt;
+    &lt;h2&gt;Links Externos&lt;/h2&gt;
+    &lt;a href="https://www.google.com"&gt;Google&lt;/a&gt; | 
+    &lt;a href="https://www.github.com" target="_blank" rel="noopener"&gt;GitHub (nova aba)&lt;/a&gt;
+    
+    &lt;!-- Links de Contato --&gt;
+    &lt;h2&gt;Links de Contato&lt;/h2&gt;
+    &lt;a href="mailto:contato@exemplo.com?subject=Olá&amp;body=Mensagem"&gt;📧 Enviar Email&lt;/a&gt; | 
+    &lt;a href="tel:+5511999887766"&gt;📞 Ligar: (11) 99988-7766&lt;/a&gt;
+    
+    &lt;!-- Links Internos --&gt;
+    &lt;h2&gt;Navegação Interna&lt;/h2&gt;
+    &lt;a href="#secao1"&gt;Ir para Seção 1&lt;/a&gt; | 
+    &lt;a href="#secao2"&gt;Ir para Seção 2&lt;/a&gt; | 
+    &lt;a href="#topo"&gt;Voltar ao Topo&lt;/a&gt;
+    
+    &lt;!-- Seções para Links Internos --&gt;
+    &lt;div id="secao1" class="secao"&gt;
+        &lt;h3&gt;Seção 1&lt;/h3&gt;
+        &lt;p&gt;Esta é a primeira seção. Você chegou aqui através de um link interno!&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div id="secao2" class="secao"&gt;
+        &lt;h3&gt;Seção 2&lt;/h3&gt;
+        &lt;p&gt;Esta é a segunda seção. Links internos facilitam a navegação!&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Tutorial Passo-a-Passo -->
+            <section class="content-section tutorial-section">
+                <h2>🚀 Tutorial Passo-a-Passo</h2>
+                <p class="tutorial-intro">Siga este guia interativo para criar links funcionais em HTML!</p>
+                
+                <div class="tutorial-steps">
+                    <div class="tutorial-step" data-step="1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3>Criando o Arquivo HTML</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📁 Primeiro passo:</strong> Crie um novo arquivo e salve como <code>links.html</code></p>
+                                <div class="instruction-details">
+                                    <ul>
+                                        <li>Abra seu editor de código favorito (VS Code, Sublime, Notepad++)</li>
+                                        <li>Crie um novo arquivo (Ctrl+N ou Cmd+N)</li>
+                                        <li>Salve como "links.html" (a extensão .html é obrigatória)</li>
+                                        <li>Certifique-se de que está salvando como "Todos os arquivos" se usar Notepad</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3>Estrutura HTML Básica</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📝 Adicione a estrutura básica:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;!DOCTYPE html&gt;<br>&lt;html lang="pt-br"&gt;<br>&lt;head&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Meus Links&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>💡 Por que isso é importante:</strong></p>
+                                    <ul>
+                                        <li>DOCTYPE define que é um documento HTML5</li>
+                                        <li>lang="pt-br" especifica o idioma português brasileiro</li>
+                                        <li>charset="UTF-8" permite acentos e caracteres especiais</li>
+                                        <li>title aparece na aba do navegador</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h3>Adicionando o Primeiro Link</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🔗 Dentro do &lt;body&gt;, adicione:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;h1&gt;Meus Links Favoritos&lt;/h1&gt;<br>&lt;a href="https://www.google.com"&gt;Visitar Google&lt;/a&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>🌐 Detalhes importantes:</strong></p>
+                                    <ul>
+                                        <li>A tag &lt;a&gt; cria o link (âncora)</li>
+                                        <li>O atributo href define o destino do link</li>
+                                        <li>O texto entre as tags é o que aparece clicável</li>
+                                        <li>URLs completas devem incluir http:// ou https://</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="4">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <h3>Links que Abrem em Nova Aba</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🎯 Adicione um link com target:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;a href="https://www.github.com" target="_blank"&gt;GitHub (nova aba)&lt;/a&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>📋 Opções do target:</strong></p>
+                                    <ul>
+                                        <li><strong>_blank:</strong> abre em nova aba ou janela</li>
+                                        <li><strong>_self:</strong> abre na mesma aba (padrão)</li>
+                                        <li><strong>_parent:</strong> abre no frame pai</li>
+                                        <li><strong>_top:</strong> abre na janela inteira</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="5">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <h3>Links de Email</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📧 Adicione um link de email:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;a href="mailto:seu@email.com"&gt;Enviar Email&lt;/a&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>✨ Recursos do mailto:</strong></p>
+                                    <ul>
+                                        <li>Abre o cliente de email padrão</li>
+                                        <li>Preenche automaticamente o destinatário</li>
+                                        <li>Pode incluir assunto: ?subject=Assunto</li>
+                                        <li>Pode incluir corpo: &body=Mensagem</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="6">
+                        <div class="step-header">
+                            <div class="step-number">6</div>
+                            <h3>Testando os Links</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🌐 Hora de testar:</strong></p>
+                                <div class="instruction-details">
+                                    <ul>
+                                        <li>Salve o arquivo (Ctrl+S ou Cmd+S)</li>
+                                        <li>Abra o arquivo no navegador</li>
+                                        <li>Clique nos links para testá-los</li>
+                                        <li>Verifique se abrem nos destinos corretos</li>
+                                    </ul>
+                                </div>
+                                <div class="success-message">
+                                    <strong>🎉 Parabéns!</strong> Você criou links funcionais em HTML!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        <!-- Seção de Editor Interativo -->
+        <section class="content-section interactive-editor" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>💻 Editor de Código Interativo</h2>
+            <p class="section-intro">Experimente modificar o código HTML abaixo e veja o resultado em tempo real!</p>
+            
+            <div class="editor-container">
+                <div class="editor-panel">
+                    <div class="editor-header">
+                        <h3>📝 Editor HTML</h3>
+                        <div class="editor-controls">
+                            <button class="btn-reset" onclick="resetEditor()">🔄 Resetar</button>
+                            <button class="btn-copy" onclick="copyEditorCode()">📋 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="editor-wrapper">
+                        <textarea id="html-editor" class="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Meus Links&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Meus Links Favoritos&lt;/h1&gt;
+    &lt;hr&gt;
+    
+    &lt;!-- Links básicos --&gt;
+    &lt;a href="https://www.google.com"&gt;Google&lt;/a&gt;&lt;br&gt;
+    &lt;a href="https://www.github.com" target="_blank"&gt;GitHub (nova aba)&lt;/a&gt;&lt;br&gt;
+    &lt;a href="mailto:seu@email.com"&gt;Enviar Email&lt;/a&gt;&lt;br&gt;
+    
+    &lt;hr&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+                    </div>
+                </div>
+                
+                <div class="preview-panel">
+                    <div class="preview-header">
+                        <h3>🌐 Resultado</h3>
+                        <div class="preview-controls">
+                            <button class="btn-refresh" onclick="updatePreview()">🔄 Atualizar</button>
+
+                        </div>
+                    </div>
+                    <div class="preview-wrapper">
+                        <iframe id="preview-frame" class="preview-iframe" sandbox="allow-same-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-suggestions">
+                <h3>💡 Experimente estas modificações:</h3>
+                <div class="suggestions-grid">
+                    <div class="suggestion-card" onclick="applySuggestion(1)">
+                        <span class="suggestion-icon">🔗</span>
+                        <h4>Links básicos</h4>
+                        <p>Adicione mais links para seus sites favoritos</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(2)">
+                        <span class="suggestion-icon">🌐</span>
+                        <h4>Links externos</h4>
+                        <p>Use target="_blank" para abrir em nova aba</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(3)">
+                        <span class="suggestion-icon">📧</span>
+                        <h4>Links de email</h4>
+                        <p>Crie links mailto: para envio de emails</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(4)">
+                        <span class="suggestion-icon">⚓</span>
+                        <h4>Links internos</h4>
+                        <p>Use âncoras (#) para navegação interna</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-tips">
+                <div class="tip-box">
+                    <span class="tip-icon">⚡</span>
+                    <div class="tip-content">
+                        <strong>Dica:</strong> O preview é atualizado automaticamente enquanto você digita. Se não funcionar, clique em "Atualizar".
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <span class="tip-icon">🔍</span>
+                    <div class="tip-content">
+                        <strong>Experimente:</strong> Tente quebrar o código propositalmente para ver como os erros afetam o resultado.
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
+        
+        <!-- Seção de Quiz -->
+        <section class="content-section" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <div id="quiz-container"></div>
+        </section>
+
+        <!-- Navegação -->
+        <nav class="exercise-nav" aria-label="Navegação entre exercícios">
+            <a href="ex003.html" class="nav-btn prev" aria-label="Ir para exercício 3: Formatação de texto">
+                <span aria-hidden="true">←</span>
+                <span>Exercício Anterior</span>
+            </a>
+            <a href="ex005.html" class="nav-btn next" aria-label="Ir para exercício 5: Listas em HTML">
+                <span>Próximo Exercício</span>
+                <span aria-hidden="true">→</span>
+            </a>
+        </nav>
+
+        <!-- Rodapé com créditos -->
+        <footer class="footer">
+            <div class="credits">
+                <h3>💡 Créditos</h3>
+                <p>Exercício baseado no curso de <a href="https://www.cursoemvideo.com" target="_blank" rel="noopener" class="author">Professor Gustavo Guanabara</a></p>
+                <p>Adaptado e modernizado para melhor experiência de aprendizado</p>
+                <a href="https://www.cursoemvideo.com/curso/html5-css3-modulo1/" target="_blank" rel="noopener" class="course-link">
+                    <span>🎓</span>
+                    <span>Ver Curso Original</span>
+                </a>
+                <div class="developer-info">
+                    <p class="developer-name">Feito por Mateus Oliveira</p>
+                    <p class="developer-year">© 2025</p>
+                    <div class="developer-links">
+                        <a href="https://github.com/mateusoliveiradev1" class="dev-link" target="_blank" rel="noopener">
+                            <span class="link-icon">🐙</span>
+                            <span class="link-text">GitHub</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                        <a href="https://github.com/mateusoliveiradev1/html-css" class="dev-link" target="_blank" rel="noopener">
+                            <span class="link-icon">📁</span>
+                            <span class="link-text">Repositório</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts do Sistema de Progresso e Quiz -->
+    <script src="../js/progress-system.js"></script>
+    <script src="../js/exercise-quiz.js"></script>
+    <script src="../js/exercise-navigation.js"></script>
+    <script src="../js/interactive-editor.js"></script>
+    <script src="../js/editor-functions.js"></script>
+    
+    <script>
+        // Função para copiar código
+        function copyCode() {
+            const code = document.getElementById('exercise-code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                // Feedback visual de sucesso
+                console.log('Código copiado com sucesso!');
+            }).catch(err => {
+                console.error('Erro ao copiar código:', err);
+            });
+        }
+
+        // Marca exercício como concluído
+        document.addEventListener('DOMContentLoaded', function() {
+            const exerciseId = 'ex004';
+            const completed = JSON.parse(localStorage.getItem('completedItems') || '[]');
+            if (!completed.includes(`exercise_${exerciseId}`)) {
+                completed.push(`exercise_${exerciseId}`);
+                localStorage.setItem('completedItems', JSON.stringify(completed));
+            }
+            
+            // Inicializar quiz do exercício
+            initExerciseQuiz('ex004', 'quiz-container');
+        });
+
+        // Navegação inteligente
+        if (typeof SmartNavigation !== 'undefined') {
+            new SmartNavigation();
+        }
+    </script>
+</body>
+</html>

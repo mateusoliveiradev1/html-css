@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 07 - Formulários em HTML | Curso HTML/CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/exercise-styles.css">
+    <link rel="stylesheet" href="../css/exercise-quiz.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="../index.html" aria-label="Voltar para página principal do curso">🏠 Curso HTML/CSS</a>
+            <span class="separator" aria-hidden="true">></span>
+            <span class="current" aria-current="page">Exercício 07</span>
+        </nav>
+
+        <header class="exercise-header">
+            <h1>Exercício 07: Formulários em HTML</h1>
+            <p>Aprendendo a criar formulários interativos para coletar dados dos usuários de forma eficiente e acessível</p>
+        </header>
+
+        <!-- Seção de Objetivos -->
+        <section class="objectives-section">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-icon">📝</div>
+                    <h3>Estrutura de Formulários</h3>
+                    <p>Dominar as tags &lt;form&gt;, &lt;input&gt;, &lt;label&gt;, &lt;textarea&gt; e &lt;select&gt; para criar formulários funcionais.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🎛️</div>
+                    <h3>Tipos de Input</h3>
+                    <p>Conhecer os diferentes tipos de input: text, email, password, number, date, checkbox, radio e mais.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">✅</div>
+                    <h3>Validação HTML5</h3>
+                    <p>Implementar validação nativa do HTML5 com atributos como required, pattern, min, max.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">♿</div>
+                    <h3>Acessibilidade</h3>
+                    <p>Criar formulários acessíveis com labels apropriados, fieldset, legend e aria-attributes.</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="main-content">
+            <!-- Seção de Código Explicado -->
+            <section class="content-section">
+                <h2>💻 Código Explicado Linha por Linha</h2>
+                <div class="code-explanation">
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">1</span>
+                            <code>&lt;form action="/submit" method="post"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Elemento Form:</strong> Define onde os dados serão enviados (action) e como (method: GET ou POST).
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">2</span>
+                            <code>&lt;label for="nome"&gt;Nome:&lt;/label&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Label:</strong> Associa um rótulo ao campo de entrada. O atributo 'for' deve corresponder ao 'id' do input.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">3</span>
+                            <code>&lt;input type="text" id="nome" name="nome" required&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Input Text:</strong> Campo de texto simples. 'required' torna o campo obrigatório.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">4</span>
+                            <code>&lt;input type="email" id="email" name="email"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Input Email:</strong> Campo específico para email com validação automática do formato.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">5</span>
+                            <code>&lt;textarea id="mensagem" name="mensagem"&gt;&lt;/textarea&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Textarea:</strong> Campo de texto multilinha para mensagens ou comentários longos.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">6</span>
+                            <code>&lt;select id="pais" name="pais"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Select:</strong> Cria uma lista suspensa de opções para seleção.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">7</span>
+                            <code>&lt;input type="checkbox" id="newsletter"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Checkbox:</strong> Caixa de seleção para opções que podem ser marcadas ou desmarcadas.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">8</span>
+                            <code>&lt;button type="submit"&gt;Enviar&lt;/button&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Button Submit:</strong> Botão que envia os dados do formulário quando clicado.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tutorial Passo a Passo -->
+            <section class="content-section">
+                <h2>📚 Tutorial Passo a Passo</h2>
+                <div class="tutorial-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Criando a Estrutura do Form</h3>
+                            <p>Comece sempre com a tag <code>&lt;form&gt;</code> definindo action e method.</p>
+                            <div class="code-block">
+                                <pre><code>&lt;form action="/processar" method="post"&gt;
+    &lt;!-- Campos do formulário aqui --&gt;
+&lt;/form&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Adicionando Labels e Inputs</h3>
+                            <p>Sempre associe labels aos inputs para melhor acessibilidade.</p>
+                            <div class="code-block">
+                                <pre><code>&lt;label for="nome"&gt;Nome Completo:&lt;/label&gt;
+&lt;input type="text" id="nome" name="nome" required&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Usando Diferentes Tipos de Input</h3>
+                            <p>HTML5 oferece vários tipos específicos com validação automática.</p>
+                            <div class="code-block">
+                                <pre><code>&lt;input type="email" placeholder="seu@email.com"&gt;
+&lt;input type="tel" placeholder="(11) 99999-9999"&gt;
+&lt;input type="date"&gt;
+&lt;input type="number" min="1" max="100"&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Organizando com Fieldset</h3>
+                            <p>Use fieldset e legend para agrupar campos relacionados.</p>
+                            <div class="code-block">
+                                <pre><code>&lt;fieldset&gt;
+    &lt;legend&gt;Informações Pessoais&lt;/legend&gt;
+    &lt;!-- Campos relacionados aqui --&gt;
+&lt;/fieldset&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exemplos Visuais -->
+            <section class="content-section">
+                <h2>👁️ Exemplos Visuais</h2>
+                <div class="visual-examples">
+                    <div class="example-card">
+                        <h3>Formulário de Contato</h3>
+                        <div class="example-preview">
+                            <form style="max-width: 400px; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+                                <div style="margin-bottom: 15px;">
+                                    <label for="demo-nome" style="display: block; margin-bottom: 5px; font-weight: bold;">Nome:</label>
+                                    <input type="text" id="demo-nome" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <label for="demo-email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email:</label>
+                                    <input type="email" id="demo-email" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <label for="demo-msg" style="display: block; margin-bottom: 5px; font-weight: bold;">Mensagem:</label>
+                                    <textarea id="demo-msg" rows="4" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;"></textarea>
+                                </div>
+                                <button type="submit" style="background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h3>Formulário de Cadastro</h3>
+                        <div class="example-preview">
+                            <form style="max-width: 400px; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+                                <fieldset style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 4px;">
+                                    <legend style="font-weight: bold; padding: 0 10px;">Dados Pessoais</legend>
+                                    <div style="margin-bottom: 10px;">
+                                        <label style="display: block; margin-bottom: 5px;">Nome:</label>
+                                        <input type="text" style="width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 3px;">
+                                    </div>
+                                    <div style="margin-bottom: 10px;">
+                                        <label style="display: block; margin-bottom: 5px;">Data de Nascimento:</label>
+                                        <input type="date" style="width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 3px;">
+                                    </div>
+                                </fieldset>
+                                <div style="margin-bottom: 15px;">
+                                    <label style="display: block; margin-bottom: 5px;">Gênero:</label>
+                                    <label style="display: inline-block; margin-right: 15px;"><input type="radio" name="genero" value="m" style="margin-right: 5px;"> Masculino</label>
+                                    <label style="display: inline-block;"><input type="radio" name="genero" value="f" style="margin-right: 5px;"> Feminino</label>
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <label style="display: inline-block;"><input type="checkbox" style="margin-right: 5px;"> Aceito os termos</label>
+                                </div>
+                                <button type="submit" style="background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Cadastrar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Editor Interativo -->
+            <section class="content-section">
+                <h2>⚡ Editor Interativo</h2>
+                <p>Experimente criar seus próprios formulários no editor abaixo:</p>
+                
+                <div class="editor-container">
+                    <div class="editor-tabs">
+                        <button class="tab-button active" data-tab="html">HTML</button>
+                        <button class="tab-button" data-tab="preview">Preview</button>
+                    </div>
+                    
+                    <div class="editor-content">
+                        <div class="tab-content active" id="html-tab">
+                            <div class="editor-header">
+                                <span class="editor-title">📝 Editor HTML</span>
+                                <div class="editor-actions">
+                                    <button class="btn-action" id="copy-code" title="Copiar código">
+                                        📋 Copiar
+                                    </button>
+                                    <button class="btn-action" id="reset-editor" title="Resetar editor">
+                                        🔄 Reset
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea id="code-editor" class="code-editor" spellcheck="false"><!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Formulário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checkbox-group input {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post">
+        <h2>Formulário de Contato</h2>
+        
+        <div class="form-group">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone">
+        </div>
+        
+        <div class="form-group">
+            <label for="assunto">Assunto:</label>
+            <select id="assunto" name="assunto" required>
+                <option value="">Selecione um assunto</option>
+                <option value="duvida">Dúvida</option>
+                <option value="sugestao">Sugestão</option>
+                <option value="reclamacao">Reclamação</option>
+                <option value="elogio">Elogio</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+        </div>
+        
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">Desejo receber newsletter</label>
+        </div>
+        
+        <button type="submit">Enviar Mensagem</button>
+    </form>
+</body>
+</html></textarea>
+                        </div>
+                        
+                        <div class="tab-content" id="preview-tab">
+                            <div class="editor-header">
+                                <span class="editor-title">👁️ Visualização</span>
+                            </div>
+                            <iframe id="preview-iframe" class="preview-iframe"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="editor-message" id="editor-message"></div>
+            </section>
+
+            <!-- Erros Comuns -->
+            <section class="content-section">
+                <h2>⚠️ Erros Comuns e Como Evitá-los</h2>
+                <div class="common-errors">
+                    <div class="error-card">
+                        <div class="error-icon">❌</div>
+                        <div class="error-content">
+                            <h3>Labels não associados aos inputs</h3>
+                            <p><strong>Problema:</strong> Usar labels sem o atributo 'for' ou IDs incorretos.</p>
+                            <p><strong>Solução:</strong> Sempre use <code>&lt;label for="id-do-input"&gt;</code> correspondente ao <code>id="id-do-input"</code>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="error-card">
+                        <div class="error-icon">❌</div>
+                        <div class="error-content">
+                            <h3>Não usar o atributo name</h3>
+                            <p><strong>Problema:</strong> Esquecer o atributo 'name' nos inputs.</p>
+                            <p><strong>Solução:</strong> Todos os inputs devem ter <code>name="nome-do-campo"</code> para envio dos dados.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="error-card">
+                        <div class="error-icon">❌</div>
+                        <div class="error-content">
+                            <h3>Não definir action e method</h3>
+                            <p><strong>Problema:</strong> Form sem destino ou método de envio.</p>
+                            <p><strong>Solução:</strong> Sempre defina <code>action="/destino"</code> e <code>method="post"</code> ou <code>"get"</code>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="error-card">
+                        <div class="error-icon">❌</div>
+                        <div class="error-content">
+                            <h3>Usar div em vez de button</h3>
+                            <p><strong>Problema:</strong> Criar botões com div e JavaScript em vez de usar button.</p>
+                            <p><strong>Solução:</strong> Use <code>&lt;button type="submit"&gt;</code> para melhor acessibilidade e funcionalidade.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Interativo -->
+            <section class="content-section">
+                <h2>🧠 Quiz Interativo</h2>
+                <div class="quiz-container" id="quiz-container">
+                    <!-- Quiz será carregado via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Sugestões de Código -->
+            <section class="content-section">
+                <h2>💡 Sugestões de Código</h2>
+                <p>Clique nos botões abaixo para carregar exemplos no editor:</p>
+                <div class="suggestions-grid">
+                    <button class="suggestion-btn" data-suggestion="login">
+                        🔐 Formulário de Login
+                    </button>
+                    <button class="suggestion-btn" data-suggestion="cadastro">
+                        📝 Formulário de Cadastro
+                    </button>
+                    <button class="suggestion-btn" data-suggestion="pesquisa">
+                        🔍 Formulário de Pesquisa
+                    </button>
+                    <button class="suggestion-btn" data-suggestion="feedback">
+                        💬 Formulário de Feedback
+                    </button>
+                </div>
+            </section>
+
+            <!-- Dicas Importantes -->
+            <section class="content-section">
+                <h2>💡 Dicas Importantes</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">🏷️</div>
+                        <h3>Labels são Essenciais</h3>
+                        <p>Sempre associe labels aos inputs. Isso melhora a acessibilidade e permite clicar no label para focar o campo.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">✅</div>
+                        <h3>Use Validação HTML5</h3>
+                        <p>Aproveite os atributos como required, pattern, min, max para validação nativa sem JavaScript.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">🎯</div>
+                        <h3>Tipos Específicos de Input</h3>
+                        <p>Use email, tel, date, number, etc. para melhor experiência do usuário e validação automática.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">📱</div>
+                        <h3>Pense no Mobile</h3>
+                        <p>Tipos específicos de input ativam teclados apropriados em dispositivos móveis (numérico, email, etc.).</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Navegação entre exercícios -->
+        <nav class="exercise-navigation" aria-label="Navegação entre exercícios">
+            <a href="ex006.html" class="nav-button nav-prev" aria-label="Exercício anterior">
+                <span class="nav-icon">←</span>
+                <span class="nav-text">
+                    <span class="nav-label">Anterior</span>
+                    <span class="nav-title">Ex06: Tabelas</span>
+                </span>
+            </a>
+            
+            <a href="ex008.html" class="nav-button nav-next" aria-label="Próximo exercício">
+                <span class="nav-text">
+                    <span class="nav-label">Próximo</span>
+                    <span class="nav-title">Ex08: CSS Básico</span>
+                </span>
+                <span class="nav-icon">→</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/editor-functions-ex007.js"></script>
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "Qual tag é usada para criar um formulário em HTML?",
+                options: ["&lt;form&gt;", "&lt;input&gt;", "&lt;field&gt;", "&lt;data&gt;"],
+                correct: 0,
+                explanation: "A tag &lt;form&gt; é o elemento principal para criar formulários em HTML."
+            },
+            {
+                question: "Qual atributo associa um label a um input?",
+                options: ["name", "id", "for", "type"],
+                correct: 2,
+                explanation: "O atributo 'for' do label deve corresponder ao 'id' do input para associá-los."
+            },
+            {
+                question: "Qual tipo de input é específico para emails?",
+                options: ["text", "email", "mail", "address"],
+                correct: 1,
+                explanation: "O tipo 'email' valida automaticamente o formato de email e ativa teclado apropriado no mobile."
+            },
+            {
+                question: "Qual atributo torna um campo obrigatório?",
+                options: ["mandatory", "required", "needed", "must"],
+                correct: 1,
+                explanation: "O atributo 'required' torna o preenchimento do campo obrigatório antes do envio."
+            },
+            {
+                question: "Qual método HTTP é mais seguro para enviar dados sensíveis?",
+                options: ["GET", "POST", "PUT", "SEND"],
+                correct: 1,
+                explanation: "POST é mais seguro pois os dados não aparecem na URL e podem ser criptografados."
+            }
+        ];
+
+        // Inicializar quiz do exercício
+        document.addEventListener('DOMContentLoaded', function() {
+            initExerciseQuiz('ex007', 'quiz-container');
+        });
+
+        // Editor interativo inicializado via editor-functions-ex007.js
+    </script>
+</body>
+</html>

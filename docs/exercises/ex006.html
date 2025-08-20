@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 06 - Tabelas em HTML | Curso HTML/CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/exercise-styles.css">
+    <link rel="stylesheet" href="../css/exercise-quiz.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="../index.html" aria-label="Voltar para página principal do curso">🏠 Curso HTML/CSS</a>
+            <span class="separator" aria-hidden="true">></span>
+            <span class="current" aria-current="page">Exercício 06</span>
+        </nav>
+
+        <header class="exercise-header">
+            <h1>Exercício 06: Tabelas em HTML</h1>
+            <p>Aprendendo a criar e estruturar tabelas para organizar dados de forma clara e acessível</p>
+        </header>
+
+        <!-- Seção de Objetivos -->
+        <section class="objectives-section">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-icon">📊</div>
+                    <h3>Estrutura de Tabelas</h3>
+                    <p>Dominar as tags fundamentais: &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;, &lt;th&gt; para criar tabelas bem estruturadas.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🏗️</div>
+                    <h3>Organização Semântica</h3>
+                    <p>Utilizar &lt;thead&gt;, &lt;tbody&gt; e &lt;tfoot&gt; para organizar semanticamente o conteúdo das tabelas.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🔗</div>
+                    <h3>Mesclagem de Células</h3>
+                    <p>Aplicar colspan e rowspan para mesclar células e criar layouts de tabela mais complexos.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">♿</div>
+                    <h3>Acessibilidade</h3>
+                    <p>Implementar práticas de acessibilidade com caption, scope e headers para tabelas inclusivas.</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="main-content">
+            <!-- Seção de Código Explicado -->
+            <section class="content-section">
+                <h2>💻 Código Explicado Linha por Linha</h2>
+                <div class="code-explanation">
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">1</span>
+                            <code>&lt;table&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Elemento Tabela:</strong> Tag principal que define o início de uma tabela HTML.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">2</span>
+                            <code>&lt;caption&gt;Vendas por Trimestre&lt;/caption&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Legenda da Tabela:</strong> Fornece um título descritivo para a tabela, importante para acessibilidade.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">3</span>
+                            <code>&lt;thead&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Cabeçalho da Tabela:</strong> Agrupa as linhas de cabeçalho, facilitando a estilização e acessibilidade.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">4</span>
+                            <code>&lt;tr&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Linha da Tabela:</strong> Define uma linha horizontal na tabela (table row).
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">5</span>
+                            <code>&lt;th scope="col"&gt;Produto&lt;/th&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Célula de Cabeçalho:</strong> Define uma célula de cabeçalho com scope="col" para indicar que se refere à coluna.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">8</span>
+                            <code>&lt;tbody&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Corpo da Tabela:</strong> Agrupa as linhas de dados principais da tabela.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">10</span>
+                            <code>&lt;td&gt;Notebook&lt;/td&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Célula de Dados:</strong> Contém os dados da tabela (table data).
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tutorial Passo a Passo -->
+            <section class="content-section">
+                <h2>📚 Tutorial Passo a Passo</h2>
+                <div class="tutorial-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Criando a Estrutura Básica</h3>
+                            <p>Comece sempre com a tag <code>&lt;table&gt;</code> e adicione uma <code>&lt;caption&gt;</code> para descrever o conteúdo da tabela.</p>
+                            <div class="code-block">
+                                <pre><code>&lt;table&gt;
+    &lt;caption&gt;Título da Tabela&lt;/caption&gt;
+&lt;/table&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Organizando com Seções Semânticas</h3>
+                            <p>Use <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> e <code>&lt;tfoot&gt;</code> para organizar semanticamente sua tabela.</p>
+                            <div class="code-block">
+                                <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;!-- Cabeçalhos aqui --&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;!-- Dados principais aqui --&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;!-- Totais/resumos aqui --&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Criando Linhas e Células</h3>
+                            <p>Use <code>&lt;tr&gt;</code> para linhas, <code>&lt;th&gt;</code> para cabeçalhos e <code>&lt;td&gt;</code> para dados.</p>
+                            <div class="code-block">
+                                <pre><code>&lt;tr&gt;
+    &lt;th scope="col"&gt;Nome&lt;/th&gt;
+    &lt;th scope="col"&gt;Idade&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td&gt;João&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Mesclando Células</h3>
+                            <p>Use <code>colspan</code> para mesclar colunas e <code>rowspan</code> para mesclar linhas.</p>
+                            <div class="code-block">
+                                <pre><code>&lt;td colspan="2"&gt;Célula que ocupa 2 colunas&lt;/td&gt;
+&lt;td rowspan="3"&gt;Célula que ocupa 3 linhas&lt;/td&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exemplos Visuais -->
+            <section class="content-section">
+                <h2>👁️ Exemplos Visuais</h2>
+                <div class="visual-examples">
+                    <div class="example-card">
+                        <h3>Tabela Simples</h3>
+                        <div class="example-preview">
+                            <table style="border-collapse: collapse; width: 100%; border: 1px solid #ddd;">
+                                <caption style="font-weight: bold; margin-bottom: 10px;">Informações Pessoais</caption>
+                                <thead>
+                                    <tr style="background-color: #f5f5f5;">
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Nome</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Idade</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Cidade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Ana</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">28</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">São Paulo</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Carlos</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">35</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Rio de Janeiro</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h3>Tabela com Mesclagem</h3>
+                        <div class="example-preview">
+                            <table style="border-collapse: collapse; width: 100%; border: 1px solid #ddd;">
+                                <caption style="font-weight: bold; margin-bottom: 10px;">Vendas Trimestrais</caption>
+                                <thead>
+                                    <tr style="background-color: #f5f5f5;">
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Produto</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;" colspan="3">Trimestres</th>
+                                    </tr>
+                                    <tr style="background-color: #f9f9f9;">
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;"></th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Q1</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Q2</th>
+                                        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Q3</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Notebook</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">150</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">200</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">180</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">Mouse</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">300</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">350</td>
+                                        <td style="border: 1px solid #ddd; padding: 8px;">400</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Editor Interativo -->
+            <section class="content-section">
+                <h2>⚡ Editor Interativo</h2>
+                <p>Experimente criar suas próprias tabelas no editor abaixo:</p>
+                
+                <div class="editor-container">
+                    <div class="editor-tabs">
+                        <button class="tab-button active" data-tab="html">HTML</button>
+                        <button class="tab-button" data-tab="preview">Preview</button>
+                    </div>
+                    
+                    <div class="editor-content">
+                        <div class="tab-content active" id="html-tab">
+                            <div class="editor-header">
+                                <span class="editor-title">📝 Editor HTML</span>
+                                <div class="editor-actions">
+                                    <button class="btn-action" id="copy-code" title="Copiar código">
+                                        📋 Copiar
+                                    </button>
+                                    <button class="btn-action" id="reset-editor" title="Resetar editor">
+                                        🔄 Reset
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea id="code-editor" class="code-editor" spellcheck="false"><!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Tabela</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        caption {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Minha Primeira Tabela</caption>
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Profissão</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Maria Silva</td>
+                <td>32</td>
+                <td>Desenvolvedora</td>
+            </tr>
+            <tr>
+                <td>João Santos</td>
+                <td>28</td>
+                <td>Designer</td>
+            </tr>
+            <tr>
+                <td>Ana Costa</td>
+                <td>35</td>
+                <td>Gerente</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html></textarea>
+                        </div>
+                        
+                        <div class="tab-content" id="preview-tab">
+                            <div class="editor-header">
+                                <span class="editor-title">👁️ Visualização</span>
+                            </div>
+                            <iframe id="preview-iframe" class="preview-iframe"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="editor-message" id="editor-message"></div>
+            </section>
+
+            <!-- Erros Comuns -->
+            <section class="content-section">
+                <h2>⚠️ Erros Comuns e Como Evitá-los</h2>
+                <div class="common-errors">
+                    <div class="error-card">
+                        <div class="error-icon">❌</div>
+                        <div class="error-content">
+                            <h3>Não usar thead, tbody e tfoot</h3>
+                            <p><strong>Problema:</strong> Criar tabelas sem organização semântica.</p>
+                            <p><strong>Solução:</strong> Sempre organize sua tabela com as seções apropriadas para melhor acessibilidade e estilização.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="error-card">
+                        <div class="error-icon">❌</div>
+                        <div class="error-content">
+                            <h3>Esquecer o atributo scope</h3>
+                            <p><strong>Problema:</strong> Não especificar se o cabeçalho se refere a linha ou coluna.</p>
+                            <p><strong>Solução:</strong> Use <code>scope="col"</code> para cabeçalhos de coluna e <code>scope="row"</code> para cabeçalhos de linha.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="error-card">
+                        <div class="error-icon">❌</div>
+                        <div class="error-content">
+                            <h3>Usar tabelas para layout</h3>
+                            <p><strong>Problema:</strong> Usar tabelas para posicionar elementos na página.</p>
+                            <p><strong>Solução:</strong> Use CSS Grid ou Flexbox para layout. Tabelas são apenas para dados tabulares.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="error-card">
+                        <div class="error-icon">❌</div>
+                        <div class="error-content">
+                            <h3>Não incluir caption</h3>
+                            <p><strong>Problema:</strong> Tabelas sem descrição clara do conteúdo.</p>
+                            <p><strong>Solução:</strong> Sempre inclua <code>&lt;caption&gt;</code> para descrever o propósito da tabela.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Interativo -->
+            <section class="content-section">
+                <h2>🧠 Quiz Interativo</h2>
+                <div class="quiz-container" id="quiz-container">
+                    <!-- Quiz será carregado via JavaScript -->
+                </div>
+            </section>
+
+            <!-- Sugestões de Código -->
+            <section class="content-section">
+                <h2>💡 Sugestões de Código</h2>
+                <p>Clique nos botões abaixo para carregar exemplos no editor:</p>
+                <div class="suggestions-grid">
+                    <button class="suggestion-btn" data-suggestion="horarios">
+                        📅 Tabela de Horários
+                    </button>
+                    <button class="suggestion-btn" data-suggestion="precos">
+                        💰 Tabela de Preços
+                    </button>
+                    <button class="suggestion-btn" data-suggestion="comparacao">
+                        ⚖️ Tabela Comparativa
+                    </button>
+                    <button class="suggestion-btn" data-suggestion="relatorio">
+                        📊 Relatório de Vendas
+                    </button>
+                </div>
+            </section>
+
+            <!-- Dicas Importantes -->
+            <section class="content-section">
+                <h2>💡 Dicas Importantes</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">🎯</div>
+                        <h3>Semântica é Fundamental</h3>
+                        <p>Use sempre thead, tbody e tfoot para organizar semanticamente sua tabela. Isso melhora a acessibilidade e facilita a estilização.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">♿</div>
+                        <h3>Pense na Acessibilidade</h3>
+                        <p>Use scope, headers e caption para tornar suas tabelas acessíveis a leitores de tela e outros dispositivos assistivos.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">📱</div>
+                        <h3>Responsividade</h3>
+                        <p>Considere como sua tabela será exibida em dispositivos móveis. Use CSS para torná-la responsiva quando necessário.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">🎨</div>
+                        <h3>Estilização com CSS</h3>
+                        <p>Use border-collapse: collapse para unir as bordas e melhore a aparência com padding, cores alternadas e hover effects.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Navegação entre exercícios -->
+        <nav class="exercise-navigation" aria-label="Navegação entre exercícios">
+            <a href="ex005.html" class="nav-button nav-prev" aria-label="Exercício anterior">
+                <span class="nav-icon">←</span>
+                <span class="nav-text">
+                    <span class="nav-label">Anterior</span>
+                    <span class="nav-title">Ex05: Listas</span>
+                </span>
+            </a>
+            
+            <a href="ex007.html" class="nav-button nav-next" aria-label="Próximo exercício">
+                <span class="nav-text">
+                    <span class="nav-label">Próximo</span>
+                    <span class="nav-title">Ex07: Formulários</span>
+                </span>
+                <span class="nav-icon">→</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/editor-functions-ex006.js"></script>
+    <script>
+        // Quiz data
+        const quizData = [
+            {
+                question: "Qual tag é usada para criar uma tabela em HTML?",
+                options: ["&lt;table&gt;", "&lt;tab&gt;", "&lt;grid&gt;", "&lt;data&gt;"],
+                correct: 0,
+                explanation: "A tag &lt;table&gt; é o elemento principal para criar tabelas em HTML."
+            },
+            {
+                question: "Qual tag é usada para criar uma linha na tabela?",
+                options: ["&lt;td&gt;", "&lt;tr&gt;", "&lt;th&gt;", "&lt;row&gt;"],
+                correct: 1,
+                explanation: "A tag &lt;tr&gt; (table row) é usada para criar linhas em uma tabela."
+            },
+            {
+                question: "Qual atributo é usado para mesclar colunas?",
+                options: ["rowspan", "colspan", "merge", "span"],
+                correct: 1,
+                explanation: "O atributo colspan é usado para fazer uma célula ocupar múltiplas colunas."
+            },
+            {
+                question: "Qual tag agrupa o cabeçalho da tabela?",
+                options: ["&lt;header&gt;", "&lt;thead&gt;", "&lt;th&gt;", "&lt;top&gt;"],
+                correct: 1,
+                explanation: "A tag &lt;thead&gt; é usada para agrupar o conteúdo do cabeçalho de uma tabela."
+            },
+            {
+                question: "Qual valor do atributo scope indica que o cabeçalho se refere a uma coluna?",
+                options: ["row", "col", "column", "header"],
+                correct: 1,
+                explanation: "O valor 'col' do atributo scope indica que o cabeçalho se refere a uma coluna."
+            }
+        ];
+
+        // Inicializar quiz do exercício
+        document.addEventListener('DOMContentLoaded', function() {
+            initExerciseQuiz('ex006', 'quiz-container');
+        });
+
+        // Editor interativo inicializado via editor-functions-ex006.js
+    </script>
+</body>
+</html>

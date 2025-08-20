@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8: Fundamentos de CSS - HTML & CSS</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/exercises.css">
+    <link rel="stylesheet" href="../css/exercise-quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><span class="highlight">HTML</span> & <span class="highlight-css">CSS</span></h1>
+                </div>
+                <nav class="nav">
+                    <a href="../index.html" class="nav-link">Início</a>
+                    <a href="../exercises.html" class="nav-link">Exercícios</a>
+                    <a href="../reference.html" class="nav-link">Referência</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="exercise-header">
+                <div class="breadcrumb">
+                    <a href="../index.html">Início</a>
+                    <span class="separator">></span>
+                    <a href="../exercises.html">Exercícios</a>
+                    <span class="separator">></span>
+                    <span class="current">Exercício 8</span>
+                </div>
+                
+                <div class="exercise-title">
+                    <div class="exercise-number">08</div>
+                    <div class="exercise-info">
+                        <h1>Fundamentos de CSS</h1>
+                        <p class="exercise-description">Aprenda os conceitos básicos do CSS: seletores, propriedades, valores e como estilizar elementos HTML</p>
+                        <div class="exercise-meta">
+                            <span class="difficulty beginner">Iniciante</span>
+                            <span class="duration">⏱️ 25 min</span>
+                            <span class="topic">🎨 CSS Básico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-nav">
+                <a href="ex007.html" class="nav-btn prev">← Exercício Anterior</a>
+                <a href="../exercises.html" class="nav-btn">📚 Todos os Exercícios</a>
+                <a href="#" class="nav-btn next disabled">Próximo Exercício →</a>
+            </div>
+
+            <section class="objectives">
+                <h2>🎯 Objetivos de Aprendizagem</h2>
+                <div class="objectives-grid">
+                    <div class="objective-item">
+                        <div class="objective-icon">🎨</div>
+                        <div class="objective-content">
+                            <h3>Sintaxe CSS</h3>
+                            <p>Compreender a estrutura básica do CSS: seletores, propriedades e valores</p>
+                        </div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-icon">🎯</div>
+                        <div class="objective-content">
+                            <h3>Seletores</h3>
+                            <p>Aprender diferentes tipos de seletores para aplicar estilos aos elementos</p>
+                        </div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-icon">🌈</div>
+                        <div class="objective-content">
+                            <h3>Propriedades Básicas</h3>
+                            <p>Dominar propriedades essenciais como cores, fontes, espaçamentos e bordas</p>
+                        </div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-icon">📱</div>
+                        <div class="objective-content">
+                            <h3>Aplicação Prática</h3>
+                            <p>Aplicar estilos CSS para transformar a aparência de elementos HTML</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="code-explanation">
+                <h2>💡 Código Explicado</h2>
+                <div class="explanation-content">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">Exemplo Básico de CSS</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                        </div>
+                        <pre><code class="language-css">/* Seletor de elemento */
+h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Seletor de classe */
+.destaque {
+    background-color: #f39c12;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* Seletor de ID */
+#cabecalho {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px;
+    text-align: center;
+}
+
+/* Múltiplos seletores */
+p, span, div {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}</code></pre>
+                    </div>
+                    
+                    <div class="explanation-text">
+                        <h3>🔍 Como Funciona:</h3>
+                        <div class="explanation-points">
+                            <div class="point">
+                                <span class="point-number">1</span>
+                                <div class="point-content">
+                                    <strong>Seletores:</strong> Definem quais elementos HTML serão estilizados (h1, .classe, #id)
+                                </div>
+                            </div>
+                            <div class="point">
+                                <span class="point-number">2</span>
+                                <div class="point-content">
+                                    <strong>Propriedades:</strong> Especificam qual aspecto será modificado (color, font-size, background)
+                                </div>
+                            </div>
+                            <div class="point">
+                                <span class="point-number">3</span>
+                                <div class="point-content">
+                                    <strong>Valores:</strong> Determinam como a propriedade será aplicada (#2c3e50, 2.5em, center)
+                                </div>
+                            </div>
+                            <div class="point">
+                                <span class="point-number">4</span>
+                                <div class="point-content">
+                                    <strong>Sintaxe:</strong> Cada regra CSS segue o padrão: seletor { propriedade: valor; }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tutorial">
+                <h2>📚 Tutorial Passo a Passo</h2>
+                <div class="tutorial-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Criando um Arquivo CSS</h3>
+                            <p>Primeiro, crie um arquivo com extensão .css (ex: estilos.css) e vincule ao HTML:</p>
+                            <div class="code-block small">
+                                <pre><code class="language-html">&lt;link rel="stylesheet" href="estilos.css"&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Seletores Básicos</h3>
+                            <p>Aprenda os três tipos principais de seletores:</p>
+                            <div class="code-block small">
+                                <pre><code class="language-css">/* Elemento */
+h1 { color: blue; }
+
+/* Classe */
+.minha-classe { font-size: 18px; }
+
+/* ID */
+#meu-id { background: yellow; }</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Propriedades de Texto</h3>
+                            <p>Estilize textos com propriedades fundamentais:</p>
+                            <div class="code-block small">
+                                <pre><code class="language-css">p {
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+    line-height: 1.5;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Cores e Fundos</h3>
+                            <p>Aplique cores e fundos aos elementos:</p>
+                            <div class="code-block small">
+                                <pre><code class="language-css">.caixa {
+    color: white;
+    background-color: #3498db;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Espaçamentos e Bordas</h3>
+                            <p>Controle espaços internos, externos e bordas:</p>
+                            <div class="code-block small">
+                                <pre><code class="language-css">.elemento {
+    margin: 20px;          /* Espaço externo */
+    padding: 15px;         /* Espaço interno */
+    border: 2px solid #ddd; /* Borda */
+    border-radius: 8px;    /* Cantos arredondados */
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="visual-examples">
+                <h2>👁️ Exemplos Visuais</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h3>🎨 Cores e Tipografia</h3>
+                        <div class="example-demo">
+                            <div style="color: #e74c3c; font-size: 24px; font-weight: bold; margin-bottom: 10px;">Título Vermelho</div>
+                            <div style="color: #27ae60; font-size: 16px; font-style: italic;">Texto verde em itálico</div>
+                            <div style="color: #3498db; font-size: 14px; text-decoration: underline;">Link azul sublinhado</div>
+                        </div>
+                        <div class="example-code">
+                            <pre><code class="language-css">.titulo { color: #e74c3c; font-size: 24px; font-weight: bold; }
+.texto { color: #27ae60; font-style: italic; }
+.link { color: #3498db; text-decoration: underline; }</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h3>📦 Caixas e Fundos</h3>
+                        <div class="example-demo">
+                            <div style="background-color: #f39c12; color: white; padding: 15px; margin: 10px 0; border-radius: 5px;">Caixa laranja</div>
+                            <div style="background: linear-gradient(45deg, #9b59b6, #8e44ad); color: white; padding: 15px; margin: 10px 0; border-radius: 10px;">Gradiente roxo</div>
+                            <div style="border: 3px solid #2c3e50; padding: 15px; margin: 10px 0; border-radius: 8px;">Apenas borda</div>
+                        </div>
+                        <div class="example-code">
+                            <pre><code class="language-css">.caixa1 { background-color: #f39c12; padding: 15px; border-radius: 5px; }
+.caixa2 { background: linear-gradient(45deg, #9b59b6, #8e44ad); }
+.caixa3 { border: 3px solid #2c3e50; }</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h3>📏 Espaçamentos</h3>
+                        <div class="example-demo">
+                            <div style="background-color: #ecf0f1; padding: 20px; margin: 15px 0;">
+                                <div style="background-color: #34495e; color: white; padding: 10px; margin: 5px;">Margin: 5px</div>
+                                <div style="background-color: #34495e; color: white; padding: 20px; margin: 10px;">Padding: 20px</div>
+                            </div>
+                        </div>
+                        <div class="example-code">
+                            <pre><code class="language-css">.container { padding: 20px; margin: 15px 0; }
+.item1 { margin: 5px; padding: 10px; }
+.item2 { margin: 10px; padding: 20px; }</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h3>🎯 Seletores Avançados</h3>
+                        <div class="example-demo">
+                            <div style="font-family: Arial, sans-serif;">
+                                <p style="color: #2c3e50;">Parágrafo normal</p>
+                                <p style="color: #e74c3c; font-weight: bold;">Parágrafo com classe 'destaque'</p>
+                                <p style="color: #27ae60; background-color: #d5f4e6; padding: 10px;">Parágrafo com ID 'especial'</p>
+                            </div>
+                        </div>
+                        <div class="example-code">
+                            <pre><code class="language-css">p { color: #2c3e50; }
+.destaque { color: #e74c3c; font-weight: bold; }
+#especial { color: #27ae60; background-color: #d5f4e6; }</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="interactive-editor">
+                <h2>⚡ Editor Interativo</h2>
+                <p class="editor-description">Experimente modificar o CSS abaixo e veja o resultado em tempo real:</p>
+                
+                <div class="editor-container">
+                    <div class="editor-tabs">
+                        <button class="tab-button active" data-tab="html">HTML</button>
+                        <button class="tab-button" data-tab="css">CSS</button>
+                        <button class="tab-button" data-tab="preview">Preview</button>
+                    </div>
+                    
+                    <div class="editor-content">
+                        <div class="tab-content active" id="html-tab">
+                            <textarea id="html-editor" class="code-editor" spellcheck="false"><!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu CSS</title>
+    <style>
+        /* Seu CSS aqui */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .destaque {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .lista {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-left: 4px solid #e74c3c;
+            margin: 20px 0;
+        }
+        
+        .botao {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .botao:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Fundamentos de CSS</h1>
+        
+        <p>Este é um parágrafo normal com texto explicativo sobre CSS.</p>
+        
+        <div class="destaque">
+            Esta é uma caixa destacada com fundo azul e texto branco.
+        </div>
+        
+        <div class="lista">
+            <h3>Propriedades CSS Básicas:</h3>
+            <ul>
+                <li>color - Define a cor do texto</li>
+                <li>background-color - Define a cor de fundo</li>
+                <li>font-size - Define o tamanho da fonte</li>
+                <li>padding - Define o espaçamento interno</li>
+                <li>margin - Define o espaçamento externo</li>
+            </ul>
+        </div>
+        
+        <button class="botao">Botão Estilizado</button>
+    </div>
+</body>
+</html></textarea>
+                        </div>
+                        
+                        <div class="tab-content" id="css-tab">
+                            <textarea id="code-editor" class="code-editor" spellcheck="false">/* Modifique os estilos abaixo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.destaque {
+    background-color: #3498db;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.lista {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-left: 4px solid #e74c3c;
+    margin: 20px 0;
+}
+
+.botao {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+}</textarea>
+                        </div>
+                        
+                        <div class="tab-content" id="preview-tab">
+                            <iframe id="preview-iframe" class="preview-frame"></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="editor-actions">
+                        <button id="copy-code" class="action-btn">📋 Copiar CSS</button>
+                        <button id="reset-editor" class="action-btn">🔄 Resetar</button>
+                        <div id="editor-message" class="editor-message"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="common-mistakes">
+                <h2>⚠️ Erros Comuns</h2>
+                <div class="mistakes-grid">
+                    <div class="mistake-card">
+                        <div class="mistake-icon">❌</div>
+                        <div class="mistake-content">
+                            <h3>Esquecer o ponto-e-vírgula</h3>
+                            <div class="mistake-example">
+                                <div class="wrong">
+                                    <span class="label">❌ Errado:</span>
+                                    <code>color: red<br>font-size: 16px;</code>
+                                </div>
+                                <div class="right">
+                                    <span class="label">✅ Correto:</span>
+                                    <code>color: red;<br>font-size: 16px;</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mistake-card">
+                        <div class="mistake-icon">❌</div>
+                        <div class="mistake-content">
+                            <h3>Seletor de classe sem ponto</h3>
+                            <div class="mistake-example">
+                                <div class="wrong">
+                                    <span class="label">❌ Errado:</span>
+                                    <code>minha-classe { color: blue; }</code>
+                                </div>
+                                <div class="right">
+                                    <span class="label">✅ Correto:</span>
+                                    <code>.minha-classe { color: blue; }</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mistake-card">
+                        <div class="mistake-icon">❌</div>
+                        <div class="mistake-content">
+                            <h3>Valores de cor inválidos</h3>
+                            <div class="mistake-example">
+                                <div class="wrong">
+                                    <span class="label">❌ Errado:</span>
+                                    <code>color: #gg0000;</code>
+                                </div>
+                                <div class="right">
+                                    <span class="label">✅ Correto:</span>
+                                    <code>color: #ff0000;</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mistake-card">
+                        <div class="mistake-icon">❌</div>
+                        <div class="mistake-content">
+                            <h3>Não fechar chaves</h3>
+                            <div class="mistake-example">
+                                <div class="wrong">
+                                    <span class="label">❌ Errado:</span>
+                                    <code>h1 {<br>&nbsp;&nbsp;color: red;<br>&nbsp;&nbsp;font-size: 24px;</code>
+                                </div>
+                                <div class="right">
+                                    <span class="label">✅ Correto:</span>
+                                    <code>h1 {<br>&nbsp;&nbsp;color: red;<br>&nbsp;&nbsp;font-size: 24px;<br>}</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Quiz -->
+            <section class="section">
+                <h2 class="section-title">🧠 Quiz</h2>
+                <div id="quiz-container"></div>
+            </section>
+
+            <section class="code-suggestions">
+                <h2>💡 Sugestões de Código</h2>
+                <p>Clique nos botões abaixo para carregar exemplos práticos no editor:</p>
+                <div class="suggestions-grid">
+                    <button class="suggestion-btn" data-suggestion="card">
+                        <div class="suggestion-icon">🃏</div>
+                        <div class="suggestion-content">
+                            <h3>Card Moderno</h3>
+                            <p>Card com sombra, bordas arredondadas e hover</p>
+                        </div>
+                    </button>
+                    
+                    <button class="suggestion-btn" data-suggestion="botoes">
+                        <div class="suggestion-icon">🔘</div>
+                        <div class="suggestion-content">
+                            <h3>Botões Estilizados</h3>
+                            <p>Diferentes estilos de botões com efeitos</p>
+                        </div>
+                    </button>
+                    
+                    <button class="suggestion-btn" data-suggestion="tipografia">
+                        <div class="suggestion-icon">📝</div>
+                        <div class="suggestion-content">
+                            <h3>Tipografia</h3>
+                            <p>Estilos de texto e hierarquia visual</p>
+                        </div>
+                    </button>
+                    
+                    <button class="suggestion-btn" data-suggestion="layout">
+                        <div class="suggestion-icon">📐</div>
+                        <div class="suggestion-content">
+                            <h3>Layout Básico</h3>
+                            <p>Estrutura de página com header, main e footer</p>
+                        </div>
+                    </button>
+                </div>
+            </section>
+
+            <section class="tips">
+                <h2>💡 Dicas Importantes</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">🎨</div>
+                        <div class="tip-content">
+                            <h3>Cores Consistentes</h3>
+                            <p>Use uma paleta de cores limitada e consistente. Ferramentas como Adobe Color ou Coolors podem ajudar a criar paletas harmoniosas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">📏</div>
+                        <div class="tip-content">
+                            <h3>Unidades Relativas</h3>
+                            <p>Prefira unidades relativas como em, rem, % em vez de px para criar layouts mais flexíveis e responsivos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">🔍</div>
+                        <div class="tip-content">
+                            <h3>Ferramentas de Desenvolvedor</h3>
+                            <p>Use F12 no navegador para inspecionar elementos e testar mudanças de CSS em tempo real.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">📚</div>
+                        <div class="tip-content">
+                            <h3>Organização do Código</h3>
+                            <p>Organize seu CSS com comentários, agrupe propriedades relacionadas e use indentação consistente.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="exercise-nav">
+                <a href="ex007.html" class="nav-btn prev">← Exercício Anterior</a>
+                <a href="../exercises.html" class="nav-btn">📚 Todos os Exercícios</a>
+                <a href="#" class="nav-btn next disabled">Próximo Exercício →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HTML & CSS</h3>
+                    <p>Aprenda desenvolvimento web de forma prática e interativa.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="../exercises.html">Exercícios</a></li>
+                        <li><a href="../reference.html">Referência</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">MDN CSS</a></li>
+                        <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools CSS</a></li>
+                        <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HTML & CSS Tutorial. Feito com ❤️ para aprendizado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/progress-system.js"></script>
+    <script src="../js/exercise-quiz.js"></script>
+    <script src="../js/exercise-navigation.js"></script>
+    <script src="../js/interactive-editor.js"></script>
+    <script src="../js/editor-functions-ex008.js"></script>
+    <script>
+        // Função para copiar código dos blocos de exemplo
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling.querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✅ Copiado!';
+                button.style.background = '#27ae60';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                }, 2000);
+            });
+        }
+
+        // Inicializar quiz do exercício
+        document.addEventListener('DOMContentLoaded', function() {
+            initExerciseQuiz('ex008', 'quiz-container');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03 - Imagens em HTML | Curso HTML/CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/exercise-styles.css">
+    <link rel="stylesheet" href="../css/exercise-quiz.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="../index.html" aria-label="Voltar para página principal do curso">🏠 Curso HTML/CSS</a>
+            <span class="separator" aria-hidden="true">></span>
+            <span class="current" aria-current="page">Exercício 03</span>
+        </nav>
+
+        <header class="exercise-header">
+            <h1>Exercício 03: Imagens em HTML</h1>
+            <p>Aprendendo a inserir e trabalhar com imagens em páginas web usando a tag &lt;img&gt;</p>
+        </header>
+
+        <!-- Seção de Objetivos -->
+        <section class="objectives-section">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-icon">🖼️</div>
+                    <h3>Tag IMG Básica</h3>
+                    <p>Compreender e aplicar a tag &lt;img&gt; para inserir imagens em páginas HTML de forma correta.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🔗</div>
+                    <h3>Atributos Essenciais</h3>
+                    <p>Aprender a usar src, alt, width, height e title para configurar imagens adequadamente.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">♿</div>
+                    <h3>Acessibilidade Web</h3>
+                    <p>Entender a importância do atributo alt para tornar imagens acessíveis a leitores de tela.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">📁</div>
+                    <h3>Caminhos de Arquivo</h3>
+                    <p>Dominar caminhos relativos e absolutos para referenciar imagens corretamente no HTML.</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="main-content">
+            <!-- Seção de Código Explicado -->
+            <section class="content-section">
+                <h2>💻 Código Explicado Linha por Linha</h2>
+                <div class="code-explanation">
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">1</span>
+                            <code>&lt;!DOCTYPE html&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Declaração do Tipo de Documento:</strong> Informa ao navegador que este é um documento HTML5.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">2</span>
+                            <code>&lt;html lang="pt-br"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Elemento Raiz HTML:</strong> Define o idioma da página como português brasileiro para acessibilidade.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">3-7</span>
+                            <code>&lt;head&gt;...&lt;/head&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Cabeçalho do Documento:</strong> Contém metadados como charset UTF-8, viewport e título da página.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">9</span>
+                            <code>&lt;h1&gt;Testando Imagens&lt;/h1&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Título Principal:</strong> Define o título mais importante da página usando a tag h1.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">11</span>
+                            <code>&lt;img src="logo-html.png" alt="Logo do HTML5"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Tag IMG Básica:</strong> A tag &lt;img&gt; insere imagens na página. O atributo src especifica o caminho da imagem e alt fornece uma descrição alternativa.
+                            <div class="tech-details">
+                                <p><strong>🔍 Detalhes Técnicos:</strong></p>
+                                <ul>
+                                    <li>A tag &lt;img&gt; é uma tag vazia (self-closing)</li>
+                                    <li>O atributo src é obrigatório e especifica o caminho da imagem</li>
+                                    <li>O atributo alt é essencial para acessibilidade</li>
+                                    <li>Suporta formatos: JPG, PNG, GIF, SVG, WebP</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">13</span>
+                            <code>&lt;img src="pasta/logo-css.png" alt="Logo do CSS3" width="200"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Caminho Relativo e Dimensões:</strong> Especifica uma imagem em uma pasta e define a largura usando o atributo width.
+                            <div class="tech-details">
+                                <p><strong>📁 Tipos de Caminhos:</strong></p>
+                                <ul>
+                                    <li><strong>Relativo:</strong> "pasta/imagem.png" (relativo ao arquivo atual)</li>
+                                    <li><strong>Absoluto:</strong> "/images/imagem.png" (relativo à raiz do site)</li>
+                                    <li><strong>URL externa:</strong> "https://site.com/imagem.png"</li>
+                                    <li><strong>Dimensões:</strong> width e height controlam o tamanho</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">15</span>
+                            <code>&lt;img src="foto.jpg" alt="Minha foto" title="Passe o mouse aqui"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Atributo Title:</strong> Adiciona uma dica (tooltip) que aparece quando o usuário passa o mouse sobre a imagem.
+                            <div class="tech-details">
+                                <p><strong>💡 Atributos Importantes:</strong></p>
+                                <ul>
+                                    <li><strong>title:</strong> tooltip ao passar o mouse</li>
+                                    <li><strong>loading="lazy":</strong> carregamento sob demanda (otimização)</li>
+                                    <li><strong>style:</strong> estilos CSS inline</li>
+                                    <li><strong>class:</strong> classes CSS para estilização</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Tutorial Passo a Passo -->
+            <section class="content-section">
+                <h2>📚 Tutorial Passo a Passo</h2>
+                <p class="section-intro">Siga este tutorial para aprender a trabalhar com imagens em HTML:</p>
+                
+                <div class="tutorial-steps">
+                    <div class="tutorial-step" data-step="1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3>Preparando o Documento HTML</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🏗️ Crie a estrutura básica:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;!DOCTYPE html&gt;<br>&lt;html lang="pt-br"&gt;<br>&lt;head&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Testando Imagens&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Testando Imagens&lt;/h1&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3>Inserindo sua Primeira Imagem</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🖼️ Adicione uma imagem básica:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;img src="logo-html.png" alt="Logo do HTML5"&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>📋 Explicação dos atributos:</strong></p>
+                                    <ul>
+                                        <li><strong>src:</strong> caminho para o arquivo de imagem</li>
+                                        <li><strong>alt:</strong> texto alternativo para acessibilidade</li>
+                                        <li>A tag &lt;img&gt; não precisa de fechamento</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h3>Controlando o Tamanho</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📏 Defina largura e altura:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;img src="logo-css.png" alt="Logo do CSS3" width="200" height="200"&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>⚠️ Dicas importantes:</strong></p>
+                                    <ul>
+                                        <li>Use apenas width OU height para manter proporção</li>
+                                        <li>Valores em pixels (padrão) ou porcentagem</li>
+                                        <li>Evite distorcer a imagem</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="4">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <h3>Adicionando Tooltip</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>💡 Use o atributo title:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;img src="foto.jpg" alt="Minha foto" title="Passe o mouse aqui"&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>✨ Benefícios do title:</strong></p>
+                                    <ul>
+                                        <li>Mostra informação adicional ao passar o mouse</li>
+                                        <li>Melhora a experiência do usuário</li>
+                                        <li>Útil para explicar o conteúdo da imagem</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="5">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <h3>Organizando em Pastas</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📁 Use caminhos relativos:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;img src="imagens/logo.png" alt="Logo"&gt;<br>&lt;img src="../fotos/perfil.jpg" alt="Foto de perfil"&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>🗂️ Estrutura recomendada:</strong></p>
+                                    <ul>
+                                        <li><strong>imagens/</strong> - pasta para imagens do site</li>
+                                        <li><strong>../</strong> - volta uma pasta acima</li>
+                                        <li><strong>./</strong> - pasta atual (opcional)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="6">
+                        <div class="step-header">
+                            <div class="step-number">6</div>
+                            <h3>Testando no Navegador</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🌐 Verifique o resultado:</strong></p>
+                                <div class="instruction-details">
+                                    <ul>
+                                        <li>Salve o arquivo HTML</li>
+                                        <li>Abra no navegador</li>
+                                        <li>Verifique se as imagens carregaram</li>
+                                        <li>Teste o tooltip passando o mouse</li>
+                                        <li>Verifique se o alt funciona (desabilite imagens)</li>
+                                    </ul>
+                                </div>
+                                <div class="success-message">
+                                    <strong>🎉 Parabéns!</strong> Você aprendeu a trabalhar com imagens em HTML!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Preview -->
+            <section class="content-section preview">
+                <h2>Resultado Final</h2>
+                <div class="preview-frame">
+                    <h1 style="color: #333; font-family: Arial, sans-serif; margin: 20px 0;">Testando Imagens</h1>
+                    <hr style="border: 1px solid #ccc; margin: 15px 0;">
+                    <div style="margin: 20px 0;">
+                        <p style="color: #666; font-family: Arial, sans-serif;">Imagem local:</p>
+                        <div style="width: 100px; height: 100px; background: #4CAF50; display: inline-block; margin: 10px; text-align: center; line-height: 100px; color: white; font-weight: bold;">HTML5</div>
+                    </div>
+                    <div style="margin: 20px 0;">
+                        <p style="color: #666; font-family: Arial, sans-serif;">Imagem com dimensões:</p>
+                        <div style="width: 200px; height: 150px; background: #2196F3; display: inline-block; margin: 10px; text-align: center; line-height: 150px; color: white; font-weight: bold;">CSS3</div>
+                    </div>
+                    <div style="margin: 20px 0;">
+                        <p style="color: #666; font-family: Arial, sans-serif;">Imagem com tooltip:</p>
+                        <div style="width: 150px; height: 150px; background: #FF9800; display: inline-block; margin: 10px; text-align: center; line-height: 150px; color: white; font-weight: bold; cursor: pointer;" title="Passe o mouse aqui">FOTO</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Seção de Erros Comuns -->
+        <section class="content-section common-mistakes" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>⚠️ Erros Comuns e Como Evitá-los</h2>
+            <p class="section-intro">Aprenda com os erros mais frequentes ao trabalhar com imagens em HTML:</p>
+            
+            <div class="mistakes-grid">
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Esquecer o atributo alt</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;img src="logo.png"&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;img src="logo.png" alt="Logo da empresa"&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> O atributo alt é essencial para acessibilidade e SEO. Leitores de tela usam essa informação.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Caminho incorreto da imagem</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;img src="C:\Users\imagem.png" alt="Imagem"&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;img src="imagens/imagem.png" alt="Imagem"&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Use caminhos relativos, não absolutos do sistema. Caminhos absolutos não funcionam online.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Distorcer a imagem</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;img src="foto.jpg" width="100" height="300" alt="Foto"&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;img src="foto.jpg" width="200" alt="Foto"&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Use apenas width OU height para manter a proporção original da imagem.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Alt text inadequado</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;img src="foto.jpg" alt="imagem" title="imagem"&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;img src="foto.jpg" alt="João sorrindo no parque" title="Foto do João"&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> O alt deve descrever o conteúdo da imagem de forma específica e útil.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Usar imagens muito grandes</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;!-- Imagem de 5MB --&gt;
+&lt;img src="foto-gigante.jpg" width="200" alt="Foto"&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;!-- Imagem otimizada de 50KB --&gt;
+&lt;img src="foto-otimizada.jpg" width="200" alt="Foto"&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Imagens grandes deixam o site lento. Otimize as imagens antes de usar.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Fechar tag img</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;img src="logo.png" alt="Logo"&gt;&lt;/img&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;img src="logo.png" alt="Logo"&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> A tag &lt;img&gt; é self-closing, não precisa e não deve ter tag de fechamento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>💡 Dicas para Trabalhar com Imagens</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">🖼️</span>
+                        <h4>Formatos recomendados</h4>
+                        <p>JPG para fotos, PNG para logos/transparência, SVG para ícones.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📏</span>
+                        <h4>Dimensões adequadas</h4>
+                        <p>Use apenas width OU height para manter a proporção original.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">♿</span>
+                        <h4>Sempre use alt</h4>
+                        <p>Descreva o conteúdo da imagem para usuários com deficiência visual.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">⚡</span>
+                        <h4>Otimize o tamanho</h4>
+                        <p>Comprima imagens para web para melhorar a velocidade de carregamento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Editor Interativo -->
+        <section class="content-section interactive-editor" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>💻 Editor de Código Interativo</h2>
+            <p class="section-intro">Experimente modificar o código HTML abaixo e veja o resultado em tempo real!</p>
+            
+            <div class="editor-container">
+                <div class="editor-panel">
+                    <div class="editor-header">
+                        <h3>📝 Editor HTML</h3>
+                        <div class="editor-controls">
+                            <button class="btn-reset" onclick="resetEditor()">🔄 Resetar</button>
+                            <button class="btn-copy" onclick="copyEditorCode()">📋 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="editor-wrapper">
+                        <textarea id="html-editor" class="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Testando Imagens&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Testando Imagens&lt;/h1&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Imagem local:&lt;/p&gt;
+    &lt;img src="https://via.placeholder.com/200x150/4CAF50/FFFFFF?text=HTML5" alt="Logo do HTML5"&gt;
+    
+    &lt;p&gt;Imagem com dimensões específicas:&lt;/p&gt;
+    &lt;img src="https://via.placeholder.com/300x200/2196F3/FFFFFF?text=CSS3" alt="Logo do CSS3" width="200"&gt;
+    
+    &lt;p&gt;Imagem com tooltip:&lt;/p&gt;
+    &lt;img src="https://via.placeholder.com/150x150/FF9800/FFFFFF?text=JS" alt="Logo do JavaScript" title="Passe o mouse aqui!"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+                    </div>
+                </div>
+                
+                <div class="preview-panel">
+                    <div class="preview-header">
+                        <h3>🌐 Resultado</h3>
+                        <div class="preview-controls">
+                            <button class="btn-refresh" onclick="updatePreview()">🔄 Atualizar</button>
+                        </div>
+                    </div>
+                    <div class="preview-wrapper">
+                        <iframe id="preview-frame" class="preview-iframe" sandbox="allow-same-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-suggestions">
+                <h3>💡 Experimente estas modificações:</h3>
+                <div class="suggestions-grid">
+                    <div class="suggestion-card" onclick="applySuggestion(1)">
+                        <span class="suggestion-icon">🖼️</span>
+                        <h4>Adicione mais imagens</h4>
+                        <p>Insira diferentes tipos de imagens</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(2)">
+                        <span class="suggestion-icon">📏</span>
+                        <h4>Teste dimensões</h4>
+                        <p>Experimente width e height diferentes</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(3)">
+                        <span class="suggestion-icon">💡</span>
+                        <h4>Use tooltips</h4>
+                        <p>Adicione atributos title interessantes</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(4)">
+                        <span class="suggestion-icon">♿</span>
+                        <h4>Melhore acessibilidade</h4>
+                        <p>Crie descrições alt mais detalhadas</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-tips">
+                <div class="tip-box">
+                    <span class="tip-icon">⚡</span>
+                    <div class="tip-content">
+                        <strong>Dica:</strong> O preview é atualizado automaticamente enquanto você digita. Se não funcionar, clique em "Atualizar".
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <span class="tip-icon">🔍</span>
+                    <div class="tip-content">
+                        <strong>Experimente:</strong> Tente usar diferentes URLs de imagem e veja como elas são carregadas no navegador.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Exemplos Visuais -->
+        <section class="visual-examples">
+            <h2>📊 Exemplos Visuais e Comparações</h2>
+            <p class="section-intro">
+                Veja na prática como diferentes tipos de imagens são renderizadas no navegador e compare 
+                diferentes abordagens para entender melhor os conceitos de imagens em HTML.
+            </p>
+
+            <div class="examples-grid">
+                <!-- Exemplo 1: Imagem Básica -->
+                <div class="example-card">
+                    <h3>🖼️ Imagem Básica</h3>
+                    <div class="visual-comparison">
+                        <div class="code-side">
+                            <h4>Código HTML:</h4>
+                            <pre><code>&lt;img src="logo.png" alt="Logo da empresa"&gt;</code></pre>
+                        </div>
+                        <div class="result-side">
+                            <h4>Como aparece no navegador:</h4>
+                            <div class="browser-preview">
+                                <div class="browser-bar">
+                                    <div class="browser-buttons">
+                                        <span class="btn-close"></span>
+                                        <span class="btn-minimize"></span>
+                                        <span class="btn-maximize"></span>
+                                    </div>
+                                    <div class="browser-url">imagens.html</div>
+                                </div>
+                                <div class="browser-content">
+                                    <div style="width: 120px; height: 80px; background: #4CAF50; display: inline-block; text-align: center; line-height: 80px; color: white; font-weight: bold; border-radius: 4px;">LOGO</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exemplo 2: Imagem com Dimensões -->
+                <div class="example-card">
+                    <h3>📏 Imagem com Dimensões</h3>
+                    <div class="visual-comparison">
+                        <div class="code-side">
+                            <h4>Código HTML:</h4>
+                            <pre><code>&lt;img src="foto.jpg" alt="Minha foto" width="200"&gt;</code></pre>
+                        </div>
+                        <div class="result-side">
+                            <h4>Como aparece no navegador:</h4>
+                            <div class="browser-preview">
+                                <div class="browser-bar">
+                                    <div class="browser-buttons">
+                                        <span class="btn-close"></span>
+                                        <span class="btn-minimize"></span>
+                                        <span class="btn-maximize"></span>
+                                    </div>
+                                    <div class="browser-url">dimensoes.html</div>
+                                </div>
+                                <div class="browser-content">
+                                    <div style="width: 200px; height: 150px; background: #2196F3; display: inline-block; text-align: center; line-height: 150px; color: white; font-weight: bold; border-radius: 4px;">FOTO 200px</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exemplo 3: Imagem com Tooltip -->
+                <div class="example-card">
+                    <h3>💡 Imagem com Tooltip</h3>
+                    <div class="visual-comparison">
+                        <div class="code-side">
+                            <h4>Código HTML:</h4>
+                            <pre><code>&lt;img src="banner.jpg" alt="Banner do site" 
+     title="Passe o mouse aqui!"&gt;</code></pre>
+                        </div>
+                        <div class="result-side">
+                            <h4>Como aparece no navegador:</h4>
+                            <div class="search-result">
+                                <div style="width: 180px; height: 100px; background: #FF9800; display: inline-block; text-align: center; line-height: 100px; color: white; font-weight: bold; border-radius: 4px; cursor: pointer; position: relative;">BANNER
+                                    <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; white-space: nowrap;">Passe o mouse aqui!</div>
+                                </div>
+                            </div>
+                            <div class="explanation">
+                                <p><strong>💡 title:</strong> Mostra tooltip ao passar o mouse</p>
+                                <p><strong>♿ alt:</strong> Texto alternativo para acessibilidade</p>
+                                <p><strong>📏 Dimensões:</strong> Controlam o tamanho da imagem</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exemplo 4: Antes e Depois -->
+                <div class="example-card full-width">
+                    <h3>⚡ Antes vs Depois: Imagens Bem Configuradas</h3>
+                    <div class="before-after">
+                        <div class="before-section">
+                            <h4>❌ Antes (Imagem mal configurada):</h4>
+                            <div class="code-preview">
+                                <pre><code>&lt;img src="C:\Users\foto.jpg"&gt;</code></pre>
+                            </div>
+                            <div class="problems-list">
+                                <h5>Problemas:</h5>
+                                <ul>
+                                    <li>❌ Caminho absoluto</li>
+                                    <li>❌ Sem atributo alt</li>
+                                    <li>❌ Sem controle de tamanho</li>
+                                    <li>❌ Não funciona online</li>
+                                    <li>❌ Inacessível</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="after-section">
+                            <h4>✅ Depois (Imagem bem configurada):</h4>
+                            <div class="code-preview">
+                                <pre><code>&lt;img src="imagens/foto.jpg" 
+     alt="João sorrindo no parque" 
+     width="300" 
+     title="Foto do João no parque"&gt;</code></pre>
+                            </div>
+                            <div class="benefits-list">
+                                <h5>Benefícios:</h5>
+                                <ul>
+                                    <li>✅ Caminho relativo</li>
+                                    <li>✅ Acessível</li>
+                                    <li>✅ Tamanho controlado</li>
+                                    <li>✅ Funciona online</li>
+                                    <li>✅ SEO otimizado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dicas Visuais -->
+            <div class="visual-tips">
+                <h3>💡 Dicas Visuais Importantes</h3>
+                <div class="tips-grid">
+                    <div class="tip-visual">
+                        <div class="tip-icon">🖼️</div>
+                        <h4>Formatos de Imagem</h4>
+                        <p>JPG para fotos, PNG para logos com transparência, SVG para ícones vetoriais.</p>
+                    </div>
+                    <div class="tip-visual">
+                        <div class="tip-icon">📏</div>
+                        <h4>Proporções</h4>
+                        <p>Use apenas width OU height para manter a proporção original e evitar distorções.</p>
+                    </div>
+                    <div class="tip-visual">
+                        <div class="tip-icon">♿</div>
+                        <h4>Acessibilidade</h4>
+                        <p>O atributo alt é essencial para leitores de tela e quando a imagem não carrega.</p>
+                    </div>
+                    <div class="tip-visual">
+                        <div class="tip-icon">⚡</div>
+                        <h4>Performance</h4>
+                        <p>Otimize imagens para web para melhorar a velocidade de carregamento do site.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Quiz -->
+        <section class="content-section" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <div id="quiz-container"></div>
+        </section>
+
+        <!-- Navegação -->
+        <nav class="exercise-nav" aria-label="Navegação entre exercícios">
+            <a href="ex002.html" class="nav-btn prev" aria-label="Voltar para exercício 2: Parágrafos e quebras de linha">
+                <span aria-hidden="true">←</span>
+                <span>Exercício Anterior</span>
+            </a>
+            <a href="ex004.html" class="nav-btn next" aria-label="Ir para exercício 4: Links em HTML">
+                <span>Próximo Exercício</span>
+                <span aria-hidden="true">→</span>
+            </a>
+        </nav>
+
+        <!-- Rodapé com créditos -->
+        <footer class="footer">
+            <div class="credits">
+                <h3>💡 Créditos</h3>
+                <p>Exercício baseado no curso de <a href="https://www.cursoemvideo.com" target="_blank" rel="noopener" class="author">Professor Gustavo Guanabara</a></p>
+                <p>Adaptado e modernizado para melhor experiência de aprendizado</p>
+                <a href="https://www.cursoemvideo.com/curso/html5-css3-modulo1/" target="_blank" rel="noopener" class="course-link">
+                    <span>🎓</span>
+                    <span>Ver Curso Original</span>
+                </a>
+                <div class="developer-info">
+                    <p class="developer-name">Feito por Mateus Oliveira</p>
+                    <p class="developer-year">© 2025</p>
+                    <div class="developer-links">
+                        <a href="https://github.com/mateusoliveiradev1" class="dev-link" target="_blank" rel="noopener">
+                            <span class="link-icon">🐙</span>
+                            <span class="link-text">GitHub</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                        <a href="https://github.com/mateusoliveiradev1/html-css" class="dev-link" target="_blank" rel="noopener">
+                            <span class="link-icon">📁</span>
+                            <span class="link-text">Repositório</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts do Sistema de Progresso e Quiz -->
+    <script src="../js/progress-system.js"></script>
+    <script src="../js/exercise-quiz.js"></script>
+    <script src="../js/exercise-navigation.js"></script>
+    <script src="../js/interactive-editor.js"></script>
+    <script src="../js/editor-functions-ex003.js"></script>
+    
+    <script>
+        // Marca exercício como concluído
+        document.addEventListener('DOMContentLoaded', function() {
+            const exerciseId = 'ex003';
+            const completed = JSON.parse(localStorage.getItem('completedItems') || '[]');
+            if (!completed.includes(`exercise_${exerciseId}`)) {
+                completed.push(`exercise_${exerciseId}`);
+                localStorage.setItem('completedItems', JSON.stringify(completed));
+            }
+            
+            // Inicializar quiz do exercício
+            initExerciseQuiz('ex003', 'quiz-container');
+        });
+
+        // Navegação inteligente
+        if (typeof SmartNavigation !== 'undefined') {
+            new SmartNavigation();
+        }
+    </script>
+</body>
+</html>
