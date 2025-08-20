@@ -11,10 +11,10 @@
 </head>
 <body>
     <div class="container">
-        <nav class="breadcrumb">
-            <a href="../index.html">🏠 Curso HTML/CSS</a>
-            <span class="separator">•</span>
-            <span>Desafio 01</span>
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="../index.html" aria-label="Voltar para página principal do curso">🏠 Curso HTML/CSS</a>
+            <span class="separator" aria-hidden="true">></span>
+            <span class="current" aria-current="page">Desafio 01</span>
         </nav>
 
         <header class="exercise-header">
@@ -22,10 +22,37 @@
             <p>Desafio prático para testar seus conhecimentos sobre parágrafos e quebras de linha</p>
         </header>
 
+        <!-- Seção de Objetivos -->
+        <section class="objectives-section">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-icon">📝</div>
+                    <h3>Uso Correto de Parágrafos</h3>
+                    <p>Aplicar a tag &lt;p&gt; de forma adequada para estruturar o conteúdo textual do desafio.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">↩️</div>
+                    <h3>Quebras de Linha Estratégicas</h3>
+                    <p>Utilizar &lt;br&gt; para criar padrões visuais específicos com asteriscos e formatação.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🎨</div>
+                    <h3>Padrões Visuais</h3>
+                    <p>Criar um design visual simples usando apenas HTML e caracteres especiais como asteriscos.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🧩</div>
+                    <h3>Resolução de Problemas</h3>
+                    <p>Desenvolver habilidades de resolução de problemas aplicando conceitos HTML na prática.</p>
+                </div>
+            </div>
+        </section>
+
         <main class="main-content">
-            <!-- Seção do Objetivo -->
+            <!-- Seção do Desafio -->
             <section class="content-section">
-                <h2>🎯 Objetivo do Desafio</h2>
+                <h2>🎯 Descrição do Desafio</h2>
                 <div style="background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #3b82f6; margin-bottom: 1.5rem;">
                     <p style="color: #1e40af; margin-bottom: 1rem; font-weight: 500;">Neste desafio, você deve criar um padrão visual usando asteriscos (*) e quebras de linha. O objetivo é praticar:</p>
                     <ul style="list-style: none; padding-left: 0; margin: 0;">
@@ -163,14 +190,14 @@
         </section>
 
         <!-- Navegação -->
-        <nav class="exercise-navigation">
-            <a href="../index.html" class="nav-btn prev">
-                <span>←</span>
+        <nav class="exercise-nav" aria-label="Navegação entre desafios">
+            <a href="../index.html" class="nav-btn prev" aria-label="Voltar para página principal do curso">
+                <span aria-hidden="true">←</span>
                 <span>Voltar ao Curso</span>
             </a>
-            <a href="../index.html#challenges" class="nav-btn next">
-                <span>Ver Mais Desafios</span>
-                <span>→</span>
+            <a href="../index.html#challenges" class="nav-btn next" aria-label="Ver mais desafios disponíveis">
+                <span>Mais Desafios</span>
+                <span aria-hidden="true">→</span>
             </a>
         </nav>
 

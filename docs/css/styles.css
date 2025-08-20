@@ -1562,6 +1562,128 @@ body.loaded .exercise-card:nth-child(4) { animation-delay: 0.4s; }
 body.loaded .exercise-card:nth-child(5) { animation-delay: 0.5s; }
 body.loaded .exercise-card:nth-child(6) { animation-delay: 0.6s; }
 
+/* Enhanced focus styles for accessibility */
+*:focus {
+    outline: 3px solid #4A90E2;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 1px rgba(74, 144, 226, 0.3);
+}
+
+/* High contrast focus for interactive elements */
+button:focus,
+a:focus,
+.nav-tab:focus,
+.btn:focus {
+    outline: 3px solid #4A90E2;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 1px rgba(74, 144, 226, 0.3), 0 0 10px rgba(74, 144, 226, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+/* Skip to main content link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+    font-weight: bold;
+}
+
+.skip-link:focus {
+    top: 6px;
+    outline: 3px solid #4A90E2;
+}
+
+/* Improved contrast for text elements */
+.card-description {
+    color: #4a5568;
+    contrast: 4.5;
+}
+
+/* Better visibility for disabled elements */
+.disabled,
+[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: grayscale(50%);
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Lazy Loading Styles */
+.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lazy.loaded {
+    opacity: 1;
+}
+
+.lazy-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.lazy-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Performance optimizations */
+.exercise-card,
+.challenge-card {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+    .lazy,
+    .lazy-card {
+        transition: none;
+    }
+    
+    .exercise-card,
+    .challenge-card {
+        will-change: auto;
+    }
+}
+
+/* GPU acceleration for smooth animations */
+.particle {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Optimize font loading */
+@font-display: swap;
+
+/* Critical resource hints */
+.preload-hint {
+    content: '';
+    display: none;
+}
+
 /* Scrollbar personalizada */
 ::-webkit-scrollbar {
     width: 8px;

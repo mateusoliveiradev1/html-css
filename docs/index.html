@@ -4,16 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Educacional HTML/CSS - Curso do Gustavo Guanabara</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Sistema educacional interativo para aprender HTML e CSS baseado no curso do Professor Gustavo Guanabara">
+    <meta name="keywords" content="HTML, CSS, curso, exercícios, web development, programação">
+    <meta name="author" content="Mateus Oliveira">
+    
+    <!-- Performance optimizations -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    <meta name="theme-color" content="#667eea">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <meta name="theme-color" content="#667eea">
-    <meta name="description" content="Sistema educacional interativo para aprender HTML e CSS baseado no curso do Professor Gustavo Guanabara">
+    
+    <!-- Service Worker registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
+            });
+        }
+    </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
     <!-- Particles Background -->
     <div class="particles-bg" id="particles-bg"></div>
     
@@ -53,27 +81,27 @@
         </header>
 
         <!-- Navigation Tabs -->
-        <nav class="content-nav">
-            <button class="nav-tab active" data-section="exercises-section">
-                <span class="tab-icon">📚</span>
+        <nav class="content-nav" role="tablist" aria-label="Navegação do conteúdo">
+            <button class="nav-tab active" data-section="exercises-section" role="tab" aria-selected="true" aria-controls="exercises-section" tabindex="0">
+                <span class="tab-icon" aria-hidden="true">📚</span>
                 <span class="tab-text">Exercícios</span>
-                <span class="tab-count">24+</span>
+                <span class="tab-count" aria-label="24 ou mais exercícios disponíveis">24+</span>
             </button>
-            <button class="nav-tab" data-section="challenges-section">
-                <span class="tab-icon">🎯</span>
+            <button class="nav-tab" data-section="challenges-section" role="tab" aria-selected="false" aria-controls="challenges-section" tabindex="-1">
+                <span class="tab-icon" aria-hidden="true">🎯</span>
                 <span class="tab-text">Desafios</span>
-                <span class="tab-count">12+</span>
+                <span class="tab-count" aria-label="12 ou mais desafios disponíveis">12+</span>
             </button>
-            <button class="nav-tab" data-section="quiz-section">
-                <span class="tab-icon">🧠</span>
+            <button class="nav-tab" data-section="quiz-section" role="tab" aria-selected="false" aria-controls="quiz-section" tabindex="-1">
+                <span class="tab-icon" aria-hidden="true">🧠</span>
                 <span class="tab-text">Quiz</span>
-                <span class="tab-count">Em breve</span>
+                <span class="tab-count" aria-label="Quiz em desenvolvimento">Em breve</span>
             </button>
         </nav>
 
-        <main class="main-content">
+        <main class="main-content" id="main-content">
             <!-- Exercises Section -->
-            <section class="content-section active" id="exercises-section">
+            <section class="content-section active" id="exercises-section" role="tabpanel" aria-labelledby="exercises-tab">
                 <div class="section-header">
                     <h2 class="section-title">
                         <span class="title-icon">📚</span>
@@ -97,9 +125,9 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="exercises/ex001.html" class="card-link">
+                            <a href="exercises/ex001.html" class="card-link" aria-label="Iniciar exercício 1: Meu primeiro HTML">
                                 <span>Iniciar</span>
-                                <span class="link-arrow">→</span>
+                                <span class="link-arrow" aria-hidden="true">→</span>
                             </a>
                         </div>
                     </div>
@@ -118,9 +146,9 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="exercises/ex002.html" class="card-link">
+                            <a href="exercises/ex002.html" class="card-link" aria-label="Iniciar exercício 2: Parágrafos e quebras de linha">
                                 <span>Iniciar</span>
-                                <span class="link-arrow">→</span>
+                                <span class="link-arrow" aria-hidden="true">→</span>
                             </a>
                         </div>
                     </div>
@@ -149,16 +177,16 @@
                 </div>
 
                 <div class="load-more-section">
-                    <button class="load-more-btn" id="load-more-exercises">
+                    <button class="load-more-btn" id="load-more-exercises" aria-describedby="load-more-info">
                         <span class="btn-text">Carregar mais exercícios</span>
-                        <span class="btn-icon">↓</span>
+                        <span class="btn-icon" aria-hidden="true">↓</span>
                     </button>
-                    <p class="load-more-info">Mais 21 exercícios disponíveis</p>
+                    <p class="load-more-info" id="load-more-info">Mais 21 exercícios disponíveis</p>
                 </div>
             </section>
 
             <!-- Challenges Section -->
-            <section class="content-section" id="challenges-section">
+            <section class="content-section" id="challenges-section" role="tabpanel" aria-labelledby="challenges-tab">
                 <div class="section-header">
                     <h2 class="section-title">
                         <span class="title-icon">🎯</span>
@@ -182,9 +210,9 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="challenges/d001.html" class="card-link">
+                            <a href="challenges/d001.html" class="card-link" aria-label="Iniciar desafio 1: Mensagens">
                                 <span>Aceitar Desafio</span>
-                                <span class="link-arrow">🚀</span>
+                                <span class="link-arrow" aria-hidden="true">🚀</span>
                             </a>
                         </div>
                     </div>
@@ -215,7 +243,7 @@
             </section>
 
             <!-- Quiz Section -->
-            <section class="content-section" id="quiz-section">
+            <section class="content-section" id="quiz-section" role="tabpanel" aria-labelledby="quiz-tab">
                 <div class="section-header">
                     <h2 class="section-title">
                         <span class="title-icon">🧠</span>
@@ -249,8 +277,8 @@
                             </div>
                         </div>
                         
-                        <a href="quiz.html" class="btn btn-primary quiz-start-btn">
-                            <span>🚀</span>
+                        <a href="quiz.html" class="btn btn-primary quiz-start-btn" aria-label="Iniciar quiz interativo sobre HTML e CSS">
+                            <span aria-hidden="true">🚀</span>
                             Começar Quiz
                         </a>
                     </div>
@@ -272,16 +300,16 @@
                                 <span class="avatar-icon">👨‍🏫</span>
                             </div>
                             <div class="author-details">
-                                <a href="https://www.cursoemvideo.com/" class="author-link" target="_blank" rel="noopener">
-                                    <span class="author-name">Prof. Gustavo Guanabara</span>
-                                    <span class="author-title">Curso em Vídeo</span>
-                                </a>
+                                <a href="https://www.cursoemvideo.com/" class="author-link" target="_blank" rel="noopener" aria-label="Visitar site do Professor Gustavo Guanabara, criador do Curso em Vídeo">
+                                <span class="author-name">Prof. Gustavo Guanabara</span>
+                                <span class="author-title">Curso em Vídeo</span>
+                            </a>
                             </div>
                         </div>
-                        <a href="https://www.cursoemvideo.com/curso/html5-css3-modulo1/" class="course-link" target="_blank" rel="noopener">
-                            <span class="link-icon">🎓</span>
+                        <a href="https://www.cursoemvideo.com/curso/html5-css3-modulo1/" class="course-link" target="_blank" rel="noopener" aria-label="Acessar curso completo de HTML5 e CSS3 no Curso em Vídeo">
+                            <span class="link-icon" aria-hidden="true">🎓</span>
                             <span class="link-text">Acesse o curso original</span>
-                            <span class="link-arrow">↗</span>
+                            <span class="link-arrow" aria-hidden="true">↗</span>
                         </a>
                     </div>
                 </div>
@@ -300,15 +328,15 @@
                             <p class="developer-year">© 2025</p>
                             <p class="developer-description">Sistema educacional interativo criado com dedicação para facilitar o aprendizado de HTML e CSS</p>
                             <div class="developer-links">
-                                <a href="https://github.com/mateusoliveiradev1" class="dev-link" target="_blank" rel="noopener">
-                                    <span class="link-icon">🐙</span>
+                                <a href="https://github.com/mateusoliveiradev1" class="dev-link" target="_blank" rel="noopener" aria-label="Visitar perfil do desenvolvedor Mateus Oliveira no GitHub">
+                                    <span class="link-icon" aria-hidden="true">🐙</span>
                                     <span class="link-text">GitHub</span>
-                                    <span class="link-arrow">↗</span>
+                                    <span class="link-arrow" aria-hidden="true">↗</span>
                                 </a>
-                                <a href="https://github.com/mateusoliveiradev1/html-css" class="dev-link" target="_blank" rel="noopener">
-                                    <span class="link-icon">📁</span>
+                                <a href="https://github.com/mateusoliveiradev1/html-css" class="dev-link" target="_blank" rel="noopener" aria-label="Acessar repositório do projeto no GitHub">
+                                    <span class="link-icon" aria-hidden="true">📁</span>
                                     <span class="link-text">Repositório</span>
-                                    <span class="link-arrow">↗</span>
+                                    <span class="link-arrow" aria-hidden="true">↗</span>
                                 </a>
                             </div>
                         </div>
@@ -339,10 +367,10 @@
 
             <div class="footer-bottom">
                 <div class="footer-links">
-                    <a href="#" class="footer-link">Sobre</a>
-                    <a href="#" class="footer-link">Contato</a>
-                    <a href="#" class="footer-link">Suporte</a>
-                    <a href="#" class="footer-link">GitHub</a>
+                    <a href="#" class="footer-link" aria-label="Sobre este projeto">Sobre</a>
+                    <a href="#" class="footer-link" aria-label="Entre em contato">Contato</a>
+                    <a href="#" class="footer-link" aria-label="Obter suporte técnico">Suporte</a>
+                    <a href="#" class="footer-link" aria-label="Acessar repositório no GitHub">GitHub</a>
                 </div>
                 <div class="footer-copyright">
                     <p>&copy; 2024 Sistema Educacional HTML/CSS. Feito com ❤️ para a comunidade de desenvolvedores.</p>
@@ -354,5 +382,6 @@
     <!-- Scripts do Sistema de Progresso -->
     <script src="js/progress-system.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/performance.js" defer></script>
 </body>
 </html>

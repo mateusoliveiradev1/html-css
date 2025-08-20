@@ -177,7 +177,7 @@ class QuizSystem {
             
             <div class="question-container">
                 <h3 class="question-title">Questão ${this.currentQuestionIndex + 1}</h3>
-                <p class="question-text">${question.question}</p>
+                <p class="question-text" id="question-text">${question.question}</p>
         `;
         
         switch (question.type) {
@@ -209,7 +209,7 @@ class QuizSystem {
         question.options.forEach((option, index) => {
             html += `
                 <label class="option-label">
-                    <input type="radio" name="answer" value="${index}" class="option-input">
+                    <input type="radio" name="answer" value="${index}" class="option-input" aria-describedby="question-text">
                     <span class="option-text">${option}</span>
                 </label>
             `;
@@ -221,13 +221,13 @@ class QuizSystem {
     // Gerar HTML para verdadeiro/falso
     generateTrueFalseHTML(question) {
         return `
-            <div class="options-container">
+            <div class="options-container" role="radiogroup" aria-labelledby="question-text">
                 <label class="option-label">
-                    <input type="radio" name="answer" value="true" class="option-input">
+                    <input type="radio" name="answer" value="true" class="option-input" aria-describedby="question-text">
                     <span class="option-text">Verdadeiro</span>
                 </label>
                 <label class="option-label">
-                    <input type="radio" name="answer" value="false" class="option-input">
+                    <input type="radio" name="answer" value="false" class="option-input" aria-describedby="question-text">
                     <span class="option-text">Falso</span>
                 </label>
             </div>
@@ -238,8 +238,8 @@ class QuizSystem {
     generateCodeCompletionHTML(question) {
         return `
             <div class="code-container">
-                <pre class="code-block">${question.code}</pre>
-                <input type="text" class="code-input" placeholder="Digite sua resposta..." id="code-answer">
+                <pre class="code-block" role="code" aria-label="Código para completar">${question.code}</pre>
+                <input type="text" class="code-input" placeholder="Digite sua resposta..." id="code-answer" aria-label="Resposta do código" aria-describedby="question-text">
             </div>
         `;
     }
@@ -529,6 +529,92 @@ class QuizSystem {
     // Vincular eventos globais
     bindEvents() {
         // Eventos podem ser adicionados aqui conforme necessário
+        this.setupKeyboardNavigation();
+    }
+    
+    // Configurar navegação por teclado
+    setupKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            // Apenas processar se estivermos em um quiz ativo
+            if (!this.currentQuiz) return;
+            
+            switch(e.key) {
+                case 'Enter':
+                    // Submeter resposta se botão estiver habilitado
+                    const submitBtn = document.getElementById('submit-answer');
+                    if (submitBtn && !submitBtn.disabled) {
+                        e.preventDefault();
+                        submitBtn.click();
+                    }
+                    break;
+                    
+                case 'ArrowRight':
+                case 'n':
+                case 'N':
+                    // Próxima questão (apenas se estiver na tela de feedback)
+                    const nextBtn = document.getElementById('next-question');
+                    if (nextBtn) {
+                        e.preventDefault();
+                        nextBtn.click();
+                    }
+                    break;
+                    
+                case 'ArrowLeft':
+                case 'p':
+                case 'P':
+                    // Questão anterior
+                    const prevBtn = document.getElementById('prev-question');
+                    if (prevBtn) {
+                        e.preventDefault();
+                        prevBtn.click();
+                    }
+                    break;
+                    
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                    // Selecionar opção por número (múltipla escolha)
+                    const optionIndex = parseInt(e.key) - 1;
+                    const options = document.querySelectorAll('input[name="answer"]');
+                    if (options[optionIndex]) {
+                        e.preventDefault();
+                        options[optionIndex].checked = true;
+                        options[optionIndex].dispatchEvent(new Event('change'));
+                    }
+                    break;
+                    
+                case 't':
+                case 'T':
+                    // Verdadeiro (para questões true/false)
+                    const trueOption = document.querySelector('input[name="answer"][value="true"]');
+                    if (trueOption) {
+                        e.preventDefault();
+                        trueOption.checked = true;
+                        trueOption.dispatchEvent(new Event('change'));
+                    }
+                    break;
+                    
+                case 'f':
+                case 'F':
+                    // Falso (para questões true/false)
+                    const falseOption = document.querySelector('input[name="answer"][value="false"]');
+                    if (falseOption) {
+                        e.preventDefault();
+                        falseOption.checked = true;
+                        falseOption.dispatchEvent(new Event('change'));
+                    }
+                    break;
+                    
+                case 'Escape':
+                    // Voltar ao menu
+                    e.preventDefault();
+                    if (confirm('Deseja realmente sair do quiz? Seu progresso será perdido.')) {
+                        this.showQuizMenu();
+                    }
+                    break;
+            }
+        });
     }
 }
 

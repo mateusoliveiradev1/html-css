@@ -12,10 +12,10 @@
 </head>
 <body>
     <div class="container">
-        <nav class="breadcrumb">
-            <a href="../index.html">🏠 Curso HTML/CSS</a>
-            <span class="separator">•</span>
-            <span>Exercício 01</span>
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="../index.html" aria-label="Voltar para página principal do curso">🏠 Curso HTML/CSS</a>
+            <span class="separator" aria-hidden="true">></span>
+            <span class="current" aria-current="page">Exercício 01</span>
         </nav>
 
         <header class="exercise-header">
@@ -23,12 +23,187 @@
             <p>Seu primeiro documento HTML - Aprendendo a estrutura básica e criando sua primeira página web</p>
         </header>
 
+        <!-- Seção de Objetivos -->
+        <section class="objectives-section">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-icon">🏗️</div>
+                    <h3>Estrutura HTML Básica</h3>
+                    <p>Compreender e aplicar a estrutura fundamental de um documento HTML com DOCTYPE, html, head e body.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">📝</div>
+                    <h3>Tags Essenciais</h3>
+                    <p>Aprender a usar as tags básicas: &lt;h1&gt; para títulos, &lt;p&gt; para parágrafos e &lt;hr&gt; para separadores.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🌐</div>
+                    <h3>Primeiro Documento Web</h3>
+                    <p>Criar seu primeiro documento HTML funcional e entender como ele é interpretado pelo navegador.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">✅</div>
+                    <h3>Validação e Boas Práticas</h3>
+                    <p>Aplicar boas práticas como charset UTF-8, viewport e estrutura semântica desde o início.</p>
+                </div>
+            </div>
+        </section>
+
         <main class="main-content">
-            <!-- Seção de Código -->
+            <!-- Seção de Código Explicado -->
             <section class="content-section">
-                <h2>Código do Exercício</h2>
-                <div class="code-block">
-                    <pre><code id="exercise-code">&lt;!DOCTYPE html&gt;
+                <h2>💻 Código Explicado Linha por Linha</h2>
+                <div class="code-explanation">
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">1</span>
+                            <code>&lt;!DOCTYPE html&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Declaração do Tipo de Documento:</strong> Informa ao navegador que este é um documento HTML5. Sempre deve ser a primeira linha!
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">2</span>
+                            <code>&lt;html lang="pt-br"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Tag HTML Raiz:</strong> Contém todo o conteúdo da página. O atributo <code>lang="pt-br"</code> define o idioma como português brasileiro.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">3</span>
+                            <code>&lt;head&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Cabeçalho do Documento:</strong> Contém informações sobre a página que não são exibidas diretamente (metadados).
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">4</span>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Codificação de Caracteres:</strong> Define UTF-8 para suportar acentos e caracteres especiais do português.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">5</span>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Responsividade:</strong> Configura a página para se adaptar a diferentes tamanhos de tela (celular, tablet, desktop).
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">6</span>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Meu primeiro exercício&lt;/title&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Título da Página:</strong> Aparece na aba do navegador e é usado pelos mecanismos de busca.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">7</span>
+                            <code>&lt;/head&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Fechamento do Head:</strong> Toda tag aberta deve ser fechada. O <code>/</code> indica fechamento.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">8</span>
+                            <code>&lt;body&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Corpo da Página:</strong> Aqui fica todo o conteúdo visível da página web.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">9</span>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Olá, Mundo!&lt;/h1&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Título Principal:</strong> <code>&lt;h1&gt;</code> é o título mais importante da página. Use apenas um por página!
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">10</span>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Linha Horizontal:</strong> Cria uma linha para separar seções. É uma tag auto-fechada (não precisa de <code>&lt;/hr&gt;</code>).
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">11</span>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Estou praticando HTML e estou muito feliz!&lt;/p&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Parágrafo:</strong> <code>&lt;p&gt;</code> é usado para texto comum. Cada parágrafo cria um bloco separado.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">12</span>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&lt;hr&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Segunda Linha:</strong> Outra linha horizontal para finalizar o design.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">13</span>
+                            <code>&lt;/body&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Fechamento do Body:</strong> Finaliza o conteúdo visível da página.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">14</span>
+                            <code>&lt;/html&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Fechamento do HTML:</strong> Finaliza todo o documento HTML.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Código Completo para Copiar -->
+                <div class="copy-section">
+                    <h3>📋 Código Completo</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode()" aria-label="Copiar código HTML para área de transferência">
+                            <span aria-hidden="true">📋</span> Copiar Código
+                        </button>
+                        <pre><code id="exercise-code">&lt;!DOCTYPE html&gt;
 &lt;html lang="pt-br"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -42,6 +217,7 @@
     &lt;hr&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+                    </div>
                 </div>
             </section>
 
@@ -101,14 +277,14 @@
         </section>
 
         <!-- Navegação -->
-        <nav class="exercise-nav">
-            <a href="../index.html" class="nav-btn prev">
-                <span>←</span>
+        <nav class="exercise-nav" aria-label="Navegação entre exercícios">
+            <a href="../index.html" class="nav-btn prev" aria-label="Voltar para página principal do curso">
+                <span aria-hidden="true">←</span>
                 <span>Voltar ao Curso</span>
             </a>
-            <a href="ex002.html" class="nav-btn next">
+            <a href="ex002.html" class="nav-btn next" aria-label="Ir para exercício 2: Parágrafos e quebras de linha">
                 <span>Próximo Exercício</span>
-                <span>→</span>
+                <span aria-hidden="true">→</span>
             </a>
         </nav>
 

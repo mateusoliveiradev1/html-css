@@ -12,16 +12,43 @@
 </head>
 <body>
     <div class="container">
-        <nav class="breadcrumb">
-            <a href="../index.html">🏠 Curso HTML/CSS</a>
-            <span class="separator">•</span>
-            <span>Exercício 02</span>
+        <nav class="breadcrumb" aria-label="Navegação estrutural">
+            <a href="../index.html" aria-label="Voltar para página principal do curso">🏠 Curso HTML/CSS</a>
+            <span class="separator" aria-hidden="true">></span>
+            <span class="current" aria-current="page">Exercício 02</span>
         </nav>
 
         <header class="exercise-header">
             <h1>Exercício 02: Parágrafos e Quebras de Linha</h1>
             <p>Aprendendo a estruturar texto com parágrafos, quebras de linha e símbolos especiais em HTML</p>
         </header>
+
+        <!-- Seção de Objetivos -->
+        <section class="objectives-section">
+            <h2>🎯 Objetivos de Aprendizagem</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-icon">📝</div>
+                    <h3>Estruturação de Texto</h3>
+                    <p>Dominar o uso da tag &lt;p&gt; para criar parágrafos bem estruturados e organizados no HTML.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">↩️</div>
+                    <h3>Quebras de Linha</h3>
+                    <p>Aprender a diferença entre &lt;br&gt; e &lt;p&gt;, e quando usar cada um para controlar o layout do texto.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🔤</div>
+                    <h3>Símbolos Especiais</h3>
+                    <p>Utilizar entidades HTML como &amp;copy;, &amp;reg; e &amp;trade; para exibir símbolos especiais corretamente.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">🎨</div>
+                    <h3>Formatação Semântica</h3>
+                    <p>Compreender a importância da semântica na estruturação de conteúdo textual em páginas web.</p>
+                </div>
+            </div>
+        </section>
 
         <main class="main-content">
             <!-- Seção de Código -->
@@ -159,14 +186,14 @@
         </section>
 
         <!-- Navegação -->
-        <nav class="exercise-navigation">
-            <a href="ex001.html" class="nav-btn prev">
-                <span>←</span>
+        <nav class="exercise-nav" aria-label="Navegação entre exercícios">
+            <a href="ex001.html" class="nav-btn prev" aria-label="Voltar para exercício 1: Meu primeiro HTML">
+                <span aria-hidden="true">←</span>
                 <span>Exercício Anterior</span>
             </a>
-            <a href="../index.html" class="nav-btn next">
+            <a href="../index.html" class="nav-btn next" aria-label="Voltar para página principal do curso">
                 <span>Voltar ao Curso</span>
-                <span>→</span>
+                <span aria-hidden="true">→</span>
             </a>
         </nav>
 

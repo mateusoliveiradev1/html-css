@@ -679,6 +679,112 @@
 .tip-item:nth-child(3) { animation-delay: 0.3s; }
 .tip-item:nth-child(4) { animation-delay: 0.4s; }
 
+/* Accessibility improvements */
+.quiz-option:focus-within,
+.option-label:focus-within {
+    outline: 3px solid #4A90E2;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 1px rgba(74, 144, 226, 0.3);
+    background-color: rgba(74, 144, 226, 0.05);
+}
+
+.start-quiz-btn:focus,
+.question-actions .btn:focus,
+.results-actions .btn:focus {
+    outline: 3px solid #4A90E2;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 1px rgba(74, 144, 226, 0.3), 0 0 10px rgba(74, 144, 226, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+/* Keyboard navigation hints */
+.keyboard-hints {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.keyboard-hints.show {
+    opacity: 1;
+}
+
+.keyboard-hints h4 {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    color: #4A90E2;
+}
+
+.keyboard-hints ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.keyboard-hints li {
+    margin: 2px 0;
+}
+
+.keyboard-hints kbd {
+    background: #333;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.8em;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    #quiz-container,
+    .option-label,
+    .start-quiz-btn,
+    .question-actions .btn,
+    .results-actions .btn {
+        border: 2px solid #000;
+    }
+    
+    .option-label:has(.option-input:checked) {
+        background: #000;
+        color: #fff;
+    }
+    
+    .feedback-container.correct {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    #quiz-container,
+    .option-label,
+    .start-quiz-btn,
+    .question-actions .btn,
+    .progress-fill,
+    .feedback-container {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* Screen reader announcements */
+.sr-announcement {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     #quiz-container {
@@ -726,6 +832,10 @@
     .results-actions .btn {
         width: 100%;
         max-width: 300px;
+    }
+    
+    .keyboard-hints {
+        display: none;
     }
 }
 

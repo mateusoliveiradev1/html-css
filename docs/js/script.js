@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCardVisibility();
     animateProgressBar();
     createParticles();
+    initializeLazyLoading();
     
     // Animações de entrada
     setTimeout(() => {
@@ -197,19 +198,56 @@ function initTabNavigation() {
     const navTabs = document.querySelectorAll('.nav-tab');
     const contentSections = document.querySelectorAll('.content-section');
     
-    navTabs.forEach(tab => {
+    function switchTab(targetTab) {
+        // Remove active class from all tabs and sections
+        navTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+            t.setAttribute('tabindex', '-1');
+        });
+        contentSections.forEach(s => s.classList.remove('active'));
+
+        // Add active class to target tab
+        targetTab.classList.add('active');
+        targetTab.setAttribute('aria-selected', 'true');
+        targetTab.setAttribute('tabindex', '0');
+        targetTab.focus();
+
+        // Show corresponding section
+        const targetSection = document.getElementById(targetTab.dataset.section);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+    }
+    
+    navTabs.forEach((tab, index) => {
         tab.addEventListener('click', () => {
-            const targetSection = tab.dataset.section;
+            switchTab(tab);
+        });
+        
+        // Keyboard navigation for tabs
+        tab.addEventListener('keydown', (e) => {
+            let targetIndex;
             
-            // Remove active class from all tabs and sections
-            navTabs.forEach(t => t.classList.remove('active'));
-            contentSections.forEach(s => s.classList.remove('active'));
-            
-            // Add active class to clicked tab and corresponding section
-            tab.classList.add('active');
-            const targetElement = document.getElementById(targetSection);
-            if (targetElement) {
-                targetElement.classList.add('active');
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    targetIndex = index > 0 ? index - 1 : navTabs.length - 1;
+                    switchTab(navTabs[targetIndex]);
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    targetIndex = index < navTabs.length - 1 ? index + 1 : 0;
+                    switchTab(navTabs[targetIndex]);
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    switchTab(navTabs[0]);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    switchTab(navTabs[navTabs.length - 1]);
+                    break;
             }
         });
     });
@@ -310,6 +348,53 @@ function createParticles() {
     }
 }
 
+// Sistema de Lazy Loading
+function initializeLazyLoading() {
+    // Configurar Intersection Observer para lazy loading
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.01
+    });
+
+    // Observer para cards de exercícios
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                card.classList.add('visible');
+                observer.unobserve(card);
+            }
+        });
+    }, {
+        rootMargin: '20px 0px',
+        threshold: 0.1
+    });
+
+    // Aplicar lazy loading a imagens
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        img.classList.add('lazy');
+        imageObserver.observe(img);
+    });
+
+    // Aplicar lazy loading a cards
+    document.querySelectorAll('.exercise-card, .challenge-card').forEach(card => {
+        card.classList.add('lazy-card');
+        cardObserver.observe(card);
+    });
+}
+
 // Funções auxiliares para progresso
 function getExerciseId(href) {
     if (!href || typeof href !== 'string') return null;
@@ -383,24 +468,167 @@ function updateProgressStats() {
         progressBar = createProgressBar();
     }
     
+    // Atualiza elementos do dashboard
     const progressFill = progressBar.querySelector('.progress-fill');
     const progressText = progressBar.querySelector('.progress-text');
+    const completedCountEl = document.getElementById('completed-count');
+    const totalCountEl = document.getElementById('total-count');
+    const percentageValueEl = document.getElementById('percentage-value');
     
+    // Atualiza barra de progresso
     if (progressFill) {
         progressFill.style.width = `${percentage}%`;
     }
     if (progressText) {
         progressText.textContent = `${completedCount}/${total} concluídos (${percentage}%)`;
     }
+    
+    // Atualiza estatísticas
+    if (completedCountEl) completedCountEl.textContent = completedCount;
+    if (totalCountEl) totalCountEl.textContent = total;
+    if (percentageValueEl) percentageValueEl.textContent = `${percentage}%`;
+    
+    // Atualiza marcos de progresso
+    updateProgressMilestones(percentage);
+    
+    // Verifica e atualiza conquistas
+    updateAchievements(completedCount, total, percentage, completed);
+}
+
+function updateProgressMilestones(percentage) {
+    const milestones = document.querySelectorAll('.milestone');
+    milestones.forEach(milestone => {
+        const milestonePercentage = parseInt(milestone.dataset.percentage);
+        if (percentage >= milestonePercentage) {
+            milestone.classList.add('achieved');
+        } else {
+            milestone.classList.remove('achieved');
+        }
+    });
+}
+
+function updateAchievements(completedCount, total, percentage, completed) {
+    // Primeira conquista: Primeiro exercício
+    const firstExercise = document.getElementById('first-exercise');
+    if (firstExercise && completedCount >= 1) {
+        firstExercise.classList.add('unlocked');
+    }
+    
+    // Conquista: 3 exercícios seguidos (verificar se há pelo menos 3 concluídos)
+    const streak3 = document.getElementById('streak-3');
+    if (streak3 && completedCount >= 3) {
+        streak3.classList.add('unlocked');
+    }
+    
+    // Conquista: Meio caminho (50% ou mais)
+    const halfway = document.getElementById('halfway');
+    if (halfway && percentage >= 50) {
+        halfway.classList.add('unlocked');
+    }
+    
+    // Conquista: Completou tudo (100%)
+    const completedAll = document.getElementById('completed-all');
+    if (completedAll && percentage >= 100) {
+        completedAll.classList.add('unlocked');
+        showMasterAchievement();
+    }
+}
+
+function showMasterAchievement() {
+    // Mostra uma animação especial quando completa tudo
+    const toast = document.createElement('div');
+    toast.className = 'master-achievement-toast';
+    toast.innerHTML = `
+        <div class="master-toast-content">
+            <div class="master-icon">👑</div>
+            <div class="master-text">
+                <h3>Parabéns, Mestre!</h3>
+                <p>Você completou todos os exercícios!</p>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add('show'), 100);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (document.body.contains(toast)) {
+                document.body.removeChild(toast);
+            }
+        }, 500);
+    }, 5000);
 }
 
 function createProgressBar() {
     const progressContainer = document.createElement('div');
     progressContainer.className = 'progress-container';
     progressContainer.innerHTML = `
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
-            <div class="progress-text">0/0 concluídos (0%)</div>
+        <div class="progress-dashboard">
+            <div class="progress-header">
+                <h3 class="progress-title">
+                    <span class="progress-icon">📊</span>
+                    Seu Progresso de Aprendizado
+                </h3>
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="completed-count">0</span>
+                        <span class="stat-label">Concluídos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-count">0</span>
+                        <span class="stat-label">Total</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="percentage-value">0%</span>
+                        <span class="stat-label">Progresso</span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                    <div class="progress-text">0/0 concluídos (0%)</div>
+                </div>
+                <div class="progress-milestones">
+                    <div class="milestone" data-percentage="25">
+                        <span class="milestone-icon">🌱</span>
+                        <span class="milestone-label">Iniciante</span>
+                    </div>
+                    <div class="milestone" data-percentage="50">
+                        <span class="milestone-icon">🚀</span>
+                        <span class="milestone-label">Progredindo</span>
+                    </div>
+                    <div class="milestone" data-percentage="75">
+                        <span class="milestone-icon">⭐</span>
+                        <span class="milestone-label">Avançado</span>
+                    </div>
+                    <div class="milestone" data-percentage="100">
+                        <span class="milestone-icon">🏆</span>
+                        <span class="milestone-label">Mestre</span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-achievements">
+                <div class="achievement" id="first-exercise">
+                    <span class="achievement-icon">🎯</span>
+                    <span class="achievement-text">Primeiro Exercício</span>
+                </div>
+                <div class="achievement" id="streak-3">
+                    <span class="achievement-icon">🔥</span>
+                    <span class="achievement-text">3 Seguidos</span>
+                </div>
+                <div class="achievement" id="halfway">
+                    <span class="achievement-icon">🎖️</span>
+                    <span class="achievement-text">Meio Caminho</span>
+                </div>
+                <div class="achievement" id="completed-all">
+                    <span class="achievement-icon">👑</span>
+                    <span class="achievement-text">Completou Tudo</span>
+                </div>
+            </div>
         </div>
     `;
     
@@ -498,20 +726,103 @@ function addDynamicStyles() {
             margin-top: 2rem;
         }
         
+        .progress-dashboard {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .progress-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .progress-icon {
+            font-size: 1.8rem;
+        }
+        
+        .progress-stats {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #4FD1C7;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+        
+        .progress-bar-container {
+            margin-bottom: 1.5rem;
+        }
+        
         .progress-bar {
-            background: #e2e8f0;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 25px;
-            height: 30px;
+            height: 40px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .progress-fill {
+            background: linear-gradient(135deg, #4FD1C7, #00F2FE);
+            height: 100%;
+            border-radius: 25px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
             position: relative;
             overflow: hidden;
         }
         
-        .progress-fill {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .progress-fill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
             height: 100%;
-            border-radius: 25px;
-            transition: width 0.5s ease;
-            width: 0%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
         
         .progress-text {
@@ -519,9 +830,113 @@ function addDynamicStyles() {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-weight: 600;
-            color: #2d3748;
+            font-weight: 700;
+            color: white;
             font-size: 0.9rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .progress-milestones {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .progress-milestones::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+        
+        .milestone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .milestone-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .milestone.achieved .milestone-icon {
+            background: linear-gradient(135deg, #4FD1C7, #00F2FE);
+            border-color: #4FD1C7;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(79, 209, 199, 0.5);
+        }
+        
+        .milestone-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .milestone.achieved .milestone-label {
+            color: #4FD1C7;
+        }
+        
+        .progress-achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+        }
+        
+        .achievement.unlocked {
+            opacity: 1;
+            background: rgba(79, 209, 199, 0.1);
+            border-color: rgba(79, 209, 199, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 209, 199, 0.2);
+        }
+        
+        .achievement-icon {
+            font-size: 1.5rem;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .achievement.unlocked .achievement-icon {
+            filter: grayscale(0%);
+        }
+        
+        .achievement-text {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .achievement.unlocked .achievement-text {
+            color: #4FD1C7;
         }
         
         .complete-btn {
@@ -599,6 +1014,117 @@ function addDynamicStyles() {
         .toast-message {
             font-weight: 600;
             color: #2d3748;
+        }
+        
+        .master-achievement-toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .master-achievement-toast.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .master-toast-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            color: white;
+        }
+        
+        .master-icon {
+            font-size: 4rem;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .master-text h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        
+        .master-text p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .progress-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .progress-stats {
+                gap: 1rem;
+            }
+            
+            .stat-value {
+                font-size: 1.5rem;
+            }
+            
+            .progress-title {
+                font-size: 1.2rem;
+            }
+            
+            .progress-achievements {
+                grid-template-columns: 1fr;
+            }
+            
+            .milestone-label {
+                font-size: 0.6rem;
+            }
+            
+            .master-toast-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .master-icon {
+                font-size: 3rem;
+            }
+            
+            .master-text h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .progress-dashboard {
+                padding: 1rem;
+            }
+            
+            .progress-stats {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .progress-milestones {
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
+            }
+            
+            .progress-milestones::before {
+                display: none;
+            }
         }
         
         .reset-progress-btn {
