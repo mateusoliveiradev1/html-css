@@ -1824,6 +1824,89 @@ a:focus,
     transform: translate(2px, -2px);
 }
 
+/* Estilos para link do curso no footer */
+.course-link {
+    color: #ffd700 !important;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    position: relative;
+    display: inline-block;
+}
+
+.course-link:hover {
+    color: #fff !important;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    transform: translateY(-1px);
+}
+
+.course-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ffd700, #fff);
+    transition: width var(--transition-normal);
+    border-radius: 1px;
+}
+
+.course-link:hover::after {
+    width: 100%;
+}
+
+/* Melhorias nos links do footer */
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.footer-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-link .link-icon {
+    font-size: var(--text-lg);
+    transition: transform var(--transition-normal);
+}
+
+.footer-link:hover .link-icon {
+    transform: scale(1.1);
+}
+
+.footer-link .link-arrow {
+    font-size: var(--text-sm);
+    opacity: 0.7;
+    transition: all var(--transition-normal);
+}
+
+.footer-link:hover .link-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-6);
+}
+
 /* Responsividade avançada */
 @media (max-width: 1200px) {
     .main-content {
