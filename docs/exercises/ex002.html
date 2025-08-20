@@ -387,6 +387,271 @@
             </div>
         </section>
 
+        <!-- Seção de Erros Comuns -->
+        <section class="content-section common-mistakes" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>⚠️ Erros Comuns com Parágrafos e Quebras de Linha</h2>
+            <p class="section-intro">Aprenda com os erros mais frequentes ao usar &lt;p&gt; e &lt;br&gt;:</p>
+            
+            <div class="mistakes-grid">
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Usar &lt;br&gt; para espaçamento</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;p&gt;Primeiro parágrafo&lt;/p&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;p&gt;Segundo parágrafo&lt;/p&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;p&gt;Primeiro parágrafo&lt;/p&gt;
+&lt;p&gt;Segundo parágrafo&lt;/p&gt;
+&lt;!-- Use CSS para espaçamento --&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> &lt;br&gt; é para quebras de linha dentro do texto, não para espaçamento entre elementos. Use CSS margin/padding para isso.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Parágrafos vazios para espaço</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;p&gt;Texto importante&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Outro texto&lt;/p&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;p&gt;Texto importante&lt;/p&gt;
+&lt;p&gt;Outro texto&lt;/p&gt;
+&lt;!-- Use CSS para espaçamento --&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Parágrafos vazios são ruins para acessibilidade e SEO. Use CSS para controlar espaçamento.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Não fechar tag &lt;br&gt;</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;p&gt;Primeira linha&lt;br&gt;&lt;/br&gt;
+Segunda linha&lt;/p&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;p&gt;Primeira linha&lt;br&gt;
+Segunda linha&lt;/p&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> &lt;br&gt; é uma tag vazia (self-closing). Não precisa e não deve ter tag de fechamento.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Aninhar parágrafos</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;p&gt;Parágrafo externo
+    &lt;p&gt;Parágrafo interno&lt;/p&gt;
+&lt;/p&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;p&gt;Primeiro parágrafo&lt;/p&gt;
+&lt;p&gt;Segundo parágrafo&lt;/p&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Parágrafos não podem ser aninhados. Cada &lt;p&gt; deve ser independente.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Esquecer entidades HTML</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;p&gt;Use a tag &lt;p&gt; para parágrafos&lt;/p&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;p&gt;Use a tag &amp;lt;p&amp;gt; para parágrafos&lt;/p&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Para mostrar tags HTML como texto, use &amp;lt; e &amp;gt; em vez de &lt; e &gt;.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-header">
+                        <span class="mistake-icon">❌</span>
+                        <h3>Usar &amp;nbsp; excessivamente</h3>
+                    </div>
+                    <div class="mistake-content">
+                        <div class="code-comparison">
+                            <div class="wrong-code">
+                                <h4>❌ Errado:</h4>
+                                <pre><code>&lt;p&gt;Texto&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;com espaços&lt;/p&gt;</code></pre>
+                            </div>
+                            <div class="correct-code">
+                                <h4>✅ Correto:</h4>
+                                <pre><code>&lt;p style="text-indent: 2em;"&gt;Texto com indentação&lt;/p&gt;</code></pre>
+                            </div>
+                        </div>
+                        <p class="mistake-explanation">
+                            <strong>Por que é importante:</strong> Use CSS para espaçamento e indentação. &amp;nbsp; deve ser usado apenas quando necessário.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>💡 Dicas para Parágrafos e Quebras</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">📝</span>
+                        <h4>Use &lt;p&gt; para blocos de texto</h4>
+                        <p>Cada ideia ou pensamento completo deve estar em seu próprio parágrafo.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">↩️</span>
+                        <h4>Use &lt;br&gt; apenas quando necessário</h4>
+                        <p>Para quebras de linha dentro de poemas, endereços ou citações.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎨</span>
+                        <h4>CSS para espaçamento</h4>
+                        <p>Use margin e padding no CSS para controlar espaços entre elementos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Editor Interativo -->
+        <section class="content-section interactive-editor" style="grid-column: 1 / -1; margin-top: 2rem;">
+            <h2>💻 Editor de Código Interativo</h2>
+            <p class="section-intro">Experimente modificar o código HTML abaixo e veja o resultado em tempo real!</p>
+            
+            <div class="editor-container">
+                <div class="editor-panel">
+                    <div class="editor-header">
+                        <h3>📝 Editor HTML</h3>
+                        <div class="editor-controls">
+                            <button class="btn-reset" onclick="resetEditor()">🔄 Resetar</button>
+                            <button class="btn-copy" onclick="copyEditorCode()">📋 Copiar</button>
+                        </div>
+                    </div>
+                    <div class="editor-wrapper">
+                        <textarea id="html-editor" class="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Parágrafos e quebras de linha&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Parágrafos e quebras de linha&lt;/h1&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Você pode escrever um parágrafo de qualquer jeito. Basta colocar tudo no meio do par de tags &amp;lt;p&amp;gt; e &amp;lt;/p&amp;gt;&lt;/p&gt;
+    &lt;p&gt;Se precisar quebrar o texto em algum lugar específico&lt;br&gt;como essa linha aqui, você pode usar a tag &amp;lt;br&amp;gt;.&lt;/p&gt;
+    &lt;p&gt;Símbolos especiais: &amp;reg; &amp;copy; &amp;trade; &amp;euro;&lt;/p&gt;
+    &lt;p&gt;Emojis: &amp;#x1F596; &amp;#x1F913;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+                    </div>
+                </div>
+                
+                <div class="preview-panel">
+                    <div class="preview-header">
+                        <h3>🌐 Resultado</h3>
+                        <div class="preview-controls">
+                            <button class="btn-refresh" onclick="updatePreview()">🔄 Atualizar</button>
+                            <button class="btn-fullscreen" onclick="toggleFullscreen()">⛶ Tela Cheia</button>
+                        </div>
+                    </div>
+                    <div class="preview-wrapper">
+                        <iframe id="html-preview" class="preview-iframe" sandbox="allow-same-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-suggestions">
+                <h3>💡 Experimente estas modificações:</h3>
+                <div class="suggestions-grid">
+                    <div class="suggestion-card" onclick="applySuggestion(1)">
+                        <span class="suggestion-icon">📝</span>
+                        <h4>Adicione mais parágrafos</h4>
+                        <p>Crie novos parágrafos com diferentes conteúdos</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(2)">
+                        <span class="suggestion-icon">↩️</span>
+                        <h4>Use quebras de linha</h4>
+                        <p>Adicione &lt;br&gt; dentro dos parágrafos</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(3)">
+                        <span class="suggestion-icon">🔣</span>
+                        <h4>Teste entidades HTML</h4>
+                        <p>Experimente &amp;lt;, &amp;gt;, &amp;amp;, &amp;nbsp;</p>
+                    </div>
+                    <div class="suggestion-card" onclick="applySuggestion(4)">
+                        <span class="suggestion-icon">😀</span>
+                        <h4>Adicione emojis</h4>
+                        <p>Use códigos Unicode como &amp;#x1F44D;</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-tips">
+                <div class="tip-box">
+                    <span class="tip-icon">⚡</span>
+                    <div class="tip-content">
+                        <strong>Dica:</strong> O preview é atualizado automaticamente enquanto você digita. Se não funcionar, clique em "Atualizar".
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <span class="tip-icon">🔍</span>
+                    <div class="tip-content">
+                        <strong>Experimente:</strong> Tente usar diferentes entidades HTML e veja como elas são renderizadas no navegador.
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Seção de Quiz -->
         <section class="content-section" style="grid-column: 1 / -1; margin-top: 2rem;">
             <div id="quiz-container"></div>
@@ -438,6 +703,7 @@
     <script src="../js/progress-system.js"></script>
 <script src="../js/exercise-quiz.js"></script>
 <script src="../js/exercise-navigation.js"></script>
+<script src="../js/interactive-editor.js"></script>
     
     <script>
         // Função para copiar código com feedback visual melhorado
@@ -483,6 +749,11 @@
             
             // Inicializar quiz do exercício
             initExerciseQuiz('ex002', 'quiz-container');
+            
+            // Inicializar editor interativo
+            if (typeof InteractiveEditor !== 'undefined') {
+                new InteractiveEditor('html', 'html-preview');
+            }
         });
 
         // Navegação inteligente
