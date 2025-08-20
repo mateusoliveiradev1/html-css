@@ -186,8 +186,8 @@ class ProgressSystem {
                             ],
                             correct: 0,
                             difficulty: 'easy',
-                            hint: 'Pense na primeira letra da palavra "parágrafo" em inglês (paragraph).',
-                            explanation: 'A tag &lt;p&gt; é a forma padrão de criar parágrafos em HTML.'
+                            hint: 'Pense na primeira letra da palavra "parágrafo" em inglês (paragraph). Esta é uma das tags mais fundamentais do HTML.',
+                            explanation: 'A tag &lt;p&gt; é a forma padrão de criar parágrafos em HTML. Ela automaticamente adiciona espaçamento antes e depois do texto, criando uma estrutura semântica clara para o conteúdo textual.'
                         },
                         {
                             type: 'multiple',
@@ -200,16 +200,16 @@ class ProgressSystem {
                             ],
                             correct: 0,
                             difficulty: 'easy',
-                            hint: 'Pense na abreviação da palavra "break" (quebrar) em inglês.',
-                            explanation: 'A tag &lt;br&gt; (break) cria uma quebra de linha simples.'
+                            hint: 'Pense na abreviação da palavra "break" (quebrar) em inglês. É uma tag muito curta e simples.',
+                            explanation: 'A tag &lt;br&gt; (break) cria uma quebra de linha simples sem adicionar espaçamento extra. É útil para quebras dentro de um mesmo parágrafo, como em endereços ou poesias.'
                         },
                         {
                             type: 'boolean',
                             question: 'A tag &lt;br&gt; precisa de uma tag de fechamento.',
                             correct: false,
                             difficulty: 'medium',
-                            hint: 'A tag <br> tem conteúdo interno ou é apenas uma instrução simples de quebra?',
-                            explanation: 'A tag &lt;br&gt; é uma tag vazia (void element) e não precisa de fechamento.'
+                            hint: 'A tag &lt;br&gt; tem conteúdo interno ou é apenas uma instrução simples de quebra? Pense nas "void elements" do HTML.',
+                            explanation: 'Falso! A tag &lt;br&gt; é uma tag vazia (void element) e não precisa de fechamento. Ela apenas instrui o navegador a quebrar a linha naquele ponto específico.'
                         },
                         {
                             type: 'multiple',
@@ -222,8 +222,102 @@ class ProgressSystem {
                             ],
                             correct: 0,
                             difficulty: 'medium',
-                            hint: 'Um apenas "quebra" a linha, o outro cria um bloco completo de texto com margens.',
-                            explanation: '&lt;br&gt; apenas quebra a linha, enquanto &lt;p&gt; cria um parágrafo completo com espaçamento adequado.'
+                            hint: 'Um apenas "quebra" a linha, o outro cria um bloco completo de texto com margens. Pense na diferença semântica entre eles.',
+                            explanation: '&lt;br&gt; apenas quebra a linha sem adicionar espaçamento, enquanto &lt;p&gt; cria um parágrafo completo com espaçamento adequado (margin) antes e depois. Use &lt;p&gt; para parágrafos distintos e &lt;br&gt; para quebras dentro do mesmo parágrafo.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual símbolo HTML representa um espaço em branco não-quebrável?',
+                            options: [
+                                '&amp;nbsp;',
+                                '&amp;space;',
+                                '&amp;blank;',
+                                '&amp;gap;'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'NBSP significa "Non-Breaking Space". É muito útil quando você não quer que duas palavras sejam separadas em linhas diferentes.',
+                            explanation: '&amp;nbsp; (non-breaking space) cria um espaço que não permite quebra de linha. É útil para manter palavras juntas, como "10&amp;nbsp;km" ou "R$&amp;nbsp;50,00".'
+                        },
+                        {
+                            type: 'boolean',
+                            question: 'É uma boa prática usar múltiplas tags &lt;br&gt; seguidas para criar espaçamento vertical.',
+                            correct: false,
+                            difficulty: 'medium',
+                            hint: 'Pense na separação entre conteúdo (HTML) e apresentação (CSS). Qual é a forma mais semântica de controlar espaçamento?',
+                            explanation: 'Falso! Usar múltiplas tags &lt;br&gt; para espaçamento é considerado má prática. O espaçamento deve ser controlado via CSS (margin, padding). Use &lt;br&gt; apenas para quebras de linha semanticamente necessárias.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual entidade HTML é usada para exibir o símbolo de "menor que" (&lt;)?',
+                            options: [
+                                '&amp;lt;',
+                                '&amp;less;',
+                                '&amp;smaller;',
+                                '&amp;minor;'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'LT significa "Less Than" (menor que). É essencial quando você quer mostrar código HTML na página sem que seja interpretado.',
+                            explanation: '&amp;lt; (less than) exibe o símbolo &lt; sem que o navegador o interprete como início de uma tag HTML. Essencial para mostrar código HTML como texto.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Quando usar &lt;br&gt; é mais apropriado?',
+                            options: [
+                                'Em endereços, poesias ou quebras dentro do mesmo contexto',
+                                'Para separar todos os parágrafos',
+                                'Para criar espaçamento entre seções',
+                                'Para substituir a tag &lt;p&gt; sempre'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Pense em situações onde você precisa quebrar a linha mas o conteúdo ainda faz parte do mesmo "pensamento" ou contexto.',
+                            explanation: 'Use &lt;br&gt; quando precisar quebrar linhas dentro do mesmo contexto semântico, como endereços (Rua X&lt;br&gt;Cidade Y), poesias ou listas simples. Para conteúdos distintos, use &lt;p&gt;.'
+                        },
+                        {
+                            type: 'boolean',
+                            question: 'Parágrafos vazios (&lt;p&gt;&lt;/p&gt;) são uma boa prática para criar espaçamento.',
+                            correct: false,
+                            difficulty: 'medium',
+                            hint: 'Pense na separação entre estrutura (HTML) e apresentação (CSS). Qual é a forma mais semântica?',
+                            explanation: 'Falso! Parágrafos vazios violam a semântica HTML e devem ser evitados. Use CSS (margin, padding) para controlar espaçamento. Parágrafos devem conter conteúdo significativo.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual entidade HTML representa o símbolo "&" (e comercial)?',
+                            options: [
+                                '&amp;amp;',
+                                '&amp;and;',
+                                '&amp;et;',
+                                '&amp;symbol;'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'AMP significa "ampersand", que é o nome técnico do símbolo &. É fundamental para exibir outros códigos HTML.',
+                            explanation: '&amp;amp; exibe o símbolo & sem que seja interpretado como início de uma entidade HTML. É essencial quando você quer mostrar outras entidades como texto (ex: mostrar "&amp;lt;" na página).'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Como exibir múltiplos espaços consecutivos em HTML?',
+                            options: [
+                                'Usando &amp;nbsp; entre as palavras',
+                                'Adicionando espaços normais no código',
+                                'Usando a tag &lt;space&gt;',
+                                'Pressionando Tab no código'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'HTML colapsa espaços múltiplos em um só. Para preservar espaçamento específico, você precisa de uma entidade especial.',
+                            explanation: 'HTML automaticamente colapsa múltiplos espaços em um só. Para exibir espaços múltiplos, use &amp;nbsp; (non-breaking space) entre as palavras ou considere usar CSS white-space: pre.'
+                        },
+                        {
+                            type: 'boolean',
+                            question: 'A tag &lt;p&gt; pode conter outras tags &lt;p&gt; dentro dela.',
+                            correct: false,
+                            difficulty: 'hard',
+                            hint: 'Pense na hierarquia HTML. Parágrafos são elementos de bloco - eles podem conter outros elementos de bloco?',
+                            explanation: 'Falso! A tag &lt;p&gt; não pode conter outros elementos de bloco como &lt;p&gt;, &lt;div&gt;, &lt;h1&gt;, etc. Ela pode conter apenas elementos inline como &lt;span&gt;, &lt;strong&gt;, &lt;em&gt;, texto e &lt;br&gt;.'
                         }
                     ]
                 }

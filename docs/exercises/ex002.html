@@ -51,11 +51,99 @@
         </section>
 
         <main class="main-content">
-            <!-- Seção de Código -->
+            <!-- Seção de Código Explicado -->
             <section class="content-section">
-                <h2>Código do Exercício</h2>
-                <div class="code-block">
-                    <pre><code id="exercise-code">&lt;!DOCTYPE html&gt;
+                <h2>💻 Código Explicado Linha por Linha</h2>
+                <div class="code-explanation">
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">1</span>
+                            <code>&lt;!DOCTYPE html&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Declaração do Tipo de Documento:</strong> Informa ao navegador que este é um documento HTML5.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">2</span>
+                            <code>&lt;html lang="pt-br"&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Elemento Raiz HTML:</strong> Define o idioma da página como português brasileiro para acessibilidade.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">3-7</span>
+                            <code>&lt;head&gt;...&lt;/head&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Cabeçalho do Documento:</strong> Contém metadados como charset UTF-8, viewport e título da página.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">9</span>
+                            <code>&lt;h1&gt;Parágrafos e quebras de linha&lt;/h1&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Título Principal:</strong> Define o título mais importante da página usando a tag h1.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">11-12</span>
+                            <code>&lt;p&gt;Você pode escrever um parágrafo...&lt;/p&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Parágrafo:</strong> A tag &lt;p&gt; cria um bloco de texto com espaçamento automático antes e depois.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">13-15</span>
+                            <code>&lt;p&gt;Se precisar quebrar...&lt;br&gt;como essa linha...&lt;/p&gt;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Quebra de Linha:</strong> A tag &lt;br&gt; força uma quebra de linha dentro do parágrafo sem criar novo bloco.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">16-18</span>
+                            <code>&amp;reg; &amp;copy; &amp;trade; &amp;euro;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Entidades HTML:</strong> Códigos especiais para exibir símbolos como ®, ©, ™, € que não estão no teclado.
+                        </div>
+                    </div>
+                    
+                    <div class="code-line-group">
+                        <div class="code-line">
+                            <span class="line-number">19-20</span>
+                            <code>&amp;#x1F596; &amp;#x1F913;</code>
+                        </div>
+                        <div class="explanation">
+                            <strong>Emojis Unicode:</strong> Códigos hexadecimais para exibir emojis como 🖖 e 🤓 em HTML.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Código Completo para Copiar -->
+                <div class="copy-section">
+                    <h3>📋 Código Completo</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode()" aria-label="Copiar código HTML para área de transferência">
+                            <span aria-hidden="true">📋</span> Copiar Código
+                        </button>
+                        <pre><code id="exercise-code">&lt;!DOCTYPE html&gt;
 &lt;html lang="pt-br"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -77,6 +165,125 @@
     &amp;#x1F596; &amp;#x1F913;&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Tutorial Passo-a-Passo -->
+            <section class="content-section tutorial-section">
+                <h2>🚀 Tutorial Passo-a-Passo</h2>
+                <p class="tutorial-intro">Siga este guia interativo para criar seu documento HTML com parágrafos e quebras de linha!</p>
+                
+                <div class="tutorial-steps">
+                    <div class="tutorial-step" data-step="1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3>Criando o Arquivo HTML</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📁 Crie um novo arquivo:</strong></p>
+                                <ul>
+                                    <li>Abra seu editor de código (VS Code, Sublime, etc.)</li>
+                                    <li>Crie um novo arquivo e salve como <code>paragrafos.html</code></li>
+                                    <li>Certifique-se de usar a extensão <code>.html</code></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3>Estrutura Básica</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🏗️ Adicione a estrutura HTML básica:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;!DOCTYPE html&gt;<br>&lt;html lang="pt-br"&gt;<br>&lt;head&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Parágrafos e Quebras&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h3>Adicionando o Título</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📝 Dentro do &lt;body&gt;, adicione:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;h1&gt;Parágrafos e quebras de linha&lt;/h1&gt;<br>&lt;hr&gt;</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="4">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <h3>Criando Parágrafos</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📄 Adicione os parágrafos:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;p&gt;Você pode escrever um parágrafo de qualquer jeito. Basta colocar tudo no meio do par de tags &amp;lt;p&amp;gt; e &amp;lt;/p&amp;gt;&lt;/p&gt;</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="5">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <h3>Adicionando Quebras de Linha</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>↩️ Adicione um parágrafo com quebra de linha:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;p&gt;Se precisar quebrar o texto em algum lugar específico &lt;br&gt;como essa linha aqui, você pode usar a tag &amp;lt;br&amp;gt;.&lt;/p&gt;</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="6">
+                        <div class="step-header">
+                            <div class="step-number">6</div>
+                            <h3>Símbolos Especiais e Emojis</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🔤 Adicione entidades HTML e emojis:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;p&gt;Símbolos: &amp;reg; &amp;copy; &amp;trade; &amp;euro;&lt;/p&gt;<br>&lt;p&gt;Emojis: &amp;#x1F596; &amp;#x1F913;&lt;/p&gt;</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="7">
+                        <div class="step-header">
+                            <div class="step-number">7</div>
+                            <h3>Testando no Navegador</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🌐 Visualize o resultado:</strong></p>
+                                <ul>
+                                    <li>Salve o arquivo (Ctrl+S)</li>
+                                    <li>Abra o arquivo no navegador</li>
+                                    <li>Observe como os parágrafos e quebras são renderizados</li>
+                                    <li>Veja os símbolos especiais e emojis funcionando</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -233,14 +440,35 @@
 <script src="../js/exercise-navigation.js"></script>
     
     <script>
-        // Função para copiar código
+        // Função para copiar código com feedback visual melhorado
         function copyCode() {
             const code = document.getElementById('exercise-code').textContent;
+            const button = document.querySelector('.copy-btn');
+            const originalText = button.innerHTML;
+            
             navigator.clipboard.writeText(code).then(() => {
                 // Feedback visual de sucesso
-                console.log('Código copiado com sucesso!');
+                button.innerHTML = '<span aria-hidden="true">✅</span> Copiado!';
+                button.style.backgroundColor = '#28a745';
+                button.style.borderColor = '#28a745';
+                
+                // Restaurar estado original após 2 segundos
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.backgroundColor = '';
+                    button.style.borderColor = '';
+                }, 2000);
             }).catch(err => {
-                console.error('Erro ao copiar código:', err);
+                // Feedback de erro
+                button.innerHTML = '<span aria-hidden="true">❌</span> Erro ao copiar';
+                button.style.backgroundColor = '#dc3545';
+                button.style.borderColor = '#dc3545';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.backgroundColor = '';
+                    button.style.borderColor = '';
+                }, 2000);
             });
         }
 
