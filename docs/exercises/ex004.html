@@ -66,16 +66,30 @@
                         <div class="explanation">
                             <strong>🌐 Link Externo Básico:</strong> A tag <code>&lt;a&gt;</code> (anchor/âncora) com atributo <code>href</code> cria um link clicável que direciona para uma URL externa.
                             <div class="tech-details">
-                                <p><strong>🔗 Anatomia do Link:</strong></p>
+                                <p><strong>🔗 Anatomia Completa do Link:</strong></p>
                                 <ul>
-                                    <li><strong>&lt;a&gt;:</strong> Tag âncora que define o elemento de link</li>
+                                    <li><strong>&lt;a&gt;:</strong> Tag âncora (anchor) que define o elemento de link</li>
                                     <li><strong>href:</strong> Hypertext Reference - especifica o destino do link</li>
-                                    <li><strong>https://:</strong> Protocolo seguro de transferência de dados</li>
+                                    <li><strong>https://:</strong> Protocolo seguro de transferência de dados (SSL/TLS)</li>
+                                    <li><strong>www.google.com:</strong> Domínio de destino (subdomínio + domínio)</li>
                                     <li><strong>Texto do link:</strong> Conteúdo visível e clicável entre as tags</li>
                                 </ul>
+                                <p><strong>🌍 Tipos de Protocolos:</strong></p>
+                                <ul>
+                                    <li><code>https://</code> - Seguro, criptografado (recomendado)</li>
+                                    <li><code>http://</code> - Não seguro, dados em texto plano</li>
+                                    <li><code>ftp://</code> - Transferência de arquivos</li>
+                                    <li><code>file://</code> - Arquivos locais do sistema</li>
+                                </ul>
                                 <div class="practical-example">
-                                    <p><strong>💡 Exemplo Prático:</strong></p>
-                                    <p>Quando o usuário clica neste link, o navegador carrega a página do Google na mesma aba.</p>
+                                    <p><strong>💡 Comportamento no Navegador:</strong></p>
+                                    <p>Quando clicado, o navegador carrega a página do Google na mesma aba, substituindo o conteúdo atual. O histórico de navegação é atualizado.</p>
+                                    <p><strong>🎨 Estilização Padrão:</strong></p>
+                                    <ul>
+                                        <li>Cor azul para links não visitados</li>
+                                        <li>Cor roxa para links já visitados</li>
+                                        <li>Sublinhado por padrão (pode ser removido com CSS)</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -90,22 +104,36 @@
                         <div class="explanation">
                             <strong>🎯 Link em Nova Aba:</strong> O atributo <code>target="_blank"</code> força o link a abrir em uma nova aba, preservando a página atual.
                             <div class="tech-details">
-                                <p><strong>🎯 Valores do Target:</strong></p>
+                                <p><strong>🎯 Todos os Valores do Target:</strong></p>
                                 <ul>
-                                    <li><strong>_blank:</strong> Nova aba ou janela (mais comum)</li>
-                                    <li><strong>_self:</strong> Mesma aba/janela (comportamento padrão)</li>
-                                    <li><strong>_parent:</strong> Frame ou janela pai</li>
-                                    <li><strong>_top:</strong> Janela inteira (quebra frames)</li>
+                                    <li><strong>_blank:</strong> Nova aba ou janela (mais comum para links externos)</li>
+                                    <li><strong>_self:</strong> Mesma aba/janela (comportamento padrão, raramente especificado)</li>
+                                    <li><strong>_parent:</strong> Frame ou janela pai (usado em framesets)</li>
+                                    <li><strong>_top:</strong> Janela inteira, quebra todos os frames</li>
+                                    <li><strong>nome-personalizado:</strong> Abre em janela/frame específico</li>
                                 </ul>
-                                <p><strong>🔒 Segurança com rel="noopener":</strong></p>
+                                <p><strong>🔒 Segurança Essencial com rel="noopener":</strong></p>
                                 <ul>
-                                    <li>Previne que a nova página acesse a página original</li>
-                                    <li>Protege contra ataques de "reverse tabnabbing"</li>
-                                    <li>Melhora a performance ao quebrar a conexão entre as páginas</li>
+                                    <li><strong>Previne window.opener:</strong> Nova página não pode acessar a original</li>
+                                    <li><strong>Protege contra reverse tabnabbing:</strong> Impede redirecionamento malicioso</li>
+                                    <li><strong>Melhora performance:</strong> Quebra conexão entre processos das páginas</li>
+                                    <li><strong>Alternativa moderna:</strong> <code>rel="noopener noreferrer"</code></li>
+                                </ul>
+                                <p><strong>⚡ Impacto na Performance:</strong></p>
+                                <ul>
+                                    <li>Sem noopener: páginas compartilham processo (mais lento)</li>
+                                    <li>Com noopener: páginas em processos separados (mais rápido)</li>
+                                    <li>Reduz uso de memória e melhora estabilidade</li>
                                 </ul>
                                 <div class="practical-example">
-                                    <p><strong>💡 Quando Usar:</strong></p>
-                                    <p>Use <code>target="_blank"</code> para links externos, documentos PDF, ou quando não quiser que o usuário saia da sua página.</p>
+                                    <p><strong>💡 Melhores Práticas de Uso:</strong></p>
+                                    <ul>
+                                        <li><strong>Links externos:</strong> Sempre use <code>target="_blank" rel="noopener"</code></li>
+                                        <li><strong>Documentos (PDF, DOC):</strong> Nova aba para não perder contexto</li>
+                                        <li><strong>Redes sociais:</strong> Nova aba para manter usuário no site</li>
+                                        <li><strong>Links internos:</strong> Geralmente mesma aba (melhor UX)</li>
+                                    </ul>
+                                    <p><strong>🚨 Cuidado:</strong> Muitas abas podem confundir o usuário!</p>
                                 </div>
                             </div>
                         </div>
@@ -120,18 +148,38 @@
                         <div class="explanation">
                             <strong>📧 Link de Email Avançado:</strong> O protocolo <code>mailto:</code> abre o cliente de email padrão com campos pré-preenchidos.
                             <div class="tech-details">
-                                <p><strong>📧 Parâmetros do Mailto:</strong></p>
+                                <p><strong>📧 Parâmetros Completos do Mailto:</strong></p>
                                 <ul>
-                                    <li><strong>Destinatário:</strong> <code>mailto:email@exemplo.com</code></li>
+                                    <li><strong>Destinatário principal:</strong> <code>mailto:email@exemplo.com</code></li>
                                     <li><strong>Assunto:</strong> <code>?subject=Título do Email</code></li>
-                                    <li><strong>Corpo:</strong> <code>&amp;body=Texto da mensagem</code></li>
-                                    <li><strong>Cópia:</strong> <code>&amp;cc=outro@email.com</code></li>
-                                    <li><strong>Cópia Oculta:</strong> <code>&amp;bcc=secreto@email.com</code></li>
+                                    <li><strong>Corpo da mensagem:</strong> <code>&amp;body=Texto da mensagem</code></li>
+                                    <li><strong>Cópia (CC):</strong> <code>&amp;cc=outro@email.com</code></li>
+                                    <li><strong>Cópia Oculta (BCC):</strong> <code>&amp;bcc=secreto@email.com</code></li>
+                                    <li><strong>Múltiplos destinatários:</strong> <code>mailto:email1@site.com,email2@site.com</code></li>
+                                </ul>
+                                <p><strong>🔤 Codificação de Caracteres Especiais:</strong></p>
+                                <ul>
+                                    <li><strong>Espaço:</strong> <code>%20</code> ou <code>+</code></li>
+                                    <li><strong>Quebra de linha:</strong> <code>%0D%0A</code> ou <code>%0A</code></li>
+                                    <li><strong>Acentos:</strong> <code>ã = %C3%A3</code>, <code>ç = %C3%A7</code></li>
+                                    <li><strong>Símbolos:</strong> <code>@ = %40</code>, <code>& = %26</code></li>
+                                </ul>
+                                <p><strong>💻 Comportamento por Sistema:</strong></p>
+                                <ul>
+                                    <li><strong>Windows:</strong> Outlook, Mail, Thunderbird</li>
+                                    <li><strong>macOS:</strong> Mail.app, Outlook, Thunderbird</li>
+                                    <li><strong>Mobile:</strong> App de email padrão do sistema</li>
+                                    <li><strong>Webmail:</strong> Pode não funcionar (Gmail, Yahoo)</li>
                                 </ul>
                                 <div class="practical-example">
-                                    <p><strong>💡 Exemplo Completo:</strong></p>
-                                    <code>mailto:suporte@site.com?subject=Dúvida%20sobre%20produto&amp;body=Olá,%20tenho%20uma%20dúvida...</code>
-                                    <p><strong>⚠️ Nota:</strong> Espaços devem ser codificados como %20 em URLs.</p>
+                                    <p><strong>💡 Exemplos Práticos Completos:</strong></p>
+                                    <p><strong>Email simples:</strong></p>
+                                    <code>mailto:contato@empresa.com</code>
+                                    <p><strong>Email com assunto:</strong></p>
+                                    <code>mailto:suporte@site.com?subject=Dúvida%20sobre%20produto</code>
+                                    <p><strong>Email completo:</strong></p>
+                                    <code>mailto:vendas@loja.com?subject=Orçamento&amp;body=Olá,%0AGostaria%20de%20um%20orçamento&amp;cc=gerente@loja.com</code>
+                                    <p><strong>⚠️ Limitações:</strong> Nem todos os clientes suportam todos os parâmetros!</p>
                                 </div>
                             </div>
                         </div>
@@ -146,18 +194,34 @@
                         <div class="explanation">
                             <strong>⚓ Link Interno (Âncora):</strong> O símbolo <code>#</code> seguido de um ID cria navegação dentro da mesma página, fazendo scroll até o elemento.
                             <div class="tech-details">
-                                <p><strong>⚓ Como Funcionam as Âncoras:</strong></p>
+                                <p><strong>⚓ Funcionamento Completo das Âncoras:</strong></p>
                                 <ul>
-                                    <li><strong>Destino:</strong> Elemento com <code>id="secao-contato"</code></li>
-                                    <li><strong>Scroll automático:</strong> Navegador rola até o elemento</li>
-                                    <li><strong>URL atualizada:</strong> Adiciona #secao-contato na URL</li>
-                                    <li><strong>Histórico:</strong> Permite voltar com botão "Voltar"</li>
+                                    <li><strong>Elemento destino:</strong> Deve ter <code>id="secao-contato"</code></li>
+                                    <li><strong>Scroll automático:</strong> Navegador rola suavemente até o elemento</li>
+                                    <li><strong>URL atualizada:</strong> Adiciona #secao-contato na barra de endereços</li>
+                                    <li><strong>Histórico preservado:</strong> Permite voltar com botão "Voltar"</li>
+                                    <li><strong>Bookmarkable:</strong> URL pode ser salva e compartilhada</li>
+                                </ul>
+                                <p><strong>🎯 Tipos de Elementos Destino:</strong></p>
+                                <ul>
+                                    <li><strong>Seções:</strong> <code>&lt;section id="sobre"&gt;</code></li>
+                                    <li><strong>Títulos:</strong> <code>&lt;h2 id="servicos"&gt;</code></li>
+                                    <li><strong>Divs:</strong> <code>&lt;div id="portfolio"&gt;</code></li>
+                                    <li><strong>Qualquer elemento:</strong> <code>&lt;p id="paragrafo-especial"&gt;</code></li>
+                                </ul>
+                                <p><strong>🎨 Melhorias com CSS:</strong></p>
+                                <ul>
+                                    <li><strong>Scroll suave:</strong> <code>html { scroll-behavior: smooth; }</code></li>
+                                    <li><strong>Offset do topo:</strong> <code>scroll-padding-top: 80px;</code> (para headers fixos)</li>
+                                    <li><strong>Destaque temporário:</strong> <code>:target { background: yellow; }</code></li>
                                 </ul>
                                 <div class="practical-example">
-                                    <p><strong>💡 Exemplo de Destino:</strong></p>
-                                    <code>&lt;section id="secao-contato"&gt;&lt;h2&gt;Contato&lt;/h2&gt;&lt;/section&gt;</code>
-                                    <p><strong>🎨 CSS para Scroll Suave:</strong></p>
-                                    <code>html { scroll-behavior: smooth; }</code>
+                                    <p><strong>💡 Exemplo Completo de Navegação:</strong></p>
+                                    <p><strong>Links do menu:</strong></p>
+                                    <code>&lt;nav&gt;&lt;a href="#inicio"&gt;Início&lt;/a&gt; | &lt;a href="#sobre"&gt;Sobre&lt;/a&gt; | &lt;a href="#contato"&gt;Contato&lt;/a&gt;&lt;/nav&gt;</code>
+                                    <p><strong>Seções correspondentes:</strong></p>
+                                    <code>&lt;section id="inicio"&gt;...&lt;/section&gt;<br>&lt;section id="sobre"&gt;...&lt;/section&gt;<br>&lt;section id="contato"&gt;...&lt;/section&gt;</code>
+                                    <p><strong>🚀 Casos de Uso:</strong> Menus de navegação, índices, "voltar ao topo", FAQ</p>
                                 </div>
                             </div>
                         </div>
@@ -172,20 +236,41 @@
                         <div class="explanation">
                             <strong>📞 Link para Telefone:</strong> O protocolo <code>tel:</code> permite que dispositivos móveis iniciem uma chamada telefônica.
                             <div class="tech-details">
-                                <p><strong>📱 Recursos do Tel:</strong></p>
+                                <p><strong>📱 Funcionamento Completo do Tel:</strong></p>
                                 <ul>
-                                    <li><strong>Formato:</strong> <code>tel:+5511999887766</code> (código país + número)</li>
+                                    <li><strong>Formato internacional:</strong> <code>tel:+5511999887766</code> (+ código país + número)</li>
                                     <li><strong>Dispositivos móveis:</strong> Abre o discador automaticamente</li>
-                                    <li><strong>Desktop:</strong> Pode abrir aplicativo de chamadas (Skype, etc.)</li>
-                                    <li><strong>Acessibilidade:</strong> Leitores de tela identificam como telefone</li>
+                                    <li><strong>Desktop:</strong> Pode abrir Skype, Teams, ou outros apps de chamada</li>
+                                    <li><strong>Acessibilidade:</strong> Leitores de tela identificam e anunciam como telefone</li>
+                                    <li><strong>Tablets:</strong> Comportamento varia (pode abrir FaceTime, WhatsApp)</li>
+                                </ul>
+                                <p><strong>🌍 Códigos de País Comuns:</strong></p>
+                                <ul>
+                                    <li><strong>Brasil:</strong> <code>+55</code></li>
+                                    <li><strong>Estados Unidos:</strong> <code>+1</code></li>
+                                    <li><strong>Reino Unido:</strong> <code>+44</code></li>
+                                    <li><strong>Argentina:</strong> <code>+54</code></li>
+                                    <li><strong>Portugal:</strong> <code>+351</code></li>
+                                </ul>
+                                <p><strong>📱 Variações de Protocolos:</strong></p>
+                                <ul>
+                                    <li><strong>tel:</strong> Chamada de voz tradicional</li>
+                                    <li><strong>sms:</strong> <code>&lt;a href="sms:+5511999887766"&gt;Enviar SMS&lt;/a&gt;</code></li>
+                                    <li><strong>whatsapp:</strong> <code>&lt;a href="https://wa.me/5511999887766"&gt;WhatsApp&lt;/a&gt;</code></li>
+                                    <li><strong>skype:</strong> <code>&lt;a href="skype:+5511999887766?call"&gt;Skype&lt;/a&gt;</code></li>
                                 </ul>
                                 <div class="practical-example">
-                                    <p><strong>💡 Boas Práticas:</strong></p>
+                                    <p><strong>💡 Melhores Práticas Completas:</strong></p>
                                     <ul>
-                                        <li>Use o formato internacional: +55 (Brasil)</li>
-                                        <li>Remova espaços e caracteres especiais no href</li>
-                                        <li>Mantenha formatação legível no texto visível</li>
+                                        <li><strong>Formato href:</strong> Sempre use formato internacional (+55)</li>
+                                        <li><strong>Remover caracteres:</strong> Sem espaços, parênteses ou hífens no href</li>
+                                        <li><strong>Texto legível:</strong> Mantenha formatação amigável no texto visível</li>
+                                        <li><strong>Contexto claro:</strong> Use ícones ou texto explicativo</li>
                                     </ul>
+                                    <p><strong>📞 Exemplos Práticos:</strong></p>
+                                    <code>&lt;a href="tel:+5511999887766"&gt;📞 (11) 99988-7766&lt;/a&gt;</code><br>
+                                    <code>&lt;a href="sms:+5511999887766"&gt;💬 Enviar SMS&lt;/a&gt;</code><br>
+                                    <code>&lt;a href="https://wa.me/5511999887766"&gt;💚 WhatsApp&lt;/a&gt;</code>
                                 </div>
                             </div>
                         </div>
@@ -200,20 +285,39 @@
                         <div class="explanation">
                             <strong>📄 Link de Download:</strong> O atributo <code>download</code> força o navegador a baixar o arquivo em vez de tentar abri-lo.
                             <div class="tech-details">
-                                <p><strong>💾 Comportamento do Download:</strong></p>
+                                <p><strong>💾 Comportamento Detalhado do Download:</strong></p>
                                 <ul>
-                                    <li><strong>Sem download:</strong> Navegador tenta abrir o arquivo</li>
-                                    <li><strong>Com download:</strong> Força o download direto</li>
-                                    <li><strong>Nome personalizado:</strong> <code>download="novo-nome.pdf"</code></li>
-                                    <li><strong>Apenas nome:</strong> <code>download</code> (usa nome original)</li>
+                                    <li><strong>Sem atributo download:</strong> Navegador tenta abrir/visualizar o arquivo</li>
+                                    <li><strong>Com download vazio:</strong> <code>download</code> - usa nome original do arquivo</li>
+                                    <li><strong>Com nome personalizado:</strong> <code>download="novo-nome.pdf"</code></li>
+                                    <li><strong>Extensão automática:</strong> Navegador pode adicionar extensão se omitida</li>
+                                    <li><strong>Caracteres especiais:</strong> Evite acentos e símbolos no nome</li>
+                                </ul>
+                                <p><strong>🌐 Compatibilidade e Limitações:</strong></p>
+                                <ul>
+                                    <li><strong>Same-origin:</strong> Funciona apenas para arquivos do mesmo domínio</li>
+                                    <li><strong>Cross-origin:</strong> Links externos ignoram o atributo download</li>
+                                    <li><strong>Navegadores antigos:</strong> IE não suporta (usar Content-Disposition)</li>
+                                    <li><strong>Mobile:</strong> Comportamento pode variar entre sistemas</li>
+                                </ul>
+                                <p><strong>📁 Tipos de Arquivo e Casos de Uso:</strong></p>
+                                <ul>
+                                    <li><strong>Documentos:</strong> PDF, DOC, DOCX, TXT, RTF</li>
+                                    <li><strong>Planilhas:</strong> XLS, XLSX, CSV, ODS</li>
+                                    <li><strong>Imagens:</strong> JPG, PNG, SVG, GIF (para salvar, não visualizar)</li>
+                                    <li><strong>Arquivos compactados:</strong> ZIP, RAR, 7Z, TAR</li>
+                                    <li><strong>Executáveis:</strong> EXE, DMG, DEB, APK</li>
                                 </ul>
                                 <div class="practical-example">
-                                    <p><strong>💡 Tipos de Arquivo Comuns:</strong></p>
-                                    <ul>
-                                        <li><strong>PDFs:</strong> Manuais, relatórios, documentos</li>
-                                        <li><strong>Imagens:</strong> Fotos, logos, ilustrações</li>
-                                        <li><strong>Arquivos:</strong> ZIPs, executáveis, planilhas</li>
-                                    </ul>
+                                    <p><strong>💡 Exemplos Práticos Completos:</strong></p>
+                                    <p><strong>Download simples:</strong></p>
+                                    <code>&lt;a href="relatorio.pdf" download&gt;📄 Baixar Relatório&lt;/a&gt;</code>
+                                    <p><strong>Download com nome personalizado:</strong></p>
+                                    <code>&lt;a href="doc123.pdf" download="Manual-Completo-2024.pdf"&gt;📚 Manual&lt;/a&gt;</code>
+                                    <p><strong>Download de imagem:</strong></p>
+                                    <code>&lt;a href="foto.jpg" download="minha-foto.jpg"&gt;🖼️ Salvar Foto&lt;/a&gt;</code>
+                                    <p><strong>⚠️ Dica de UX:</strong> Sempre indique o tipo e tamanho do arquivo!</p>
+                                    <code>&lt;a href="arquivo.zip" download&gt;📦 Baixar (ZIP, 2.5MB)&lt;/a&gt;</code>
                                 </div>
                             </div>
                         </div>
@@ -401,7 +505,105 @@
                     <div class="tutorial-step" data-step="6">
                         <div class="step-header">
                             <div class="step-number">6</div>
-                            <h3>Testando os Links</h3>
+                            <h3>Links Internos (Âncoras)</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>⚓ Criando navegação interna:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;h2 id="secao1"&gt;Seção 1&lt;/h2&gt;<br>&lt;p&gt;Conteúdo da seção 1...&lt;/p&gt;<br><br>&lt;h2 id="secao2"&gt;Seção 2&lt;/h2&gt;<br>&lt;p&gt;Conteúdo da seção 2...&lt;/p&gt;<br><br>&lt;a href="#secao1"&gt;Ir para Seção 1&lt;/a&gt;<br>&lt;a href="#secao2"&gt;Ir para Seção 2&lt;/a&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>🎯 Como funciona:</strong></p>
+                                    <ul>
+                                        <li>Use <strong>id</strong> para marcar seções da página</li>
+                                        <li>Links com <strong>#</strong> navegam para elementos com esse id</li>
+                                        <li>Útil para páginas longas com índice</li>
+                                        <li>Melhora a experiência do usuário</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="7">
+                        <div class="step-header">
+                            <div class="step-number">7</div>
+                            <h3>Links com Parâmetros de Email</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📧 Email com assunto e corpo:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;a href="mailto:contato@exemplo.com?subject=Assunto%20do%20Email&amp;body=Olá,%20gostaria%20de%20mais%20informações."&gt;Email Completo&lt;/a&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>📋 Parâmetros úteis:</strong></p>
+                                    <ul>
+                                        <li><strong>subject:</strong> define o assunto do email</li>
+                                        <li><strong>body:</strong> pré-preenche o corpo da mensagem</li>
+                                        <li><strong>cc:</strong> adiciona destinatários em cópia</li>
+                                        <li><strong>bcc:</strong> adiciona destinatários em cópia oculta</li>
+                                        <li>Use <strong>%20</strong> para espaços em URLs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="8">
+                        <div class="step-header">
+                            <div class="step-number">8</div>
+                            <h3>Links para Telefone</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>📱 Criando links para ligação:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;a href="tel:+5511999999999"&gt;Ligar: (11) 99999-9999&lt;/a&gt;<br>&lt;a href="sms:+5511999999999"&gt;Enviar SMS&lt;/a&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>📞 Tipos de links de contato:</strong></p>
+                                    <ul>
+                                        <li><strong>tel:</strong> abre o discador para fazer ligação</li>
+                                        <li><strong>sms:</strong> abre o app de mensagens</li>
+                                        <li>Use código do país (+55 para Brasil)</li>
+                                        <li>Muito útil em sites mobile</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="9">
+                        <div class="step-header">
+                            <div class="step-number">9</div>
+                            <h3>Boas Práticas e Acessibilidade</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>♿ Tornando links acessíveis:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;a href="https://exemplo.com" title="Visitar site da Exemplo" aria-label="Link para site da empresa Exemplo"&gt;Exemplo&lt;/a&gt;<br><br>&lt;a href="documento.pdf" target="_blank" rel="noopener"&gt;Baixar PDF &lt;span aria-hidden="true"&gt;(abre em nova aba)&lt;/span&gt;&lt;/a&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>✨ Atributos importantes:</strong></p>
+                                    <ul>
+                                        <li><strong>title:</strong> tooltip explicativo ao passar o mouse</li>
+                                        <li><strong>aria-label:</strong> descrição para leitores de tela</li>
+                                        <li><strong>rel="noopener":</strong> segurança para links externos</li>
+                                        <li><strong>aria-hidden:</strong> oculta elementos decorativos</li>
+                                        <li>Sempre descreva o destino do link claramente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="10">
+                        <div class="step-header">
+                            <div class="step-number">10</div>
+                            <h3>Testando e Validando</h3>
                         </div>
                         <div class="step-content">
                             <div class="step-instructions">
@@ -410,12 +612,14 @@
                                     <ul>
                                         <li>Salve o arquivo (Ctrl+S ou Cmd+S)</li>
                                         <li>Abra o arquivo no navegador</li>
-                                        <li>Clique nos links para testá-los</li>
+                                        <li>Teste todos os tipos de links</li>
                                         <li>Verifique se abrem nos destinos corretos</li>
+                                        <li>Teste em dispositivos móveis</li>
+                                        <li>Valide a acessibilidade com leitores de tela</li>
                                     </ul>
                                 </div>
                                 <div class="success-message">
-                                    <strong>🎉 Parabéns!</strong> Você criou links funcionais em HTML!
+                                    <strong>🎉 Parabéns!</strong> Você dominou os links em HTML!
                                 </div>
                             </div>
                         </div>

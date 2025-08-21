@@ -101,14 +101,30 @@
                             <code>&lt;img src="logo-html.png" alt="Logo do HTML5"&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Tag IMG Básica:</strong> A tag &lt;img&gt; insere imagens na página. O atributo src especifica o caminho da imagem e alt fornece uma descrição alternativa.
+                            <strong>Tag IMG Básica:</strong> A tag &lt;img&gt; insere imagens na página. É um elemento vazio (void element) que não precisa de fechamento.
                             <div class="tech-details">
-                                <p><strong>🔍 Detalhes Técnicos:</strong></p>
+                                <p><strong>🔍 Anatomia Completa da Tag:</strong></p>
                                 <ul>
-                                    <li>A tag &lt;img&gt; é uma tag vazia (self-closing)</li>
-                                    <li>O atributo src é obrigatório e especifica o caminho da imagem</li>
-                                    <li>O atributo alt é essencial para acessibilidade</li>
-                                    <li>Suporta formatos: JPG, PNG, GIF, SVG, WebP</li>
+                                    <li><strong>&lt;img&gt;:</strong> elemento vazio (self-closing) - não contém conteúdo interno</li>
+                                    <li><strong>src="caminho":</strong> atributo obrigatório que especifica a localização da imagem</li>
+                                    <li><strong>alt="descrição":</strong> texto alternativo essencial para acessibilidade e SEO</li>
+                                    <li><strong>Sintaxe XHTML:</strong> pode ser escrita como &lt;img /&gt; com barra no final</li>
+                                </ul>
+                                <p><strong>📁 Tipos de Caminhos Suportados:</strong></p>
+                                <ul>
+                                    <li><strong>Relativo:</strong> "imagem.png" (mesmo diretório), "pasta/imagem.png" (subdiretório)</li>
+                                    <li><strong>Absoluto:</strong> "/images/imagem.png" (relativo à raiz do servidor)</li>
+                                    <li><strong>URL externa:</strong> "https://exemplo.com/imagem.png"</li>
+                                    <li><strong>Data URI:</strong> "data:image/png;base64,iVBORw0KGgoAAAA..." (imagem codificada)</li>
+                                </ul>
+                                <p><strong>🎨 Formatos de Imagem Suportados:</strong></p>
+                                <ul>
+                                    <li><strong>JPEG/JPG:</strong> ideal para fotografias (compressão com perda)</li>
+                                    <li><strong>PNG:</strong> ideal para gráficos com transparência (sem perda)</li>
+                                    <li><strong>GIF:</strong> suporta animação e transparência básica</li>
+                                    <li><strong>SVG:</strong> gráficos vetoriais escaláveis (XML)</li>
+                                    <li><strong>WebP:</strong> formato moderno com melhor compressão</li>
+                                    <li><strong>AVIF:</strong> formato mais recente com compressão superior</li>
                                 </ul>
                             </div>
                         </div>
@@ -120,14 +136,28 @@
                             <code>&lt;img src="pasta/logo-css.png" alt="Logo do CSS3" width="200"&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Caminho Relativo e Dimensões:</strong> Especifica uma imagem em uma pasta e define a largura usando o atributo width.
+                            <strong>Controle de Dimensões:</strong> O atributo width define a largura da imagem em pixels, mantendo a proporção automaticamente.
                             <div class="tech-details">
-                                <p><strong>📁 Tipos de Caminhos:</strong></p>
+                                <p><strong>📏 Controle de Tamanho Completo:</strong></p>
                                 <ul>
-                                    <li><strong>Relativo:</strong> "pasta/imagem.png" (relativo ao arquivo atual)</li>
-                                    <li><strong>Absoluto:</strong> "/images/imagem.png" (relativo à raiz do site)</li>
-                                    <li><strong>URL externa:</strong> "https://site.com/imagem.png"</li>
-                                    <li><strong>Dimensões:</strong> width e height controlam o tamanho</li>
+                                    <li><strong>width="200":</strong> define largura em pixels (altura ajustada proporcionalmente)</li>
+                                    <li><strong>height="150":</strong> define altura em pixels (largura ajustada proporcionalmente)</li>
+                                    <li><strong>width="50%":</strong> largura relativa ao container pai</li>
+                                    <li><strong>style="width: 200px; height: 150px;":</strong> controle via CSS (recomendado)</li>
+                                </ul>
+                                <p><strong>⚠️ Melhores Práticas de Dimensionamento:</strong></p>
+                                <ul>
+                                    <li><strong>Proporção:</strong> use apenas width OU height para manter proporção original</li>
+                                    <li><strong>Responsividade:</strong> prefira CSS com max-width: 100% para imagens responsivas</li>
+                                    <li><strong>Performance:</strong> especifique dimensões para evitar layout shift</li>
+                                    <li><strong>Qualidade:</strong> evite ampliar imagens além do tamanho original</li>
+                                </ul>
+                                <p><strong>🎯 Técnicas de Otimização:</strong></p>
+                                <ul>
+                                    <li><strong>Lazy Loading:</strong> loading="lazy" para carregamento sob demanda</li>
+                                    <li><strong>Srcset:</strong> diferentes resoluções para diferentes dispositivos</li>
+                                    <li><strong>Picture Element:</strong> &lt;picture&gt; para art direction e formatos múltiplos</li>
+                                    <li><strong>Compressão:</strong> otimize arquivos antes do upload</li>
                                 </ul>
                             </div>
                         </div>
@@ -139,14 +169,35 @@
                             <code>&lt;img src="foto.jpg" alt="Minha foto" title="Passe o mouse aqui"&gt;</code>
                         </div>
                         <div class="explanation">
-                            <strong>Atributo Title:</strong> Adiciona uma dica (tooltip) que aparece quando o usuário passa o mouse sobre a imagem.
+                            <strong>Acessibilidade e Interatividade:</strong> O atributo title adiciona informações extras que aparecem como tooltip ao passar o mouse.
                             <div class="tech-details">
-                                <p><strong>💡 Atributos Importantes:</strong></p>
+                                <p><strong>♿ Atributos de Acessibilidade:</strong></p>
                                 <ul>
-                                    <li><strong>title:</strong> tooltip ao passar o mouse</li>
-                                    <li><strong>loading="lazy":</strong> carregamento sob demanda (otimização)</li>
-                                    <li><strong>style:</strong> estilos CSS inline</li>
-                                    <li><strong>class:</strong> classes CSS para estilização</li>
+                                    <li><strong>alt="descrição":</strong> texto alternativo lido por leitores de tela (obrigatório)</li>
+                                    <li><strong>title="informação extra":</strong> tooltip visual, não acessível para todos os usuários</li>
+                                    <li><strong>role="img":</strong> define explicitamente o papel semântico (raramente necessário)</li>
+                                    <li><strong>aria-label="descrição":</strong> substitui o alt em casos específicos</li>
+                                    <li><strong>aria-describedby="id":</strong> referencia descrição detalhada em outro elemento</li>
+                                </ul>
+                                <p><strong>🚀 Atributos de Performance:</strong></p>
+                                <ul>
+                                    <li><strong>loading="lazy":</strong> carregamento sob demanda (economiza banda)</li>
+                                    <li><strong>loading="eager":</strong> carregamento imediato (padrão)</li>
+                                    <li><strong>decoding="async":</strong> decodificação assíncrona (não bloqueia renderização)</li>
+                                    <li><strong>fetchpriority="high":</strong> prioridade alta de carregamento</li>
+                                </ul>
+                                <p><strong>📱 Atributos Responsivos:</strong></p>
+                                <ul>
+                                    <li><strong>srcset="img-320w.jpg 320w, img-640w.jpg 640w":</strong> múltiplas resoluções</li>
+                                    <li><strong>sizes="(max-width: 600px) 100vw, 50vw":</strong> tamanhos condicionais</li>
+                                    <li><strong>crossorigin="anonymous":</strong> controle CORS para imagens externas</li>
+                                </ul>
+                                <p><strong>🎨 Atributos de Estilização:</strong></p>
+                                <ul>
+                                    <li><strong>class="classe-css":</strong> classes CSS para estilização</li>
+                                    <li><strong>id="identificador":</strong> identificador único</li>
+                                    <li><strong>style="propriedade: valor;":</strong> estilos CSS inline (evitar quando possível)</li>
+                                    <li><strong>draggable="false":</strong> desabilita arrastar a imagem</li>
                                 </ul>
                             </div>
                         </div>
@@ -270,22 +321,126 @@
                     <div class="tutorial-step" data-step="6">
                         <div class="step-header">
                             <div class="step-number">6</div>
-                            <h3>Testando no Navegador</h3>
+                            <h3>Imagens Responsivas</h3>
                         </div>
                         <div class="step-content">
                             <div class="step-instructions">
-                                <p><strong>🌐 Verifique o resultado:</strong></p>
+                                <p><strong>📱 Crie imagens que se adaptam a diferentes telas:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;img src="imagem-pequena.jpg"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;srcset="imagem-pequena.jpg 320w,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;imagem-media.jpg 640w,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;imagem-grande.jpg 1024w"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sizes="(max-width: 600px) 100vw, 50vw"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt="Imagem responsiva"&gt;</code>
+                                </div>
                                 <div class="instruction-details">
+                                    <p><strong>📋 Explicação dos atributos:</strong></p>
                                     <ul>
-                                        <li>Salve o arquivo HTML</li>
-                                        <li>Abra no navegador</li>
-                                        <li>Verifique se as imagens carregaram</li>
-                                        <li>Teste o tooltip passando o mouse</li>
-                                        <li>Verifique se o alt funciona (desabilite imagens)</li>
+                                        <li><strong>srcset:</strong> lista de imagens com suas larguras</li>
+                                        <li><strong>sizes:</strong> define quando usar cada imagem</li>
+                                        <li><strong>320w, 640w, 1024w:</strong> larguras das imagens em pixels</li>
+                                        <li>O navegador escolhe automaticamente a melhor imagem</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="7">
+                        <div class="step-header">
+                            <div class="step-number">7</div>
+                            <h3>Otimização de Performance</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🚀 Melhore o carregamento das imagens:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;img src="hero-image.jpg"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt="Imagem principal"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loading="lazy"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decoding="async"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetchpriority="high"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width="800" height="400"&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>⚡ Técnicas de otimização:</strong></p>
+                                    <ul>
+                                        <li><strong>loading="lazy":</strong> carrega apenas quando necessário</li>
+                                        <li><strong>decoding="async":</strong> não bloqueia a renderização</li>
+                                        <li><strong>fetchpriority="high":</strong> prioriza imagens importantes</li>
+                                        <li><strong>width/height:</strong> evita layout shift durante carregamento</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="8">
+                        <div class="step-header">
+                            <div class="step-number">8</div>
+                            <h3>Formatos Modernos</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🎨 Use o elemento picture para formatos avançados:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;picture&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;source srcset="imagem.avif" type="image/avif"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;source srcset="imagem.webp" type="image/webp"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="imagem.jpg" alt="Imagem com fallback"&gt;<br>&lt;/picture&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>🔄 Ordem de prioridade:</strong></p>
+                                    <ul>
+                                        <li><strong>AVIF:</strong> melhor compressão (mais recente)</li>
+                                        <li><strong>WebP:</strong> boa compressão (amplamente suportado)</li>
+                                        <li><strong>JPEG:</strong> fallback para navegadores antigos</li>
+                                        <li>O navegador usa o primeiro formato suportado</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="9">
+                        <div class="step-header">
+                            <div class="step-number">9</div>
+                            <h3>Acessibilidade Avançada</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>♿ Torne suas imagens totalmente acessíveis:</strong></p>
+                                <div class="code-example">
+                                    <code>&lt;figure&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="grafico.png"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt="Gráfico mostrando crescimento de 25% nas vendas"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aria-describedby="grafico-desc"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption id="grafico-desc"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Este gráfico demonstra o aumento significativo<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nas vendas durante o último trimestre.<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figcaption&gt;<br>&lt;/figure&gt;</code>
+                                </div>
+                                <div class="instruction-details">
+                                    <p><strong>🎯 Boas práticas de acessibilidade:</strong></p>
+                                    <ul>
+                                        <li><strong>alt descritivo:</strong> descreva o conteúdo, não a aparência</li>
+                                        <li><strong>figure/figcaption:</strong> agrupe imagem com legenda</li>
+                                        <li><strong>aria-describedby:</strong> conecte descrições detalhadas</li>
+                                        <li><strong>alt="":</strong> use vazio para imagens decorativas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tutorial-step" data-step="10">
+                        <div class="step-header">
+                            <div class="step-number">10</div>
+                            <h3>Testando e Validando</h3>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-instructions">
+                                <p><strong>🌐 Verifique o resultado completo:</strong></p>
+                                <div class="instruction-details">
+                                    <p><strong>✅ Checklist de testes:</strong></p>
+                                    <ul>
+                                        <li><strong>Carregamento:</strong> todas as imagens aparecem corretamente</li>
+                                        <li><strong>Responsividade:</strong> imagens se adaptam a diferentes telas</li>
+                                        <li><strong>Acessibilidade:</strong> textos alt são descritivos e úteis</li>
+                                        <li><strong>Performance:</strong> lazy loading funciona em imagens abaixo da dobra</li>
+                                        <li><strong>Fallback:</strong> formatos modernos degradam graciosamente</li>
+                                    </ul>
+                                    <p><strong>🔧 Ferramentas de teste:</strong></p>
+                                    <ul>
+                                        <li><strong>DevTools:</strong> Network tab para verificar carregamento</li>
+                                        <li><strong>Lighthouse:</strong> auditoria de performance e acessibilidade</li>
+                                        <li><strong>WAVE:</strong> extensão para teste de acessibilidade</li>
+                                        <li><strong>Responsive Design Mode:</strong> teste em diferentes resoluções</li>
                                     </ul>
                                 </div>
                                 <div class="success-message">
-                                    <strong>🎉 Parabéns!</strong> Você aprendeu a trabalhar com imagens em HTML!
+                                    <strong>🎉 Excelente!</strong> Você domina imagens HTML modernas, responsivas e acessíveis!
                                 </div>
                             </div>
                         </div>

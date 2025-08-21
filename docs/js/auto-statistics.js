@@ -29,7 +29,8 @@ class AutoStatistics {
         // Lista dos arquivos que realmente existem no projeto
         const knownFiles = {
             exercises: [
-                'ex001.html', 'ex002.html' // Adicione mais conforme necessário
+                'ex001.html', 'ex002.html', 'ex003.html', 'ex004.html', 
+                'ex005.html', 'ex006.html', 'ex007.html', 'ex008.html'
             ],
             challenges: [
                 'd001.html' // Adicione mais conforme necessário
@@ -37,26 +38,10 @@ class AutoStatistics {
         };
         
         const files = knownFiles[type] || [];
-        let count = 0;
         
-        // Verifica silenciosamente quais arquivos existem
-        for (const file of files) {
-            try {
-                const response = await fetch(`${type}/${file}`, { 
-                    method: 'HEAD',
-                    cache: 'no-cache'
-                });
-                
-                if (response.ok) {
-                    count++;
-                }
-            } catch (error) {
-                // Ignora erros silenciosamente
-            }
-        }
-        
-        // Retorna a contagem real ou valores mínimos conhecidos
-        return count > 0 ? count : (type === 'exercises' ? 2 : 1);
+        // Retorna a contagem baseada na lista conhecida de arquivos
+        // Isso evita requisições HTTP desnecessárias e erros de rede
+        return files.length;
     }
 
     updateStatistics() {

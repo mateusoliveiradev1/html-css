@@ -395,6 +395,98 @@ class ProgressSystem {
                             difficulty: 'medium',
                             hint: 'Este formato oferece boa compressão para imagens com muitas cores e gradientes.',
                             explanation: 'JPEG é ideal para fotografias pois oferece boa compressão com perda aceitável de qualidade, resultando em arquivos menores.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'O que faz o atributo loading="lazy" em uma imagem?',
+                            options: [
+                                'Atrasa o carregamento até a imagem estar visível',
+                                'Carrega a imagem imediatamente',
+                                'Reduz a qualidade da imagem',
+                                'Aplica um filtro de desfoque'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Este atributo melhora a performance da página ao carregar imagens apenas quando necessário.',
+                            explanation: 'O loading="lazy" implementa carregamento preguiçoso, carregando a imagem apenas quando ela está prestes a entrar na viewport, melhorando a performance.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual atributo é usado para criar imagens responsivas com múltiplas resoluções?',
+                            options: [
+                                'srcset',
+                                'src',
+                                'sizes',
+                                'responsive'
+                            ],
+                            correct: 0,
+                            difficulty: 'hard',
+                            hint: 'Este atributo permite definir um conjunto de fontes de imagem para diferentes resoluções.',
+                            explanation: 'O atributo "srcset" permite definir múltiplas versões da imagem para diferentes resoluções, permitindo que o navegador escolha a mais adequada.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual elemento HTML é usado para agrupar uma imagem com sua legenda?',
+                            options: [
+                                '&lt;figure&gt;',
+                                '&lt;div&gt;',
+                                '&lt;section&gt;',
+                                '&lt;caption&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Este elemento semântico é específico para conteúdo ilustrativo com legendas.',
+                            explanation: 'O elemento &lt;figure&gt; é semanticamente correto para agrupar uma imagem com sua legenda usando &lt;figcaption&gt;.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual formato de imagem oferece a melhor compressão para a web moderna?',
+                            options: [
+                                'AVIF',
+                                'JPEG',
+                                'PNG',
+                                'GIF'
+                            ],
+                            correct: 0,
+                            difficulty: 'hard',
+                            hint: 'Este é o formato mais recente, desenvolvido pela Alliance for Open Media.',
+                            explanation: 'AVIF é o formato mais moderno, oferecendo compressão superior ao JPEG e WebP, mas ainda não é suportado por todos os navegadores.'
+                        },
+                        {
+                            type: 'boolean',
+                            question: 'Para imagens puramente decorativas, o atributo alt deve estar vazio (alt="").',
+                            correct: true,
+                            difficulty: 'medium',
+                            hint: 'Pense na experiência de usuários que usam leitores de tela com imagens que não agregam informação.',
+                            explanation: 'Verdadeiro! Para imagens decorativas, use alt="" (vazio) para que leitores de tela as ignorem, melhorando a experiência de usuários com deficiência visual.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual atributo previne o layout shift durante o carregamento de imagens?',
+                            options: [
+                                'width e height',
+                                'loading',
+                                'decoding',
+                                'fetchpriority'
+                            ],
+                            correct: 0,
+                            difficulty: 'hard',
+                            hint: 'Estes atributos permitem que o navegador reserve o espaço correto antes da imagem carregar.',
+                            explanation: 'Definir width e height permite que o navegador reserve o espaço correto antes da imagem carregar, evitando mudanças bruscas no layout (layout shift).'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'O elemento &lt;picture&gt; é usado principalmente para:',
+                            options: [
+                                'Fornecer fallbacks para diferentes formatos de imagem',
+                                'Criar galerias de imagens',
+                                'Aplicar filtros CSS',
+                                'Redimensionar imagens automaticamente'
+                            ],
+                            correct: 0,
+                            difficulty: 'hard',
+                            hint: 'Este elemento permite usar formatos modernos com compatibilidade para navegadores antigos.',
+                            explanation: 'O elemento &lt;picture&gt; permite definir múltiplas fontes de imagem com diferentes formatos, permitindo fallbacks gracioso para navegadores que não suportam formatos modernos.'
                         }
                     ]
                 }
@@ -450,6 +542,114 @@ class ProgressSystem {
                             difficulty: 'medium',
                             hint: 'Use o atributo "target" com um valor específico.',
                             explanation: 'O atributo target="_blank" faz com que o link abra em uma nova aba ou janela do navegador.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Como criar um link de email em HTML?',
+                            options: [
+                                'href="mailto:email@exemplo.com"',
+                                'href="email:email@exemplo.com"',
+                                'href="send:email@exemplo.com"',
+                                'href="mail:email@exemplo.com"'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Use o protocolo específico para emails seguido de dois pontos.',
+                            explanation: 'O protocolo "mailto:" é usado para criar links que abrem o cliente de email padrão com o destinatário pré-preenchido.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Como criar um link interno (âncora) para uma seção da mesma página?',
+                            options: [
+                                'href="#secao"',
+                                'href="@secao"',
+                                'href="/secao"',
+                                'href=".secao"'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Use o símbolo # seguido do id do elemento de destino.',
+                            explanation: 'Links internos usam # seguido do id do elemento. Por exemplo, href="#topo" leva ao elemento com id="topo".'
+                        },
+                        {
+                            type: 'boolean',
+                            question: 'O atributo rel="noopener" é recomendado para links que abrem em nova aba por questões de segurança.',
+                            correct: true,
+                            difficulty: 'medium',
+                            hint: 'Pense em segurança ao abrir links externos em novas abas.',
+                            explanation: 'Verdadeiro! O rel="noopener" previne que a nova página acesse a janela original através do window.opener, melhorando a segurança.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Como criar um link para fazer uma ligação telefônica?',
+                            options: [
+                                'href="tel:+5511999999999"',
+                                'href="phone:+5511999999999"',
+                                'href="call:+5511999999999"',
+                                'href="mobile:+5511999999999"'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Use o protocolo específico para telefone seguido do número com código do país.',
+                            explanation: 'O protocolo "tel:" é usado para criar links que abrem o discador do dispositivo com o número pré-preenchido.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual atributo fornece uma descrição adicional do link para acessibilidade?',
+                            options: [
+                                'title',
+                                'alt',
+                                'description',
+                                'info'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Este atributo também cria um tooltip quando você passa o mouse sobre o link.',
+                            explanation: 'O atributo "title" fornece informações adicionais sobre o link, aparecendo como tooltip e sendo lido por leitores de tela.'
+                        },
+                        {
+                            type: 'boolean',
+                            question: 'É possível adicionar parâmetros como assunto e corpo em links de email usando mailto.',
+                            correct: true,
+                            difficulty: 'medium',
+                            hint: 'Pense em como você pode pré-preencher campos do email como assunto e mensagem.',
+                            explanation: 'Verdadeiro! Você pode usar parâmetros como ?subject=Assunto&body=Mensagem para pré-preencher campos do email.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual é a diferença entre target="_blank" e target="_self"?',
+                            options: [
+                                '_blank abre em nova aba, _self abre na mesma aba',
+                                '_blank abre na mesma aba, _self abre em nova aba',
+                                'Ambos fazem a mesma coisa',
+                                '_blank é para links externos, _self para internos'
+                            ],
+                            correct: 0,
+                            difficulty: 'easy',
+                            hint: 'Pense no comportamento padrão dos links e quando você quer abrir em nova aba.',
+                            explanation: 'target="_blank" abre o link em uma nova aba/janela, enquanto target="_self" (padrão) abre na mesma aba.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Como criar um link para enviar SMS?',
+                            options: [
+                                'href="sms:+5511999999999"',
+                                'href="text:+5511999999999"',
+                                'href="message:+5511999999999"',
+                                'href="msg:+5511999999999"'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Use o protocolo específico para mensagens de texto.',
+                            explanation: 'O protocolo "sms:" é usado para criar links que abrem o aplicativo de mensagens com o número pré-preenchido.'
+                        },
+                        {
+                            type: 'boolean',
+                            question: 'O atributo aria-label pode ser usado para melhorar a acessibilidade de links.',
+                            correct: true,
+                            difficulty: 'medium',
+                            hint: 'Pense em como leitores de tela podem entender melhor o propósito de um link.',
+                            explanation: 'Verdadeiro! O aria-label fornece uma descrição alternativa do link para tecnologias assistivas, melhorando a acessibilidade.'
                         }
                     ]
                 }
@@ -491,6 +691,134 @@ class ProgressSystem {
                             difficulty: 'easy',
                             hint: 'Abreviação de "list item".',
                             explanation: 'A tag &lt;li&gt; (list item) define cada item individual dentro de uma lista.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual atributo da tag &lt;ol&gt; permite usar letras maiúsculas como marcadores?',
+                            options: [
+                                'type="A"',
+                                'style="A"',
+                                'marker="A"',
+                                'format="A"'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'O atributo que define o tipo de numeração.',
+                            explanation: 'O atributo type="A" faz com que a lista ordenada use letras maiúsculas (A, B, C...) como marcadores.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Como criar uma lista aninhada corretamente?',
+                            options: [
+                                'Colocar a lista dentro de um &lt;li&gt;',
+                                'Colocar a lista após o &lt;/ul&gt;',
+                                'Usar uma &lt;div&gt; entre as listas',
+                                'Adicionar o atributo nested="true"'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'A lista aninhada deve estar dentro do item da lista pai.',
+                            explanation: 'Para criar listas aninhadas, a lista filha deve estar dentro de um elemento &lt;li&gt; da lista pai.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual tag é usada para criar listas de definição?',
+                            options: [
+                                '&lt;dl&gt;',
+                                '&lt;def&gt;',
+                                '&lt;definition&gt;',
+                                '&lt;glossary&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Abreviação de "description list".',
+                            explanation: 'A tag &lt;dl&gt; (description list) é usada para criar listas de definição com termos e descrições.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Em uma lista de definição, qual tag define o termo?',
+                            options: [
+                                '&lt;dt&gt;',
+                                '&lt;dd&gt;',
+                                '&lt;term&gt;',
+                                '&lt;def&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Abreviação de "definition term".',
+                            explanation: 'A tag &lt;dt&gt; (definition term) define o termo que será explicado na lista de definição.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual atributo da &lt;ol&gt; permite iniciar a numeração em um valor específico?',
+                            options: [
+                                'start',
+                                'begin',
+                                'initial',
+                                'value'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'O atributo que define onde a numeração deve começar.',
+                            explanation: 'O atributo start permite definir o número inicial da lista ordenada, como start="5" para começar no 5.'
+                        },
+                        {
+                            type: 'true_false',
+                            question: 'É possível colocar parágrafos e imagens dentro de itens de lista (&lt;li&gt;).',
+                            correct: true,
+                            difficulty: 'easy',
+                            hint: 'Itens de lista podem conter qualquer conteúdo HTML.',
+                            explanation: 'Verdadeiro! Itens de lista podem conter qualquer elemento HTML: parágrafos, imagens, links, outras listas, etc.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual é a estrutura HTML inválida?',
+                            options: [
+                                '&lt;ul&gt;&lt;p&gt;Texto&lt;/p&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;',
+                                '&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;',
+                                '&lt;ol&gt;&lt;li&gt;Primeiro&lt;/li&gt;&lt;li&gt;Segundo&lt;/li&gt;&lt;/ol&gt;',
+                                '&lt;dl&gt;&lt;dt&gt;Termo&lt;/dt&gt;&lt;dd&gt;Definição&lt;/dd&gt;&lt;/dl&gt;'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Apenas &lt;li&gt; pode ser filho direto de &lt;ul&gt; ou &lt;ol&gt;.',
+                            explanation: 'A primeira opção é inválida porque &lt;p&gt; não pode ser filho direto de &lt;ul&gt;. Apenas &lt;li&gt; são permitidos.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual atributo ARIA melhora a acessibilidade de listas?',
+                            options: [
+                                'aria-labelledby',
+                                'aria-hidden',
+                                'aria-expanded',
+                                'aria-selected'
+                            ],
+                            correct: 0,
+                            difficulty: 'hard',
+                            hint: 'Atributo que conecta a lista com seu título.',
+                            explanation: 'O aria-labelledby conecta a lista com um elemento que a descreve, melhorando a navegação para leitores de tela.'
+                        },
+                        {
+                            type: 'true_false',
+                            question: 'O atributo "reversed" em &lt;ol&gt; faz a numeração ser decrescente.',
+                            correct: true,
+                            difficulty: 'medium',
+                            hint: 'Este atributo inverte a ordem da numeração.',
+                            explanation: 'Verdadeiro! O atributo reversed faz com que a lista ordenada seja numerada de forma decrescente.'
+                        },
+                        {
+                            type: 'multiple',
+                            question: 'Qual é o melhor caso de uso para listas de definição (&lt;dl&gt;)?',
+                            options: [
+                                'Glossários e FAQs',
+                                'Menus de navegação',
+                                'Listas de compras',
+                                'Instruções passo a passo'
+                            ],
+                            correct: 0,
+                            difficulty: 'medium',
+                            hint: 'Estruturas que relacionam termos com suas explicações.',
+                            explanation: 'Listas de definição são ideais para glossários, FAQs e qualquer conteúdo que relacione termos com definições.'
                         }
                     ]
                 }
